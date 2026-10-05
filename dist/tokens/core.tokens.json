@@ -1,0 +1,785 @@
+{
+  "space": {
+    "000": {
+      "$type": "dimension",
+      "$value": {
+        "value": 0,
+        "unit": "px"
+      },
+      "$description": "Req for: distance between and around elements: gaps, padding and offsets\nUse: 0 px. Where a semantic token covers the case, use that instead"
+    },
+    "025": {
+      "$type": "dimension",
+      "$value": {
+        "value": 1,
+        "unit": "px"
+      },
+      "$description": "Req for: distance between and around elements: gaps, padding and offsets\nUse: 1 px. Where a semantic token covers the case, use that instead"
+    },
+    "050": {
+      "$type": "dimension",
+      "$value": {
+        "value": 2,
+        "unit": "px"
+      },
+      "$description": "Req for: distance between and around elements: gaps, padding and offsets\nUse: 2 px. Where a semantic token covers the case, use that instead"
+    },
+    "075": {
+      "$type": "dimension",
+      "$value": {
+        "value": 3,
+        "unit": "px"
+      },
+      "$description": "Req for: distance between and around elements: gaps, padding and offsets\nUse: 3 px. Where a semantic token covers the case, use that instead"
+    },
+    "100": {
+      "$type": "dimension",
+      "$value": {
+        "value": 4,
+        "unit": "px"
+      },
+      "$description": "Req for: distance between and around elements: gaps, padding and offsets\nUse: 4 px. Where a semantic token covers the case, use that instead"
+    },
+    "150": {
+      "$type": "dimension",
+      "$value": {
+        "value": 6,
+        "unit": "px"
+      },
+      "$description": "Req for: distance between and around elements: gaps, padding and offsets\nUse: 6 px. Where a semantic token covers the case, use that instead"
+    },
+    "200": {
+      "$type": "dimension",
+      "$value": {
+        "value": 8,
+        "unit": "px"
+      },
+      "$description": "Req for: distance between and around elements: gaps, padding and offsets\nUse: 8 px. Where a semantic token covers the case, use that instead"
+    },
+    "250": {
+      "$type": "dimension",
+      "$value": {
+        "value": 10,
+        "unit": "px"
+      },
+      "$description": "Req for: distance between and around elements: gaps, padding and offsets\nUse: 10 px. Where a semantic token covers the case, use that instead"
+    },
+    "300": {
+      "$type": "dimension",
+      "$value": {
+        "value": 12,
+        "unit": "px"
+      },
+      "$description": "Req for: distance between and around elements: gaps, padding and offsets\nUse: 12 px. Where a semantic token covers the case, use that instead"
+    },
+    "400": {
+      "$type": "dimension",
+      "$value": {
+        "value": 16,
+        "unit": "px"
+      },
+      "$description": "Req for: distance between and around elements: gaps, padding and offsets\nUse: 16 px. Where a semantic token covers the case, use that instead"
+    },
+    "500": {
+      "$type": "dimension",
+      "$value": {
+        "value": 20,
+        "unit": "px"
+      },
+      "$description": "Req for: distance between and around elements: gaps, padding and offsets\nUse: 20 px. Where a semantic token covers the case, use that instead"
+    },
+    "600": {
+      "$type": "dimension",
+      "$value": {
+        "value": 24,
+        "unit": "px"
+      },
+      "$description": "Req for: distance between and around elements: gaps, padding and offsets\nUse: 24 px. Where a semantic token covers the case, use that instead"
+    },
+    "800": {
+      "$type": "dimension",
+      "$value": {
+        "value": 32,
+        "unit": "px"
+      },
+      "$description": "Req for: distance between and around elements: gaps, padding and offsets\nUse: 32 px. Where a semantic token covers the case, use that instead"
+    },
+    "1000": {
+      "$type": "dimension",
+      "$value": {
+        "value": 40,
+        "unit": "px"
+      },
+      "$description": "Req for: distance between and around elements: gaps, padding and offsets\nUse: 40 px. Where a semantic token covers the case, use that instead"
+    },
+    "1200": {
+      "$type": "dimension",
+      "$value": {
+        "value": 48,
+        "unit": "px"
+      },
+      "$description": "Req for: distance between and around elements: gaps, padding and offsets\nUse: 48 px. Where a semantic token covers the case, use that instead"
+    },
+    "1400": {
+      "$type": "dimension",
+      "$value": {
+        "value": 56,
+        "unit": "px"
+      },
+      "$description": "Req for: distance between and around elements: gaps, padding and offsets\nUse: 56 px. Where a semantic token covers the case, use that instead"
+    },
+    "1600": {
+      "$type": "dimension",
+      "$value": {
+        "value": 64,
+        "unit": "px"
+      },
+      "$description": "Req for: distance between and around elements: gaps, padding and offsets\nUse: 64 px. Where a semantic token covers the case, use that instead"
+    },
+    "2000": {
+      "$type": "dimension",
+      "$value": {
+        "value": 80,
+        "unit": "px"
+      },
+      "$description": "Req for: distance between and around elements: gaps, padding and offsets\nUse: 80 px. Where a semantic token covers the case, use that instead"
+    },
+    "2400": {
+      "$type": "dimension",
+      "$value": {
+        "value": 96,
+        "unit": "px"
+      },
+      "$description": "Req for: distance between and around elements: gaps, padding and offsets\nUse: 96 px. Where a semantic token covers the case, use that instead"
+    },
+    "2800": {
+      "$type": "dimension",
+      "$value": {
+        "value": 112,
+        "unit": "px"
+      },
+      "$description": "Req for: distance between and around elements: gaps, padding and offsets\nUse: 112 px. Where a semantic token covers the case, use that instead"
+    },
+    "3200": {
+      "$type": "dimension",
+      "$value": {
+        "value": 128,
+        "unit": "px"
+      },
+      "$description": "Req for: distance between and around elements: gaps, padding and offsets\nUse: 128 px. Where a semantic token covers the case, use that instead"
+    },
+    "negative": {
+      "100": {
+        "$type": "dimension",
+        "$value": {
+          "value": -4,
+          "unit": "px"
+        },
+        "$description": "Req for: overlap between elements\nUse: -4 px, the mirror of space/100. For overlap only"
+      },
+      "200": {
+        "$type": "dimension",
+        "$value": {
+          "value": -8,
+          "unit": "px"
+        },
+        "$description": "Req for: overlap between elements\nUse: -8 px, the mirror of space/200. For overlap only"
+      },
+      "300": {
+        "$type": "dimension",
+        "$value": {
+          "value": -12,
+          "unit": "px"
+        },
+        "$description": "Req for: overlap between elements\nUse: -12 px, the mirror of space/300. For overlap only"
+      },
+      "400": {
+        "$type": "dimension",
+        "$value": {
+          "value": -16,
+          "unit": "px"
+        },
+        "$description": "Req for: overlap between elements\nUse: -16 px, the mirror of space/400. For overlap only"
+      },
+      "500": {
+        "$type": "dimension",
+        "$value": {
+          "value": -20,
+          "unit": "px"
+        },
+        "$description": "Req for: overlap between elements\nUse: -20 px, the mirror of space/500. For overlap only"
+      },
+      "600": {
+        "$type": "dimension",
+        "$value": {
+          "value": -24,
+          "unit": "px"
+        },
+        "$description": "Req for: overlap between elements\nUse: -24 px, the mirror of space/600. For overlap only"
+      }
+    },
+    "gap": {
+      "control": {
+        "condensed": {
+          "$type": "dimension",
+          "$value": "{space.100}",
+          "$description": "Req for: an icon and its text, close together\nUse: the condensed gap inside a single control; 4 px through space/100"
+        },
+        "normal": {
+          "$type": "dimension",
+          "$value": "{space.200}",
+          "$description": "Req for: an icon and its text\nUse: the normal gap inside a single control; 8 px through space/200"
+        },
+        "spacious": {
+          "$type": "dimension",
+          "$value": "{space.300}",
+          "$description": "Req for: an icon and its text, further apart\nUse: the spacious gap inside a single control; 12 px through space/300"
+        }
+      },
+      "content": {
+        "condensed": {
+          "$type": "dimension",
+          "$value": "{space.200}",
+          "$description": "Req for: body text blocks, close together; a title and its content, close together; titles, further apart\nUse: the condensed gap between pieces of content that belong together; 8 px through space/200"
+        },
+        "normal": {
+          "$type": "dimension",
+          "$value": "{space.300}",
+          "$description": "Req for: buttons side by side\nUse: the normal gap between pieces of content that belong together; 12 px through space/300"
+        },
+        "spacious": {
+          "$type": "dimension",
+          "$value": "{space.400}",
+          "$description": "Req for: inputs in a form; body text blocks, further apart; a title and its content, further apart\nUse: the spacious gap between pieces of content that belong together; 16 px through space/400"
+        }
+      },
+      "layout": {
+        "condensed": {
+          "$type": "dimension",
+          "$value": "{space.400}",
+          "$description": "Req for: cards in a list or a grid\nUse: the condensed gap between the blocks of a page; 16 px through space/400"
+        },
+        "normal": {
+          "$type": "dimension",
+          "$value": "{space.600}",
+          "$description": "Req for: cards, further apart; sections, close together; content and the buttons that act on it\nUse: the normal gap between the blocks of a page; 24 px through space/600"
+        },
+        "spacious": {
+          "$type": "dimension",
+          "$value": "{space.800}",
+          "$description": "Req for: sections of a page\nUse: the spacious gap between the blocks of a page; 32 px through space/800"
+        }
+      }
+    },
+    "padding": {
+      "card": {
+        "condensed": {
+          "$type": "dimension",
+          "$value": "{space.300}",
+          "$description": "Req for: a card in a dense list or grid\nUse: the condensed padding inside a card; 12 px through space/300"
+        },
+        "normal": {
+          "$type": "dimension",
+          "$value": "{space.400}",
+          "$description": "Req for: a card\nUse: the normal padding inside a card; 16 px through space/400"
+        }
+      },
+      "container": {
+        "condensed": {
+          "$type": "dimension",
+          "$value": "{space.500}",
+          "$description": "Req for: a container whose heading line height already adds room\nUse: the condensed padding inside a container, such as a panel, a modal or a dialog; 20 px through space/500"
+        },
+        "normal": {
+          "$type": "dimension",
+          "$value": "{space.600}",
+          "$description": "Req for: a container\nUse: the normal padding inside a container, such as a panel, a modal or a dialog; 24 px through space/600"
+        }
+      }
+    }
+  },
+  "size": {
+    "300": {
+      "$type": "dimension",
+      "$value": {
+        "value": 12,
+        "unit": "px"
+      },
+      "$description": "Req for: the width and height of elements\nUse: 12 px. Where a semantic token covers the case, use that instead"
+    },
+    "400": {
+      "$type": "dimension",
+      "$value": {
+        "value": 16,
+        "unit": "px"
+      },
+      "$description": "Req for: the width and height of elements\nUse: 16 px. Where a semantic token covers the case, use that instead"
+    },
+    "500": {
+      "$type": "dimension",
+      "$value": {
+        "value": 20,
+        "unit": "px"
+      },
+      "$description": "Req for: the width and height of elements\nUse: 20 px. Where a semantic token covers the case, use that instead"
+    },
+    "600": {
+      "$type": "dimension",
+      "$value": {
+        "value": 24,
+        "unit": "px"
+      },
+      "$description": "Req for: the width and height of elements\nUse: 24 px. Where a semantic token covers the case, use that instead"
+    },
+    "800": {
+      "$type": "dimension",
+      "$value": {
+        "value": 32,
+        "unit": "px"
+      },
+      "$description": "Req for: the width and height of elements\nUse: 32 px. Where a semantic token covers the case, use that instead"
+    },
+    "1000": {
+      "$type": "dimension",
+      "$value": {
+        "value": 40,
+        "unit": "px"
+      },
+      "$description": "Req for: the width and height of elements\nUse: 40 px. Where a semantic token covers the case, use that instead"
+    },
+    "1200": {
+      "$type": "dimension",
+      "$value": {
+        "value": 48,
+        "unit": "px"
+      },
+      "$description": "Req for: the width and height of elements\nUse: 48 px. Where a semantic token covers the case, use that instead"
+    },
+    "1400": {
+      "$type": "dimension",
+      "$value": {
+        "value": 56,
+        "unit": "px"
+      },
+      "$description": "Req for: the width and height of elements\nUse: 56 px. Where a semantic token covers the case, use that instead"
+    },
+    "icon": {
+      "xs": {
+        "$type": "dimension",
+        "$value": "{size.300}",
+        "$description": "Req for: the width and height of an icon\nUse: the xs icon; 12 px through size/300"
+      },
+      "sm": {
+        "$type": "dimension",
+        "$value": "{size.400}",
+        "$description": "Req for: the width and height of an icon\nUse: the sm icon; 16 px through size/400"
+      },
+      "md": {
+        "$type": "dimension",
+        "$value": "{size.500}",
+        "$description": "Req for: the width and height of an icon\nUse: the md icon; 20 px through size/500"
+      },
+      "lg": {
+        "$type": "dimension",
+        "$value": "{size.600}",
+        "$description": "Req for: the width and height of an icon\nUse: the lg icon; 24 px through size/600"
+      }
+    },
+    "control": {
+      "sm": {
+        "$type": "dimension",
+        "$value": "{size.1000}",
+        "$description": "Req for: the fixed height of a control, such as a button or a text field\nUse: the sm control height; 40 px through size/1000"
+      },
+      "md": {
+        "$type": "dimension",
+        "$value": "{size.1200}",
+        "$description": "Req for: the fixed height of a control, such as a button or a text field\nUse: the md control height; 48 px through size/1200"
+      },
+      "lg": {
+        "$type": "dimension",
+        "$value": "{size.1400}",
+        "$description": "Req for: the fixed height of a control, such as a button or a text field\nUse: the lg control height; 56 px through size/1400"
+      }
+    },
+    "content": {
+      "max": {
+        "$type": "dimension",
+        "$value": {
+          "value": 1280,
+          "unit": "px"
+        },
+        "$description": "Req for: the widest that page content gets on a desktop screen\nUse: 1280 px, a width above the size scale"
+      },
+      "paragraph": {
+        "$type": "dimension",
+        "$value": {
+          "value": 720,
+          "unit": "px"
+        },
+        "$description": "Req for: the widest that a paragraph of text gets\nUse: 720 px, a width above the size scale"
+      },
+      "min": {
+        "$type": "dimension",
+        "$value": {
+          "value": 320,
+          "unit": "px"
+        },
+        "$description": "Req for: the narrowest that page content gets on a mobile screen\nUse: 320 px, a width above the size scale"
+      }
+    }
+  },
+  "radius": {
+    "000": {
+      "$type": "dimension",
+      "$value": {
+        "value": 0,
+        "unit": "px"
+      },
+      "$description": "Req for: square corners\nUse: 0 px"
+    },
+    "050": {
+      "$type": "dimension",
+      "$value": {
+        "value": 2,
+        "unit": "px"
+      },
+      "$description": "Req for: component focus states only\nUse: 2 px"
+    },
+    "075": {
+      "$type": "dimension",
+      "$value": {
+        "value": 3,
+        "unit": "px"
+      },
+      "$description": "Req for: selection controls at the small size\nUse: 3 px"
+    },
+    "100": {
+      "$type": "dimension",
+      "$value": {
+        "value": 4,
+        "unit": "px"
+      },
+      "$description": "Req for: selection controls at the medium size\nUse: 4 px"
+    },
+    "150": {
+      "$type": "dimension",
+      "$value": {
+        "value": 6,
+        "unit": "px"
+      },
+      "$description": "Req for: small elements, such as chips\nUse: 6 px"
+    },
+    "200": {
+      "$type": "dimension",
+      "$value": {
+        "value": 8,
+        "unit": "px"
+      },
+      "$description": "Req for: most elements and components\nUse: 8 px"
+    },
+    "300": {
+      "$type": "dimension",
+      "$value": {
+        "value": 12,
+        "unit": "px"
+      },
+      "$description": "Req for: large containers, such as cards and modals\nUse: 12 px"
+    },
+    "full": {
+      "$type": "dimension",
+      "$value": {
+        "value": 10000,
+        "unit": "px"
+      },
+      "$description": "Req for: contained buttons\nUse: fully rounded ends at any height"
+    }
+  },
+  "border-width": {
+    "025": {
+      "$type": "dimension",
+      "$value": {
+        "value": 1,
+        "unit": "px"
+      },
+      "$description": "Req for: the width of borders, dividers and outlines\nUse: 1 px"
+    },
+    "050": {
+      "$type": "dimension",
+      "$value": {
+        "value": 2,
+        "unit": "px"
+      },
+      "$description": "Req for: the width of borders, dividers and outlines\nUse: 2 px"
+    }
+  },
+  "opacity": {
+    "004": {
+      "$type": "number",
+      "$value": 0.04,
+      "$description": "Req for: translucent layers: state grounds, shadows and scrims\nUse: 4 percent"
+    },
+    "008": {
+      "$type": "number",
+      "$value": 0.08,
+      "$description": "Req for: translucent layers: state grounds, shadows and scrims\nUse: 8 percent"
+    },
+    "012": {
+      "$type": "number",
+      "$value": 0.12,
+      "$description": "Req for: translucent layers: state grounds, shadows and scrims\nUse: 12 percent"
+    },
+    "016": {
+      "$type": "number",
+      "$value": 0.16,
+      "$description": "Req for: translucent layers: state grounds, shadows and scrims\nUse: 16 percent"
+    },
+    "024": {
+      "$type": "number",
+      "$value": 0.24,
+      "$description": "Req for: translucent layers: state grounds, shadows and scrims\nUse: 24 percent"
+    },
+    "032": {
+      "$type": "number",
+      "$value": 0.32,
+      "$description": "Req for: translucent layers: state grounds, shadows and scrims\nUse: 32 percent"
+    },
+    "048": {
+      "$type": "number",
+      "$value": 0.48,
+      "$description": "Req for: translucent layers: state grounds, shadows and scrims\nUse: 48 percent"
+    },
+    "064": {
+      "$type": "number",
+      "$value": 0.64,
+      "$description": "Req for: translucent layers: state grounds, shadows and scrims\nUse: 64 percent"
+    },
+    "disabled": {
+      "$type": "number",
+      "$value": 0.38,
+      "$description": "Req for: the disabled state of a component\nUse: 38 percent, applied to the whole component"
+    }
+  },
+  "motion": {
+    "easing": {
+      "default": {
+        "$type": "cubicBezier",
+        "$value": [
+          0.2,
+          0,
+          0.3,
+          0.95
+        ],
+        "$description": "Req for: elements that stay in view from the start to the end of the transition, such as a toggle\nUse: cubic-bezier(0.2, 0, 0.3, 0.95)"
+      },
+      "enter": {
+        "$type": "cubicBezier",
+        "$value": [
+          0.4,
+          1,
+          0.89,
+          1
+        ],
+        "$description": "Req for: elements entering the screen: a quick start that slows to a rest\nUse: cubic-bezier(0.4, 1, 0.89, 1)"
+      },
+      "exit": {
+        "$type": "cubicBezier",
+        "$value": [
+          0.11,
+          0,
+          0.6,
+          0
+        ],
+        "$description": "Req for: elements leaving the screen: a slow start that speeds out of the way\nUse: cubic-bezier(0.11, 0, 0.6, 0)"
+      },
+      "linear": {
+        "$type": "cubicBezier",
+        "$value": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "$description": "Req for: changes of opacity and color; never movement\nUse: cubic-bezier(0, 0, 1, 1)"
+      }
+    },
+    "duration": {
+      "050": {
+        "$type": "duration",
+        "$value": {
+          "value": 50,
+          "unit": "ms"
+        },
+        "$description": "Req for: pressed states and other immediate feedback\nUse: 50 ms"
+      },
+      "080": {
+        "$type": "duration",
+        "$value": {
+          "value": 80,
+          "unit": "ms"
+        },
+        "$description": "Req for: micro-interactions, hover states and fades\nUse: 80 ms"
+      },
+      "200": {
+        "$type": "duration",
+        "$value": {
+          "value": 200,
+          "unit": "ms"
+        },
+        "$description": "Req for: short movements and small expansions\nUse: 200 ms"
+      },
+      "300": {
+        "$type": "duration",
+        "$value": {
+          "value": 300,
+          "unit": "ms"
+        },
+        "$description": "Req for: short movements and expansions, such as an accordion\nUse: 300 ms"
+      },
+      "400": {
+        "$type": "duration",
+        "$value": {
+          "value": 400,
+          "unit": "ms"
+        },
+        "$description": "Req for: long movements and large expansions\nUse: 400 ms"
+      },
+      "600": {
+        "$type": "duration",
+        "$value": {
+          "value": 600,
+          "unit": "ms"
+        },
+        "$description": "Req for: the longest movements and expansions\nUse: 600 ms"
+      }
+    },
+    "transition": {
+      "default": {
+        "$type": "transition",
+        "$value": {
+          "duration": "{motion.duration.080}",
+          "delay": {
+            "value": 0,
+            "unit": "ms"
+          },
+          "timingFunction": "{motion.easing.default}"
+        },
+        "$description": "Req for: most micro-interactions that involve movement, such as a toggle\nUse: motion/easing/default over motion/duration/080, with no delay"
+      },
+      "default-opacity": {
+        "$type": "transition",
+        "$value": {
+          "duration": "{motion.duration.080}",
+          "delay": {
+            "value": 0,
+            "unit": "ms"
+          },
+          "timingFunction": "{motion.easing.linear}"
+        },
+        "$description": "Req for: micro-interactions on opacity or color, such as the hover state of a button or a chip\nUse: motion/easing/linear over motion/duration/080, with no delay"
+      },
+      "default-fast": {
+        "$type": "transition",
+        "$value": {
+          "duration": "{motion.duration.050}",
+          "delay": {
+            "value": 0,
+            "unit": "ms"
+          },
+          "timingFunction": "{motion.easing.linear}"
+        },
+        "$description": "Req for: immediate feedback, such as a pressed state\nUse: motion/easing/linear over motion/duration/050, with no delay"
+      },
+      "open": {
+        "$type": "transition",
+        "$value": {
+          "duration": "{motion.duration.200}",
+          "delay": {
+            "value": 0,
+            "unit": "ms"
+          },
+          "timingFunction": "{motion.easing.enter}"
+        },
+        "$description": "Req for: elements that open into view, such as a dropdown menu\nUse: motion/easing/enter over motion/duration/200, with no delay"
+      },
+      "dismiss": {
+        "$type": "transition",
+        "$value": {
+          "duration": "{motion.duration.080}",
+          "delay": {
+            "value": 0,
+            "unit": "ms"
+          },
+          "timingFunction": "{motion.easing.linear}"
+        },
+        "$description": "Req for: elements dismissed by the user or automatically\nUse: motion/easing/linear over motion/duration/080, with no delay"
+      },
+      "slide-in": {
+        "$type": "transition",
+        "$value": {
+          "duration": "{motion.duration.300}",
+          "delay": {
+            "value": 0,
+            "unit": "ms"
+          },
+          "timingFunction": "{motion.easing.enter}"
+        },
+        "$description": "Req for: elements that slide into view from the bottom, such as a toast\nUse: motion/easing/enter over motion/duration/300, with no delay"
+      },
+      "slide-out": {
+        "$type": "transition",
+        "$value": {
+          "duration": "{motion.duration.200}",
+          "delay": {
+            "value": 0,
+            "unit": "ms"
+          },
+          "timingFunction": "{motion.easing.default}"
+        },
+        "$description": "Req for: elements that slide out of view\nUse: motion/easing/default over motion/duration/200, with no delay"
+      }
+    }
+  },
+  "breakpoint": {
+    "sm": {
+      "$type": "dimension",
+      "$value": {
+        "value": 640,
+        "unit": "px"
+      },
+      "$description": "Req for: the width at which the tablet layout starts\nUse: a minimum width of 640 px"
+    },
+    "md": {
+      "$type": "dimension",
+      "$value": {
+        "value": 768,
+        "unit": "px"
+      },
+      "$description": "Req for: a step between tablet and desktop; no layout range starts here\nUse: a minimum width of 768 px"
+    },
+    "lg": {
+      "$type": "dimension",
+      "$value": {
+        "value": 1024,
+        "unit": "px"
+      },
+      "$description": "Req for: the width at which the desktop layout starts\nUse: a minimum width of 1024 px"
+    },
+    "xl": {
+      "$type": "dimension",
+      "$value": {
+        "value": 1280,
+        "unit": "px"
+      },
+      "$description": "Req for: the width at which the wide desktop layout starts\nUse: a minimum width of 1280 px"
+    },
+    "2xl": {
+      "$type": "dimension",
+      "$value": {
+        "value": 1536,
+        "unit": "px"
+      },
+      "$description": "Req for: very wide screens; no layout range starts here\nUse: a minimum width of 1536 px"
+    }
+  }
+}

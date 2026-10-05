@@ -200,6 +200,16 @@ To check with the motion owner and the code:
   3 (0 4 6 at 5%, 0 10 15 at 10%), level 4 (0 10 10 at 4%, 0 20 25 at 10%).
 - Four elevation surfaces as paint styles: the primary background plus a white overlay
   that is 0 percent in light and 0, 2, 3, 4 percent in dark.
+- In the work file the color engine's plugin writes to, 23 rows the engine stopped
+  writing in 0.7.0 are still there under a `utility` group, in the collection with light
+  and dark modes: four surfaces (each an alias to a neutral paper, a different one per
+  mode), three shadows and a scrim (black at an alpha), absolute black and white, five
+  alpha rows, and the eight opacity numbers. The plugin neither moves nor deletes them.
+  The surfaces, shadows and scrim are the rows this section names; the opacity numbers
+  are the `opacity` scale, which now lives in the unmoded collection, and a variable
+  cannot change collection in Figma without being recreated, so moving them is a
+  rebinding step to plan; the absolute and alpha rows were alias targets for engine rows
+  that no longer point at them, so their use is checked before they are kept.
 
 **What the color engine work already settled, as a reference.** An eight-step opacity
 scale (4, 8, 12, 16, 24, 32, 48, 64 percent); shadows as black at 4, 8, 12 percent in
@@ -222,10 +232,11 @@ Each row is a color at a step of the scale.
 
 | Path | Value | Replaces |
 | --- | --- | --- |
-| `color/neutral-strong/hint-bg-hover`, `-pressed`, `-selected` | the dark pole (black in light, white in dark) at 8, 12, 16 | merge intensity 1, 2, 3 (5, 10, 15 percent) |
-| `color/neutral-strong/subtle-bg-enabled`, `-hover`, `-pressed`, `-selected` | the dark pole at 12, 16, 24, 32 | merge intensity 2 to 5 (10 to 25 percent) |
-| `color/neutral-inverse/…` the same rows | the light pole at the same steps | the merge intensity inverse set |
-| `color/<family>/subtle-bg-…` and `hint-bg-…` | that family's color at the same steps | nothing today; hover and pressed on a colored ground |
+| `color/neutral-strong/hint-bg-hover`, `-pressed`, `-selected` | an alias to the dark pole (black in light, white in dark), paired with `opacity/hint/hover` 8, `/pressed` 12, `/selected` 16 | merge intensity 1, 2, 3 (5, 10, 15 percent) |
+| `color/neutral-strong/subtle-bg-enabled`, `-hover`, `-pressed`, `-selected` | an alias to the dark pole, paired with `opacity/subtle/enabled` 12, `/hover` 16, `/pressed` 24, `/selected` 32 | merge intensity 2 to 5 (10 to 25 percent) |
+| `color/neutral-inverse/…` the same rows | an alias to the light pole, the same opacity pairs | the merge intensity inverse set |
+| `color/<family>/subtle-bg-…` and `hint-bg-…` | an alias to that family's color, the same opacity pairs | nothing today; hover and pressed on a colored ground |
+| `opacity/subtle/…`, `opacity/hint/…` | the semantic opacity steps the pairs above name, each an alias to the opacity scale | the alpha written into merge intensity |
 | `color/scrim` | black at 64 | the scrim at 60 percent |
 | `shadow/100`, `200`, `300`, `400` | the four levels' offsets and blurs; black at 4, 8, 12 in light and 32, 48, 64 in dark | the four effect styles |
 | `opacity/disabled` | 38 percent | the undocumented disabled value |
@@ -241,6 +252,9 @@ To decide:
   or the shadows use four.
 - Whether the four shadow levels keep their current offsets and blurs.
 - Shadow and scrim need a light and a dark value, so they sit with color's contexts.
+- A translucent role is always emitted as its pair, the color alias and the opacity
+  token, never as a computed color (ruled 2026-10-05). Figma composes the pair by hand
+  until the plugin API can, and the code pipeline composes it in CSS.
 
 ## Typography
 
@@ -256,9 +270,15 @@ For the declaration:
 
 - A shared size scale for web needs eleven steps: 12, 14, 15, 18, 20, 26, 32, 40, 48, 60,
   72. On the same rule as space those are `font/size/300` to `font/size/1800`.
-- The eight iOS larger-text settings use about twenty-six further sizes. Making each a
-  step would swamp the scale; they are better held as values of each text style per
-  context.
+- The eight iOS larger-text modes are dropped. A user's text-size setting is applied by
+  the operating system from a style's base size (iOS scales a style against the system
+  text style it is declared relative to; React Native multiplies by the system factor),
+  so a hand-kept table of sizes per setting can only drift from what the device does,
+  and today's table does drift: it reaches 30 px for body text at the largest setting
+  where the system would reach about 53. Designers judge text by viewport, so the type
+  modes become the four viewports. Tablet and wide take the desktop sizes until a
+  designer rules otherwise. What each style scales relative to on native is declared
+  when the mobile approach is decided.
 - Line heights are two: 1.25 and 1.5.
 - Letter spacing is written in percent of the font size (0, -0.1, -1, -1.5, -2). The
   token format's length type takes px or rem only, so each style's letter spacing has to

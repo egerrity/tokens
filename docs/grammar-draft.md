@@ -112,8 +112,10 @@ not a token value.
   is not part of the path and does not appear in Figma or in the token file.
 - A brand, a product, light or dark, a platform, a text-size setting or a breakpoint
   never appears in a name. Each is a context: the same paths with different values.
-- Type sizes change by platform and text-size setting, and the grid changes by
-  breakpoint, so each is a set of contexts on identical paths.
+- Type sizes and the grid change by viewport (mobile, tablet, desktop, wide), one axis
+  that web reads by breakpoint and native by device class, so each is a set of contexts
+  on identical paths. A user's text-size setting is applied by the operating system from
+  the base size; it is not a context the tokens carry.
 
 ## Figma collections and token files
 
@@ -123,9 +125,10 @@ not a token value.
   the files. It is never a segment of the path.
 - A collection name and a category word are never the same word. A collection that holds
   `font/…` and `text/…` is not called "font" or "text".
-- Groups that change with different contexts cannot share a collection: color changes
-  with light, dark and brand; type with platform and text size; the grid with breakpoint;
-  space, size, radius, border width, opacity and motion do not change at all.
+- A collection is an axis, one per thing a designer switches on a frame, and a group
+  sits in the collection whose axis it might need one day: color changes with light, dark
+  and brand; type, the grid and the semantic space and size rows change with viewport;
+  the scales never change; motion will change with reduced motion.
 - One owner per row. A generated row is written from code to Figma and never read back.
   A hand-authored row in the same collection is told apart by a hidden stamp in Figma and
   by the generator's own list in code, not by its name.

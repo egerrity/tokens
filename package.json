@@ -1,0 +1,19 @@
+{
+  "name": "tokens",
+  "private": true,
+  "type": "module",
+  "description": "A generator for the design system's non-color token groups: declare, derive, emit, audit.",
+  "engines": {
+    "node": ">=22.18"
+  },
+  "scripts": {
+    "generate": "node scripts/generate.ts",
+    "audit": "node scripts/audit.ts",
+    "check": "node scripts/check.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "typescript": "^5.9.0"
+  }
+}
