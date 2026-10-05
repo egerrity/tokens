@@ -1,0 +1,127 @@
+{
+  "kind": "variables",
+  "collection": "motion",
+  "modes": [
+    "value"
+  ],
+  "todayModes": {},
+  "variables": [
+    {
+      "path": "motion/easing/default",
+      "type": "EASING",
+      "description": "Req for: elements that stay in view from the start to the end of the transition, such as a toggle",
+      "values": {
+        "value": {
+          "easing": [
+            0.2,
+            0,
+            0.3,
+            0.95
+          ]
+        }
+      }
+    },
+    {
+      "path": "motion/easing/enter",
+      "type": "EASING",
+      "description": "Req for: elements entering the screen: a quick start that slows to a rest",
+      "values": {
+        "value": {
+          "easing": [
+            0.4,
+            1,
+            0.89,
+            1
+          ]
+        }
+      }
+    },
+    {
+      "path": "motion/easing/exit",
+      "type": "EASING",
+      "description": "Req for: elements leaving the screen: a slow start that speeds out of the way",
+      "values": {
+        "value": {
+          "easing": [
+            0.11,
+            0,
+            0.6,
+            0
+          ]
+        }
+      }
+    },
+    {
+      "path": "motion/easing/linear",
+      "type": "EASING",
+      "description": "Req for: changes of opacity and color; never movement",
+      "values": {
+        "value": {
+          "easing": [
+            0,
+            0,
+            1,
+            1
+          ]
+        }
+      }
+    },
+    {
+      "path": "motion/duration/050",
+      "type": "TIMING",
+      "description": "Req for: pressed states and other immediate feedback",
+      "values": {
+        "value": 50
+      }
+    },
+    {
+      "path": "motion/duration/080",
+      "type": "TIMING",
+      "description": "Req for: micro-interactions, hover states and fades",
+      "values": {
+        "value": 80
+      }
+    },
+    {
+      "path": "motion/duration/200",
+      "type": "TIMING",
+      "description": "Req for: short movements and small expansions",
+      "values": {
+        "value": 200
+      }
+    },
+    {
+      "path": "motion/duration/300",
+      "type": "TIMING",
+      "description": "Req for: short movements and expansions, such as an accordion",
+      "values": {
+        "value": 300
+      }
+    },
+    {
+      "path": "motion/duration/400",
+      "type": "TIMING",
+      "description": "Req for: long movements and large expansions",
+      "values": {
+        "value": 400
+      }
+    },
+    {
+      "path": "motion/duration/600",
+      "type": "TIMING",
+      "description": "Req for: the longest movements and expansions",
+      "values": {
+        "value": 600
+      }
+    }
+  ],
+  "omitted": [
+    "motion/transition/default",
+    "motion/transition/default-opacity",
+    "motion/transition/default-fast",
+    "motion/transition/open",
+    "motion/transition/dismiss",
+    "motion/transition/slide-in",
+    "motion/transition/slide-out"
+  ]
+}

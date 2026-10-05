@@ -1,0 +1,182 @@
+{
+  "motion": {
+    "easing": {
+      "default": {
+        "$type": "cubicBezier",
+        "$value": [
+          0.2,
+          0,
+          0.3,
+          0.95
+        ],
+        "$description": "Req for: elements that stay in view from the start to the end of the transition, such as a toggle\nUse: cubic-bezier(0.2, 0, 0.3, 0.95)"
+      },
+      "enter": {
+        "$type": "cubicBezier",
+        "$value": [
+          0.4,
+          1,
+          0.89,
+          1
+        ],
+        "$description": "Req for: elements entering the screen: a quick start that slows to a rest\nUse: cubic-bezier(0.4, 1, 0.89, 1)"
+      },
+      "exit": {
+        "$type": "cubicBezier",
+        "$value": [
+          0.11,
+          0,
+          0.6,
+          0
+        ],
+        "$description": "Req for: elements leaving the screen: a slow start that speeds out of the way\nUse: cubic-bezier(0.11, 0, 0.6, 0)"
+      },
+      "linear": {
+        "$type": "cubicBezier",
+        "$value": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "$description": "Req for: changes of opacity and color; never movement\nUse: cubic-bezier(0, 0, 1, 1)"
+      }
+    },
+    "duration": {
+      "050": {
+        "$type": "duration",
+        "$value": {
+          "value": 50,
+          "unit": "ms"
+        },
+        "$description": "Req for: pressed states and other immediate feedback\nUse: 50 ms"
+      },
+      "080": {
+        "$type": "duration",
+        "$value": {
+          "value": 80,
+          "unit": "ms"
+        },
+        "$description": "Req for: micro-interactions, hover states and fades\nUse: 80 ms"
+      },
+      "200": {
+        "$type": "duration",
+        "$value": {
+          "value": 200,
+          "unit": "ms"
+        },
+        "$description": "Req for: short movements and small expansions\nUse: 200 ms"
+      },
+      "300": {
+        "$type": "duration",
+        "$value": {
+          "value": 300,
+          "unit": "ms"
+        },
+        "$description": "Req for: short movements and expansions, such as an accordion\nUse: 300 ms"
+      },
+      "400": {
+        "$type": "duration",
+        "$value": {
+          "value": 400,
+          "unit": "ms"
+        },
+        "$description": "Req for: long movements and large expansions\nUse: 400 ms"
+      },
+      "600": {
+        "$type": "duration",
+        "$value": {
+          "value": 600,
+          "unit": "ms"
+        },
+        "$description": "Req for: the longest movements and expansions\nUse: 600 ms"
+      }
+    },
+    "transition": {
+      "default": {
+        "$type": "transition",
+        "$value": {
+          "duration": "{motion.duration.080}",
+          "delay": {
+            "value": 0,
+            "unit": "ms"
+          },
+          "timingFunction": "{motion.easing.default}"
+        },
+        "$description": "Req for: most micro-interactions that involve movement, such as a toggle\nUse: motion/easing/default over motion/duration/080, with no delay"
+      },
+      "default-opacity": {
+        "$type": "transition",
+        "$value": {
+          "duration": "{motion.duration.080}",
+          "delay": {
+            "value": 0,
+            "unit": "ms"
+          },
+          "timingFunction": "{motion.easing.linear}"
+        },
+        "$description": "Req for: micro-interactions on opacity or color, such as the hover state of a button or a chip\nUse: motion/easing/linear over motion/duration/080, with no delay"
+      },
+      "default-fast": {
+        "$type": "transition",
+        "$value": {
+          "duration": "{motion.duration.050}",
+          "delay": {
+            "value": 0,
+            "unit": "ms"
+          },
+          "timingFunction": "{motion.easing.linear}"
+        },
+        "$description": "Req for: immediate feedback, such as a pressed state\nUse: motion/easing/linear over motion/duration/050, with no delay"
+      },
+      "open": {
+        "$type": "transition",
+        "$value": {
+          "duration": "{motion.duration.200}",
+          "delay": {
+            "value": 0,
+            "unit": "ms"
+          },
+          "timingFunction": "{motion.easing.enter}"
+        },
+        "$description": "Req for: elements that open into view, such as a dropdown menu\nUse: motion/easing/enter over motion/duration/200, with no delay"
+      },
+      "dismiss": {
+        "$type": "transition",
+        "$value": {
+          "duration": "{motion.duration.080}",
+          "delay": {
+            "value": 0,
+            "unit": "ms"
+          },
+          "timingFunction": "{motion.easing.linear}"
+        },
+        "$description": "Req for: elements dismissed by the user or automatically\nUse: motion/easing/linear over motion/duration/080, with no delay"
+      },
+      "slide-in": {
+        "$type": "transition",
+        "$value": {
+          "duration": "{motion.duration.300}",
+          "delay": {
+            "value": 0,
+            "unit": "ms"
+          },
+          "timingFunction": "{motion.easing.enter}"
+        },
+        "$description": "Req for: elements that slide into view from the bottom, such as a toast\nUse: motion/easing/enter over motion/duration/300, with no delay"
+      },
+      "slide-out": {
+        "$type": "transition",
+        "$value": {
+          "duration": "{motion.duration.200}",
+          "delay": {
+            "value": 0,
+            "unit": "ms"
+          },
+          "timingFunction": "{motion.easing.default}"
+        },
+        "$description": "Req for: elements that slide out of view\nUse: motion/easing/default over motion/duration/200, with no delay"
+      }
+    }
+  }
+}

@@ -1,0 +1,556 @@
+{
+  "space": {
+    "gap": {
+      "control": {
+        "condensed": {
+          "$type": "dimension",
+          "$value": "{space.100}",
+          "$description": "Req for: an icon and its text, close together\nUse: the condensed gap inside a single control; 4 px through space/100"
+        },
+        "normal": {
+          "$type": "dimension",
+          "$value": "{space.200}",
+          "$description": "Req for: an icon and its text\nUse: the normal gap inside a single control; 8 px through space/200"
+        },
+        "spacious": {
+          "$type": "dimension",
+          "$value": "{space.300}",
+          "$description": "Req for: an icon and its text, further apart\nUse: the spacious gap inside a single control; 12 px through space/300"
+        }
+      },
+      "content": {
+        "condensed": {
+          "$type": "dimension",
+          "$value": "{space.200}",
+          "$description": "Req for: body text blocks, close together; a title and its content, close together; titles, further apart\nUse: the condensed gap between pieces of content that belong together; 8 px through space/200"
+        },
+        "normal": {
+          "$type": "dimension",
+          "$value": "{space.300}",
+          "$description": "Req for: buttons side by side\nUse: the normal gap between pieces of content that belong together; 12 px through space/300"
+        },
+        "spacious": {
+          "$type": "dimension",
+          "$value": "{space.400}",
+          "$description": "Req for: inputs in a form; body text blocks, further apart; a title and its content, further apart\nUse: the spacious gap between pieces of content that belong together; 16 px through space/400"
+        }
+      },
+      "layout": {
+        "condensed": {
+          "$type": "dimension",
+          "$value": "{space.400}",
+          "$description": "Req for: cards in a list or a grid\nUse: the condensed gap between the blocks of a page; 16 px through space/400"
+        },
+        "normal": {
+          "$type": "dimension",
+          "$value": "{space.600}",
+          "$description": "Req for: cards, further apart; sections, close together; content and the buttons that act on it\nUse: the normal gap between the blocks of a page; 24 px through space/600"
+        },
+        "spacious": {
+          "$type": "dimension",
+          "$value": "{space.800}",
+          "$description": "Req for: sections of a page\nUse: the spacious gap between the blocks of a page; 32 px through space/800"
+        }
+      }
+    },
+    "padding": {
+      "card": {
+        "condensed": {
+          "$type": "dimension",
+          "$value": "{space.300}",
+          "$description": "Req for: a card in a dense list or grid\nUse: the condensed padding inside a card; 12 px through space/300"
+        },
+        "normal": {
+          "$type": "dimension",
+          "$value": "{space.400}",
+          "$description": "Req for: a card\nUse: the normal padding inside a card; 16 px through space/400"
+        }
+      },
+      "container": {
+        "condensed": {
+          "$type": "dimension",
+          "$value": "{space.500}",
+          "$description": "Req for: a container whose heading line height already adds room\nUse: the condensed padding inside a container, such as a panel, a modal or a dialog; 20 px through space/500"
+        },
+        "normal": {
+          "$type": "dimension",
+          "$value": "{space.600}",
+          "$description": "Req for: a container\nUse: the normal padding inside a container, such as a panel, a modal or a dialog; 24 px through space/600"
+        }
+      }
+    }
+  },
+  "size": {
+    "icon": {
+      "xs": {
+        "$type": "dimension",
+        "$value": "{size.300}",
+        "$description": "Req for: the width and height of an icon\nUse: the xs icon; 12 px through size/300"
+      },
+      "sm": {
+        "$type": "dimension",
+        "$value": "{size.400}",
+        "$description": "Req for: the width and height of an icon\nUse: the sm icon; 16 px through size/400"
+      },
+      "md": {
+        "$type": "dimension",
+        "$value": "{size.500}",
+        "$description": "Req for: the width and height of an icon\nUse: the md icon; 20 px through size/500"
+      },
+      "lg": {
+        "$type": "dimension",
+        "$value": "{size.600}",
+        "$description": "Req for: the width and height of an icon\nUse: the lg icon; 24 px through size/600"
+      }
+    },
+    "control": {
+      "sm": {
+        "$type": "dimension",
+        "$value": "{size.1000}",
+        "$description": "Req for: the fixed height of a control, such as a button or a text field\nUse: the sm control height; 40 px through size/1000"
+      },
+      "md": {
+        "$type": "dimension",
+        "$value": "{size.1200}",
+        "$description": "Req for: the fixed height of a control, such as a button or a text field\nUse: the md control height; 48 px through size/1200"
+      },
+      "lg": {
+        "$type": "dimension",
+        "$value": "{size.1400}",
+        "$description": "Req for: the fixed height of a control, such as a button or a text field\nUse: the lg control height; 56 px through size/1400"
+      }
+    },
+    "illustration": {
+      "spot": {
+        "sm": {
+          "$type": "dimension",
+          "$value": "{size.1200}",
+          "$description": "Req for: the width and height of a spot illustration\nUse: the sm spot illustration; 48 px through size/1200"
+        },
+        "md": {
+          "$type": "dimension",
+          "$value": "{size.1400}",
+          "$description": "Req for: the width and height of a spot illustration\nUse: the md spot illustration; 56 px through size/1400"
+        },
+        "lg": {
+          "$type": "dimension",
+          "$value": "{size.1600}",
+          "$description": "Req for: the width and height of a spot illustration\nUse: the lg spot illustration; 64 px through size/1600"
+        }
+      },
+      "hero": {
+        "sm": {
+          "$type": "dimension",
+          "$value": {
+            "value": 200,
+            "unit": "px"
+          },
+          "$description": "Req for: the width and height of a hero illustration\nUse: the sm hero illustration; 200 px, above the size scale"
+        },
+        "md": {
+          "$type": "dimension",
+          "$value": {
+            "value": 256,
+            "unit": "px"
+          },
+          "$description": "Req for: the width and height of a hero illustration\nUse: the md hero illustration; 256 px, above the size scale"
+        },
+        "lg": {
+          "$type": "dimension",
+          "$value": {
+            "value": 300,
+            "unit": "px"
+          },
+          "$description": "Req for: the width and height of a hero illustration\nUse: the lg hero illustration; 300 px, above the size scale"
+        }
+      }
+    },
+    "measure": {
+      "$type": "dimension",
+      "$value": {
+        "value": 640,
+        "unit": "px"
+      },
+      "$description": "Req for: the longest line of running text: paragraphs, descriptions, long-form content\nUse: the maximum width of a block of body text, about seventy characters at the body size. Not for controls, tables or cards; 640 px, above the size scale"
+    }
+  },
+  "grid": {
+    "columns": {
+      "$type": "number",
+      "$value": 6,
+      "$description": "Req for: the number of columns content aligns to\nUse: 4 columns on mobile, 6 columns on tablet, 12 columns on desktop, 12 columns on wide"
+    },
+    "margin": {
+      "$type": "dimension",
+      "$value": "{space.800}",
+      "$description": "Req for: the space between content and the left and right edges of the screen\nUse: 16 px on mobile, 32 px on tablet, 32 px on desktop, 32 px on wide"
+    },
+    "gutter": {
+      "$type": "dimension",
+      "$value": "{space.200}",
+      "$description": "Req for: the space between columns\nUse: 8 px on mobile, 8 px on tablet, 16 px on desktop, 16 px on wide"
+    },
+    "max-width": {
+      "$type": "dimension",
+      "$value": {
+        "value": 1280,
+        "unit": "px"
+      },
+      "$description": "Req for: the width at which page content stops growing and centers\nUse: the outer width of the grid on a wide screen; below it the grid is fluid and fills the viewport inside its margins; 1280 px on mobile, 1280 px on tablet, 1280 px on desktop, 1280 px on wide"
+    }
+  },
+  "text": {
+    "display": {
+      "lg": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "{font.family.sans}",
+          "fontSize": "{font.size.1800}",
+          "fontWeight": "{font.weight.semibold}",
+          "letterSpacing": {
+            "value": 0,
+            "unit": "px"
+          },
+          "lineHeight": "{font.line-height.125}"
+        },
+        "$description": "Req for: large, high-impact moments: page titles, major section introductions; the lg size\nUse: Matter semibold, 40 px on mobile and 72 px on desktop, line height 1.25 times the size, letter spacing 0 percent"
+      },
+      "md": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "{font.family.sans}",
+          "fontSize": "{font.size.1500}",
+          "fontWeight": "{font.weight.semibold}",
+          "letterSpacing": {
+            "value": -1.2,
+            "unit": "px"
+          },
+          "lineHeight": "{font.line-height.125}"
+        },
+        "$description": "Req for: large, high-impact moments: page titles, major section introductions; the md size\nUse: Matter semibold, 32 px on mobile and 60 px on desktop, line height 1.25 times the size, letter spacing -2 percent"
+      },
+      "sm": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "{font.family.sans}",
+          "fontSize": "{font.size.1200}",
+          "fontWeight": "{font.weight.semibold}",
+          "letterSpacing": {
+            "value": -0.72,
+            "unit": "px"
+          },
+          "lineHeight": "{font.line-height.125}"
+        },
+        "$description": "Req for: large, high-impact moments: page titles, major section introductions; the sm size\nUse: Matter semibold, 26 px on mobile and 48 px on desktop, line height 1.25 times the size, letter spacing -1.5 percent"
+      }
+    },
+    "heading": {
+      "lg": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "{font.family.sans}",
+          "fontSize": "{font.size.1000}",
+          "fontWeight": "{font.weight.medium}",
+          "letterSpacing": {
+            "value": -0.8,
+            "unit": "px"
+          },
+          "lineHeight": "{font.line-height.125}"
+        },
+        "$description": "Req for: the headings that define content blocks and guide a reader through the page; the lg size\nUse: Matter medium, 32 px on mobile and 40 px on desktop, line height 1.25 times the size, letter spacing -2 percent"
+      },
+      "md": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "{font.family.sans}",
+          "fontSize": "{font.size.800}",
+          "fontWeight": "{font.weight.medium}",
+          "letterSpacing": {
+            "value": -0.48,
+            "unit": "px"
+          },
+          "lineHeight": "{font.line-height.125}"
+        },
+        "$description": "Req for: the headings that define content blocks and guide a reader through the page; the md size\nUse: Matter medium, 26 px on mobile and 32 px on desktop, line height 1.25 times the size, letter spacing -1.5 percent"
+      },
+      "sm": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "{font.family.sans}",
+          "fontSize": "{font.size.650}",
+          "fontWeight": "{font.weight.medium}",
+          "letterSpacing": {
+            "value": -0.26,
+            "unit": "px"
+          },
+          "lineHeight": "{font.line-height.125}"
+        },
+        "$description": "Req for: the headings that define content blocks and guide a reader through the page; the sm size\nUse: Matter medium, 20 px on mobile and 26 px on desktop, line height 1.25 times the size, letter spacing -1 percent"
+      },
+      "xs": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "{font.family.sans}",
+          "fontSize": "{font.size.500}",
+          "fontWeight": "{font.weight.medium}",
+          "letterSpacing": {
+            "value": -0.2,
+            "unit": "px"
+          },
+          "lineHeight": "{font.line-height.125}"
+        },
+        "$description": "Req for: the headings that define content blocks and guide a reader through the page; the xs size\nUse: Matter medium, 15 px on mobile and 20 px on desktop, line height 1.25 times the size, letter spacing -1 percent"
+      }
+    },
+    "title": {
+      "lg": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "{font.family.sans}",
+          "fontSize": "{font.size.450}",
+          "fontWeight": "{font.weight.medium}",
+          "letterSpacing": {
+            "value": -0.018,
+            "unit": "px"
+          },
+          "lineHeight": "{font.line-height.150}"
+        },
+        "$description": "Req for: labels for subsections, card headers and contextual identifiers; the lg size\nUse: Matter medium, 18 px at every viewport, line height 1.5 times the size, letter spacing -0.1 percent"
+      },
+      "md": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "{font.family.sans}",
+          "fontSize": "{font.size.375}",
+          "fontWeight": "{font.weight.medium}",
+          "letterSpacing": {
+            "value": -0.015,
+            "unit": "px"
+          },
+          "lineHeight": "{font.line-height.150}"
+        },
+        "$description": "Req for: labels for subsections, card headers and contextual identifiers; the md size\nUse: Matter medium, 15 px at every viewport, line height 1.5 times the size, letter spacing -0.1 percent"
+      },
+      "sm": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "{font.family.sans}",
+          "fontSize": "{font.size.350}",
+          "fontWeight": "{font.weight.medium}",
+          "letterSpacing": {
+            "value": -0.014,
+            "unit": "px"
+          },
+          "lineHeight": "{font.line-height.150}"
+        },
+        "$description": "Req for: labels for subsections, card headers and contextual identifiers; the sm size\nUse: Matter medium, 14 px at every viewport, line height 1.5 times the size, letter spacing -0.1 percent"
+      },
+      "xs": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "{font.family.sans}",
+          "fontSize": "{font.size.300}",
+          "fontWeight": "{font.weight.medium}",
+          "letterSpacing": {
+            "value": 0,
+            "unit": "px"
+          },
+          "lineHeight": "{font.line-height.150}"
+        },
+        "$description": "Req for: labels for subsections, card headers and contextual identifiers; the xs size\nUse: Matter medium, 12 px at every viewport, line height 1.5 times the size, letter spacing 0 percent"
+      }
+    },
+    "body": {
+      "lg": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "{font.family.sans}",
+          "fontSize": "{font.size.450}",
+          "fontWeight": "{font.weight.regular}",
+          "letterSpacing": {
+            "value": -0.018,
+            "unit": "px"
+          },
+          "lineHeight": "{font.line-height.150}"
+        },
+        "$description": "Req for: paragraphs, descriptions and general content; the lg size\nUse: Matter regular, 18 px at every viewport, line height 1.5 times the size, letter spacing -0.1 percent"
+      },
+      "md": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "{font.family.sans}",
+          "fontSize": "{font.size.375}",
+          "fontWeight": "{font.weight.regular}",
+          "letterSpacing": {
+            "value": -0.015,
+            "unit": "px"
+          },
+          "lineHeight": "{font.line-height.150}"
+        },
+        "$description": "Req for: paragraphs, descriptions and general content; the md size\nUse: Matter regular, 15 px at every viewport, line height 1.5 times the size, letter spacing -0.1 percent"
+      },
+      "sm": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "{font.family.sans}",
+          "fontSize": "{font.size.350}",
+          "fontWeight": "{font.weight.regular}",
+          "letterSpacing": {
+            "value": -0.014,
+            "unit": "px"
+          },
+          "lineHeight": "{font.line-height.150}"
+        },
+        "$description": "Req for: paragraphs, descriptions and general content; the sm size\nUse: Matter regular, 14 px at every viewport, line height 1.5 times the size, letter spacing -0.1 percent"
+      },
+      "xs": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "{font.family.sans}",
+          "fontSize": "{font.size.300}",
+          "fontWeight": "{font.weight.medium}",
+          "letterSpacing": {
+            "value": -0.012,
+            "unit": "px"
+          },
+          "lineHeight": "{font.line-height.150}"
+        },
+        "$description": "Req for: paragraphs, descriptions and general content; the xs size\nUse: Matter medium, 12 px at every viewport, line height 1.5 times the size, letter spacing -0.1 percent"
+      }
+    },
+    "link": {
+      "lg": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "{font.family.sans}",
+          "fontSize": "{font.size.450}",
+          "fontWeight": "{font.weight.medium}",
+          "letterSpacing": {
+            "value": -0.018,
+            "unit": "px"
+          },
+          "lineHeight": "{font.line-height.150}"
+        },
+        "$description": "Req for: navigation and actions written as underlined text; the lg size\nUse: Matter medium, 18 px at every viewport, line height 1.5 times the size, letter spacing -0.1 percent"
+      },
+      "md": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "{font.family.sans}",
+          "fontSize": "{font.size.375}",
+          "fontWeight": "{font.weight.medium}",
+          "letterSpacing": {
+            "value": -0.015,
+            "unit": "px"
+          },
+          "lineHeight": "{font.line-height.150}"
+        },
+        "$description": "Req for: navigation and actions written as underlined text; the md size\nUse: Matter medium, 15 px at every viewport, line height 1.5 times the size, letter spacing -0.1 percent"
+      },
+      "sm": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "{font.family.sans}",
+          "fontSize": "{font.size.350}",
+          "fontWeight": "{font.weight.medium}",
+          "letterSpacing": {
+            "value": -0.014,
+            "unit": "px"
+          },
+          "lineHeight": "{font.line-height.150}"
+        },
+        "$description": "Req for: navigation and actions written as underlined text; the sm size\nUse: Matter medium, 14 px at every viewport, line height 1.5 times the size, letter spacing -0.1 percent"
+      },
+      "xs": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "{font.family.sans}",
+          "fontSize": "{font.size.300}",
+          "fontWeight": "{font.weight.medium}",
+          "letterSpacing": {
+            "value": -0.012,
+            "unit": "px"
+          },
+          "lineHeight": "{font.line-height.150}"
+        },
+        "$description": "Req for: navigation and actions written as underlined text; the xs size\nUse: Matter medium, 12 px at every viewport, line height 1.5 times the size, letter spacing -0.1 percent"
+      }
+    },
+    "tabular-number": {
+      "sm": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "{font.family.number}",
+          "fontSize": "{font.size.350}",
+          "fontWeight": "{font.weight.medium}",
+          "letterSpacing": {
+            "value": 0,
+            "unit": "px"
+          },
+          "lineHeight": "{font.line-height.150}"
+        },
+        "$description": "Req for: scannable numeric data in tables; the sm size\nUse: Matter medium, 14 px at every viewport, line height 1.5 times the size, letter spacing 0 percent"
+      },
+      "xs": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "{font.family.number}",
+          "fontSize": "{font.size.300}",
+          "fontWeight": "{font.weight.medium}",
+          "letterSpacing": {
+            "value": 0,
+            "unit": "px"
+          },
+          "lineHeight": "{font.line-height.150}"
+        },
+        "$description": "Req for: scannable numeric data in tables; the xs size\nUse: Matter medium, 12 px at every viewport, line height 1.5 times the size, letter spacing 0 percent"
+      }
+    },
+    "button": {
+      "md": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "{font.family.sans}",
+          "fontSize": "{font.size.375}",
+          "fontWeight": "{font.weight.medium}",
+          "letterSpacing": {
+            "value": -0.015,
+            "unit": "px"
+          },
+          "lineHeight": "{font.line-height.150}"
+        },
+        "$description": "Req for: text inside buttons and other interactive components; the md size\nUse: Matter medium, 15 px at every viewport, line height 1.5 times the size, letter spacing -0.1 percent"
+      },
+      "sm": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "{font.family.sans}",
+          "fontSize": "{font.size.350}",
+          "fontWeight": "{font.weight.medium}",
+          "letterSpacing": {
+            "value": -0.014,
+            "unit": "px"
+          },
+          "lineHeight": "{font.line-height.150}"
+        },
+        "$description": "Req for: text inside buttons and other interactive components; the sm size\nUse: Matter medium, 14 px at every viewport, line height 1.5 times the size, letter spacing -0.1 percent"
+      }
+    },
+    "code": {
+      "sm": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "{font.family.mono}",
+          "fontSize": "{font.size.350}",
+          "fontWeight": "{font.weight.medium}",
+          "letterSpacing": {
+            "value": 0,
+            "unit": "px"
+          },
+          "lineHeight": "{font.line-height.150}"
+        },
+        "$description": "Req for: inline code, developer references and system output; the sm size\nUse: Roboto Mono medium, 14 px at every viewport, line height 1.5 times the size, letter spacing 0 percent"
+      }
+    }
+  }
+}

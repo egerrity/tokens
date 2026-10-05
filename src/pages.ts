@@ -3,7 +3,7 @@
 // files do not hold.
 import { figmaName, type TokenPath } from '../grammar/path.ts'
 import type { Category } from '../grammar/words.ts'
-import { isAlias, type Token } from './types.ts'
+import { isAlias, valueIn, type Token, type Value } from './types.ts'
 
 type Notes = { title: string; declaration: string; decided: string[]; derived: string[] }
 
@@ -29,8 +29,8 @@ const NOTES: Record<Category, Notes> = {
     declaration: 'declarations/size.ts',
     decided: [
       'The scale: the list of steps, in px.',
-      'The icon sizes and the control heights, each a size word and a step.',
-      'The content widths, which sit above the scale and hold their own value.',
+      'The icon sizes, the control heights and the illustration sizes, each a size word with a px value; a value on the scale references its step, one above it holds its value.',
+      'The measure, the longest line of running text, which sits above the scale and holds its own value.',
     ],
     derived: ['Each step\'s name, from the base unit.', 'Each semantic token\'s reference to its step.', 'Every description.'],
   },
@@ -68,25 +68,73 @@ const NOTES: Record<Category, Notes> = {
     decided: ['The minimum widths, in px, each under a size word, with what starts there.'],
     derived: ['The order, which follows the size words.', 'Every description.'],
   },
+  grid: {
+    title: 'Grid',
+    declaration: 'declarations/grid.ts',
+    decided: ['The column count per viewport.', 'The margin and the gutter per viewport, as px on the space scale.', 'The width at which page content stops growing, per viewport.'],
+    derived: ['Each margin and gutter as a reference to its space step, per viewport.', 'Every description.'],
+  },
+  font: {
+    title: 'Font',
+    declaration: 'declarations/font.ts',
+    decided: [
+      'The families, each as the names a renderer tries in order.',
+      'The weights.',
+      'The size scale, in px.',
+      'The line heights, as multiples of the font size.',
+    ],
+    derived: ['Each size step\'s name, from the base unit; each line height\'s name, from the multiple.', 'Every description.'],
+  },
+  text: {
+    title: 'Text styles',
+    declaration: 'declarations/text.ts',
+    decided: [
+      'What each role is for.',
+      'Each style: its role and size, family, weight, line height, letter spacing in percent, and its font size per viewport.',
+    ],
+    derived: [
+      'Each style as a composite whose family, size, weight and line height reference the font scale.',
+      'The font size of a viewport that declares none, from its fallback.',
+      'Letter spacing as a length, from the percent and the size at each viewport.',
+      'Every description.',
+    ],
+  },
 }
 
 export const pageName = (category: Category): string => `${category}.md`
 
 export function page(category: Category, tokens: Token[], all: Token[]): string {
   const byPath = new Map(all.map(t => [figmaName(t.path), t]))
-  const literal = (t: Token): string => {
-    if (isAlias(t)) {
-      const target = byPath.get(figmaName(t.alias))
-      return target ? `\`${figmaName(t.alias)}\` (${literal(target)})` : `\`${figmaName(t.alias)}\``
+  const ref = (p: TokenPath) => `\`${figmaName(p)}\``
+  const literal = (v: Value, context?: string): string => {
+    if (isAlias(v)) {
+      const target = byPath.get(figmaName(v.alias))
+      return target ? `${ref(v.alias)} (${literal(valueIn(target, context), context)})` : ref(v.alias)
     }
-    if (t.type === 'dimension' || t.type === 'duration') return `${t.value.value} ${t.value.unit}`
-    if (t.type === 'number') return String(t.value)
-    if (t.type === 'cubicBezier') return t.value.join(', ')
-    const ref = (p: TokenPath) => `\`${figmaName(p)}\``
-    return `${ref(t.value.timingFunction)} over ${ref(t.value.duration)}`
+    switch (v.type) {
+      case 'dimension': case 'duration': return `${v.value.value} ${v.value.unit}`
+      case 'number': case 'fontWeight': return String(v.value)
+      case 'cubicBezier': return v.value.join(', ')
+      case 'fontFamily': return v.value.join(', ')
+      case 'transition': return `${ref(v.value.timingFunction)} over ${ref(v.value.duration)}`
+      case 'typography': {
+        const t = v.value
+        return `${ref(t.fontFamily)} ${ref(t.fontWeight)}, ${ref(t.fontSize)} (${literal(valueIn(byPath.get(figmaName(t.fontSize))!, context), context)}), line height ${ref(t.lineHeight)}, letter spacing ${t.letterSpacing.value} px`
+      }
+    }
+  }
+  // a value per context, with contexts that share a value folded together
+  const shown = (t: Token): string => {
+    if (!t.byContext) return literal(t.value)
+    const groups = new Map<string, string[]>()
+    for (const [context, v] of Object.entries(t.byContext)) {
+      const text = literal(v, context)
+      groups.set(text, [...(groups.get(text) ?? []), context])
+    }
+    return [...groups].map(([text, contexts]) => `${text} (${contexts.join(', ')})`).join('; ')
   }
   const n = NOTES[category]
-  const row = (t: Token) => `| \`${figmaName(t.path)}\` | ${literal(t)} | ${t.req} |`
+  const row = (t: Token) => `| \`${figmaName(t.path)}\` | ${shown(t)} | ${t.req} |`
   return [
     `# ${n.title}`,
     '',

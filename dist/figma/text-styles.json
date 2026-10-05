@@ -1,0 +1,413 @@
+{
+  "kind": "text-styles",
+  "styles": [
+    {
+      "name": "text/display/lg",
+      "today": "Display/lg",
+      "description": "Req for: large, high-impact moments: page titles, major section introductions; the lg size",
+      "family": "Matter",
+      "fontStyle": "SemiBold",
+      "fontSize": 72,
+      "lineHeightPx": 90,
+      "letterSpacingPx": 0,
+      "parts": {
+        "fontFamily": "text/display/lg/font-family",
+        "fontSize": "text/display/lg/font-size",
+        "fontWeight": "text/display/lg/font-weight",
+        "lineHeight": "text/display/lg/line-height",
+        "letterSpacing": "text/display/lg/letter-spacing"
+      }
+    },
+    {
+      "name": "text/display/md",
+      "today": "Display/md",
+      "description": "Req for: large, high-impact moments: page titles, major section introductions; the md size",
+      "family": "Matter",
+      "fontStyle": "SemiBold",
+      "fontSize": 60,
+      "lineHeightPx": 75,
+      "letterSpacingPx": -1.2,
+      "parts": {
+        "fontFamily": "text/display/md/font-family",
+        "fontSize": "text/display/md/font-size",
+        "fontWeight": "text/display/md/font-weight",
+        "lineHeight": "text/display/md/line-height",
+        "letterSpacing": "text/display/md/letter-spacing"
+      }
+    },
+    {
+      "name": "text/display/sm",
+      "today": "Display/sm",
+      "description": "Req for: large, high-impact moments: page titles, major section introductions; the sm size",
+      "family": "Matter",
+      "fontStyle": "SemiBold",
+      "fontSize": 48,
+      "lineHeightPx": 60,
+      "letterSpacingPx": -0.72,
+      "parts": {
+        "fontFamily": "text/display/sm/font-family",
+        "fontSize": "text/display/sm/font-size",
+        "fontWeight": "text/display/sm/font-weight",
+        "lineHeight": "text/display/sm/line-height",
+        "letterSpacing": "text/display/sm/letter-spacing"
+      }
+    },
+    {
+      "name": "text/heading/lg",
+      "today": "Heading/lg",
+      "description": "Req for: the headings that define content blocks and guide a reader through the page; the lg size",
+      "family": "Matter",
+      "fontStyle": "Medium",
+      "fontSize": 40,
+      "lineHeightPx": 50,
+      "letterSpacingPx": -0.8,
+      "parts": {
+        "fontFamily": "text/heading/lg/font-family",
+        "fontSize": "text/heading/lg/font-size",
+        "fontWeight": "text/heading/lg/font-weight",
+        "lineHeight": "text/heading/lg/line-height",
+        "letterSpacing": "text/heading/lg/letter-spacing"
+      }
+    },
+    {
+      "name": "text/heading/md",
+      "today": "Heading/md",
+      "description": "Req for: the headings that define content blocks and guide a reader through the page; the md size",
+      "family": "Matter",
+      "fontStyle": "Medium",
+      "fontSize": 32,
+      "lineHeightPx": 40,
+      "letterSpacingPx": -0.48,
+      "parts": {
+        "fontFamily": "text/heading/md/font-family",
+        "fontSize": "text/heading/md/font-size",
+        "fontWeight": "text/heading/md/font-weight",
+        "lineHeight": "text/heading/md/line-height",
+        "letterSpacing": "text/heading/md/letter-spacing"
+      }
+    },
+    {
+      "name": "text/heading/sm",
+      "today": "Heading/sm",
+      "description": "Req for: the headings that define content blocks and guide a reader through the page; the sm size",
+      "family": "Matter",
+      "fontStyle": "Medium",
+      "fontSize": 26,
+      "lineHeightPx": 32.5,
+      "letterSpacingPx": -0.26,
+      "parts": {
+        "fontFamily": "text/heading/sm/font-family",
+        "fontSize": "text/heading/sm/font-size",
+        "fontWeight": "text/heading/sm/font-weight",
+        "lineHeight": "text/heading/sm/line-height",
+        "letterSpacing": "text/heading/sm/letter-spacing"
+      }
+    },
+    {
+      "name": "text/heading/xs",
+      "today": "Heading/xs",
+      "description": "Req for: the headings that define content blocks and guide a reader through the page; the xs size",
+      "family": "Matter",
+      "fontStyle": "Medium",
+      "fontSize": 20,
+      "lineHeightPx": 25,
+      "letterSpacingPx": -0.2,
+      "parts": {
+        "fontFamily": "text/heading/xs/font-family",
+        "fontSize": "text/heading/xs/font-size",
+        "fontWeight": "text/heading/xs/font-weight",
+        "lineHeight": "text/heading/xs/line-height",
+        "letterSpacing": "text/heading/xs/letter-spacing"
+      }
+    },
+    {
+      "name": "text/title/lg",
+      "today": "Title/lg",
+      "description": "Req for: labels for subsections, card headers and contextual identifiers; the lg size",
+      "family": "Matter",
+      "fontStyle": "Medium",
+      "fontSize": 18,
+      "lineHeightPx": 27,
+      "letterSpacingPx": -0.018,
+      "parts": {
+        "fontFamily": "text/title/lg/font-family",
+        "fontSize": "text/title/lg/font-size",
+        "fontWeight": "text/title/lg/font-weight",
+        "lineHeight": "text/title/lg/line-height",
+        "letterSpacing": "text/title/lg/letter-spacing"
+      }
+    },
+    {
+      "name": "text/title/md",
+      "today": "Title/md",
+      "description": "Req for: labels for subsections, card headers and contextual identifiers; the md size",
+      "family": "Matter",
+      "fontStyle": "Medium",
+      "fontSize": 15,
+      "lineHeightPx": 22.5,
+      "letterSpacingPx": -0.015,
+      "parts": {
+        "fontFamily": "text/title/md/font-family",
+        "fontSize": "text/title/md/font-size",
+        "fontWeight": "text/title/md/font-weight",
+        "lineHeight": "text/title/md/line-height",
+        "letterSpacing": "text/title/md/letter-spacing"
+      }
+    },
+    {
+      "name": "text/title/sm",
+      "today": "Title/sm",
+      "description": "Req for: labels for subsections, card headers and contextual identifiers; the sm size",
+      "family": "Matter",
+      "fontStyle": "Medium",
+      "fontSize": 14,
+      "lineHeightPx": 21,
+      "letterSpacingPx": -0.014,
+      "parts": {
+        "fontFamily": "text/title/sm/font-family",
+        "fontSize": "text/title/sm/font-size",
+        "fontWeight": "text/title/sm/font-weight",
+        "lineHeight": "text/title/sm/line-height",
+        "letterSpacing": "text/title/sm/letter-spacing"
+      }
+    },
+    {
+      "name": "text/title/xs",
+      "today": "Title/xs",
+      "description": "Req for: labels for subsections, card headers and contextual identifiers; the xs size",
+      "family": "Matter",
+      "fontStyle": "Medium",
+      "fontSize": 12,
+      "lineHeightPx": 18,
+      "letterSpacingPx": 0,
+      "parts": {
+        "fontFamily": "text/title/xs/font-family",
+        "fontSize": "text/title/xs/font-size",
+        "fontWeight": "text/title/xs/font-weight",
+        "lineHeight": "text/title/xs/line-height",
+        "letterSpacing": "text/title/xs/letter-spacing"
+      }
+    },
+    {
+      "name": "text/body/lg",
+      "today": "Body/lg",
+      "description": "Req for: paragraphs, descriptions and general content; the lg size",
+      "family": "Matter",
+      "fontStyle": "Regular",
+      "fontSize": 18,
+      "lineHeightPx": 27,
+      "letterSpacingPx": -0.018,
+      "parts": {
+        "fontFamily": "text/body/lg/font-family",
+        "fontSize": "text/body/lg/font-size",
+        "fontWeight": "text/body/lg/font-weight",
+        "lineHeight": "text/body/lg/line-height",
+        "letterSpacing": "text/body/lg/letter-spacing"
+      }
+    },
+    {
+      "name": "text/body/md",
+      "today": "Body/md (Default)",
+      "description": "Req for: paragraphs, descriptions and general content; the md size",
+      "family": "Matter",
+      "fontStyle": "Regular",
+      "fontSize": 15,
+      "lineHeightPx": 22.5,
+      "letterSpacingPx": -0.015,
+      "parts": {
+        "fontFamily": "text/body/md/font-family",
+        "fontSize": "text/body/md/font-size",
+        "fontWeight": "text/body/md/font-weight",
+        "lineHeight": "text/body/md/line-height",
+        "letterSpacing": "text/body/md/letter-spacing"
+      }
+    },
+    {
+      "name": "text/body/sm",
+      "today": "Body/sm",
+      "description": "Req for: paragraphs, descriptions and general content; the sm size",
+      "family": "Matter",
+      "fontStyle": "Regular",
+      "fontSize": 14,
+      "lineHeightPx": 21,
+      "letterSpacingPx": -0.014,
+      "parts": {
+        "fontFamily": "text/body/sm/font-family",
+        "fontSize": "text/body/sm/font-size",
+        "fontWeight": "text/body/sm/font-weight",
+        "lineHeight": "text/body/sm/line-height",
+        "letterSpacing": "text/body/sm/letter-spacing"
+      }
+    },
+    {
+      "name": "text/body/xs",
+      "today": "Body/xs",
+      "description": "Req for: paragraphs, descriptions and general content; the xs size",
+      "family": "Matter",
+      "fontStyle": "Medium",
+      "fontSize": 12,
+      "lineHeightPx": 18,
+      "letterSpacingPx": -0.012,
+      "parts": {
+        "fontFamily": "text/body/xs/font-family",
+        "fontSize": "text/body/xs/font-size",
+        "fontWeight": "text/body/xs/font-weight",
+        "lineHeight": "text/body/xs/line-height",
+        "letterSpacing": "text/body/xs/letter-spacing"
+      }
+    },
+    {
+      "name": "text/link/lg",
+      "today": "Link/lg",
+      "description": "Req for: navigation and actions written as underlined text; the lg size",
+      "family": "Matter",
+      "fontStyle": "Medium",
+      "fontSize": 18,
+      "lineHeightPx": 27,
+      "letterSpacingPx": -0.018,
+      "parts": {
+        "fontFamily": "text/link/lg/font-family",
+        "fontSize": "text/link/lg/font-size",
+        "fontWeight": "text/link/lg/font-weight",
+        "lineHeight": "text/link/lg/line-height",
+        "letterSpacing": "text/link/lg/letter-spacing"
+      }
+    },
+    {
+      "name": "text/link/md",
+      "today": "Link/md (Default)",
+      "description": "Req for: navigation and actions written as underlined text; the md size",
+      "family": "Matter",
+      "fontStyle": "Medium",
+      "fontSize": 15,
+      "lineHeightPx": 22.5,
+      "letterSpacingPx": -0.015,
+      "parts": {
+        "fontFamily": "text/link/md/font-family",
+        "fontSize": "text/link/md/font-size",
+        "fontWeight": "text/link/md/font-weight",
+        "lineHeight": "text/link/md/line-height",
+        "letterSpacing": "text/link/md/letter-spacing"
+      }
+    },
+    {
+      "name": "text/link/sm",
+      "today": "Link/sm",
+      "description": "Req for: navigation and actions written as underlined text; the sm size",
+      "family": "Matter",
+      "fontStyle": "Medium",
+      "fontSize": 14,
+      "lineHeightPx": 21,
+      "letterSpacingPx": -0.014,
+      "parts": {
+        "fontFamily": "text/link/sm/font-family",
+        "fontSize": "text/link/sm/font-size",
+        "fontWeight": "text/link/sm/font-weight",
+        "lineHeight": "text/link/sm/line-height",
+        "letterSpacing": "text/link/sm/letter-spacing"
+      }
+    },
+    {
+      "name": "text/link/xs",
+      "today": "Link/xs",
+      "description": "Req for: navigation and actions written as underlined text; the xs size",
+      "family": "Matter",
+      "fontStyle": "Medium",
+      "fontSize": 12,
+      "lineHeightPx": 18,
+      "letterSpacingPx": -0.012,
+      "parts": {
+        "fontFamily": "text/link/xs/font-family",
+        "fontSize": "text/link/xs/font-size",
+        "fontWeight": "text/link/xs/font-weight",
+        "lineHeight": "text/link/xs/line-height",
+        "letterSpacing": "text/link/xs/letter-spacing"
+      }
+    },
+    {
+      "name": "text/tabular-number/sm",
+      "today": "Tabular Number/sm",
+      "description": "Req for: scannable numeric data in tables; the sm size",
+      "family": "Matter",
+      "fontStyle": "Medium",
+      "fontSize": 14,
+      "lineHeightPx": 21,
+      "letterSpacingPx": 0,
+      "parts": {
+        "fontFamily": "text/tabular-number/sm/font-family",
+        "fontSize": "text/tabular-number/sm/font-size",
+        "fontWeight": "text/tabular-number/sm/font-weight",
+        "lineHeight": "text/tabular-number/sm/line-height",
+        "letterSpacing": "text/tabular-number/sm/letter-spacing"
+      }
+    },
+    {
+      "name": "text/tabular-number/xs",
+      "today": "Tabular Number/xs",
+      "description": "Req for: scannable numeric data in tables; the xs size",
+      "family": "Matter",
+      "fontStyle": "Medium",
+      "fontSize": 12,
+      "lineHeightPx": 18,
+      "letterSpacingPx": 0,
+      "parts": {
+        "fontFamily": "text/tabular-number/xs/font-family",
+        "fontSize": "text/tabular-number/xs/font-size",
+        "fontWeight": "text/tabular-number/xs/font-weight",
+        "lineHeight": "text/tabular-number/xs/line-height",
+        "letterSpacing": "text/tabular-number/xs/letter-spacing"
+      }
+    },
+    {
+      "name": "text/button/md",
+      "today": "Button/md",
+      "description": "Req for: text inside buttons and other interactive components; the md size",
+      "family": "Matter",
+      "fontStyle": "Medium",
+      "fontSize": 15,
+      "lineHeightPx": 22.5,
+      "letterSpacingPx": -0.015,
+      "parts": {
+        "fontFamily": "text/button/md/font-family",
+        "fontSize": "text/button/md/font-size",
+        "fontWeight": "text/button/md/font-weight",
+        "lineHeight": "text/button/md/line-height",
+        "letterSpacing": "text/button/md/letter-spacing"
+      }
+    },
+    {
+      "name": "text/button/sm",
+      "today": "Button/sm",
+      "description": "Req for: text inside buttons and other interactive components; the sm size",
+      "family": "Matter",
+      "fontStyle": "Medium",
+      "fontSize": 14,
+      "lineHeightPx": 21,
+      "letterSpacingPx": -0.014,
+      "parts": {
+        "fontFamily": "text/button/sm/font-family",
+        "fontSize": "text/button/sm/font-size",
+        "fontWeight": "text/button/sm/font-weight",
+        "lineHeight": "text/button/sm/line-height",
+        "letterSpacing": "text/button/sm/letter-spacing"
+      }
+    },
+    {
+      "name": "text/code/sm",
+      "today": "Code/sm",
+      "description": "Req for: inline code, developer references and system output; the sm size",
+      "family": "Roboto Mono",
+      "fontStyle": "Medium",
+      "fontSize": 14,
+      "lineHeightPx": 21,
+      "letterSpacingPx": 0,
+      "parts": {
+        "fontFamily": "text/code/sm/font-family",
+        "fontSize": "text/code/sm/font-size",
+        "fontWeight": "text/code/sm/font-weight",
+        "lineHeight": "text/code/sm/line-height",
+        "letterSpacing": "text/code/sm/letter-spacing"
+      }
+    }
+  ]
+}

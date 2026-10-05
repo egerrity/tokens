@@ -78,18 +78,33 @@ To decide:
 ## Size
 
 Primitives: the eight steps exist and are kept, `size/300` to `size/1400`, on the same
-rule as space.
+rule as space, with a ninth added at 64 px, `size/1600`.
 
 | Path | Aliases | px | Status |
 | --- | --- | --- | --- |
 | `size/icon/xs`, `sm`, `md`, `lg` | `size/300`, `400`, `500`, `600` | 12, 16, 20, 24 | exists |
 | `size/control/sm`, `md`, `lg` | `size/1000`, `1200`, `1400` | 40, 48, 56 | documented as fixed heights; the 40 px row has no size word in the docs |
-| `size/content/max` | raw | 1280 | documented: desktop content max width |
-| `size/content/paragraph` | raw | 720 | documented: paragraph max width |
-| `size/content/min` | raw | 320 | documented: mobile content min width |
+| `size/illustration/spot/sm`, `md`, `lg` | `size/1200`, `1400`, `1600` | 48, 56, 64 | owner's sizes |
+| `size/illustration/hero/sm`, `md`, `lg` | raw | 200, 256, 300 | owner's sizes, above the scale |
+| `size/measure` | raw | 640 | proposed, in place of the documented 720 px paragraph width |
 
-To decide: the three content widths are far above the size scale, which ends at 56 px.
-They are either semantic tokens holding a raw value, or the size scale grows.
+The docs' "responsive width" table lists three rows under one heading: a desktop content
+max width (1280), a paragraph max width (720) and a mobile content min width (320). They
+are three different things, and the first draft here wrongly named them as one set.
+
+- The **desktop content max width** is a property of the grid, the width at which page
+  content stops growing. It is now `grid/max-width`, beside the columns, margin and
+  gutter. 1280 is the `xl` breakpoint and a common choice; Bootstrap's widest container
+  is 1320, Tailwind's is the breakpoint itself.
+- The **paragraph max width** is the measure, the longest comfortable line of running
+  text. The long-standing guidance is 45 to 75 characters per line, about 65 at best. At
+  the 15 px body size, 720 px is roughly 95 characters, past the comfortable range; 640
+  px is about 80 at 15 px and about 70 at 18 px. So `size/measure` is proposed at 640,
+  for the owner to confirm.
+- The **mobile content min width** is not a size to bind anything to. 320 CSS px is the
+  width at which content must still reflow without horizontal scrolling (the WCAG reflow
+  criterion), so it is a floor layouts are checked against. It belongs in the layout
+  guidance and the QA checklist, not in the variables.
 
 ## Breakpoints and grid
 
@@ -125,6 +140,10 @@ alias space steps.
 | `grid/columns` | 4 | 6 | 12 |
 | `grid/margin` | `space/400` (16) | `space/800` (32) | `space/800` (32) |
 | `grid/gutter` | `space/200` (8) | `space/200` (8) | `space/400` (16) |
+| `grid/max-width` | 1280 | 1280 | 1280 |
+
+The max width is the same at every viewport because the grid is fluid below it; it is
+in the viewport collection so it can differ by viewport if that is ever wanted.
 
 To confirm with the code audit: that the product code is on the framework's default
 breakpoints and has not customized them.
@@ -279,10 +298,13 @@ For the declaration:
   modes become the four viewports. Tablet and wide take the desktop sizes until a
   designer rules otherwise. What each style scales relative to on native is declared
   when the mobile approach is decided.
-- Line heights are two: 1.25 and 1.5.
-- Letter spacing is written in percent of the font size (0, -0.1, -1, -1.5, -2). The
-  token format's length type takes px or rem only, so each style's letter spacing has to
-  be stored as a computed length or as a plain number.
+- Line heights are two: 1.25 and 1.5. In the token file a text style references them as
+  multiples. Figma binds a line height variable as pixels, so each text style's Figma
+  part holds the pixel value at each viewport, and the multiples themselves get no
+  Figma variable.
+- Letter spacing is declared in percent of the font size (0, -0.1, -1, -1.5, -2). The
+  token format's length type takes px or rem only, and Figma binds letter spacing as
+  pixels too, so each style carries the pixel value at each viewport in both.
 
 ## The component property glossary
 

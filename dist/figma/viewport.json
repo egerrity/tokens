@@ -1,0 +1,2983 @@
+{
+  "kind": "variables",
+  "collection": "viewport",
+  "today": "Type scale",
+  "modes": [
+    "mobile",
+    "tablet",
+    "desktop",
+    "wide"
+  ],
+  "todayModes": {
+    "mobile": "Mobile Web & iOS XS–LG",
+    "desktop": "Desktop Web"
+  },
+  "variables": [
+    {
+      "path": "space/gap/control/condensed",
+      "type": "FLOAT",
+      "scopes": [
+        "GAP"
+      ],
+      "description": "Req for: an icon and its text, close together",
+      "values": {
+        "mobile": {
+          "alias": "space/100"
+        },
+        "tablet": {
+          "alias": "space/100"
+        },
+        "desktop": {
+          "alias": "space/100"
+        },
+        "wide": {
+          "alias": "space/100"
+        }
+      }
+    },
+    {
+      "path": "space/gap/control/normal",
+      "type": "FLOAT",
+      "scopes": [
+        "GAP"
+      ],
+      "description": "Req for: an icon and its text",
+      "values": {
+        "mobile": {
+          "alias": "space/200"
+        },
+        "tablet": {
+          "alias": "space/200"
+        },
+        "desktop": {
+          "alias": "space/200"
+        },
+        "wide": {
+          "alias": "space/200"
+        }
+      }
+    },
+    {
+      "path": "space/gap/control/spacious",
+      "type": "FLOAT",
+      "scopes": [
+        "GAP"
+      ],
+      "description": "Req for: an icon and its text, further apart",
+      "values": {
+        "mobile": {
+          "alias": "space/300"
+        },
+        "tablet": {
+          "alias": "space/300"
+        },
+        "desktop": {
+          "alias": "space/300"
+        },
+        "wide": {
+          "alias": "space/300"
+        }
+      }
+    },
+    {
+      "path": "space/gap/content/condensed",
+      "type": "FLOAT",
+      "scopes": [
+        "GAP"
+      ],
+      "description": "Req for: body text blocks, close together; a title and its content, close together; titles, further apart",
+      "values": {
+        "mobile": {
+          "alias": "space/200"
+        },
+        "tablet": {
+          "alias": "space/200"
+        },
+        "desktop": {
+          "alias": "space/200"
+        },
+        "wide": {
+          "alias": "space/200"
+        }
+      }
+    },
+    {
+      "path": "space/gap/content/normal",
+      "type": "FLOAT",
+      "scopes": [
+        "GAP"
+      ],
+      "description": "Req for: buttons side by side",
+      "values": {
+        "mobile": {
+          "alias": "space/300"
+        },
+        "tablet": {
+          "alias": "space/300"
+        },
+        "desktop": {
+          "alias": "space/300"
+        },
+        "wide": {
+          "alias": "space/300"
+        }
+      }
+    },
+    {
+      "path": "space/gap/content/spacious",
+      "type": "FLOAT",
+      "scopes": [
+        "GAP"
+      ],
+      "description": "Req for: inputs in a form; body text blocks, further apart; a title and its content, further apart",
+      "values": {
+        "mobile": {
+          "alias": "space/400"
+        },
+        "tablet": {
+          "alias": "space/400"
+        },
+        "desktop": {
+          "alias": "space/400"
+        },
+        "wide": {
+          "alias": "space/400"
+        }
+      }
+    },
+    {
+      "path": "space/gap/layout/condensed",
+      "type": "FLOAT",
+      "scopes": [
+        "GAP"
+      ],
+      "description": "Req for: cards in a list or a grid",
+      "values": {
+        "mobile": {
+          "alias": "space/400"
+        },
+        "tablet": {
+          "alias": "space/400"
+        },
+        "desktop": {
+          "alias": "space/400"
+        },
+        "wide": {
+          "alias": "space/400"
+        }
+      }
+    },
+    {
+      "path": "space/gap/layout/normal",
+      "type": "FLOAT",
+      "scopes": [
+        "GAP"
+      ],
+      "description": "Req for: cards, further apart; sections, close together; content and the buttons that act on it",
+      "values": {
+        "mobile": {
+          "alias": "space/600"
+        },
+        "tablet": {
+          "alias": "space/600"
+        },
+        "desktop": {
+          "alias": "space/600"
+        },
+        "wide": {
+          "alias": "space/600"
+        }
+      }
+    },
+    {
+      "path": "space/gap/layout/spacious",
+      "type": "FLOAT",
+      "scopes": [
+        "GAP"
+      ],
+      "description": "Req for: sections of a page",
+      "values": {
+        "mobile": {
+          "alias": "space/800"
+        },
+        "tablet": {
+          "alias": "space/800"
+        },
+        "desktop": {
+          "alias": "space/800"
+        },
+        "wide": {
+          "alias": "space/800"
+        }
+      }
+    },
+    {
+      "path": "space/padding/card/condensed",
+      "type": "FLOAT",
+      "scopes": [
+        "GAP"
+      ],
+      "description": "Req for: a card in a dense list or grid",
+      "values": {
+        "mobile": {
+          "alias": "space/300"
+        },
+        "tablet": {
+          "alias": "space/300"
+        },
+        "desktop": {
+          "alias": "space/300"
+        },
+        "wide": {
+          "alias": "space/300"
+        }
+      }
+    },
+    {
+      "path": "space/padding/card/normal",
+      "type": "FLOAT",
+      "scopes": [
+        "GAP"
+      ],
+      "description": "Req for: a card",
+      "values": {
+        "mobile": {
+          "alias": "space/400"
+        },
+        "tablet": {
+          "alias": "space/400"
+        },
+        "desktop": {
+          "alias": "space/400"
+        },
+        "wide": {
+          "alias": "space/400"
+        }
+      }
+    },
+    {
+      "path": "space/padding/container/condensed",
+      "type": "FLOAT",
+      "scopes": [
+        "GAP"
+      ],
+      "description": "Req for: a container whose heading line height already adds room",
+      "values": {
+        "mobile": {
+          "alias": "space/500"
+        },
+        "tablet": {
+          "alias": "space/500"
+        },
+        "desktop": {
+          "alias": "space/500"
+        },
+        "wide": {
+          "alias": "space/500"
+        }
+      }
+    },
+    {
+      "path": "space/padding/container/normal",
+      "type": "FLOAT",
+      "scopes": [
+        "GAP"
+      ],
+      "description": "Req for: a container",
+      "values": {
+        "mobile": {
+          "alias": "space/600"
+        },
+        "tablet": {
+          "alias": "space/600"
+        },
+        "desktop": {
+          "alias": "space/600"
+        },
+        "wide": {
+          "alias": "space/600"
+        }
+      }
+    },
+    {
+      "path": "size/icon/xs",
+      "today": "icon-xs",
+      "type": "FLOAT",
+      "scopes": [
+        "WIDTH_HEIGHT"
+      ],
+      "description": "Req for: the width and height of an icon",
+      "values": {
+        "mobile": {
+          "alias": "size/300"
+        },
+        "tablet": {
+          "alias": "size/300"
+        },
+        "desktop": {
+          "alias": "size/300"
+        },
+        "wide": {
+          "alias": "size/300"
+        }
+      }
+    },
+    {
+      "path": "size/icon/sm",
+      "today": "icon-sm",
+      "type": "FLOAT",
+      "scopes": [
+        "WIDTH_HEIGHT"
+      ],
+      "description": "Req for: the width and height of an icon",
+      "values": {
+        "mobile": {
+          "alias": "size/400"
+        },
+        "tablet": {
+          "alias": "size/400"
+        },
+        "desktop": {
+          "alias": "size/400"
+        },
+        "wide": {
+          "alias": "size/400"
+        }
+      }
+    },
+    {
+      "path": "size/icon/md",
+      "today": "icon-md",
+      "type": "FLOAT",
+      "scopes": [
+        "WIDTH_HEIGHT"
+      ],
+      "description": "Req for: the width and height of an icon",
+      "values": {
+        "mobile": {
+          "alias": "size/500"
+        },
+        "tablet": {
+          "alias": "size/500"
+        },
+        "desktop": {
+          "alias": "size/500"
+        },
+        "wide": {
+          "alias": "size/500"
+        }
+      }
+    },
+    {
+      "path": "size/icon/lg",
+      "today": "icon-lg",
+      "type": "FLOAT",
+      "scopes": [
+        "WIDTH_HEIGHT"
+      ],
+      "description": "Req for: the width and height of an icon",
+      "values": {
+        "mobile": {
+          "alias": "size/600"
+        },
+        "tablet": {
+          "alias": "size/600"
+        },
+        "desktop": {
+          "alias": "size/600"
+        },
+        "wide": {
+          "alias": "size/600"
+        }
+      }
+    },
+    {
+      "path": "size/control/sm",
+      "type": "FLOAT",
+      "scopes": [
+        "WIDTH_HEIGHT"
+      ],
+      "description": "Req for: the fixed height of a control, such as a button or a text field",
+      "values": {
+        "mobile": {
+          "alias": "size/1000"
+        },
+        "tablet": {
+          "alias": "size/1000"
+        },
+        "desktop": {
+          "alias": "size/1000"
+        },
+        "wide": {
+          "alias": "size/1000"
+        }
+      }
+    },
+    {
+      "path": "size/control/md",
+      "type": "FLOAT",
+      "scopes": [
+        "WIDTH_HEIGHT"
+      ],
+      "description": "Req for: the fixed height of a control, such as a button or a text field",
+      "values": {
+        "mobile": {
+          "alias": "size/1200"
+        },
+        "tablet": {
+          "alias": "size/1200"
+        },
+        "desktop": {
+          "alias": "size/1200"
+        },
+        "wide": {
+          "alias": "size/1200"
+        }
+      }
+    },
+    {
+      "path": "size/control/lg",
+      "type": "FLOAT",
+      "scopes": [
+        "WIDTH_HEIGHT"
+      ],
+      "description": "Req for: the fixed height of a control, such as a button or a text field",
+      "values": {
+        "mobile": {
+          "alias": "size/1400"
+        },
+        "tablet": {
+          "alias": "size/1400"
+        },
+        "desktop": {
+          "alias": "size/1400"
+        },
+        "wide": {
+          "alias": "size/1400"
+        }
+      }
+    },
+    {
+      "path": "size/illustration/spot/sm",
+      "type": "FLOAT",
+      "scopes": [
+        "WIDTH_HEIGHT"
+      ],
+      "description": "Req for: the width and height of a spot illustration",
+      "values": {
+        "mobile": {
+          "alias": "size/1200"
+        },
+        "tablet": {
+          "alias": "size/1200"
+        },
+        "desktop": {
+          "alias": "size/1200"
+        },
+        "wide": {
+          "alias": "size/1200"
+        }
+      }
+    },
+    {
+      "path": "size/illustration/spot/md",
+      "type": "FLOAT",
+      "scopes": [
+        "WIDTH_HEIGHT"
+      ],
+      "description": "Req for: the width and height of a spot illustration",
+      "values": {
+        "mobile": {
+          "alias": "size/1400"
+        },
+        "tablet": {
+          "alias": "size/1400"
+        },
+        "desktop": {
+          "alias": "size/1400"
+        },
+        "wide": {
+          "alias": "size/1400"
+        }
+      }
+    },
+    {
+      "path": "size/illustration/spot/lg",
+      "type": "FLOAT",
+      "scopes": [
+        "WIDTH_HEIGHT"
+      ],
+      "description": "Req for: the width and height of a spot illustration",
+      "values": {
+        "mobile": {
+          "alias": "size/1600"
+        },
+        "tablet": {
+          "alias": "size/1600"
+        },
+        "desktop": {
+          "alias": "size/1600"
+        },
+        "wide": {
+          "alias": "size/1600"
+        }
+      }
+    },
+    {
+      "path": "size/illustration/hero/sm",
+      "type": "FLOAT",
+      "scopes": [
+        "WIDTH_HEIGHT"
+      ],
+      "description": "Req for: the width and height of a hero illustration",
+      "values": {
+        "mobile": 200,
+        "tablet": 200,
+        "desktop": 200,
+        "wide": 200
+      }
+    },
+    {
+      "path": "size/illustration/hero/md",
+      "type": "FLOAT",
+      "scopes": [
+        "WIDTH_HEIGHT"
+      ],
+      "description": "Req for: the width and height of a hero illustration",
+      "values": {
+        "mobile": 256,
+        "tablet": 256,
+        "desktop": 256,
+        "wide": 256
+      }
+    },
+    {
+      "path": "size/illustration/hero/lg",
+      "type": "FLOAT",
+      "scopes": [
+        "WIDTH_HEIGHT"
+      ],
+      "description": "Req for: the width and height of a hero illustration",
+      "values": {
+        "mobile": 300,
+        "tablet": 300,
+        "desktop": 300,
+        "wide": 300
+      }
+    },
+    {
+      "path": "size/measure",
+      "today": "Primitives/size-measure",
+      "type": "FLOAT",
+      "scopes": [
+        "WIDTH_HEIGHT"
+      ],
+      "description": "Req for: the longest line of running text: paragraphs, descriptions, long-form content",
+      "values": {
+        "mobile": 640,
+        "tablet": 640,
+        "desktop": 640,
+        "wide": 640
+      }
+    },
+    {
+      "path": "grid/columns",
+      "type": "FLOAT",
+      "scopes": [],
+      "description": "Req for: the number of columns content aligns to",
+      "values": {
+        "mobile": 4,
+        "tablet": 6,
+        "desktop": 12,
+        "wide": 12
+      }
+    },
+    {
+      "path": "grid/margin",
+      "type": "FLOAT",
+      "scopes": [
+        "GAP"
+      ],
+      "description": "Req for: the space between content and the left and right edges of the screen",
+      "values": {
+        "mobile": {
+          "alias": "space/400"
+        },
+        "tablet": {
+          "alias": "space/800"
+        },
+        "desktop": {
+          "alias": "space/800"
+        },
+        "wide": {
+          "alias": "space/800"
+        }
+      }
+    },
+    {
+      "path": "grid/gutter",
+      "type": "FLOAT",
+      "scopes": [
+        "GAP"
+      ],
+      "description": "Req for: the space between columns",
+      "values": {
+        "mobile": {
+          "alias": "space/200"
+        },
+        "tablet": {
+          "alias": "space/200"
+        },
+        "desktop": {
+          "alias": "space/400"
+        },
+        "wide": {
+          "alias": "space/400"
+        }
+      }
+    },
+    {
+      "path": "grid/max-width",
+      "type": "FLOAT",
+      "scopes": [
+        "WIDTH_HEIGHT"
+      ],
+      "description": "Req for: the width at which page content stops growing and centers",
+      "values": {
+        "mobile": 1280,
+        "tablet": 1280,
+        "desktop": 1280,
+        "wide": 1280
+      }
+    },
+    {
+      "path": "text/display/lg/font-family",
+      "today": "display/lg/font-family",
+      "type": "STRING",
+      "scopes": [
+        "FONT_FAMILY"
+      ],
+      "description": "Req for: large, high-impact moments: page titles, major section introductions; the lg size",
+      "values": {
+        "mobile": {
+          "alias": "font/family/sans"
+        },
+        "tablet": {
+          "alias": "font/family/sans"
+        },
+        "desktop": {
+          "alias": "font/family/sans"
+        },
+        "wide": {
+          "alias": "font/family/sans"
+        }
+      }
+    },
+    {
+      "path": "text/display/lg/font-size",
+      "today": "display/lg/font-size",
+      "type": "FLOAT",
+      "scopes": [
+        "FONT_SIZE"
+      ],
+      "description": "Req for: large, high-impact moments: page titles, major section introductions; the lg size",
+      "values": {
+        "mobile": {
+          "alias": "font/size/1000"
+        },
+        "tablet": {
+          "alias": "font/size/1800"
+        },
+        "desktop": {
+          "alias": "font/size/1800"
+        },
+        "wide": {
+          "alias": "font/size/1800"
+        }
+      }
+    },
+    {
+      "path": "text/display/lg/font-weight",
+      "today": "display/lg/font-weight",
+      "type": "FLOAT",
+      "scopes": [
+        "FONT_WEIGHT"
+      ],
+      "description": "Req for: large, high-impact moments: page titles, major section introductions; the lg size",
+      "values": {
+        "mobile": {
+          "alias": "font/weight/semibold"
+        },
+        "tablet": {
+          "alias": "font/weight/semibold"
+        },
+        "desktop": {
+          "alias": "font/weight/semibold"
+        },
+        "wide": {
+          "alias": "font/weight/semibold"
+        }
+      }
+    },
+    {
+      "path": "text/display/lg/line-height",
+      "type": "FLOAT",
+      "scopes": [
+        "LINE_HEIGHT"
+      ],
+      "description": "Req for: large, high-impact moments: page titles, major section introductions; the lg size",
+      "values": {
+        "mobile": 50,
+        "tablet": 90,
+        "desktop": 90,
+        "wide": 90
+      }
+    },
+    {
+      "path": "text/display/lg/letter-spacing",
+      "type": "FLOAT",
+      "scopes": [
+        "LETTER_SPACING"
+      ],
+      "description": "Req for: large, high-impact moments: page titles, major section introductions; the lg size",
+      "values": {
+        "mobile": 0,
+        "tablet": 0,
+        "desktop": 0,
+        "wide": 0
+      }
+    },
+    {
+      "path": "text/display/md/font-family",
+      "today": "display/md/font-family",
+      "type": "STRING",
+      "scopes": [
+        "FONT_FAMILY"
+      ],
+      "description": "Req for: large, high-impact moments: page titles, major section introductions; the md size",
+      "values": {
+        "mobile": {
+          "alias": "font/family/sans"
+        },
+        "tablet": {
+          "alias": "font/family/sans"
+        },
+        "desktop": {
+          "alias": "font/family/sans"
+        },
+        "wide": {
+          "alias": "font/family/sans"
+        }
+      }
+    },
+    {
+      "path": "text/display/md/font-size",
+      "today": "display/md/font-size",
+      "type": "FLOAT",
+      "scopes": [
+        "FONT_SIZE"
+      ],
+      "description": "Req for: large, high-impact moments: page titles, major section introductions; the md size",
+      "values": {
+        "mobile": {
+          "alias": "font/size/800"
+        },
+        "tablet": {
+          "alias": "font/size/1500"
+        },
+        "desktop": {
+          "alias": "font/size/1500"
+        },
+        "wide": {
+          "alias": "font/size/1500"
+        }
+      }
+    },
+    {
+      "path": "text/display/md/font-weight",
+      "today": "display/md/font-weight",
+      "type": "FLOAT",
+      "scopes": [
+        "FONT_WEIGHT"
+      ],
+      "description": "Req for: large, high-impact moments: page titles, major section introductions; the md size",
+      "values": {
+        "mobile": {
+          "alias": "font/weight/semibold"
+        },
+        "tablet": {
+          "alias": "font/weight/semibold"
+        },
+        "desktop": {
+          "alias": "font/weight/semibold"
+        },
+        "wide": {
+          "alias": "font/weight/semibold"
+        }
+      }
+    },
+    {
+      "path": "text/display/md/line-height",
+      "type": "FLOAT",
+      "scopes": [
+        "LINE_HEIGHT"
+      ],
+      "description": "Req for: large, high-impact moments: page titles, major section introductions; the md size",
+      "values": {
+        "mobile": 40,
+        "tablet": 75,
+        "desktop": 75,
+        "wide": 75
+      }
+    },
+    {
+      "path": "text/display/md/letter-spacing",
+      "type": "FLOAT",
+      "scopes": [
+        "LETTER_SPACING"
+      ],
+      "description": "Req for: large, high-impact moments: page titles, major section introductions; the md size",
+      "values": {
+        "mobile": -0.64,
+        "tablet": -1.2,
+        "desktop": -1.2,
+        "wide": -1.2
+      }
+    },
+    {
+      "path": "text/display/sm/font-family",
+      "today": "display/sm/font-family",
+      "type": "STRING",
+      "scopes": [
+        "FONT_FAMILY"
+      ],
+      "description": "Req for: large, high-impact moments: page titles, major section introductions; the sm size",
+      "values": {
+        "mobile": {
+          "alias": "font/family/sans"
+        },
+        "tablet": {
+          "alias": "font/family/sans"
+        },
+        "desktop": {
+          "alias": "font/family/sans"
+        },
+        "wide": {
+          "alias": "font/family/sans"
+        }
+      }
+    },
+    {
+      "path": "text/display/sm/font-size",
+      "today": "display/sm/font-size",
+      "type": "FLOAT",
+      "scopes": [
+        "FONT_SIZE"
+      ],
+      "description": "Req for: large, high-impact moments: page titles, major section introductions; the sm size",
+      "values": {
+        "mobile": {
+          "alias": "font/size/650"
+        },
+        "tablet": {
+          "alias": "font/size/1200"
+        },
+        "desktop": {
+          "alias": "font/size/1200"
+        },
+        "wide": {
+          "alias": "font/size/1200"
+        }
+      }
+    },
+    {
+      "path": "text/display/sm/font-weight",
+      "today": "display/sm/font-weight",
+      "type": "FLOAT",
+      "scopes": [
+        "FONT_WEIGHT"
+      ],
+      "description": "Req for: large, high-impact moments: page titles, major section introductions; the sm size",
+      "values": {
+        "mobile": {
+          "alias": "font/weight/semibold"
+        },
+        "tablet": {
+          "alias": "font/weight/semibold"
+        },
+        "desktop": {
+          "alias": "font/weight/semibold"
+        },
+        "wide": {
+          "alias": "font/weight/semibold"
+        }
+      }
+    },
+    {
+      "path": "text/display/sm/line-height",
+      "type": "FLOAT",
+      "scopes": [
+        "LINE_HEIGHT"
+      ],
+      "description": "Req for: large, high-impact moments: page titles, major section introductions; the sm size",
+      "values": {
+        "mobile": 32.5,
+        "tablet": 60,
+        "desktop": 60,
+        "wide": 60
+      }
+    },
+    {
+      "path": "text/display/sm/letter-spacing",
+      "type": "FLOAT",
+      "scopes": [
+        "LETTER_SPACING"
+      ],
+      "description": "Req for: large, high-impact moments: page titles, major section introductions; the sm size",
+      "values": {
+        "mobile": -0.39,
+        "tablet": -0.72,
+        "desktop": -0.72,
+        "wide": -0.72
+      }
+    },
+    {
+      "path": "text/heading/lg/font-family",
+      "today": "heading/lg/font-family",
+      "type": "STRING",
+      "scopes": [
+        "FONT_FAMILY"
+      ],
+      "description": "Req for: the headings that define content blocks and guide a reader through the page; the lg size",
+      "values": {
+        "mobile": {
+          "alias": "font/family/sans"
+        },
+        "tablet": {
+          "alias": "font/family/sans"
+        },
+        "desktop": {
+          "alias": "font/family/sans"
+        },
+        "wide": {
+          "alias": "font/family/sans"
+        }
+      }
+    },
+    {
+      "path": "text/heading/lg/font-size",
+      "today": "heading/lg/font-size",
+      "type": "FLOAT",
+      "scopes": [
+        "FONT_SIZE"
+      ],
+      "description": "Req for: the headings that define content blocks and guide a reader through the page; the lg size",
+      "values": {
+        "mobile": {
+          "alias": "font/size/800"
+        },
+        "tablet": {
+          "alias": "font/size/1000"
+        },
+        "desktop": {
+          "alias": "font/size/1000"
+        },
+        "wide": {
+          "alias": "font/size/1000"
+        }
+      }
+    },
+    {
+      "path": "text/heading/lg/font-weight",
+      "today": "heading/lg/font-weight",
+      "type": "FLOAT",
+      "scopes": [
+        "FONT_WEIGHT"
+      ],
+      "description": "Req for: the headings that define content blocks and guide a reader through the page; the lg size",
+      "values": {
+        "mobile": {
+          "alias": "font/weight/medium"
+        },
+        "tablet": {
+          "alias": "font/weight/medium"
+        },
+        "desktop": {
+          "alias": "font/weight/medium"
+        },
+        "wide": {
+          "alias": "font/weight/medium"
+        }
+      }
+    },
+    {
+      "path": "text/heading/lg/line-height",
+      "type": "FLOAT",
+      "scopes": [
+        "LINE_HEIGHT"
+      ],
+      "description": "Req for: the headings that define content blocks and guide a reader through the page; the lg size",
+      "values": {
+        "mobile": 40,
+        "tablet": 50,
+        "desktop": 50,
+        "wide": 50
+      }
+    },
+    {
+      "path": "text/heading/lg/letter-spacing",
+      "type": "FLOAT",
+      "scopes": [
+        "LETTER_SPACING"
+      ],
+      "description": "Req for: the headings that define content blocks and guide a reader through the page; the lg size",
+      "values": {
+        "mobile": -0.64,
+        "tablet": -0.8,
+        "desktop": -0.8,
+        "wide": -0.8
+      }
+    },
+    {
+      "path": "text/heading/md/font-family",
+      "today": "heading/md/font-family",
+      "type": "STRING",
+      "scopes": [
+        "FONT_FAMILY"
+      ],
+      "description": "Req for: the headings that define content blocks and guide a reader through the page; the md size",
+      "values": {
+        "mobile": {
+          "alias": "font/family/sans"
+        },
+        "tablet": {
+          "alias": "font/family/sans"
+        },
+        "desktop": {
+          "alias": "font/family/sans"
+        },
+        "wide": {
+          "alias": "font/family/sans"
+        }
+      }
+    },
+    {
+      "path": "text/heading/md/font-size",
+      "today": "heading/md/font-size",
+      "type": "FLOAT",
+      "scopes": [
+        "FONT_SIZE"
+      ],
+      "description": "Req for: the headings that define content blocks and guide a reader through the page; the md size",
+      "values": {
+        "mobile": {
+          "alias": "font/size/650"
+        },
+        "tablet": {
+          "alias": "font/size/800"
+        },
+        "desktop": {
+          "alias": "font/size/800"
+        },
+        "wide": {
+          "alias": "font/size/800"
+        }
+      }
+    },
+    {
+      "path": "text/heading/md/font-weight",
+      "today": "heading/md/font-weight",
+      "type": "FLOAT",
+      "scopes": [
+        "FONT_WEIGHT"
+      ],
+      "description": "Req for: the headings that define content blocks and guide a reader through the page; the md size",
+      "values": {
+        "mobile": {
+          "alias": "font/weight/medium"
+        },
+        "tablet": {
+          "alias": "font/weight/medium"
+        },
+        "desktop": {
+          "alias": "font/weight/medium"
+        },
+        "wide": {
+          "alias": "font/weight/medium"
+        }
+      }
+    },
+    {
+      "path": "text/heading/md/line-height",
+      "type": "FLOAT",
+      "scopes": [
+        "LINE_HEIGHT"
+      ],
+      "description": "Req for: the headings that define content blocks and guide a reader through the page; the md size",
+      "values": {
+        "mobile": 32.5,
+        "tablet": 40,
+        "desktop": 40,
+        "wide": 40
+      }
+    },
+    {
+      "path": "text/heading/md/letter-spacing",
+      "type": "FLOAT",
+      "scopes": [
+        "LETTER_SPACING"
+      ],
+      "description": "Req for: the headings that define content blocks and guide a reader through the page; the md size",
+      "values": {
+        "mobile": -0.39,
+        "tablet": -0.48,
+        "desktop": -0.48,
+        "wide": -0.48
+      }
+    },
+    {
+      "path": "text/heading/sm/font-family",
+      "today": "heading/sm/font-family",
+      "type": "STRING",
+      "scopes": [
+        "FONT_FAMILY"
+      ],
+      "description": "Req for: the headings that define content blocks and guide a reader through the page; the sm size",
+      "values": {
+        "mobile": {
+          "alias": "font/family/sans"
+        },
+        "tablet": {
+          "alias": "font/family/sans"
+        },
+        "desktop": {
+          "alias": "font/family/sans"
+        },
+        "wide": {
+          "alias": "font/family/sans"
+        }
+      }
+    },
+    {
+      "path": "text/heading/sm/font-size",
+      "today": "heading/sm/font-size",
+      "type": "FLOAT",
+      "scopes": [
+        "FONT_SIZE"
+      ],
+      "description": "Req for: the headings that define content blocks and guide a reader through the page; the sm size",
+      "values": {
+        "mobile": {
+          "alias": "font/size/500"
+        },
+        "tablet": {
+          "alias": "font/size/650"
+        },
+        "desktop": {
+          "alias": "font/size/650"
+        },
+        "wide": {
+          "alias": "font/size/650"
+        }
+      }
+    },
+    {
+      "path": "text/heading/sm/font-weight",
+      "today": "heading/sm/font-weight",
+      "type": "FLOAT",
+      "scopes": [
+        "FONT_WEIGHT"
+      ],
+      "description": "Req for: the headings that define content blocks and guide a reader through the page; the sm size",
+      "values": {
+        "mobile": {
+          "alias": "font/weight/medium"
+        },
+        "tablet": {
+          "alias": "font/weight/medium"
+        },
+        "desktop": {
+          "alias": "font/weight/medium"
+        },
+        "wide": {
+          "alias": "font/weight/medium"
+        }
+      }
+    },
+    {
+      "path": "text/heading/sm/line-height",
+      "type": "FLOAT",
+      "scopes": [
+        "LINE_HEIGHT"
+      ],
+      "description": "Req for: the headings that define content blocks and guide a reader through the page; the sm size",
+      "values": {
+        "mobile": 25,
+        "tablet": 32.5,
+        "desktop": 32.5,
+        "wide": 32.5
+      }
+    },
+    {
+      "path": "text/heading/sm/letter-spacing",
+      "type": "FLOAT",
+      "scopes": [
+        "LETTER_SPACING"
+      ],
+      "description": "Req for: the headings that define content blocks and guide a reader through the page; the sm size",
+      "values": {
+        "mobile": -0.2,
+        "tablet": -0.26,
+        "desktop": -0.26,
+        "wide": -0.26
+      }
+    },
+    {
+      "path": "text/heading/xs/font-family",
+      "today": "heading/xs/font-family",
+      "type": "STRING",
+      "scopes": [
+        "FONT_FAMILY"
+      ],
+      "description": "Req for: the headings that define content blocks and guide a reader through the page; the xs size",
+      "values": {
+        "mobile": {
+          "alias": "font/family/sans"
+        },
+        "tablet": {
+          "alias": "font/family/sans"
+        },
+        "desktop": {
+          "alias": "font/family/sans"
+        },
+        "wide": {
+          "alias": "font/family/sans"
+        }
+      }
+    },
+    {
+      "path": "text/heading/xs/font-size",
+      "today": "heading/xs/font-size",
+      "type": "FLOAT",
+      "scopes": [
+        "FONT_SIZE"
+      ],
+      "description": "Req for: the headings that define content blocks and guide a reader through the page; the xs size",
+      "values": {
+        "mobile": {
+          "alias": "font/size/375"
+        },
+        "tablet": {
+          "alias": "font/size/500"
+        },
+        "desktop": {
+          "alias": "font/size/500"
+        },
+        "wide": {
+          "alias": "font/size/500"
+        }
+      }
+    },
+    {
+      "path": "text/heading/xs/font-weight",
+      "today": "heading/xs/font-weight",
+      "type": "FLOAT",
+      "scopes": [
+        "FONT_WEIGHT"
+      ],
+      "description": "Req for: the headings that define content blocks and guide a reader through the page; the xs size",
+      "values": {
+        "mobile": {
+          "alias": "font/weight/medium"
+        },
+        "tablet": {
+          "alias": "font/weight/medium"
+        },
+        "desktop": {
+          "alias": "font/weight/medium"
+        },
+        "wide": {
+          "alias": "font/weight/medium"
+        }
+      }
+    },
+    {
+      "path": "text/heading/xs/line-height",
+      "type": "FLOAT",
+      "scopes": [
+        "LINE_HEIGHT"
+      ],
+      "description": "Req for: the headings that define content blocks and guide a reader through the page; the xs size",
+      "values": {
+        "mobile": 18.75,
+        "tablet": 25,
+        "desktop": 25,
+        "wide": 25
+      }
+    },
+    {
+      "path": "text/heading/xs/letter-spacing",
+      "type": "FLOAT",
+      "scopes": [
+        "LETTER_SPACING"
+      ],
+      "description": "Req for: the headings that define content blocks and guide a reader through the page; the xs size",
+      "values": {
+        "mobile": -0.15,
+        "tablet": -0.2,
+        "desktop": -0.2,
+        "wide": -0.2
+      }
+    },
+    {
+      "path": "text/title/lg/font-family",
+      "today": "title/lg/font-family",
+      "type": "STRING",
+      "scopes": [
+        "FONT_FAMILY"
+      ],
+      "description": "Req for: labels for subsections, card headers and contextual identifiers; the lg size",
+      "values": {
+        "mobile": {
+          "alias": "font/family/sans"
+        },
+        "tablet": {
+          "alias": "font/family/sans"
+        },
+        "desktop": {
+          "alias": "font/family/sans"
+        },
+        "wide": {
+          "alias": "font/family/sans"
+        }
+      }
+    },
+    {
+      "path": "text/title/lg/font-size",
+      "today": "title/lg/font-size",
+      "type": "FLOAT",
+      "scopes": [
+        "FONT_SIZE"
+      ],
+      "description": "Req for: labels for subsections, card headers and contextual identifiers; the lg size",
+      "values": {
+        "mobile": {
+          "alias": "font/size/450"
+        },
+        "tablet": {
+          "alias": "font/size/450"
+        },
+        "desktop": {
+          "alias": "font/size/450"
+        },
+        "wide": {
+          "alias": "font/size/450"
+        }
+      }
+    },
+    {
+      "path": "text/title/lg/font-weight",
+      "today": "title/lg/font-weight",
+      "type": "FLOAT",
+      "scopes": [
+        "FONT_WEIGHT"
+      ],
+      "description": "Req for: labels for subsections, card headers and contextual identifiers; the lg size",
+      "values": {
+        "mobile": {
+          "alias": "font/weight/medium"
+        },
+        "tablet": {
+          "alias": "font/weight/medium"
+        },
+        "desktop": {
+          "alias": "font/weight/medium"
+        },
+        "wide": {
+          "alias": "font/weight/medium"
+        }
+      }
+    },
+    {
+      "path": "text/title/lg/line-height",
+      "type": "FLOAT",
+      "scopes": [
+        "LINE_HEIGHT"
+      ],
+      "description": "Req for: labels for subsections, card headers and contextual identifiers; the lg size",
+      "values": {
+        "mobile": 27,
+        "tablet": 27,
+        "desktop": 27,
+        "wide": 27
+      }
+    },
+    {
+      "path": "text/title/lg/letter-spacing",
+      "type": "FLOAT",
+      "scopes": [
+        "LETTER_SPACING"
+      ],
+      "description": "Req for: labels for subsections, card headers and contextual identifiers; the lg size",
+      "values": {
+        "mobile": -0.018,
+        "tablet": -0.018,
+        "desktop": -0.018,
+        "wide": -0.018
+      }
+    },
+    {
+      "path": "text/title/md/font-family",
+      "today": "title/md/font-family",
+      "type": "STRING",
+      "scopes": [
+        "FONT_FAMILY"
+      ],
+      "description": "Req for: labels for subsections, card headers and contextual identifiers; the md size",
+      "values": {
+        "mobile": {
+          "alias": "font/family/sans"
+        },
+        "tablet": {
+          "alias": "font/family/sans"
+        },
+        "desktop": {
+          "alias": "font/family/sans"
+        },
+        "wide": {
+          "alias": "font/family/sans"
+        }
+      }
+    },
+    {
+      "path": "text/title/md/font-size",
+      "today": "title/md/font-size",
+      "type": "FLOAT",
+      "scopes": [
+        "FONT_SIZE"
+      ],
+      "description": "Req for: labels for subsections, card headers and contextual identifiers; the md size",
+      "values": {
+        "mobile": {
+          "alias": "font/size/375"
+        },
+        "tablet": {
+          "alias": "font/size/375"
+        },
+        "desktop": {
+          "alias": "font/size/375"
+        },
+        "wide": {
+          "alias": "font/size/375"
+        }
+      }
+    },
+    {
+      "path": "text/title/md/font-weight",
+      "today": "title/md/font-weight",
+      "type": "FLOAT",
+      "scopes": [
+        "FONT_WEIGHT"
+      ],
+      "description": "Req for: labels for subsections, card headers and contextual identifiers; the md size",
+      "values": {
+        "mobile": {
+          "alias": "font/weight/medium"
+        },
+        "tablet": {
+          "alias": "font/weight/medium"
+        },
+        "desktop": {
+          "alias": "font/weight/medium"
+        },
+        "wide": {
+          "alias": "font/weight/medium"
+        }
+      }
+    },
+    {
+      "path": "text/title/md/line-height",
+      "type": "FLOAT",
+      "scopes": [
+        "LINE_HEIGHT"
+      ],
+      "description": "Req for: labels for subsections, card headers and contextual identifiers; the md size",
+      "values": {
+        "mobile": 22.5,
+        "tablet": 22.5,
+        "desktop": 22.5,
+        "wide": 22.5
+      }
+    },
+    {
+      "path": "text/title/md/letter-spacing",
+      "type": "FLOAT",
+      "scopes": [
+        "LETTER_SPACING"
+      ],
+      "description": "Req for: labels for subsections, card headers and contextual identifiers; the md size",
+      "values": {
+        "mobile": -0.015,
+        "tablet": -0.015,
+        "desktop": -0.015,
+        "wide": -0.015
+      }
+    },
+    {
+      "path": "text/title/sm/font-family",
+      "today": "title/sm/font-family",
+      "type": "STRING",
+      "scopes": [
+        "FONT_FAMILY"
+      ],
+      "description": "Req for: labels for subsections, card headers and contextual identifiers; the sm size",
+      "values": {
+        "mobile": {
+          "alias": "font/family/sans"
+        },
+        "tablet": {
+          "alias": "font/family/sans"
+        },
+        "desktop": {
+          "alias": "font/family/sans"
+        },
+        "wide": {
+          "alias": "font/family/sans"
+        }
+      }
+    },
+    {
+      "path": "text/title/sm/font-size",
+      "today": "title/sm/font-size",
+      "type": "FLOAT",
+      "scopes": [
+        "FONT_SIZE"
+      ],
+      "description": "Req for: labels for subsections, card headers and contextual identifiers; the sm size",
+      "values": {
+        "mobile": {
+          "alias": "font/size/350"
+        },
+        "tablet": {
+          "alias": "font/size/350"
+        },
+        "desktop": {
+          "alias": "font/size/350"
+        },
+        "wide": {
+          "alias": "font/size/350"
+        }
+      }
+    },
+    {
+      "path": "text/title/sm/font-weight",
+      "today": "title/sm/font-weight",
+      "type": "FLOAT",
+      "scopes": [
+        "FONT_WEIGHT"
+      ],
+      "description": "Req for: labels for subsections, card headers and contextual identifiers; the sm size",
+      "values": {
+        "mobile": {
+          "alias": "font/weight/medium"
+        },
+        "tablet": {
+          "alias": "font/weight/medium"
+        },
+        "desktop": {
+          "alias": "font/weight/medium"
+        },
+        "wide": {
+          "alias": "font/weight/medium"
+        }
+      }
+    },
+    {
+      "path": "text/title/sm/line-height",
+      "type": "FLOAT",
+      "scopes": [
+        "LINE_HEIGHT"
+      ],
+      "description": "Req for: labels for subsections, card headers and contextual identifiers; the sm size",
+      "values": {
+        "mobile": 21,
+        "tablet": 21,
+        "desktop": 21,
+        "wide": 21
+      }
+    },
+    {
+      "path": "text/title/sm/letter-spacing",
+      "type": "FLOAT",
+      "scopes": [
+        "LETTER_SPACING"
+      ],
+      "description": "Req for: labels for subsections, card headers and contextual identifiers; the sm size",
+      "values": {
+        "mobile": -0.014,
+        "tablet": -0.014,
+        "desktop": -0.014,
+        "wide": -0.014
+      }
+    },
+    {
+      "path": "text/title/xs/font-family",
+      "today": "title/xs/font-family",
+      "type": "STRING",
+      "scopes": [
+        "FONT_FAMILY"
+      ],
+      "description": "Req for: labels for subsections, card headers and contextual identifiers; the xs size",
+      "values": {
+        "mobile": {
+          "alias": "font/family/sans"
+        },
+        "tablet": {
+          "alias": "font/family/sans"
+        },
+        "desktop": {
+          "alias": "font/family/sans"
+        },
+        "wide": {
+          "alias": "font/family/sans"
+        }
+      }
+    },
+    {
+      "path": "text/title/xs/font-size",
+      "today": "title/xs/font-size",
+      "type": "FLOAT",
+      "scopes": [
+        "FONT_SIZE"
+      ],
+      "description": "Req for: labels for subsections, card headers and contextual identifiers; the xs size",
+      "values": {
+        "mobile": {
+          "alias": "font/size/300"
+        },
+        "tablet": {
+          "alias": "font/size/300"
+        },
+        "desktop": {
+          "alias": "font/size/300"
+        },
+        "wide": {
+          "alias": "font/size/300"
+        }
+      }
+    },
+    {
+      "path": "text/title/xs/font-weight",
+      "today": "title/xs/font-weight",
+      "type": "FLOAT",
+      "scopes": [
+        "FONT_WEIGHT"
+      ],
+      "description": "Req for: labels for subsections, card headers and contextual identifiers; the xs size",
+      "values": {
+        "mobile": {
+          "alias": "font/weight/medium"
+        },
+        "tablet": {
+          "alias": "font/weight/medium"
+        },
+        "desktop": {
+          "alias": "font/weight/medium"
+        },
+        "wide": {
+          "alias": "font/weight/medium"
+        }
+      }
+    },
+    {
+      "path": "text/title/xs/line-height",
+      "type": "FLOAT",
+      "scopes": [
+        "LINE_HEIGHT"
+      ],
+      "description": "Req for: labels for subsections, card headers and contextual identifiers; the xs size",
+      "values": {
+        "mobile": 18,
+        "tablet": 18,
+        "desktop": 18,
+        "wide": 18
+      }
+    },
+    {
+      "path": "text/title/xs/letter-spacing",
+      "type": "FLOAT",
+      "scopes": [
+        "LETTER_SPACING"
+      ],
+      "description": "Req for: labels for subsections, card headers and contextual identifiers; the xs size",
+      "values": {
+        "mobile": 0,
+        "tablet": 0,
+        "desktop": 0,
+        "wide": 0
+      }
+    },
+    {
+      "path": "text/body/lg/font-family",
+      "today": "body/lg/font-family",
+      "type": "STRING",
+      "scopes": [
+        "FONT_FAMILY"
+      ],
+      "description": "Req for: paragraphs, descriptions and general content; the lg size",
+      "values": {
+        "mobile": {
+          "alias": "font/family/sans"
+        },
+        "tablet": {
+          "alias": "font/family/sans"
+        },
+        "desktop": {
+          "alias": "font/family/sans"
+        },
+        "wide": {
+          "alias": "font/family/sans"
+        }
+      }
+    },
+    {
+      "path": "text/body/lg/font-size",
+      "today": "body/lg/font-size",
+      "type": "FLOAT",
+      "scopes": [
+        "FONT_SIZE"
+      ],
+      "description": "Req for: paragraphs, descriptions and general content; the lg size",
+      "values": {
+        "mobile": {
+          "alias": "font/size/450"
+        },
+        "tablet": {
+          "alias": "font/size/450"
+        },
+        "desktop": {
+          "alias": "font/size/450"
+        },
+        "wide": {
+          "alias": "font/size/450"
+        }
+      }
+    },
+    {
+      "path": "text/body/lg/font-weight",
+      "today": "body/lg/font-weight",
+      "type": "FLOAT",
+      "scopes": [
+        "FONT_WEIGHT"
+      ],
+      "description": "Req for: paragraphs, descriptions and general content; the lg size",
+      "values": {
+        "mobile": {
+          "alias": "font/weight/regular"
+        },
+        "tablet": {
+          "alias": "font/weight/regular"
+        },
+        "desktop": {
+          "alias": "font/weight/regular"
+        },
+        "wide": {
+          "alias": "font/weight/regular"
+        }
+      }
+    },
+    {
+      "path": "text/body/lg/line-height",
+      "type": "FLOAT",
+      "scopes": [
+        "LINE_HEIGHT"
+      ],
+      "description": "Req for: paragraphs, descriptions and general content; the lg size",
+      "values": {
+        "mobile": 27,
+        "tablet": 27,
+        "desktop": 27,
+        "wide": 27
+      }
+    },
+    {
+      "path": "text/body/lg/letter-spacing",
+      "type": "FLOAT",
+      "scopes": [
+        "LETTER_SPACING"
+      ],
+      "description": "Req for: paragraphs, descriptions and general content; the lg size",
+      "values": {
+        "mobile": -0.018,
+        "tablet": -0.018,
+        "desktop": -0.018,
+        "wide": -0.018
+      }
+    },
+    {
+      "path": "text/body/md/font-family",
+      "today": "body/md/font-family",
+      "type": "STRING",
+      "scopes": [
+        "FONT_FAMILY"
+      ],
+      "description": "Req for: paragraphs, descriptions and general content; the md size",
+      "values": {
+        "mobile": {
+          "alias": "font/family/sans"
+        },
+        "tablet": {
+          "alias": "font/family/sans"
+        },
+        "desktop": {
+          "alias": "font/family/sans"
+        },
+        "wide": {
+          "alias": "font/family/sans"
+        }
+      }
+    },
+    {
+      "path": "text/body/md/font-size",
+      "today": "body/md/font-size",
+      "type": "FLOAT",
+      "scopes": [
+        "FONT_SIZE"
+      ],
+      "description": "Req for: paragraphs, descriptions and general content; the md size",
+      "values": {
+        "mobile": {
+          "alias": "font/size/375"
+        },
+        "tablet": {
+          "alias": "font/size/375"
+        },
+        "desktop": {
+          "alias": "font/size/375"
+        },
+        "wide": {
+          "alias": "font/size/375"
+        }
+      }
+    },
+    {
+      "path": "text/body/md/font-weight",
+      "today": "body/md/font-weight",
+      "type": "FLOAT",
+      "scopes": [
+        "FONT_WEIGHT"
+      ],
+      "description": "Req for: paragraphs, descriptions and general content; the md size",
+      "values": {
+        "mobile": {
+          "alias": "font/weight/regular"
+        },
+        "tablet": {
+          "alias": "font/weight/regular"
+        },
+        "desktop": {
+          "alias": "font/weight/regular"
+        },
+        "wide": {
+          "alias": "font/weight/regular"
+        }
+      }
+    },
+    {
+      "path": "text/body/md/line-height",
+      "type": "FLOAT",
+      "scopes": [
+        "LINE_HEIGHT"
+      ],
+      "description": "Req for: paragraphs, descriptions and general content; the md size",
+      "values": {
+        "mobile": 22.5,
+        "tablet": 22.5,
+        "desktop": 22.5,
+        "wide": 22.5
+      }
+    },
+    {
+      "path": "text/body/md/letter-spacing",
+      "type": "FLOAT",
+      "scopes": [
+        "LETTER_SPACING"
+      ],
+      "description": "Req for: paragraphs, descriptions and general content; the md size",
+      "values": {
+        "mobile": -0.015,
+        "tablet": -0.015,
+        "desktop": -0.015,
+        "wide": -0.015
+      }
+    },
+    {
+      "path": "text/body/sm/font-family",
+      "today": "body/sm/font-family",
+      "type": "STRING",
+      "scopes": [
+        "FONT_FAMILY"
+      ],
+      "description": "Req for: paragraphs, descriptions and general content; the sm size",
+      "values": {
+        "mobile": {
+          "alias": "font/family/sans"
+        },
+        "tablet": {
+          "alias": "font/family/sans"
+        },
+        "desktop": {
+          "alias": "font/family/sans"
+        },
+        "wide": {
+          "alias": "font/family/sans"
+        }
+      }
+    },
+    {
+      "path": "text/body/sm/font-size",
+      "today": "body/sm/font-size",
+      "type": "FLOAT",
+      "scopes": [
+        "FONT_SIZE"
+      ],
+      "description": "Req for: paragraphs, descriptions and general content; the sm size",
+      "values": {
+        "mobile": {
+          "alias": "font/size/350"
+        },
+        "tablet": {
+          "alias": "font/size/350"
+        },
+        "desktop": {
+          "alias": "font/size/350"
+        },
+        "wide": {
+          "alias": "font/size/350"
+        }
+      }
+    },
+    {
+      "path": "text/body/sm/font-weight",
+      "today": "body/sm/font-weight",
+      "type": "FLOAT",
+      "scopes": [
+        "FONT_WEIGHT"
+      ],
+      "description": "Req for: paragraphs, descriptions and general content; the sm size",
+      "values": {
+        "mobile": {
+          "alias": "font/weight/regular"
+        },
+        "tablet": {
+          "alias": "font/weight/regular"
+        },
+        "desktop": {
+          "alias": "font/weight/regular"
+        },
+        "wide": {
+          "alias": "font/weight/regular"
+        }
+      }
+    },
+    {
+      "path": "text/body/sm/line-height",
+      "type": "FLOAT",
+      "scopes": [
+        "LINE_HEIGHT"
+      ],
+      "description": "Req for: paragraphs, descriptions and general content; the sm size",
+      "values": {
+        "mobile": 21,
+        "tablet": 21,
+        "desktop": 21,
+        "wide": 21
+      }
+    },
+    {
+      "path": "text/body/sm/letter-spacing",
+      "type": "FLOAT",
+      "scopes": [
+        "LETTER_SPACING"
+      ],
+      "description": "Req for: paragraphs, descriptions and general content; the sm size",
+      "values": {
+        "mobile": -0.014,
+        "tablet": -0.014,
+        "desktop": -0.014,
+        "wide": -0.014
+      }
+    },
+    {
+      "path": "text/body/xs/font-family",
+      "today": "body/xs/font-family",
+      "type": "STRING",
+      "scopes": [
+        "FONT_FAMILY"
+      ],
+      "description": "Req for: paragraphs, descriptions and general content; the xs size",
+      "values": {
+        "mobile": {
+          "alias": "font/family/sans"
+        },
+        "tablet": {
+          "alias": "font/family/sans"
+        },
+        "desktop": {
+          "alias": "font/family/sans"
+        },
+        "wide": {
+          "alias": "font/family/sans"
+        }
+      }
+    },
+    {
+      "path": "text/body/xs/font-size",
+      "today": "body/xs/font-size",
+      "type": "FLOAT",
+      "scopes": [
+        "FONT_SIZE"
+      ],
+      "description": "Req for: paragraphs, descriptions and general content; the xs size",
+      "values": {
+        "mobile": {
+          "alias": "font/size/300"
+        },
+        "tablet": {
+          "alias": "font/size/300"
+        },
+        "desktop": {
+          "alias": "font/size/300"
+        },
+        "wide": {
+          "alias": "font/size/300"
+        }
+      }
+    },
+    {
+      "path": "text/body/xs/font-weight",
+      "today": "body/xs/font-weight",
+      "type": "FLOAT",
+      "scopes": [
+        "FONT_WEIGHT"
+      ],
+      "description": "Req for: paragraphs, descriptions and general content; the xs size",
+      "values": {
+        "mobile": {
+          "alias": "font/weight/medium"
+        },
+        "tablet": {
+          "alias": "font/weight/medium"
+        },
+        "desktop": {
+          "alias": "font/weight/medium"
+        },
+        "wide": {
+          "alias": "font/weight/medium"
+        }
+      }
+    },
+    {
+      "path": "text/body/xs/line-height",
+      "type": "FLOAT",
+      "scopes": [
+        "LINE_HEIGHT"
+      ],
+      "description": "Req for: paragraphs, descriptions and general content; the xs size",
+      "values": {
+        "mobile": 18,
+        "tablet": 18,
+        "desktop": 18,
+        "wide": 18
+      }
+    },
+    {
+      "path": "text/body/xs/letter-spacing",
+      "type": "FLOAT",
+      "scopes": [
+        "LETTER_SPACING"
+      ],
+      "description": "Req for: paragraphs, descriptions and general content; the xs size",
+      "values": {
+        "mobile": -0.012,
+        "tablet": -0.012,
+        "desktop": -0.012,
+        "wide": -0.012
+      }
+    },
+    {
+      "path": "text/link/lg/font-family",
+      "today": "link/lg/font-family",
+      "type": "STRING",
+      "scopes": [
+        "FONT_FAMILY"
+      ],
+      "description": "Req for: navigation and actions written as underlined text; the lg size",
+      "values": {
+        "mobile": {
+          "alias": "font/family/sans"
+        },
+        "tablet": {
+          "alias": "font/family/sans"
+        },
+        "desktop": {
+          "alias": "font/family/sans"
+        },
+        "wide": {
+          "alias": "font/family/sans"
+        }
+      }
+    },
+    {
+      "path": "text/link/lg/font-size",
+      "today": "link/lg/font-size",
+      "type": "FLOAT",
+      "scopes": [
+        "FONT_SIZE"
+      ],
+      "description": "Req for: navigation and actions written as underlined text; the lg size",
+      "values": {
+        "mobile": {
+          "alias": "font/size/450"
+        },
+        "tablet": {
+          "alias": "font/size/450"
+        },
+        "desktop": {
+          "alias": "font/size/450"
+        },
+        "wide": {
+          "alias": "font/size/450"
+        }
+      }
+    },
+    {
+      "path": "text/link/lg/font-weight",
+      "today": "link/lg/font-weight",
+      "type": "FLOAT",
+      "scopes": [
+        "FONT_WEIGHT"
+      ],
+      "description": "Req for: navigation and actions written as underlined text; the lg size",
+      "values": {
+        "mobile": {
+          "alias": "font/weight/medium"
+        },
+        "tablet": {
+          "alias": "font/weight/medium"
+        },
+        "desktop": {
+          "alias": "font/weight/medium"
+        },
+        "wide": {
+          "alias": "font/weight/medium"
+        }
+      }
+    },
+    {
+      "path": "text/link/lg/line-height",
+      "type": "FLOAT",
+      "scopes": [
+        "LINE_HEIGHT"
+      ],
+      "description": "Req for: navigation and actions written as underlined text; the lg size",
+      "values": {
+        "mobile": 27,
+        "tablet": 27,
+        "desktop": 27,
+        "wide": 27
+      }
+    },
+    {
+      "path": "text/link/lg/letter-spacing",
+      "type": "FLOAT",
+      "scopes": [
+        "LETTER_SPACING"
+      ],
+      "description": "Req for: navigation and actions written as underlined text; the lg size",
+      "values": {
+        "mobile": -0.018,
+        "tablet": -0.018,
+        "desktop": -0.018,
+        "wide": -0.018
+      }
+    },
+    {
+      "path": "text/link/md/font-family",
+      "today": "link/md/font-family",
+      "type": "STRING",
+      "scopes": [
+        "FONT_FAMILY"
+      ],
+      "description": "Req for: navigation and actions written as underlined text; the md size",
+      "values": {
+        "mobile": {
+          "alias": "font/family/sans"
+        },
+        "tablet": {
+          "alias": "font/family/sans"
+        },
+        "desktop": {
+          "alias": "font/family/sans"
+        },
+        "wide": {
+          "alias": "font/family/sans"
+        }
+      }
+    },
+    {
+      "path": "text/link/md/font-size",
+      "today": "link/md/font-size",
+      "type": "FLOAT",
+      "scopes": [
+        "FONT_SIZE"
+      ],
+      "description": "Req for: navigation and actions written as underlined text; the md size",
+      "values": {
+        "mobile": {
+          "alias": "font/size/375"
+        },
+        "tablet": {
+          "alias": "font/size/375"
+        },
+        "desktop": {
+          "alias": "font/size/375"
+        },
+        "wide": {
+          "alias": "font/size/375"
+        }
+      }
+    },
+    {
+      "path": "text/link/md/font-weight",
+      "today": "link/md/font-weight",
+      "type": "FLOAT",
+      "scopes": [
+        "FONT_WEIGHT"
+      ],
+      "description": "Req for: navigation and actions written as underlined text; the md size",
+      "values": {
+        "mobile": {
+          "alias": "font/weight/medium"
+        },
+        "tablet": {
+          "alias": "font/weight/medium"
+        },
+        "desktop": {
+          "alias": "font/weight/medium"
+        },
+        "wide": {
+          "alias": "font/weight/medium"
+        }
+      }
+    },
+    {
+      "path": "text/link/md/line-height",
+      "type": "FLOAT",
+      "scopes": [
+        "LINE_HEIGHT"
+      ],
+      "description": "Req for: navigation and actions written as underlined text; the md size",
+      "values": {
+        "mobile": 22.5,
+        "tablet": 22.5,
+        "desktop": 22.5,
+        "wide": 22.5
+      }
+    },
+    {
+      "path": "text/link/md/letter-spacing",
+      "type": "FLOAT",
+      "scopes": [
+        "LETTER_SPACING"
+      ],
+      "description": "Req for: navigation and actions written as underlined text; the md size",
+      "values": {
+        "mobile": -0.015,
+        "tablet": -0.015,
+        "desktop": -0.015,
+        "wide": -0.015
+      }
+    },
+    {
+      "path": "text/link/sm/font-family",
+      "today": "link/sm/font-family",
+      "type": "STRING",
+      "scopes": [
+        "FONT_FAMILY"
+      ],
+      "description": "Req for: navigation and actions written as underlined text; the sm size",
+      "values": {
+        "mobile": {
+          "alias": "font/family/sans"
+        },
+        "tablet": {
+          "alias": "font/family/sans"
+        },
+        "desktop": {
+          "alias": "font/family/sans"
+        },
+        "wide": {
+          "alias": "font/family/sans"
+        }
+      }
+    },
+    {
+      "path": "text/link/sm/font-size",
+      "today": "link/sm/font-size",
+      "type": "FLOAT",
+      "scopes": [
+        "FONT_SIZE"
+      ],
+      "description": "Req for: navigation and actions written as underlined text; the sm size",
+      "values": {
+        "mobile": {
+          "alias": "font/size/350"
+        },
+        "tablet": {
+          "alias": "font/size/350"
+        },
+        "desktop": {
+          "alias": "font/size/350"
+        },
+        "wide": {
+          "alias": "font/size/350"
+        }
+      }
+    },
+    {
+      "path": "text/link/sm/font-weight",
+      "today": "link/sm/font-weight",
+      "type": "FLOAT",
+      "scopes": [
+        "FONT_WEIGHT"
+      ],
+      "description": "Req for: navigation and actions written as underlined text; the sm size",
+      "values": {
+        "mobile": {
+          "alias": "font/weight/medium"
+        },
+        "tablet": {
+          "alias": "font/weight/medium"
+        },
+        "desktop": {
+          "alias": "font/weight/medium"
+        },
+        "wide": {
+          "alias": "font/weight/medium"
+        }
+      }
+    },
+    {
+      "path": "text/link/sm/line-height",
+      "type": "FLOAT",
+      "scopes": [
+        "LINE_HEIGHT"
+      ],
+      "description": "Req for: navigation and actions written as underlined text; the sm size",
+      "values": {
+        "mobile": 21,
+        "tablet": 21,
+        "desktop": 21,
+        "wide": 21
+      }
+    },
+    {
+      "path": "text/link/sm/letter-spacing",
+      "type": "FLOAT",
+      "scopes": [
+        "LETTER_SPACING"
+      ],
+      "description": "Req for: navigation and actions written as underlined text; the sm size",
+      "values": {
+        "mobile": -0.014,
+        "tablet": -0.014,
+        "desktop": -0.014,
+        "wide": -0.014
+      }
+    },
+    {
+      "path": "text/link/xs/font-family",
+      "today": "link/xs/font-family",
+      "type": "STRING",
+      "scopes": [
+        "FONT_FAMILY"
+      ],
+      "description": "Req for: navigation and actions written as underlined text; the xs size",
+      "values": {
+        "mobile": {
+          "alias": "font/family/sans"
+        },
+        "tablet": {
+          "alias": "font/family/sans"
+        },
+        "desktop": {
+          "alias": "font/family/sans"
+        },
+        "wide": {
+          "alias": "font/family/sans"
+        }
+      }
+    },
+    {
+      "path": "text/link/xs/font-size",
+      "today": "link/xs/font-size",
+      "type": "FLOAT",
+      "scopes": [
+        "FONT_SIZE"
+      ],
+      "description": "Req for: navigation and actions written as underlined text; the xs size",
+      "values": {
+        "mobile": {
+          "alias": "font/size/300"
+        },
+        "tablet": {
+          "alias": "font/size/300"
+        },
+        "desktop": {
+          "alias": "font/size/300"
+        },
+        "wide": {
+          "alias": "font/size/300"
+        }
+      }
+    },
+    {
+      "path": "text/link/xs/font-weight",
+      "today": "link/xs/font-weight",
+      "type": "FLOAT",
+      "scopes": [
+        "FONT_WEIGHT"
+      ],
+      "description": "Req for: navigation and actions written as underlined text; the xs size",
+      "values": {
+        "mobile": {
+          "alias": "font/weight/medium"
+        },
+        "tablet": {
+          "alias": "font/weight/medium"
+        },
+        "desktop": {
+          "alias": "font/weight/medium"
+        },
+        "wide": {
+          "alias": "font/weight/medium"
+        }
+      }
+    },
+    {
+      "path": "text/link/xs/line-height",
+      "type": "FLOAT",
+      "scopes": [
+        "LINE_HEIGHT"
+      ],
+      "description": "Req for: navigation and actions written as underlined text; the xs size",
+      "values": {
+        "mobile": 18,
+        "tablet": 18,
+        "desktop": 18,
+        "wide": 18
+      }
+    },
+    {
+      "path": "text/link/xs/letter-spacing",
+      "type": "FLOAT",
+      "scopes": [
+        "LETTER_SPACING"
+      ],
+      "description": "Req for: navigation and actions written as underlined text; the xs size",
+      "values": {
+        "mobile": -0.012,
+        "tablet": -0.012,
+        "desktop": -0.012,
+        "wide": -0.012
+      }
+    },
+    {
+      "path": "text/tabular-number/sm/font-family",
+      "today": "tabular-number/sm/font-family",
+      "type": "STRING",
+      "scopes": [
+        "FONT_FAMILY"
+      ],
+      "description": "Req for: scannable numeric data in tables; the sm size",
+      "values": {
+        "mobile": {
+          "alias": "font/family/number"
+        },
+        "tablet": {
+          "alias": "font/family/number"
+        },
+        "desktop": {
+          "alias": "font/family/number"
+        },
+        "wide": {
+          "alias": "font/family/number"
+        }
+      }
+    },
+    {
+      "path": "text/tabular-number/sm/font-size",
+      "today": "tabular-number/sm/font-size",
+      "type": "FLOAT",
+      "scopes": [
+        "FONT_SIZE"
+      ],
+      "description": "Req for: scannable numeric data in tables; the sm size",
+      "values": {
+        "mobile": {
+          "alias": "font/size/350"
+        },
+        "tablet": {
+          "alias": "font/size/350"
+        },
+        "desktop": {
+          "alias": "font/size/350"
+        },
+        "wide": {
+          "alias": "font/size/350"
+        }
+      }
+    },
+    {
+      "path": "text/tabular-number/sm/font-weight",
+      "today": "tabular-number/sm/font-weight",
+      "type": "FLOAT",
+      "scopes": [
+        "FONT_WEIGHT"
+      ],
+      "description": "Req for: scannable numeric data in tables; the sm size",
+      "values": {
+        "mobile": {
+          "alias": "font/weight/medium"
+        },
+        "tablet": {
+          "alias": "font/weight/medium"
+        },
+        "desktop": {
+          "alias": "font/weight/medium"
+        },
+        "wide": {
+          "alias": "font/weight/medium"
+        }
+      }
+    },
+    {
+      "path": "text/tabular-number/sm/line-height",
+      "type": "FLOAT",
+      "scopes": [
+        "LINE_HEIGHT"
+      ],
+      "description": "Req for: scannable numeric data in tables; the sm size",
+      "values": {
+        "mobile": 21,
+        "tablet": 21,
+        "desktop": 21,
+        "wide": 21
+      }
+    },
+    {
+      "path": "text/tabular-number/sm/letter-spacing",
+      "type": "FLOAT",
+      "scopes": [
+        "LETTER_SPACING"
+      ],
+      "description": "Req for: scannable numeric data in tables; the sm size",
+      "values": {
+        "mobile": 0,
+        "tablet": 0,
+        "desktop": 0,
+        "wide": 0
+      }
+    },
+    {
+      "path": "text/tabular-number/xs/font-family",
+      "today": "tabular-number/xs/font-family",
+      "type": "STRING",
+      "scopes": [
+        "FONT_FAMILY"
+      ],
+      "description": "Req for: scannable numeric data in tables; the xs size",
+      "values": {
+        "mobile": {
+          "alias": "font/family/number"
+        },
+        "tablet": {
+          "alias": "font/family/number"
+        },
+        "desktop": {
+          "alias": "font/family/number"
+        },
+        "wide": {
+          "alias": "font/family/number"
+        }
+      }
+    },
+    {
+      "path": "text/tabular-number/xs/font-size",
+      "today": "tabular-number/xs/font-size",
+      "type": "FLOAT",
+      "scopes": [
+        "FONT_SIZE"
+      ],
+      "description": "Req for: scannable numeric data in tables; the xs size",
+      "values": {
+        "mobile": {
+          "alias": "font/size/300"
+        },
+        "tablet": {
+          "alias": "font/size/300"
+        },
+        "desktop": {
+          "alias": "font/size/300"
+        },
+        "wide": {
+          "alias": "font/size/300"
+        }
+      }
+    },
+    {
+      "path": "text/tabular-number/xs/font-weight",
+      "today": "tabular-number/xs/font-weight",
+      "type": "FLOAT",
+      "scopes": [
+        "FONT_WEIGHT"
+      ],
+      "description": "Req for: scannable numeric data in tables; the xs size",
+      "values": {
+        "mobile": {
+          "alias": "font/weight/medium"
+        },
+        "tablet": {
+          "alias": "font/weight/medium"
+        },
+        "desktop": {
+          "alias": "font/weight/medium"
+        },
+        "wide": {
+          "alias": "font/weight/medium"
+        }
+      }
+    },
+    {
+      "path": "text/tabular-number/xs/line-height",
+      "type": "FLOAT",
+      "scopes": [
+        "LINE_HEIGHT"
+      ],
+      "description": "Req for: scannable numeric data in tables; the xs size",
+      "values": {
+        "mobile": 18,
+        "tablet": 18,
+        "desktop": 18,
+        "wide": 18
+      }
+    },
+    {
+      "path": "text/tabular-number/xs/letter-spacing",
+      "type": "FLOAT",
+      "scopes": [
+        "LETTER_SPACING"
+      ],
+      "description": "Req for: scannable numeric data in tables; the xs size",
+      "values": {
+        "mobile": 0,
+        "tablet": 0,
+        "desktop": 0,
+        "wide": 0
+      }
+    },
+    {
+      "path": "text/button/md/font-family",
+      "today": "button/md/font-family",
+      "type": "STRING",
+      "scopes": [
+        "FONT_FAMILY"
+      ],
+      "description": "Req for: text inside buttons and other interactive components; the md size",
+      "values": {
+        "mobile": {
+          "alias": "font/family/sans"
+        },
+        "tablet": {
+          "alias": "font/family/sans"
+        },
+        "desktop": {
+          "alias": "font/family/sans"
+        },
+        "wide": {
+          "alias": "font/family/sans"
+        }
+      }
+    },
+    {
+      "path": "text/button/md/font-size",
+      "today": "button/md/font-size",
+      "type": "FLOAT",
+      "scopes": [
+        "FONT_SIZE"
+      ],
+      "description": "Req for: text inside buttons and other interactive components; the md size",
+      "values": {
+        "mobile": {
+          "alias": "font/size/375"
+        },
+        "tablet": {
+          "alias": "font/size/375"
+        },
+        "desktop": {
+          "alias": "font/size/375"
+        },
+        "wide": {
+          "alias": "font/size/375"
+        }
+      }
+    },
+    {
+      "path": "text/button/md/font-weight",
+      "today": "button/md/font-weight",
+      "type": "FLOAT",
+      "scopes": [
+        "FONT_WEIGHT"
+      ],
+      "description": "Req for: text inside buttons and other interactive components; the md size",
+      "values": {
+        "mobile": {
+          "alias": "font/weight/medium"
+        },
+        "tablet": {
+          "alias": "font/weight/medium"
+        },
+        "desktop": {
+          "alias": "font/weight/medium"
+        },
+        "wide": {
+          "alias": "font/weight/medium"
+        }
+      }
+    },
+    {
+      "path": "text/button/md/line-height",
+      "type": "FLOAT",
+      "scopes": [
+        "LINE_HEIGHT"
+      ],
+      "description": "Req for: text inside buttons and other interactive components; the md size",
+      "values": {
+        "mobile": 22.5,
+        "tablet": 22.5,
+        "desktop": 22.5,
+        "wide": 22.5
+      }
+    },
+    {
+      "path": "text/button/md/letter-spacing",
+      "type": "FLOAT",
+      "scopes": [
+        "LETTER_SPACING"
+      ],
+      "description": "Req for: text inside buttons and other interactive components; the md size",
+      "values": {
+        "mobile": -0.015,
+        "tablet": -0.015,
+        "desktop": -0.015,
+        "wide": -0.015
+      }
+    },
+    {
+      "path": "text/button/sm/font-family",
+      "today": "button/sm/font-family",
+      "type": "STRING",
+      "scopes": [
+        "FONT_FAMILY"
+      ],
+      "description": "Req for: text inside buttons and other interactive components; the sm size",
+      "values": {
+        "mobile": {
+          "alias": "font/family/sans"
+        },
+        "tablet": {
+          "alias": "font/family/sans"
+        },
+        "desktop": {
+          "alias": "font/family/sans"
+        },
+        "wide": {
+          "alias": "font/family/sans"
+        }
+      }
+    },
+    {
+      "path": "text/button/sm/font-size",
+      "today": "button/sm/font-size",
+      "type": "FLOAT",
+      "scopes": [
+        "FONT_SIZE"
+      ],
+      "description": "Req for: text inside buttons and other interactive components; the sm size",
+      "values": {
+        "mobile": {
+          "alias": "font/size/350"
+        },
+        "tablet": {
+          "alias": "font/size/350"
+        },
+        "desktop": {
+          "alias": "font/size/350"
+        },
+        "wide": {
+          "alias": "font/size/350"
+        }
+      }
+    },
+    {
+      "path": "text/button/sm/font-weight",
+      "today": "button/sm/font-weight",
+      "type": "FLOAT",
+      "scopes": [
+        "FONT_WEIGHT"
+      ],
+      "description": "Req for: text inside buttons and other interactive components; the sm size",
+      "values": {
+        "mobile": {
+          "alias": "font/weight/medium"
+        },
+        "tablet": {
+          "alias": "font/weight/medium"
+        },
+        "desktop": {
+          "alias": "font/weight/medium"
+        },
+        "wide": {
+          "alias": "font/weight/medium"
+        }
+      }
+    },
+    {
+      "path": "text/button/sm/line-height",
+      "type": "FLOAT",
+      "scopes": [
+        "LINE_HEIGHT"
+      ],
+      "description": "Req for: text inside buttons and other interactive components; the sm size",
+      "values": {
+        "mobile": 21,
+        "tablet": 21,
+        "desktop": 21,
+        "wide": 21
+      }
+    },
+    {
+      "path": "text/button/sm/letter-spacing",
+      "type": "FLOAT",
+      "scopes": [
+        "LETTER_SPACING"
+      ],
+      "description": "Req for: text inside buttons and other interactive components; the sm size",
+      "values": {
+        "mobile": -0.014,
+        "tablet": -0.014,
+        "desktop": -0.014,
+        "wide": -0.014
+      }
+    },
+    {
+      "path": "text/code/sm/font-family",
+      "today": "code/sm/font-family",
+      "type": "STRING",
+      "scopes": [
+        "FONT_FAMILY"
+      ],
+      "description": "Req for: inline code, developer references and system output; the sm size",
+      "values": {
+        "mobile": {
+          "alias": "font/family/mono"
+        },
+        "tablet": {
+          "alias": "font/family/mono"
+        },
+        "desktop": {
+          "alias": "font/family/mono"
+        },
+        "wide": {
+          "alias": "font/family/mono"
+        }
+      }
+    },
+    {
+      "path": "text/code/sm/font-size",
+      "today": "code/sm/font-size",
+      "type": "FLOAT",
+      "scopes": [
+        "FONT_SIZE"
+      ],
+      "description": "Req for: inline code, developer references and system output; the sm size",
+      "values": {
+        "mobile": {
+          "alias": "font/size/350"
+        },
+        "tablet": {
+          "alias": "font/size/350"
+        },
+        "desktop": {
+          "alias": "font/size/350"
+        },
+        "wide": {
+          "alias": "font/size/350"
+        }
+      }
+    },
+    {
+      "path": "text/code/sm/font-weight",
+      "today": "code/sm/font-weight",
+      "type": "FLOAT",
+      "scopes": [
+        "FONT_WEIGHT"
+      ],
+      "description": "Req for: inline code, developer references and system output; the sm size",
+      "values": {
+        "mobile": {
+          "alias": "font/weight/medium"
+        },
+        "tablet": {
+          "alias": "font/weight/medium"
+        },
+        "desktop": {
+          "alias": "font/weight/medium"
+        },
+        "wide": {
+          "alias": "font/weight/medium"
+        }
+      }
+    },
+    {
+      "path": "text/code/sm/line-height",
+      "type": "FLOAT",
+      "scopes": [
+        "LINE_HEIGHT"
+      ],
+      "description": "Req for: inline code, developer references and system output; the sm size",
+      "values": {
+        "mobile": 21,
+        "tablet": 21,
+        "desktop": 21,
+        "wide": 21
+      }
+    },
+    {
+      "path": "text/code/sm/letter-spacing",
+      "type": "FLOAT",
+      "scopes": [
+        "LETTER_SPACING"
+      ],
+      "description": "Req for: inline code, developer references and system output; the sm size",
+      "values": {
+        "mobile": 0,
+        "tablet": 0,
+        "desktop": 0,
+        "wide": 0
+      }
+    }
+  ],
+  "omitted": []
+}

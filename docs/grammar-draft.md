@@ -1,6 +1,6 @@
 # Token naming grammar
 
-Draft for review. It joins three inputs: the v1 naming proposal, the pattern the
+Signed off by the owner on 2026-10-05, pending the team's review. It joins three inputs: the v1 naming proposal, the pattern the
 "Design token naming compared" guide recommends for a team starting fresh (Polaris), and
 the shape the color engine's token file already has.
 
@@ -67,14 +67,14 @@ declaration, so tools can read it without parsing names.
 | Category | Holds |
 | --- | --- |
 | `space` | the spacing scale, its negative steps, and the semantic gaps and paddings |
-| `size` | the sizing scale, and semantic sizes such as icons and control heights |
+| `size` | the sizing scale, and semantic sizes such as icons, control heights and the measure |
 | `radius` | corner radius |
 | `border-width` | border and outline widths |
 | `font` | type primitives: `font-size`, `font-weight`, `font-family`, `font-line-height`, `font-letter-spacing` |
 | `text` | text styles by role and size, each built from the `font` primitives |
 | `motion` | `motion-duration`, `motion-easing`, and the named transitions built from them |
 | `breakpoint` | the widths at which layout changes |
-| `grid` | columns, margin and gutter |
+| `grid` | columns, margin, gutter and the width at which content stops growing |
 | `opacity` | the opacity scale, and the disabled opacity |
 | `shadow` | the elevation shadows |
 | `color` | the color families the color engine generates, and the color roles built on them |
@@ -123,6 +123,9 @@ not a token value.
   paths. A mode is a context. A variable's name is the path.
 - The collection name appears in the file name and in the resolver document that joins
   the files. It is never a segment of the path.
+- A composite token, such as a text style, is one token in the file. In Figma its parts
+  are variables of their own, named by the token's path plus the part
+  (`text/heading/lg/font-size`), and the text style itself binds to them.
 - A collection name and a category word are never the same word. A collection that holds
   `font/…` and `text/…` is not called "font" or "text".
 - A collection is an axis, one per thing a designer switches on a frame, and a group
@@ -181,7 +184,20 @@ Changed:
 - The segment breakdown lives in the generator's declaration, which is where the names
   are built from, not in a second record beside each name.
 
+## The collections, as they stand
+
+| Collection | Axis | Holds |
+| --- | --- | --- |
+| `theme` | light, dark; brand extensions | the color engine's `color/…` primitives |
+| `palette` | none | the semantic colors: roles, surfaces, scrim, each an alias |
+| `viewport` | mobile, tablet, desktop, wide | the grid, the text styles, the semantic space and size rows |
+| `scale` | none | the primitives that never vary: space, size, radius, border width, opacity, breakpoints, font families, weights, sizes and line heights |
+| `motion` | default, reduced (reduced not yet declared) | durations and easings |
+
+`theme` and `palette` are the owner's names; the other three are placeholders pending the
+team's review. Renaming a collection later costs nothing, since the Figma script finds a
+collection by its stamp.
+
 ## Open
 
-1. The Figma collection names, and which groups go in which collection.
-2. The map from today's color roles to the color engine's roles.
+1. The map from today's color roles to the color engine's roles.

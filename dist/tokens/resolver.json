@@ -1,0 +1,57 @@
+{
+  "version": "2025.10",
+  "sets": {
+    "scale": {
+      "sources": [
+        {
+          "$ref": "scale.tokens.json"
+        }
+      ]
+    },
+    "motion": {
+      "sources": [
+        {
+          "$ref": "motion.tokens.json"
+        }
+      ]
+    }
+  },
+  "modifiers": {
+    "viewport": {
+      "contexts": {
+        "mobile": [
+          {
+            "$ref": "viewport.mobile.tokens.json"
+          }
+        ],
+        "tablet": [
+          {
+            "$ref": "viewport.tablet.tokens.json"
+          }
+        ],
+        "desktop": [
+          {
+            "$ref": "viewport.desktop.tokens.json"
+          }
+        ],
+        "wide": [
+          {
+            "$ref": "viewport.wide.tokens.json"
+          }
+        ]
+      },
+      "default": "desktop"
+    }
+  },
+  "resolutionOrder": [
+    {
+      "$ref": "#/sets/scale"
+    },
+    {
+      "$ref": "#/sets/motion"
+    },
+    {
+      "$ref": "#/modifiers/viewport"
+    }
+  ]
+}

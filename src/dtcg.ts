@@ -1,29 +1,37 @@
-// The token file emit: one document per collection, in the Design Tokens Format Module
-// 2025.10 shape. Every token carries exactly $type, $value and $description, at its path
-// from the one grammar; nothing sits at the document root but the groups. An alias is
-// written in the curly-brace form and resolves in the joined set of documents.
+// The token file emit: one document per collection and context, in the Design Tokens
+// Format Module 2025.10 shape, and the resolver document that joins them. Every token
+// carries exactly $type, $value and $description, at its path from the one grammar;
+// nothing sits at the document root but the groups. An alias is written in the
+// curly-brace form and resolves in the joined set.
 //
 // A group is a Map and the bytes come from the writer below, not from JSON.stringify on
 // a plain object: a JavaScript object moves whole-number keys to the front, which would
 // put step 100 ahead of step 025. The Map keeps the roster's order, so a scale reads in
 // order in the file.
+import { collections, collectionOf } from '../declarations/collections.ts'
 import { aliasOf, type TokenPath } from '../grammar/path.ts'
-import { CATEGORIES, type Category } from '../grammar/words.ts'
-import { collectionOf } from './roster.ts'
-import { isAlias, type Token } from './types.ts'
+import { isAlias, valueIn, type Token, type Value } from './types.ts'
 
 export type DtcgToken = { $type: string; $value: unknown; $description: string }
 export type DtcgGroup = Map<string, DtcgToken | DtcgGroup>
+/** a document's place in the set: its collection, and its context where the collection has them */
+export type DocumentKey = { collection: string; context?: string }
 
 /** the description as the file carries it: one line per part, in this order */
 export const describeDocument = (t: Token): string => `Req for: ${t.req}\nUse: ${t.use}`
 
-function valueOf(t: Token): unknown {
-  if (isAlias(t)) return aliasOf(t.alias)
-  if (t.type === 'transition') {
-    return { duration: aliasOf(t.value.duration), delay: t.value.delay, timingFunction: aliasOf(t.value.timingFunction) }
+export function valueOf(v: Value): unknown {
+  if (isAlias(v)) return aliasOf(v.alias)
+  switch (v.type) {
+    case 'transition':
+      return { duration: aliasOf(v.value.duration), delay: v.value.delay, timingFunction: aliasOf(v.value.timingFunction) }
+    case 'typography': {
+      const t = v.value
+      return { fontFamily: aliasOf(t.fontFamily), fontSize: aliasOf(t.fontSize), fontWeight: aliasOf(t.fontWeight), letterSpacing: t.letterSpacing, lineHeight: aliasOf(t.lineHeight) }
+    }
+    default:
+      return v.value
   }
-  return t.value
 }
 
 function place(doc: DtcgGroup, path: TokenPath, token: DtcgToken): void {
@@ -39,14 +47,22 @@ function place(doc: DtcgGroup, path: TokenPath, token: DtcgToken): void {
   cur.set(leaf, token)
 }
 
-/** every collection's document, keyed by collection name */
-export function documents(tokens: Token[]): Record<string, DtcgGroup> {
-  const out: Record<string, DtcgGroup> = {}
-  for (const category of CATEGORIES) {
-    const doc = (out[collectionOf(category)] ??= new Map())
-    for (const t of tokens) {
-      if ((t.path[0] as Category) !== category) continue
-      place(doc, t.path, { $type: t.type, $value: valueOf(t), $description: describeDocument(t) })
+export const fileName = (k: DocumentKey): string => `${k.collection}${k.context ? '.' + k.context : ''}.tokens.json`
+
+/** every document in the set, in collection order then context order */
+export function documents(tokens: Token[]): Map<string, { key: DocumentKey; doc: DtcgGroup }> {
+  const out = new Map<string, { key: DocumentKey; doc: DtcgGroup }>()
+  for (const [collection, c] of Object.entries(collections)) {
+    const contexts: (string | undefined)[] = c.contexts.length ? [...c.contexts] : [undefined]
+    for (const context of contexts) {
+      const key: DocumentKey = context ? { collection, context } : { collection }
+      const doc: DtcgGroup = new Map()
+      for (const t of tokens) {
+        if (collectionOf(t) !== collection) continue
+        const v = valueIn(t, context)
+        place(doc, t.path, { $type: v.type, $value: valueOf(v), $description: describeDocument(t) })
+      }
+      out.set(fileName(key), { key, doc })
     }
   }
   return out
@@ -63,4 +79,25 @@ function write(node: DtcgGroup | DtcgToken, depth: number): string {
 /** the bytes of a document: two-space indent, one trailing newline, tokens in roster order */
 export const serialize = (doc: DtcgGroup): string => write(doc, 0) + '\n'
 
-export const fileName = (collection: string): string => `${collection}.tokens.json`
+/**
+ * The resolver document, the Resolver Module's join: each collection without contexts is
+ * a set, each with contexts is a modifier whose contexts name one file each, and the
+ * order lists the sets first.
+ */
+export function resolver(): string {
+  const sets: Record<string, { sources: { $ref: string }[] }> = {}
+  const modifiers: Record<string, { contexts: Record<string, { $ref: string }[]>; default?: string }> = {}
+  const resolutionOrder: { $ref: string }[] = []
+  for (const [collection, c] of Object.entries(collections)) {
+    if (c.contexts.length === 0) {
+      sets[collection] = { sources: [{ $ref: fileName({ collection }) }] }
+      resolutionOrder.push({ $ref: `#/sets/${collection}` })
+    } else {
+      const contexts: Record<string, { $ref: string }[]> = {}
+      for (const context of c.contexts) contexts[context] = [{ $ref: fileName({ collection, context }) }]
+      modifiers[collection] = { contexts, ...(c.default ? { default: c.default } : {}) }
+    }
+  }
+  for (const name of Object.keys(modifiers)) resolutionOrder.push({ $ref: `#/modifiers/${name}` })
+  return JSON.stringify({ version: '2025.10', sets, modifiers, resolutionOrder }, null, 2) + '\n'
+}

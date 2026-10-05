@@ -125,8 +125,10 @@ what changed.
    width, opacity, motion and breakpoints. Done means: those files exist with a
    description on every token, the audit passes, the independent parser accepts them, and
    a second run changes nothing.
-2. **The groups with contexts.** Typography and the grid across the four viewports. Then the Figma payload and the script that
-   applies it by stamp, including the text styles bound to the typography variables.
+2. **The groups with contexts.** Typography and the grid across the four viewports,
+   then the Figma payload and the script that applies it by stamp, including the text
+   styles bound to the typography variables. Built and dry-run in a Figma file: every
+   variable and style created, bound and stamped, and a second run changes nothing.
 3. **The groups that read color.** Shadow, the scrim, the elevation surfaces and the
    color roles, with the merge, and the shadow effect styles in Figma. A translucent
    role is emitted as its pair, a color alias and an opacity token, because neither the
@@ -152,9 +154,9 @@ Each step ends with a stop for the owner's review.
    checked as the designer types, and a decision can carry a comment saying why.
 2. **Lengths in px in the token file.** Recommended: the scale is defined in pixels and
    Figma takes pixels. Conversion to rem belongs to the pipeline that writes CSS.
-3. **Collection names.** The program reads them from one config file. Default until
-   ruled: `theme`, `typography`, `layout`, `core`. `core` is a placeholder for the
-   collection that holds every group with one value and no modes.
+3. **Collection names.** The program reads them from one config file. `theme` and
+   `palette` are the owner's; `viewport`, `scale` and `motion` are placeholders pending
+   the team's review.
 4. **The description form.** The two lines above until the content template exists.
 5. **The Node version on the work machine.** It matters only if the generator is run
    there. With the generated files committed, it does not have to be.

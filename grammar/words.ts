@@ -11,6 +11,10 @@ export type Density = (typeof DENSITY)[number]
 export const SIZE = ['2xs', 'xs', 'sm', 'md', 'lg', 'xl', '2xl'] as const
 export type Size = (typeof SIZE)[number]
 
+// the text style roles: the hierarchical ones first, then the functional ones
+export const ROLE = ['display', 'heading', 'title', 'body', 'link', 'tabular-number', 'button', 'code'] as const
+export type Role = (typeof ROLE)[number]
+
 /** a scale step: digits only, three or more (`025`, `400`, `3200`) */
 export const STEP = 'step'
 export type Segment = readonly string[] | typeof STEP
@@ -27,7 +31,8 @@ export const SHAPES = {
     [STEP],
     [['icon'], SIZE],
     [['control'], SIZE],
-    [['content'], ['max', 'paragraph', 'min']],
+    [['illustration'], ['spot', 'hero'], SIZE],
+    [['measure']],
   ],
   radius: [[STEP], [['full']]],
   'border-width': [[STEP]],
@@ -38,6 +43,14 @@ export const SHAPES = {
     [['transition'], ['default', 'default-opacity', 'default-fast', 'open', 'dismiss', 'slide-in', 'slide-out']],
   ],
   breakpoint: [[SIZE]],
+  grid: [[['columns', 'margin', 'gutter', 'max-width']]],
+  font: [
+    [['family'], ['sans', 'number', 'mono']],
+    [['weight'], ['regular', 'medium', 'semibold']],
+    [['size'], STEP],
+    [['line-height'], STEP],
+  ],
+  text: [[ROLE, SIZE]],
 } as const satisfies Record<string, readonly (readonly Segment[])[]>
 
 export type Category = keyof typeof SHAPES

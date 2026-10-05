@@ -8,10 +8,13 @@ import { borderWidth } from '../declarations/border-width.ts'
 import { opacity } from '../declarations/opacity.ts'
 import { motion } from '../declarations/motion.ts'
 import { breakpoint } from '../declarations/breakpoint.ts'
-import { collections } from '../declarations/collections.ts'
+import { grid } from '../declarations/grid.ts'
+import { font } from '../declarations/font.ts'
+import { text } from '../declarations/text.ts'
 import { CATEGORIES, type Category } from '../grammar/words.ts'
 import {
   spaceTokens, sizeTokens, radiusTokens, borderWidthTokens, opacityTokens, motionTokens, breakpointTokens,
+  gridTokens, fontTokens, textTokens,
 } from './derive.ts'
 import type { Token } from './types.ts'
 
@@ -23,15 +26,11 @@ const BY_CATEGORY: Record<Category, () => Token[]> = {
   opacity: () => opacityTokens(opacity),
   motion: () => motionTokens(motion),
   breakpoint: () => breakpointTokens(breakpoint),
+  grid: () => gridTokens(grid, space.steps),
+  font: () => fontTokens(font),
+  text: () => textTokens(text, font),
 }
 
 export const tokensOf = (category: Category): Token[] => BY_CATEGORY[category]()
 
 export const roster = (): Token[] => CATEGORIES.flatMap(tokensOf)
-
-/** the collection a category's tokens are filed in */
-export function collectionOf(category: Category): string {
-  const hit = Object.entries(collections).filter(([, cats]) => cats.includes(category))
-  if (hit.length !== 1) throw new Error(`collectionOf: ${category} is in ${hit.length} collections, it must be in exactly one`)
-  return hit[0][0]
-}

@@ -21,5 +21,12 @@ for (const [name, content] of Object.entries(first.files)) {
   else if (fs.readFileSync(file, 'utf8') !== content) failures.push(`${name}: on disk it differs from what the declarations produce; run npm run generate`)
 }
 
+// a generated folder holds nothing the declarations did not produce
+for (const folder of ['dist/tokens', 'dist/figma', 'docs/groups']) {
+  const dir = path.join(root, folder)
+  if (!fs.existsSync(dir)) continue
+  for (const f of fs.readdirSync(dir)) if (!(`${folder}/${f}` in first.files)) failures.push(`${folder}/${f}: on disk but not produced by the declarations; delete it`)
+}
+
 if (failures.length) { report('audit', failures); process.exit(1) }
 console.log(`audit ok: ${first.count} tokens, ${Object.keys(first.files).length} files match the declarations, names in the grammar, every token described, scales ascending and named by their values, aliases resolved, two builds identical`)

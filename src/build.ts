@@ -1,8 +1,10 @@
-// One build: the roster, its documents and its pages, as the files they become. Both
-// commands call this, so what the audit checks is byte for byte what generate writes.
+// One build: the roster, its documents, the resolver, the Figma payload and the pages,
+// as the files they become. Both commands call this, so what the audit checks is byte
+// for byte what generate writes.
 import { CATEGORIES } from '../grammar/words.ts'
 import { audit } from './audit.ts'
-import { documents, fileName, serialize } from './dtcg.ts'
+import { documents, resolver, serialize } from './dtcg.ts'
+import { figmaFiles } from './figma.ts'
 import { page, pageName } from './pages.ts'
 import { roster, tokensOf } from './roster.ts'
 
@@ -12,7 +14,9 @@ export function build(): Build {
   const tokens = roster()
   const docs = documents(tokens)
   const files: Record<string, string> = {}
-  for (const [collection, doc] of Object.entries(docs)) files[`dist/tokens/${fileName(collection)}`] = serialize(doc)
+  for (const [name, { doc }] of docs) files[`dist/tokens/${name}`] = serialize(doc)
+  files['dist/tokens/resolver.json'] = resolver()
+  for (const [name, content] of Object.entries(figmaFiles(tokens))) files[`dist/figma/${name}`] = content
   for (const category of CATEGORIES) files[`docs/groups/${pageName(category)}`] = page(category, tokensOf(category), tokens)
   return { count: tokens.length, failures: audit(tokens, docs), files }
 }
