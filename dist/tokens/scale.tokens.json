@@ -388,6 +388,11 @@
       "$value": 0.08,
       "$description": "Req for: translucent layers: state grounds, shadows and scrims\nUse: 8 percent"
     },
+    "010": {
+      "$type": "number",
+      "$value": 0.1,
+      "$description": "Req for: translucent layers: state grounds, shadows and scrims\nUse: 10 percent"
+    },
     "012": {
       "$type": "number",
       "$value": 0.12,
@@ -397,6 +402,11 @@
       "$type": "number",
       "$value": 0.16,
       "$description": "Req for: translucent layers: state grounds, shadows and scrims\nUse: 16 percent"
+    },
+    "020": {
+      "$type": "number",
+      "$value": 0.2,
+      "$description": "Req for: translucent layers: state grounds, shadows and scrims\nUse: 20 percent"
     },
     "024": {
       "$type": "number",
@@ -422,6 +432,50 @@
       "$type": "number",
       "$value": 0.38,
       "$description": "Req for: the disabled state of a component\nUse: 38 percent, applied to the whole component"
+    },
+    "scrim": {
+      "$type": "number",
+      "$value": "{opacity.064}",
+      "$description": "Req for: the scrim behind a modal\nUse: 64 percent of black, the ground behind a modal"
+    },
+    "ghost": {
+      "hover": {
+        "$type": "number",
+        "$value": "{opacity.008}",
+        "$description": "Req for: the ghost ground under the pointer\nUse: 8 percent of a family's highlighter over the surface; at rest the ghost ground is transparent"
+      },
+      "pressed": {
+        "$type": "number",
+        "$value": "{opacity.012}",
+        "$description": "Req for: the ghost ground while pressed\nUse: 12 percent of a family's highlighter over the surface; at rest the ghost ground is transparent"
+      },
+      "selected": {
+        "$type": "number",
+        "$value": "{opacity.016}",
+        "$description": "Req for: the ghost ground when selected\nUse: 16 percent of a family's highlighter over the surface; at rest the ghost ground is transparent"
+      }
+    },
+    "soft": {
+      "enabled": {
+        "$type": "number",
+        "$value": "{opacity.012}",
+        "$description": "Req for: the soft ground at rest\nUse: 12 percent of a family's highlighter over the surface"
+      },
+      "hover": {
+        "$type": "number",
+        "$value": "{opacity.016}",
+        "$description": "Req for: the soft ground under the pointer\nUse: 16 percent of a family's highlighter over the surface"
+      },
+      "pressed": {
+        "$type": "number",
+        "$value": "{opacity.024}",
+        "$description": "Req for: the soft ground while pressed\nUse: 24 percent of a family's highlighter over the surface"
+      },
+      "selected": {
+        "$type": "number",
+        "$value": "{opacity.032}",
+        "$description": "Req for: the soft ground when selected\nUse: 32 percent of a family's highlighter over the surface"
+      }
     }
   },
   "breakpoint": {

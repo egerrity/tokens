@@ -1,7 +1,7 @@
 // The shape of each declaration: only what a designer decides. Names, aliases and the
 // values that follow from a rule are derived; if a value cannot be derived from a
 // decision here, it is a decision and gets a field.
-import type { Density, Role, Size } from '../grammar/words.ts'
+import type { Density, Family, Level, Role, Size, State, Word } from '../grammar/words.ts'
 import type { Curve } from './types.ts'
 
 export type SpaceDeclaration = {
@@ -45,6 +45,41 @@ export type OpacityDeclaration = {
   /** the scale, in percent, ascending */
   steps: readonly number[]
   disabled: { percent: number; req: string }
+  scrim: { percent: number; req: string }
+  /** the two translucent interaction levels' steps per state, each a step of the scale; the ghost level is transparent at rest */
+  ghost: Record<Exclude<State, 'enabled'>, number>
+  soft: Record<State, number>
+}
+
+/**
+ * An emphasis word's stop on the engine's ladder, and what the row is for. A rung that
+ * is shapes-only is kept out of Figma's text picker: a stop that clears the non-text
+ * bar but not the text bar.
+ */
+export type Rung = { stop: string; req: string; use: string; shapesOnly?: true }
+/**
+ * One property's ladder: which engine stop each emphasis word names (the same in the
+ * neutral and in every family), which words the neutral and the families get, and which
+ * of those are reserved for component authors: emitted, but hidden from publishing.
+ */
+export type Ladder = { stops: Partial<Record<Word, Rung>>; neutral: readonly Word[]; family: readonly Word[]; reserved?: { neutral?: readonly Word[]; family?: readonly Word[] } }
+
+export type ColorDeclaration = {
+  fg: Ladder
+  /** text on the inverted surface; the neutral only */
+  onInverse: Ladder
+  bg: Ladder
+  border: Ladder
+  /** whose highlighter draws the focus ring */
+  focus: Family | 'neutral'
+  /**
+   * The interaction levels under bg, every one emitted: ghost and soft on the family's
+   * highlighter at the opacity scale's steps, solid on the engine's stamp. The levels
+   * the neutral and the families are offered; the rest are reserved for components.
+   */
+  interaction: { neutral: readonly Level[]; family: readonly Level[] }
+  /** the brand illustration palette's two pairs, as percent steps of the opacity scale */
+  illustration: { shadow: number; shine: number }
 }
 
 export type MotionDeclaration = {

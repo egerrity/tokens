@@ -1,0 +1,1721 @@
+{
+  "color": {
+    "neutral": {
+      "paper-0": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.0471,
+            0.051,
+            0.0588
+          ],
+          "alpha": 1,
+          "hex": "#0c0d0f"
+        },
+        "$description": "Req for: backgrounds, inverted text\nGround: the neutral's highlighter-26 clears it as AA large text and UI elements; its pencil-47, pen-58, pen-70 and pen-100 clear it as AA standard body text; as text, AA standard body text on every family's pencil-47\nTheming: tints carry neutral hue (gray)"
+      },
+      "paper-1": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.0745,
+            0.0784,
+            0.0824
+          ],
+          "alpha": 1,
+          "hex": "#131415"
+        },
+        "$description": "Req for: backgrounds, inverted text\nGround: highlighter-26 clears it as AA large text and UI elements; pencil-47, pen-58, pen-70 and pen-100 clear it as AA standard body text, from every family\nTheming: tints carry neutral hue (gray)"
+      },
+      "paper-3": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.098,
+            0.1059,
+            0.1137
+          ],
+          "alpha": 1,
+          "hex": "#191b1d"
+        },
+        "$description": "Req for: backgrounds, inverted text\nGround: highlighter-26 clears it as AA large text and UI elements; pencil-47, pen-58, pen-70 and pen-100 clear it as AA standard body text, from every family\nTheming: tints carry neutral hue (gray)"
+      },
+      "paper-5": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.1255,
+            0.1333,
+            0.1451
+          ],
+          "alpha": 1,
+          "hex": "#202225"
+        },
+        "$description": "Req for: backgrounds, inverted text\nGround: highlighter-26 clears it as AA large text and UI elements; pencil-47, pen-58, pen-70 and pen-100 clear it as AA standard body text, from every family; the ground the text stops are solved against\nTheming: tints carry neutral hue (gray). Worst background text stops must clear."
+      },
+      "chalk-8": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.1569,
+            0.1647,
+            0.1765
+          ],
+          "alpha": 1,
+          "hex": "#282a2d"
+        },
+        "$description": "Req for: decorative borders, inverted text, illos, signal hierarchy\nGround: pen-58, pen-70 and pen-100 clear it as AA standard body text, from every family; the highlighter and the pencil are not held against it\nTheming: tints carry neutral hue (gray)"
+      },
+      "chalk-11": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.1922,
+            0.2,
+            0.2118
+          ],
+          "alpha": 1,
+          "hex": "#313336"
+        },
+        "$description": "Req for: decorative borders, inverted text, illos, signal hierarchy\nGround: pen-58, pen-70 and pen-100 clear it as AA standard body text, from every family; the highlighter and the pencil are not held against it\nTheming: tints carry neutral hue (gray)"
+      },
+      "chalk-15": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.2392,
+            0.2431,
+            0.2549
+          ],
+          "alpha": 1,
+          "hex": "#3d3e41"
+        },
+        "$description": "Req for: decorative borders, inverted text, illos, signal hierarchy\nGround: pen-58, pen-70 and pen-100 clear it as AA standard body text, from every family; the highlighter and the pencil are not held against it\nTheming: tints carry neutral hue (gray)"
+      },
+      "chalk-20": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.2941,
+            0.302,
+            0.3098
+          ],
+          "alpha": 1,
+          "hex": "#4b4d4f"
+        },
+        "$description": "Req for: decorative borders, inverted text, illos, signal hierarchy\nGround: pen-58, pen-70 and pen-100 clear it as AA standard body text, from every family; the highlighter and the pencil are not held against it\nTheming: tints carry neutral hue (gray)"
+      },
+      "highlighter-26": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.4196,
+            0.4235,
+            0.4314
+          ],
+          "alpha": 1,
+          "hex": "#6b6c6e"
+        },
+        "$description": "Req for: focus rings, icons, large text, translucent state layers over any ground\nAA large text and UI elements on every paper of every family\nTheming: tints carry neutral hue (gray); re-solved to clear its floor"
+      },
+      "pencil-47": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.698,
+            0.702,
+            0.7059
+          ],
+          "alpha": 1,
+          "hex": "#b2b3b4"
+        },
+        "$description": "Req for: regular text, inverted backgrounds\nAA standard body text on every paper of every family\nTheming: tints carry neutral hue (gray); re-solved to clear its floor"
+      },
+      "pen-58": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.7961,
+            0.7961,
+            0.8
+          ],
+          "alpha": 1,
+          "hex": "#cbcbcc"
+        },
+        "$description": "Req for: regular text, inverted backgrounds\nAA standard body text on every paper and chalk of every family\nTheming: tints carry neutral hue (gray); re-solved to clear its floor"
+      },
+      "pen-70": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.8941,
+            0.8941,
+            0.898
+          ],
+          "alpha": 1,
+          "hex": "#e4e4e5"
+        },
+        "$description": "Req for: heavy-emphasis text, inverted backgrounds\nAA standard body text on every paper and chalk of every family\nTheming: tints carry neutral hue (gray); re-solved to clear its floor"
+      },
+      "pen-100": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            1,
+            1,
+            1
+          ],
+          "alpha": 1,
+          "hex": "#ffffff"
+        },
+        "$description": "Req for: max-emphasis text\nAA standard body text on every paper and chalk of every family"
+      },
+      "stamp": {
+        "fill": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.1804,
+              0.1843,
+              0.2
+            ],
+            "alpha": 1,
+            "hex": "#2e2f33"
+          },
+          "$description": "Req for: CTAs\nUse: primary button fills; optional for avatars, badges and other elements that carry text. Not a standalone color: it has no contrast guarantee of its own, only its on-text has one. Use it alone or with its hover and pressed states. Always bordered with its edge\nTheming: fully re-solved per theme and family (gray)"
+        },
+        "fill-hover": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.2314,
+              0.2353,
+              0.2471
+            ],
+            "alpha": 1,
+            "hex": "#3b3c3f"
+          },
+          "$description": "Req for: CTA pointer-over state\nUse: the pointer-over state of the fill, with the fill; for nothing else. Always bordered with the edge\nTheming: follows its rest fill (gray)"
+        },
+        "fill-pressed": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.2824,
+              0.2863,
+              0.298
+            ],
+            "alpha": 1,
+            "hex": "#48494c"
+          },
+          "$description": "Req for: CTA pressed state\nUse: the pressed state of the fill, with the fill; for nothing else. Always bordered with the edge\nTheming: follows its rest fill (gray)"
+        },
+        "edge": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              1,
+              1,
+              1
+            ],
+            "alpha": 0.08,
+            "hex": "#ffffff"
+          },
+          "$description": "Req for: min APCA visibility\nUse: the border of the fill and its states, always rendered with them and never without them (it resolves to transparent unless the fill sits close to the page); for nothing else\nTheming: draws for CTAs that sit close to the page; strength per family tier (gray)"
+        },
+        "on": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              1,
+              1,
+              1
+            ],
+            "alpha": 0.8,
+            "hex": "#ffffff"
+          },
+          "$description": "Req for: text over the CTA color\nAA standard body text over its CTA\nUse: the only text color over the fill; never elsewhere\nTheming: whichever pole passes; quiet CTAs take the soft pole (gray)"
+        }
+      }
+    },
+    "brand": {
+      "paper-1": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.0745,
+            0.0784,
+            0.0863
+          ],
+          "alpha": 1,
+          "hex": "#131416"
+        },
+        "$description": "Req for: backgrounds, inverted text\nGround: highlighter-26 clears it as AA large text and UI elements; pencil-47, pen-58 and pen-70 clear it as AA standard body text, from this family and from the neutral\nTheming: tints carry brand hue"
+      },
+      "paper-3": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.0824,
+            0.1059,
+            0.1451
+          ],
+          "alpha": 1,
+          "hex": "#151b25"
+        },
+        "$description": "Req for: backgrounds, inverted text\nGround: highlighter-26 clears it as AA large text and UI elements; pencil-47, pen-58 and pen-70 clear it as AA standard body text, from this family and from the neutral\nTheming: tints carry brand hue"
+      },
+      "paper-5": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.0784,
+            0.1333,
+            0.2196
+          ],
+          "alpha": 1,
+          "hex": "#142238"
+        },
+        "$description": "Req for: backgrounds, inverted text\nGround: highlighter-26 clears it as AA large text and UI elements; pencil-47, pen-58 and pen-70 clear it as AA standard body text, from this family and from the neutral; the ground the text stops are solved against\nTheming: tints carry brand hue. Worst background text stops must clear."
+      },
+      "chalk-8": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.0824,
+            0.1647,
+            0.2902
+          ],
+          "alpha": 1,
+          "hex": "#152a4a"
+        },
+        "$description": "Req for: decorative borders, inverted text, illos, signal hierarchy\nGround: pen-58 and pen-70 clear it as AA standard body text, from this family and from the neutral; the highlighter and the pencil are not held against it\nTheming: tints carry brand hue"
+      },
+      "chalk-11": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.0941,
+            0.1961,
+            0.3647
+          ],
+          "alpha": 1,
+          "hex": "#18325d"
+        },
+        "$description": "Req for: decorative borders, inverted text, illos, signal hierarchy\nGround: pen-58 and pen-70 clear it as AA standard body text, from this family and from the neutral; the highlighter and the pencil are not held against it\nTheming: tints carry brand hue"
+      },
+      "chalk-15": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.1059,
+            0.2392,
+            0.4549
+          ],
+          "alpha": 1,
+          "hex": "#1b3d74"
+        },
+        "$description": "Req for: decorative borders, inverted text, illos, signal hierarchy\nGround: pen-58 and pen-70 clear it as AA standard body text, from this family and from the neutral; the highlighter and the pencil are not held against it\nTheming: tints carry brand hue"
+      },
+      "chalk-20": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.1176,
+            0.2941,
+            0.5725
+          ],
+          "alpha": 1,
+          "hex": "#1e4b92"
+        },
+        "$description": "Req for: decorative borders, inverted text, illos, signal hierarchy\nGround: pen-58 and pen-70 clear it as AA standard body text, from this family and from the neutral; the highlighter and the pencil are not held against it\nTheming: tints carry brand hue"
+      },
+      "highlighter-26": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.2157,
+            0.4196,
+            0.7451
+          ],
+          "alpha": 1,
+          "hex": "#376bbe"
+        },
+        "$description": "Req for: focus rings, icons, large text, translucent state layers over any ground\nAA large text and UI elements on every paper of this family and of the neutral\nTheming: tints carry brand hue; re-solved to clear its floor"
+      },
+      "pencil-47": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.4824,
+            0.6667,
+            0.9569
+          ],
+          "alpha": 1,
+          "hex": "#7baaf4"
+        },
+        "$description": "Req for: regular text, inverted backgrounds\nAA standard body text on every paper of this family and of the neutral\nTheming: tints carry brand hue; re-solved to clear its floor"
+      },
+      "pen-58": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.6353,
+            0.7765,
+            1
+          ],
+          "alpha": 1,
+          "hex": "#a2c6ff"
+        },
+        "$description": "Req for: regular text, inverted backgrounds\nAA standard body text on every paper and chalk of this family and of the neutral\nTheming: tints carry brand hue; re-solved to clear its floor"
+      },
+      "pen-70": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.8118,
+            0.8824,
+            1
+          ],
+          "alpha": 1,
+          "hex": "#cfe1ff"
+        },
+        "$description": "Req for: heavy-emphasis text, inverted backgrounds\nAA standard body text on every paper and chalk of this family and of the neutral\nTheming: tints carry brand hue; re-solved to clear its floor"
+      },
+      "stamp": {
+        "fill": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.5804,
+              0.7412,
+              1
+            ],
+            "alpha": 1,
+            "hex": "#94bdff"
+          },
+          "$description": "Req for: CTAs\nUse: primary button fills; optional for avatars, badges and other elements that carry text. Not a standalone color: it has no contrast guarantee of its own, only its on-text has one. Use it alone or with its hover and pressed states. Always bordered with its edge\nTheming: fully re-solved per theme and family"
+        },
+        "fill-hover": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.6824,
+              0.8039,
+              1
+            ],
+            "alpha": 1,
+            "hex": "#aecdff"
+          },
+          "$description": "Req for: CTA pointer-over state\nUse: the pointer-over state of the fill, with the fill; for nothing else. Always bordered with the edge\nTheming: follows its rest fill"
+        },
+        "fill-pressed": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.7843,
+              0.8706,
+              1
+            ],
+            "alpha": 1,
+            "hex": "#c8deff"
+          },
+          "$description": "Req for: CTA pressed state\nUse: the pressed state of the fill, with the fill; for nothing else. Always bordered with the edge\nTheming: follows its rest fill"
+        },
+        "edge": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0,
+              0,
+              0
+            ],
+            "alpha": 0,
+            "hex": "#000000"
+          },
+          "$description": "Req for: min APCA visibility\nUse: the border of the fill and its states, always rendered with them and never without them (it resolves to transparent unless the fill sits close to the page); for nothing else\nTheming: draws for CTAs that sit close to the page; strength per family tier"
+        },
+        "on": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0,
+              0,
+              0
+            ],
+            "alpha": 1,
+            "hex": "#000000"
+          },
+          "$description": "Req for: text over the CTA color\nAA standard body text over its CTA\nUse: the only text color over the fill; never elsewhere\nTheming: whichever pole passes; quiet CTAs take the soft pole"
+        }
+      }
+    },
+    "brand-alt": {
+      "paper-1": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.0745,
+            0.0784,
+            0.0784
+          ],
+          "alpha": 1,
+          "hex": "#131414"
+        },
+        "$description": "Req for: backgrounds, inverted text\nGround: highlighter-26 clears it as AA large text and UI elements; pencil-47, pen-58 and pen-70 clear it as AA standard body text, from this family and from the neutral\nTheming: tints carry brand-alt hue"
+      },
+      "paper-3": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.098,
+            0.1059,
+            0.1176
+          ],
+          "alpha": 1,
+          "hex": "#191b1e"
+        },
+        "$description": "Req for: backgrounds, inverted text\nGround: highlighter-26 clears it as AA large text and UI elements; pencil-47, pen-58 and pen-70 clear it as AA standard body text, from this family and from the neutral\nTheming: tints carry brand-alt hue"
+      },
+      "paper-5": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.1176,
+            0.1333,
+            0.1608
+          ],
+          "alpha": 1,
+          "hex": "#1e2229"
+        },
+        "$description": "Req for: backgrounds, inverted text\nGround: highlighter-26 clears it as AA large text and UI elements; pencil-47, pen-58 and pen-70 clear it as AA standard body text, from this family and from the neutral; the ground the text stops are solved against\nTheming: tints carry brand-alt hue. Worst background text stops must clear."
+      },
+      "chalk-8": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.1412,
+            0.1647,
+            0.2039
+          ],
+          "alpha": 1,
+          "hex": "#242a34"
+        },
+        "$description": "Req for: decorative borders, inverted text, illos, signal hierarchy\nGround: pen-58 and pen-70 clear it as AA standard body text, from this family and from the neutral; the highlighter and the pencil are not held against it\nTheming: tints carry brand-alt hue"
+      },
+      "chalk-11": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.1686,
+            0.2039,
+            0.2549
+          ],
+          "alpha": 1,
+          "hex": "#2b3441"
+        },
+        "$description": "Req for: decorative borders, inverted text, illos, signal hierarchy\nGround: pen-58 and pen-70 clear it as AA standard body text, from this family and from the neutral; the highlighter and the pencil are not held against it\nTheming: tints carry brand-alt hue"
+      },
+      "chalk-15": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.2039,
+            0.2471,
+            0.3137
+          ],
+          "alpha": 1,
+          "hex": "#343f50"
+        },
+        "$description": "Req for: decorative borders, inverted text, illos, signal hierarchy\nGround: pen-58 and pen-70 clear it as AA standard body text, from this family and from the neutral; the highlighter and the pencil are not held against it\nTheming: tints carry brand-alt hue"
+      },
+      "chalk-20": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.251,
+            0.302,
+            0.3882
+          ],
+          "alpha": 1,
+          "hex": "#404d63"
+        },
+        "$description": "Req for: decorative borders, inverted text, illos, signal hierarchy\nGround: pen-58 and pen-70 clear it as AA standard body text, from this family and from the neutral; the highlighter and the pencil are not held against it\nTheming: tints carry brand-alt hue"
+      },
+      "highlighter-26": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.3529,
+            0.4275,
+            0.5451
+          ],
+          "alpha": 1,
+          "hex": "#5a6d8b"
+        },
+        "$description": "Req for: focus rings, icons, large text, translucent state layers over any ground\nAA large text and UI elements on every paper of this family and of the neutral\nTheming: tints carry brand-alt hue; re-solved to clear its floor"
+      },
+      "pencil-47": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.6235,
+            0.6941,
+            0.8039
+          ],
+          "alpha": 1,
+          "hex": "#9fb1cd"
+        },
+        "$description": "Req for: regular text, inverted backgrounds\nAA standard body text on every paper of this family and of the neutral\nTheming: tints carry brand-alt hue; re-solved to clear its floor"
+      },
+      "pen-58": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.7137,
+            0.7882,
+            0.902
+          ],
+          "alpha": 1,
+          "hex": "#b6c9e6"
+        },
+        "$description": "Req for: regular text, inverted backgrounds\nAA standard body text on every paper and chalk of this family and of the neutral\nTheming: tints carry brand-alt hue; re-solved to clear its floor"
+      },
+      "pen-70": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.8392,
+            0.8902,
+            0.9647
+          ],
+          "alpha": 1,
+          "hex": "#d6e3f6"
+        },
+        "$description": "Req for: heavy-emphasis text, inverted backgrounds\nAA standard body text on every paper and chalk of this family and of the neutral\nTheming: tints carry brand-alt hue; re-solved to clear its floor"
+      },
+      "stamp": {
+        "fill": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.3451,
+              0.3961,
+              0.4745
+            ],
+            "alpha": 1,
+            "hex": "#586579"
+          },
+          "$description": "Req for: CTAs\nUse: primary button fills; optional for avatars, badges and other elements that carry text. Not a standalone color: it has no contrast guarantee of its own, only its on-text has one. Use it alone or with its hover and pressed states. Always bordered with its edge\nTheming: fully re-solved per theme and family"
+        },
+        "fill-hover": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.4,
+              0.451,
+              0.5333
+            ],
+            "alpha": 1,
+            "hex": "#667388"
+          },
+          "$description": "Req for: CTA pointer-over state\nUse: the pointer-over state of the fill, with the fill; for nothing else. Always bordered with the edge\nTheming: follows its rest fill"
+        },
+        "fill-pressed": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.4549,
+              0.5098,
+              0.5922
+            ],
+            "alpha": 1,
+            "hex": "#748297"
+          },
+          "$description": "Req for: CTA pressed state\nUse: the pressed state of the fill, with the fill; for nothing else. Always bordered with the edge\nTheming: follows its rest fill"
+        },
+        "edge": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0,
+              0,
+              0
+            ],
+            "alpha": 0,
+            "hex": "#000000"
+          },
+          "$description": "Req for: min APCA visibility\nUse: the border of the fill and its states, always rendered with them and never without them (it resolves to transparent unless the fill sits close to the page); for nothing else\nTheming: draws for CTAs that sit close to the page; strength per family tier"
+        },
+        "on": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              1,
+              1,
+              1
+            ],
+            "alpha": 1,
+            "hex": "#ffffff"
+          },
+          "$description": "Req for: text over the CTA color\nAA standard body text over its CTA\nUse: the only text color over the fill; never elsewhere\nTheming: whichever pole passes; quiet CTAs take the soft pole"
+        }
+      }
+    },
+    "critical": {
+      "paper-1": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.0863,
+            0.0745,
+            0.0706
+          ],
+          "alpha": 1,
+          "hex": "#161312"
+        },
+        "$description": "Req for: backgrounds, inverted text\nGround: highlighter-26 clears it as AA large text and UI elements; pencil-47, pen-58 and pen-70 clear it as AA standard body text, from this family and from the neutral\nTheming: tints carry critical hue (red)\nshifts to avoid similar colors"
+      },
+      "paper-3": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.1451,
+            0.0902,
+            0.0784
+          ],
+          "alpha": 1,
+          "hex": "#251714"
+        },
+        "$description": "Req for: backgrounds, inverted text\nGround: highlighter-26 clears it as AA large text and UI elements; pencil-47, pen-58 and pen-70 clear it as AA standard body text, from this family and from the neutral\nTheming: tints carry critical hue (red)\nshifts to avoid similar colors"
+      },
+      "paper-5": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.2196,
+            0.098,
+            0.0706
+          ],
+          "alpha": 1,
+          "hex": "#381912"
+        },
+        "$description": "Req for: backgrounds, inverted text\nGround: highlighter-26 clears it as AA large text and UI elements; pencil-47, pen-58 and pen-70 clear it as AA standard body text, from this family and from the neutral; the ground the text stops are solved against\nTheming: tints carry critical hue (red). Worst background text stops must clear.\nshifts to avoid similar colors"
+      },
+      "chalk-8": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.2863,
+            0.1098,
+            0.0706
+          ],
+          "alpha": 1,
+          "hex": "#491c12"
+        },
+        "$description": "Req for: decorative borders, inverted text, illos, signal hierarchy\nGround: pen-58 and pen-70 clear it as AA standard body text, from this family and from the neutral; the highlighter and the pencil are not held against it\nTheming: tints carry critical hue (red)\nshifts to avoid similar colors"
+      },
+      "chalk-11": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.3569,
+            0.1255,
+            0.0745
+          ],
+          "alpha": 1,
+          "hex": "#5b2013"
+        },
+        "$description": "Req for: decorative borders, inverted text, illos, signal hierarchy\nGround: pen-58 and pen-70 clear it as AA standard body text, from this family and from the neutral; the highlighter and the pencil are not held against it\nTheming: tints carry critical hue (red)\nshifts to avoid similar colors"
+      },
+      "chalk-15": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.4431,
+            0.1412,
+            0.0745
+          ],
+          "alpha": 1,
+          "hex": "#712413"
+        },
+        "$description": "Req for: decorative borders, inverted text, illos, signal hierarchy\nGround: pen-58 and pen-70 clear it as AA standard body text, from this family and from the neutral; the highlighter and the pencil are not held against it\nTheming: tints carry critical hue (red)\nshifts to avoid similar colors"
+      },
+      "chalk-20": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.5569,
+            0.1569,
+            0.0706
+          ],
+          "alpha": 1,
+          "hex": "#8e2812"
+        },
+        "$description": "Req for: decorative borders, inverted text, illos, signal hierarchy\nGround: pen-58 and pen-70 clear it as AA standard body text, from this family and from the neutral; the highlighter and the pencil are not held against it\nTheming: tints carry critical hue (red)\nshifts to avoid similar colors"
+      },
+      "highlighter-26": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.7451,
+            0.2588,
+            0.1608
+          ],
+          "alpha": 1,
+          "hex": "#be4229"
+        },
+        "$description": "Req for: focus rings, icons, large text, translucent state layers over any ground\nAA large text and UI elements on every paper of this family and of the neutral\nTheming: tints carry critical hue (red); re-solved to clear its floor\nshifts to avoid similar colors"
+      },
+      "pencil-47": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.9647,
+            0.5922,
+            0.5059
+          ],
+          "alpha": 1,
+          "hex": "#f69781"
+        },
+        "$description": "Req for: regular text, inverted backgrounds\nAA standard body text on every paper of this family and of the neutral\nTheming: tints carry critical hue (red); re-solved to clear its floor\nshifts to avoid similar colors"
+      },
+      "pen-58": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            1,
+            0.7255,
+            0.6627
+          ],
+          "alpha": 1,
+          "hex": "#ffb9a9"
+        },
+        "$description": "Req for: regular text, inverted backgrounds\nAA standard body text on every paper and chalk of this family and of the neutral\nTheming: tints carry critical hue (red); re-solved to clear its floor\nshifts to avoid similar colors"
+      },
+      "pen-70": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            1,
+            0.8667,
+            0.8353
+          ],
+          "alpha": 1,
+          "hex": "#ffddd5"
+        },
+        "$description": "Req for: heavy-emphasis text, inverted backgrounds\nAA standard body text on every paper and chalk of this family and of the neutral\nTheming: tints carry critical hue (red); re-solved to clear its floor\nshifts to avoid similar colors"
+      },
+      "stamp": {
+        "fill": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.8392,
+              0.2431,
+              0.1176
+            ],
+            "alpha": 1,
+            "hex": "#d63e1e"
+          },
+          "$description": "Req for: CTAs\nUse: primary button fills; optional for avatars, badges and other elements that carry text. Not a standalone color: it has no contrast guarantee of its own, only its on-text has one. Use it alone or with its hover and pressed states. Always bordered with its edge\nTheming: fully re-solved per theme and family (red)"
+        },
+        "fill-hover": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.9098,
+              0.3137,
+              0.1922
+            ],
+            "alpha": 1,
+            "hex": "#e85031"
+          },
+          "$description": "Req for: CTA pointer-over state\nUse: the pointer-over state of the fill, with the fill; for nothing else. Always bordered with the edge\nTheming: follows its rest fill (red)"
+        },
+        "fill-pressed": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.9804,
+              0.3804,
+              0.2549
+            ],
+            "alpha": 1,
+            "hex": "#fa6141"
+          },
+          "$description": "Req for: CTA pressed state\nUse: the pressed state of the fill, with the fill; for nothing else. Always bordered with the edge\nTheming: follows its rest fill (red)"
+        },
+        "edge": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0,
+              0,
+              0
+            ],
+            "alpha": 0,
+            "hex": "#000000"
+          },
+          "$description": "Req for: min APCA visibility\nUse: the border of the fill and its states, always rendered with them and never without them (it resolves to transparent unless the fill sits close to the page); for nothing else\nTheming: draws for CTAs that sit close to the page; strength per family tier (red)"
+        },
+        "on": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              1,
+              1,
+              1
+            ],
+            "alpha": 1,
+            "hex": "#ffffff"
+          },
+          "$description": "Req for: text over the CTA color\nAA standard body text over its CTA\nUse: the only text color over the fill; never elsewhere\nTheming: whichever pole passes; quiet CTAs take the soft pole (red)"
+        }
+      }
+    },
+    "warning": {
+      "paper-1": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.0863,
+            0.0745,
+            0.0549
+          ],
+          "alpha": 1,
+          "hex": "#16130e"
+        },
+        "$description": "Req for: backgrounds, inverted text\nGround: highlighter-26 clears it as AA large text and UI elements; pencil-47, pen-58 and pen-70 clear it as AA standard body text, from this family and from the neutral\nTheming: tints carry warning hue (yellow)\nshifts to avoid similar colors"
+      },
+      "paper-3": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.1373,
+            0.098,
+            0.0275
+          ],
+          "alpha": 1,
+          "hex": "#231907"
+        },
+        "$description": "Req for: backgrounds, inverted text\nGround: highlighter-26 clears it as AA large text and UI elements; pencil-47, pen-58 and pen-70 clear it as AA standard body text, from this family and from the neutral\nTheming: tints carry warning hue (yellow)\nshifts to avoid similar colors"
+      },
+      "paper-5": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.1843,
+            0.1176,
+            0
+          ],
+          "alpha": 1,
+          "hex": "#2f1e00"
+        },
+        "$description": "Req for: backgrounds, inverted text\nGround: highlighter-26 clears it as AA large text and UI elements; pencil-47, pen-58 and pen-70 clear it as AA standard body text, from this family and from the neutral; the ground the text stops are solved against\nTheming: tints carry warning hue (yellow). Worst background text stops must clear.\nshifts to avoid similar colors"
+      },
+      "chalk-8": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.2275,
+            0.149,
+            0
+          ],
+          "alpha": 1,
+          "hex": "#3a2600"
+        },
+        "$description": "Req for: decorative borders, inverted text, illos, signal hierarchy\nGround: pen-58 and pen-70 clear it as AA standard body text, from this family and from the neutral; the highlighter and the pencil are not held against it\nTheming: tints carry warning hue (yellow)\nshifts to avoid similar colors"
+      },
+      "chalk-11": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.2745,
+            0.1843,
+            0
+          ],
+          "alpha": 1,
+          "hex": "#462f00"
+        },
+        "$description": "Req for: decorative borders, inverted text, illos, signal hierarchy\nGround: pen-58 and pen-70 clear it as AA standard body text, from this family and from the neutral; the highlighter and the pencil are not held against it\nTheming: tints carry warning hue (yellow)\nshifts to avoid similar colors"
+      },
+      "chalk-15": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.3294,
+            0.2235,
+            0
+          ],
+          "alpha": 1,
+          "hex": "#543900"
+        },
+        "$description": "Req for: decorative borders, inverted text, illos, signal hierarchy\nGround: pen-58 and pen-70 clear it as AA standard body text, from this family and from the neutral; the highlighter and the pencil are not held against it\nTheming: tints carry warning hue (yellow)\nshifts to avoid similar colors"
+      },
+      "chalk-20": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.4118,
+            0.2706,
+            0
+          ],
+          "alpha": 1,
+          "hex": "#694500"
+        },
+        "$description": "Req for: decorative borders, inverted text, illos, signal hierarchy\nGround: pen-58 and pen-70 clear it as AA standard body text, from this family and from the neutral; the highlighter and the pencil are not held against it\nTheming: tints carry warning hue (yellow)\nshifts to avoid similar colors"
+      },
+      "highlighter-26": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.6157,
+            0.3686,
+            0
+          ],
+          "alpha": 1,
+          "hex": "#9d5e00"
+        },
+        "$description": "Req for: focus rings, icons, large text, translucent state layers over any ground\nAA large text and UI elements on every paper of this family and of the neutral\nTheming: tints carry warning hue (yellow); re-solved to clear its floor\nshifts to avoid similar colors"
+      },
+      "pencil-47": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.9216,
+            0.7294,
+            0.3843
+          ],
+          "alpha": 1,
+          "hex": "#ebba62"
+        },
+        "$description": "Req for: regular text, inverted backgrounds\nAA standard body text on every paper of this family and of the neutral\nTheming: tints carry warning hue (yellow); re-solved to clear its floor\nshifts to avoid similar colors"
+      },
+      "pen-58": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            1,
+            0.8392,
+            0.4784
+          ],
+          "alpha": 1,
+          "hex": "#ffd67a"
+        },
+        "$description": "Req for: regular text, inverted backgrounds\nAA standard body text on every paper and chalk of this family and of the neutral\nTheming: tints carry warning hue (yellow); re-solved to clear its floor\nshifts to avoid similar colors"
+      },
+      "pen-70": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.9725,
+            0.9176,
+            0.7922
+          ],
+          "alpha": 1,
+          "hex": "#f8eaca"
+        },
+        "$description": "Req for: heavy-emphasis text, inverted backgrounds\nAA standard body text on every paper and chalk of this family and of the neutral\nTheming: tints carry warning hue (yellow); re-solved to clear its floor\nshifts to avoid similar colors"
+      },
+      "stamp": {
+        "fill": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              1,
+              0.7725,
+              0.2392
+            ],
+            "alpha": 1,
+            "hex": "#ffc53d"
+          },
+          "$description": "Req for: CTAs\nUse: primary button fills; optional for avatars, badges and other elements that carry text. Not a standalone color: it has no contrast guarantee of its own, only its on-text has one. Use it alone or with its hover and pressed states. Always bordered with its edge\nTheming: fully re-solved per theme and family (yellow)"
+        },
+        "fill-hover": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.9333,
+              0.7098,
+              0.1412
+            ],
+            "alpha": 1,
+            "hex": "#eeb524"
+          },
+          "$description": "Req for: CTA pointer-over state\nUse: the pointer-over state of the fill, with the fill; for nothing else. Always bordered with the edge\nTheming: follows its rest fill (yellow)"
+        },
+        "fill-pressed": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.8667,
+              0.6471,
+              0
+            ],
+            "alpha": 1,
+            "hex": "#dda500"
+          },
+          "$description": "Req for: CTA pressed state\nUse: the pressed state of the fill, with the fill; for nothing else. Always bordered with the edge\nTheming: follows its rest fill (yellow)"
+        },
+        "edge": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0,
+              0,
+              0
+            ],
+            "alpha": 0,
+            "hex": "#000000"
+          },
+          "$description": "Req for: min APCA visibility\nUse: the border of the fill and its states, always rendered with them and never without them (it resolves to transparent unless the fill sits close to the page); for nothing else\nTheming: draws for CTAs that sit close to the page; strength per family tier (yellow)"
+        },
+        "on": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0,
+              0,
+              0
+            ],
+            "alpha": 1,
+            "hex": "#000000"
+          },
+          "$description": "Req for: text over the CTA color\nAA standard body text over its CTA\nUse: the only text color over the fill; never elsewhere\nTheming: whichever pole passes; quiet CTAs take the soft pole (yellow)"
+        }
+      }
+    },
+    "positive": {
+      "paper-1": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.0706,
+            0.0784,
+            0.0706
+          ],
+          "alpha": 1,
+          "hex": "#121412"
+        },
+        "$description": "Req for: backgrounds, inverted text\nGround: highlighter-26 clears it as AA large text and UI elements; pencil-47, pen-58 and pen-70 clear it as AA standard body text, from this family and from the neutral\nTheming: tints carry positive hue (green)\nshifts to avoid similar colors"
+      },
+      "paper-3": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.0667,
+            0.1176,
+            0.0706
+          ],
+          "alpha": 1,
+          "hex": "#111e12"
+        },
+        "$description": "Req for: backgrounds, inverted text\nGround: highlighter-26 clears it as AA large text and UI elements; pencil-47, pen-58 and pen-70 clear it as AA standard body text, from this family and from the neutral\nTheming: tints carry positive hue (green)\nshifts to avoid similar colors"
+      },
+      "paper-5": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.0235,
+            0.1569,
+            0.0549
+          ],
+          "alpha": 1,
+          "hex": "#06280e"
+        },
+        "$description": "Req for: backgrounds, inverted text\nGround: highlighter-26 clears it as AA large text and UI elements; pencil-47, pen-58 and pen-70 clear it as AA standard body text, from this family and from the neutral; the ground the text stops are solved against\nTheming: tints carry positive hue (green). Worst background text stops must clear.\nshifts to avoid similar colors"
+      },
+      "chalk-8": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0,
+            0.1961,
+            0.051
+          ],
+          "alpha": 1,
+          "hex": "#00320d"
+        },
+        "$description": "Req for: decorative borders, inverted text, illos, signal hierarchy\nGround: pen-58 and pen-70 clear it as AA standard body text, from this family and from the neutral; the highlighter and the pencil are not held against it\nTheming: tints carry positive hue (green)\nshifts to avoid similar colors"
+      },
+      "chalk-11": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0,
+            0.2353,
+            0.0706
+          ],
+          "alpha": 1,
+          "hex": "#003c12"
+        },
+        "$description": "Req for: decorative borders, inverted text, illos, signal hierarchy\nGround: pen-58 and pen-70 clear it as AA standard body text, from this family and from the neutral; the highlighter and the pencil are not held against it\nTheming: tints carry positive hue (green)\nshifts to avoid similar colors"
+      },
+      "chalk-15": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0,
+            0.2824,
+            0.0902
+          ],
+          "alpha": 1,
+          "hex": "#004817"
+        },
+        "$description": "Req for: decorative borders, inverted text, illos, signal hierarchy\nGround: pen-58 and pen-70 clear it as AA standard body text, from this family and from the neutral; the highlighter and the pencil are not held against it\nTheming: tints carry positive hue (green)\nshifts to avoid similar colors"
+      },
+      "chalk-20": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0,
+            0.3451,
+            0.1176
+          ],
+          "alpha": 1,
+          "hex": "#00581e"
+        },
+        "$description": "Req for: decorative borders, inverted text, illos, signal hierarchy\nGround: pen-58 and pen-70 clear it as AA standard body text, from this family and from the neutral; the highlighter and the pencil are not held against it\nTheming: tints carry positive hue (green)\nshifts to avoid similar colors"
+      },
+      "highlighter-26": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0,
+            0.4941,
+            0.1804
+          ],
+          "alpha": 1,
+          "hex": "#007e2e"
+        },
+        "$description": "Req for: focus rings, icons, large text, translucent state layers over any ground\nAA large text and UI elements on every paper of this family and of the neutral\nTheming: tints carry positive hue (green); re-solved to clear its floor\nshifts to avoid similar colors"
+      },
+      "pencil-47": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.4941,
+            0.7922,
+            0.5333
+          ],
+          "alpha": 1,
+          "hex": "#7eca88"
+        },
+        "$description": "Req for: regular text, inverted backgrounds\nAA standard body text on every paper of this family and of the neutral\nTheming: tints carry positive hue (green); re-solved to clear its floor\nshifts to avoid similar colors"
+      },
+      "pen-58": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.5804,
+            0.8824,
+            0.6196
+          ],
+          "alpha": 1,
+          "hex": "#94e19e"
+        },
+        "$description": "Req for: regular text, inverted backgrounds\nAA standard body text on every paper and chalk of this family and of the neutral\nTheming: tints carry positive hue (green); re-solved to clear its floor\nshifts to avoid similar colors"
+      },
+      "pen-70": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.8196,
+            0.9294,
+            0.8314
+          ],
+          "alpha": 1,
+          "hex": "#d1edd4"
+        },
+        "$description": "Req for: heavy-emphasis text, inverted backgrounds\nAA standard body text on every paper and chalk of this family and of the neutral\nTheming: tints carry positive hue (green); re-solved to clear its floor\nshifts to avoid similar colors"
+      },
+      "stamp": {
+        "fill": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.4392,
+              0.8157,
+              0.498
+            ],
+            "alpha": 1,
+            "hex": "#70d07f"
+          },
+          "$description": "Req for: CTAs\nUse: primary button fills; optional for avatars, badges and other elements that carry text. Not a standalone color: it has no contrast guarantee of its own, only its on-text has one. Use it alone or with its hover and pressed states. Always bordered with its edge\nTheming: fully re-solved per theme and family (green)"
+        },
+        "fill-hover": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.502,
+              0.8784,
+              0.5569
+            ],
+            "alpha": 1,
+            "hex": "#80e08e"
+          },
+          "$description": "Req for: CTA pointer-over state\nUse: the pointer-over state of the fill, with the fill; for nothing else. Always bordered with the edge\nTheming: follows its rest fill (green)"
+        },
+        "fill-pressed": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.5647,
+              0.9451,
+              0.6196
+            ],
+            "alpha": 1,
+            "hex": "#90f19e"
+          },
+          "$description": "Req for: CTA pressed state\nUse: the pressed state of the fill, with the fill; for nothing else. Always bordered with the edge\nTheming: follows its rest fill (green)"
+        },
+        "edge": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0,
+              0,
+              0
+            ],
+            "alpha": 0,
+            "hex": "#000000"
+          },
+          "$description": "Req for: min APCA visibility\nUse: the border of the fill and its states, always rendered with them and never without them (it resolves to transparent unless the fill sits close to the page); for nothing else\nTheming: draws for CTAs that sit close to the page; strength per family tier (green)"
+        },
+        "on": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0,
+              0,
+              0
+            ],
+            "alpha": 1,
+            "hex": "#000000"
+          },
+          "$description": "Req for: text over the CTA color\nAA standard body text over its CTA\nUse: the only text color over the fill; never elsewhere\nTheming: whichever pole passes; quiet CTAs take the soft pole (green)"
+        }
+      }
+    },
+    "info": {
+      "paper-1": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.0784,
+            0.0784,
+            0.0863
+          ],
+          "alpha": 1,
+          "hex": "#141416"
+        },
+        "$description": "Req for: backgrounds, inverted text\nGround: highlighter-26 clears it as AA large text and UI elements; pencil-47, pen-58 and pen-70 clear it as AA standard body text, from this family and from the neutral\nTheming: tints carry info hue (blue)\nshifts to avoid similar colors"
+      },
+      "paper-3": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.102,
+            0.098,
+            0.1451
+          ],
+          "alpha": 1,
+          "hex": "#1a1925"
+        },
+        "$description": "Req for: backgrounds, inverted text\nGround: highlighter-26 clears it as AA large text and UI elements; pencil-47, pen-58 and pen-70 clear it as AA standard body text, from this family and from the neutral\nTheming: tints carry info hue (blue)\nshifts to avoid similar colors"
+      },
+      "paper-5": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.1333,
+            0.1176,
+            0.2196
+          ],
+          "alpha": 1,
+          "hex": "#221e38"
+        },
+        "$description": "Req for: backgrounds, inverted text\nGround: highlighter-26 clears it as AA large text and UI elements; pencil-47, pen-58 and pen-70 clear it as AA standard body text, from this family and from the neutral; the ground the text stops are solved against\nTheming: tints carry info hue (blue). Worst background text stops must clear.\nshifts to avoid similar colors"
+      },
+      "chalk-8": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.1647,
+            0.1412,
+            0.2902
+          ],
+          "alpha": 1,
+          "hex": "#2a244a"
+        },
+        "$description": "Req for: decorative borders, inverted text, illos, signal hierarchy\nGround: pen-58 and pen-70 clear it as AA standard body text, from this family and from the neutral; the highlighter and the pencil are not held against it\nTheming: tints carry info hue (blue)\nshifts to avoid similar colors"
+      },
+      "chalk-11": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.2039,
+            0.1725,
+            0.3647
+          ],
+          "alpha": 1,
+          "hex": "#342c5d"
+        },
+        "$description": "Req for: decorative borders, inverted text, illos, signal hierarchy\nGround: pen-58 and pen-70 clear it as AA standard body text, from this family and from the neutral; the highlighter and the pencil are not held against it\nTheming: tints carry info hue (blue)\nshifts to avoid similar colors"
+      },
+      "chalk-15": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.251,
+            0.2039,
+            0.4549
+          ],
+          "alpha": 1,
+          "hex": "#403474"
+        },
+        "$description": "Req for: decorative borders, inverted text, illos, signal hierarchy\nGround: pen-58 and pen-70 clear it as AA standard body text, from this family and from the neutral; the highlighter and the pencil are not held against it\nTheming: tints carry info hue (blue)\nshifts to avoid similar colors"
+      },
+      "chalk-20": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.3137,
+            0.2471,
+            0.5686
+          ],
+          "alpha": 1,
+          "hex": "#503f91"
+        },
+        "$description": "Req for: decorative borders, inverted text, illos, signal hierarchy\nGround: pen-58 and pen-70 clear it as AA standard body text, from this family and from the neutral; the highlighter and the pencil are not held against it\nTheming: tints carry info hue (blue)\nshifts to avoid similar colors"
+      },
+      "highlighter-26": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.4353,
+            0.3686,
+            0.7373
+          ],
+          "alpha": 1,
+          "hex": "#6f5ebc"
+        },
+        "$description": "Req for: focus rings, icons, large text, translucent state layers over any ground\nAA large text and UI elements on every paper of this family and of the neutral\nTheming: tints carry info hue (blue); re-solved to clear its floor\nshifts to avoid similar colors"
+      },
+      "pencil-47": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.6549,
+            0.6157,
+            0.9412
+          ],
+          "alpha": 1,
+          "hex": "#a79df0"
+        },
+        "$description": "Req for: regular text, inverted backgrounds\nAA standard body text on every paper of this family and of the neutral\nTheming: tints carry info hue (blue); re-solved to clear its floor\nshifts to avoid similar colors"
+      },
+      "pen-58": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.7529,
+            0.7216,
+            1
+          ],
+          "alpha": 1,
+          "hex": "#c0b8ff"
+        },
+        "$description": "Req for: regular text, inverted backgrounds\nAA standard body text on every paper and chalk of this family and of the neutral\nTheming: tints carry info hue (blue); re-solved to clear its floor\nshifts to avoid similar colors"
+      },
+      "pen-70": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.8745,
+            0.8627,
+            0.9922
+          ],
+          "alpha": 1,
+          "hex": "#dfdcfd"
+        },
+        "$description": "Req for: heavy-emphasis text, inverted backgrounds\nAA standard body text on every paper and chalk of this family and of the neutral\nTheming: tints carry info hue (blue); re-solved to clear its floor\nshifts to avoid similar colors"
+      },
+      "stamp": {
+        "fill": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.7373,
+              0.702,
+              1
+            ],
+            "alpha": 1,
+            "hex": "#bcb3ff"
+          },
+          "$description": "Req for: CTAs\nUse: primary button fills; optional for avatars, badges and other elements that carry text. Not a standalone color: it has no contrast guarantee of its own, only its on-text has one. Use it alone or with its hover and pressed states. Always bordered with its edge\nTheming: fully re-solved per theme and family (blue)"
+        },
+        "fill-hover": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.8,
+              0.7804,
+              1
+            ],
+            "alpha": 1,
+            "hex": "#ccc7ff"
+          },
+          "$description": "Req for: CTA pointer-over state\nUse: the pointer-over state of the fill, with the fill; for nothing else. Always bordered with the edge\nTheming: follows its rest fill (blue)"
+        },
+        "fill-pressed": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.8667,
+              0.8549,
+              1
+            ],
+            "alpha": 1,
+            "hex": "#dddaff"
+          },
+          "$description": "Req for: CTA pressed state\nUse: the pressed state of the fill, with the fill; for nothing else. Always bordered with the edge\nTheming: follows its rest fill (blue)"
+        },
+        "edge": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0,
+              0,
+              0
+            ],
+            "alpha": 0,
+            "hex": "#000000"
+          },
+          "$description": "Req for: min APCA visibility\nUse: the border of the fill and its states, always rendered with them and never without them (it resolves to transparent unless the fill sits close to the page); for nothing else\nTheming: draws for CTAs that sit close to the page; strength per family tier (blue)"
+        },
+        "on": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0,
+              0,
+              0
+            ],
+            "alpha": 1,
+            "hex": "#000000"
+          },
+          "$description": "Req for: text over the CTA color\nAA standard body text over its CTA\nUse: the only text color over the fill; never elsewhere\nTheming: whichever pole passes; quiet CTAs take the soft pole (blue)"
+        }
+      }
+    },
+    "link": {
+      "default": {
+        "enabled": {
+          "$type": "color",
+          "$value": "{color.brand.pencil-47}",
+          "$description": "Req for: links\nAA standard body text on every paper of the neutral\nUse: hyperlinks; not a text-style CTA, which is the text stops read as states\nTheming: rides the theme’s link color; custom seed re-solves; overridable per theme"
+        },
+        "hover": {
+          "$type": "color",
+          "$value": "{color.brand.pen-58}",
+          "$description": "Req for: links pointer-over\nAA standard body text on every paper of the neutral\nUse: hyperlinks; not a text-style CTA, which is the text stops read as states\nTheming: rides the theme’s link color; custom seed re-solves; overridable per theme"
+        },
+        "pressed": {
+          "$type": "color",
+          "$value": "{color.brand.pen-70}",
+          "$description": "Req for: links pressed\nAA standard body text on every paper of the neutral\nUse: hyperlinks; not a text-style CTA, which is the text stops read as states\nTheming: rides the theme’s link color; custom seed re-solves; overridable per theme"
+        }
+      },
+      "inverse": {
+        "enabled": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.149,
+              0.3647,
+              0.7059
+            ],
+            "alpha": 1,
+            "hex": "#265db4"
+          },
+          "$description": "Req for: links over inverted backgrounds\nAA standard body text on any family's pen-70\nUse: hyperlinks on a pen-70 ground; not a text-style CTA\nTheming: same seed as the link, re-solved for inverted backgrounds; overridable per theme"
+        },
+        "hover": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0,
+              0.2275,
+              0.5569
+            ],
+            "alpha": 1,
+            "hex": "#003a8e"
+          },
+          "$description": "Req for: links over inverted backgrounds pointer-over\nAA standard body text on any family's pen-70\nUse: hyperlinks on a pen-70 ground; not a text-style CTA\nTheming: same seed as the link, re-solved for inverted backgrounds; overridable per theme"
+        },
+        "pressed": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.0549,
+              0.1529,
+              0.3098
+            ],
+            "alpha": 1,
+            "hex": "#0e274f"
+          },
+          "$description": "Req for: links over inverted backgrounds pressed\nAA standard body text on any family's pen-70\nUse: hyperlinks on a pen-70 ground; not a text-style CTA\nTheming: same seed as the link, re-solved for inverted backgrounds; overridable per theme"
+        }
+      }
+    },
+    "absolute": {
+      "brand": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.0157,
+            0.2941,
+            0.6863
+          ],
+          "alpha": 1,
+          "hex": "#044baf"
+        },
+        "$description": "Req for: identity seed reference\nUse: a reference value (logos, swatches of the input); never a UI color, it carries no contrast guarantee\nTheming: the theme’s own input, as given"
+      },
+      "brand-alt": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.6549,
+            0.7294,
+            0.8471
+          ],
+          "alpha": 1,
+          "hex": "#a7bad8"
+        },
+        "$description": "Req for: identity seed reference\nUse: a reference value (logos, swatches of the input); never a UI color, it carries no contrast guarantee\nTheming: the theme’s paired input, as given"
+      }
+    }
+  }
+}

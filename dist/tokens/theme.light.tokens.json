@@ -1,0 +1,45 @@
+{
+  "color": {
+    "surface": {
+      "dim": {
+        "$type": "color",
+        "$value": "{color.neutral.paper-5}",
+        "$description": "Req for: the page behind everything\nUse: elevation moves toward the page pole in both modes; a shadow marks the step in light"
+      },
+      "low": {
+        "$type": "color",
+        "$value": "{color.neutral.paper-3}",
+        "$description": "Req for: a recessed surface: an inset well, a table header\nUse: elevation moves toward the page pole in both modes; a shadow marks the step in light"
+      },
+      "mid": {
+        "$type": "color",
+        "$value": "{color.neutral.paper-1}",
+        "$description": "Req for: the resting surface of a panel or a section\nUse: elevation moves toward the page pole in both modes; a shadow marks the step in light"
+      },
+      "high": {
+        "$type": "color",
+        "$value": "{color.neutral.paper-0}",
+        "$description": "Req for: the raised surface: a card, a menu, a dialog, an input\nUse: elevation moves toward the page pole in both modes; a shadow marks the step in light"
+      },
+      "inverse": {
+        "$type": "color",
+        "$value": "{color.neutral.pen-70}",
+        "$description": "Req for: an inverted banner, card or toast\nUse: the ground the on-inverse text and links are solved against; not interactive"
+      },
+      "scrim": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0,
+            0,
+            0
+          ],
+          "alpha": 1,
+          "hex": "#000000"
+        },
+        "$description": "Req for: the scrim behind a modal\nUse: black\nComposed with: {opacity.scrim}"
+      }
+    }
+  }
+}

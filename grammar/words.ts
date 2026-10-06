@@ -15,6 +15,22 @@ export type Size = (typeof SIZE)[number]
 export const ROLE = ['display', 'heading', 'title', 'body', 'link', 'tabular-number', 'button', 'code'] as const
 export type Role = (typeof ROLE)[number]
 
+// the color families the engine generates; the neutral is implied where a row has none
+export const FAMILY = ['brand', 'brand-alt', 'critical', 'warning', 'positive', 'info'] as const
+export type Family = (typeof FAMILY)[number]
+export const STATE = ['enabled', 'hover', 'pressed', 'selected'] as const
+export type State = (typeof STATE)[number]
+const LINK_STATE = ['enabled', 'hover', 'pressed'] as const
+// the emphasis words, one vocabulary for fg, bg and border, in the neutral and in every
+// family; each property says which engine stop a word names. The order is the order
+// every list keeps: the two a designer reaches for, then the rest in rising emphasis
+export const WORD = ['regular', 'accent', 'hint', 'muted', 'strong'] as const
+export type Word = (typeof WORD)[number]
+// the interaction levels under bg: nothing at rest, a tint at rest, the engine's stamp
+export const LEVEL = ['ghost', 'soft', 'solid'] as const
+export type Level = (typeof LEVEL)[number]
+const SOLID_STATE = ['enabled', 'hover', 'pressed'] as const
+
 /** a scale step: digits only, three or more (`025`, `400`, `3200`) */
 export const STEP = 'step'
 export type Segment = readonly string[] | typeof STEP
@@ -36,7 +52,12 @@ export const SHAPES = {
   ],
   radius: [[STEP], [['full']]],
   'border-width': [[STEP]],
-  opacity: [[STEP], [['disabled']]],
+  opacity: [
+    [STEP],
+    [['disabled', 'scrim']],
+    [['ghost'], ['hover', 'pressed', 'selected']],
+    [['soft'], STATE],
+  ],
   motion: [
     [['easing'], ['default', 'enter', 'exit', 'linear']],
     [['duration'], STEP],
@@ -51,6 +72,23 @@ export const SHAPES = {
     [['line-height'], STEP],
   ],
   text: [[ROLE, SIZE]],
+  color: [
+    [['fg'], [...WORD, 'on-solid']],
+    [['fg'], ['link'], LINK_STATE],
+    [['fg'], ['on-inverse'], WORD],
+    [['fg'], ['on-inverse'], ['link'], LINK_STATE],
+    [['fg'], FAMILY, [...WORD, 'on-solid']],
+    [['bg'], WORD],
+    [['bg'], ['ghost', 'soft'], STATE],
+    [['bg'], ['solid'], SOLID_STATE],
+    [['bg'], FAMILY, WORD],
+    [['bg'], FAMILY, ['ghost', 'soft'], STATE],
+    [['bg'], FAMILY, ['solid'], SOLID_STATE],
+    [['border'], [...WORD, 'focus', 'inverse', 'solid']],
+    [['border'], FAMILY, [...WORD, 'solid']],
+    [['surface'], ['high', 'mid', 'low', 'dim', 'inverse', 'scrim']],
+    [['illustration'], ['paper', 'chalk-light', 'chalk', 'highlighter', 'pencil', 'pen', 'shadow', 'shine']],
+  ],
 } as const satisfies Record<string, readonly (readonly Segment[])[]>
 
 export type Category = keyof typeof SHAPES

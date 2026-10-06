@@ -6,19 +6,20 @@ import { audit } from './audit.ts'
 import { documents, resolver, serialize } from './dtcg.ts'
 import { figmaFiles } from './figma.ts'
 import { page, pageName } from './pages.ts'
-import { roster, tokensOf } from './roster.ts'
+import { externals, roster, tokensOf } from './roster.ts'
 
 export type Build = { count: number; failures: string[]; files: Record<string, string> }
 
 export function build(): Build {
   const tokens = roster()
+  const outside = externals()
   const docs = documents(tokens)
   const files: Record<string, string> = {}
   for (const [name, { doc }] of docs) files[`dist/tokens/${name}`] = serialize(doc)
   files['dist/tokens/resolver.json'] = resolver()
-  for (const [name, content] of Object.entries(figmaFiles(tokens))) files[`dist/figma/${name}`] = content
-  for (const category of CATEGORIES) files[`docs/groups/${pageName(category)}`] = page(category, tokensOf(category), tokens)
-  return { count: tokens.length, failures: audit(tokens, docs), files }
+  for (const [name, content] of Object.entries(figmaFiles(tokens, outside))) files[`dist/figma/${name}`] = content
+  for (const category of CATEGORIES) files[`docs/groups/${pageName(category)}`] = page(category, tokensOf(category), tokens, outside)
+  return { count: tokens.length, failures: audit(tokens, docs, outside), files }
 }
 
 export function report(name: string, failures: string[]): void {

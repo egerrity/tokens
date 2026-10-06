@@ -17,8 +17,13 @@ export type DtcgGroup = Map<string, DtcgToken | DtcgGroup>
 /** a document's place in the set: its collection, and its context where the collection has them */
 export type DocumentKey = { collection: string; context?: string }
 
-/** the description as the file carries it: one line per part, in this order */
-export const describeDocument = (t: Token): string => `Req for: ${t.req}\nUse: ${t.use}`
+/**
+ * The description as the file carries it: one line per part, in this order. The format
+ * has no field for a pair, so the opacity a color is composed with rides in the
+ * description, in the alias form a reader of the file can follow.
+ */
+export const describeDocument = (t: Token): string =>
+  [`Req for: ${t.req}`, `Use: ${t.use}`, ...(t.pair ? [`Composed with: ${aliasOf(t.pair)}`] : []), ...(t.reserved ? ['Reserved for components'] : [])].join('\n')
 
 export function valueOf(v: Value): unknown {
   if (isAlias(v)) return aliasOf(v.alias)
@@ -94,7 +99,10 @@ export function resolver(): string {
       resolutionOrder.push({ $ref: `#/sets/${collection}` })
     } else {
       const contexts: Record<string, { $ref: string }[]> = {}
-      for (const context of c.contexts) contexts[context] = [{ $ref: fileName({ collection, context }) }]
+      for (const context of c.contexts) contexts[context] = [
+        ...(c.external ? [{ $ref: fileName({ collection: c.external, context }) }] : []),
+        { $ref: fileName({ collection, context }) },
+      ]
       modifiers[collection] = { contexts, ...(c.default ? { default: c.default } : {}) }
     }
   }

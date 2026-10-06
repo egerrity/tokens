@@ -9,8 +9,8 @@ import { todayMode, todayStyle, todayVariable } from '../declarations/renames.ts
 import { figmaName, type TokenPath } from '../grammar/path.ts'
 import { isAlias, valueIn, type Token, type Value } from './types.ts'
 
-export type FigmaType = 'FLOAT' | 'STRING' | 'EASING' | 'TIMING'
-export type FigmaValue = number | string | { alias: string } | { easing: readonly [number, number, number, number] }
+export type FigmaType = 'FLOAT' | 'STRING' | 'EASING' | 'TIMING' | 'COLOR'
+export type FigmaValue = number | string | { alias: string } | { easing: readonly [number, number, number, number] } | { color: string; alpha: number }
 export type FigmaVariable = {
   path: string
   today?: string
@@ -18,6 +18,8 @@ export type FigmaVariable = {
   /** absent means the variable is left on Figma's default, every picker */
   scopes?: string[]
   description: string
+  /** hidden from publishing: in the library for its components, not in the consumers' pickers */
+  hidden?: true
   values: Record<string, FigmaValue>
 }
 export type FigmaCollectionPayload = {
@@ -67,9 +69,14 @@ const SCOPES: Record<string, string[]> = {
   'text/font-weight': ['FONT_WEIGHT'],
   'text/line-height': ['LINE_HEIGHT'],
   'text/letter-spacing': ['LETTER_SPACING'],
+  'color/fg': ['TEXT_FILL', 'SHAPE_FILL'],
+  'color/bg': ['FRAME_FILL', 'SHAPE_FILL'],
+  'color/border': ['STROKE_COLOR'],
+  'color/surface': ['FRAME_FILL'],
+  'color/illustration': ['ALL_FILLS', 'STROKE_COLOR'],
 }
 const scopesFor = (path: TokenPath, part?: string): string[] | undefined =>
-  SCOPES[part ? `text/${part}` : path[0] === 'grid' || path[0] === 'font' ? `${path[0]}/${path[1]}` : path[0]]
+  SCOPES[part ? `text/${part}` : path[0] === 'grid' || path[0] === 'font' || path[0] === 'color' ? `${path[0]}/${path[1]}` : path[0]]
 
 /**
  * The Figma description: the same lines, minus any line that carries a digit, because
@@ -77,12 +84,13 @@ const scopesFor = (path: TokenPath, part?: string): string[] | undefined =>
  * that digit match the row.
  */
 export const describeFigma = (t: Token): string =>
-  [`Req for: ${t.req}`, `Use: ${t.use}`].filter(line => !/\d/.test(line)).join('\n')
+  [`Req for: ${t.req}`, `Use: ${t.use}`, ...(t.pair ? [`Compose by hand with ${figmaName(t.pair)}`] : []), ...(t.reserved ? ['Reserved for components; hidden from publishing'] : [])].filter(line => !/\d/.test(line) || line.startsWith('Compose')).join('\n')
 
 /** a token value as a Figma value, or undefined where Figma has no form for it */
 function figmaValue(t: Token, v: Value): FigmaValue | undefined {
   if (isAlias(v)) return { alias: figmaName(v.alias) }
   switch (v.type) {
+    case 'color': return { color: v.value.hex, alpha: v.value.alpha }
     case 'dimension': return v.value.value
     // opacity and line height are shown as percents in Figma
     // opacity is shown as a percent in Figma; a line height multiple has no variable form there
@@ -95,7 +103,7 @@ function figmaValue(t: Token, v: Value): FigmaValue | undefined {
   }
 }
 const figmaType = (v: Value): FigmaType =>
-  v.type === 'fontFamily' ? 'STRING' : v.type === 'cubicBezier' ? 'EASING' : v.type === 'duration' ? 'TIMING' : 'FLOAT'
+  v.type === 'color' ? 'COLOR' : v.type === 'fontFamily' ? 'STRING' : v.type === 'cubicBezier' ? 'EASING' : v.type === 'duration' ? 'TIMING' : 'FLOAT'
 
 /** the font size a text style has at a context, read through its reference */
 function sizeAt(t: Token, context: string | undefined, byPath: Map<string, Token>): number {
@@ -148,7 +156,7 @@ function textParts(t: Token, modes: string[], byPath: Map<string, Token>): Figma
   ]
 }
 
-export function figmaPayloads(tokens: Token[]): { collections: FigmaCollectionPayload[]; styles: FigmaStylesPayload } {
+export function figmaPayloads(tokens: Token[], outside: Token[] = []): { collections: FigmaCollectionPayload[]; styles: FigmaStylesPayload } {
   const byPath = new Map(tokens.map(t => [figmaName(t.path), t]))
   const out: FigmaCollectionPayload[] = []
   for (const [collection, c] of Object.entries(collections)) {
@@ -158,8 +166,10 @@ export function figmaPayloads(tokens: Token[]): { collections: FigmaCollectionPa
       todayModes: Object.fromEntries(modes.filter(m => todayMode[m]).map(m => [m, todayMode[m]])),
       variables: [], omitted: [],
     }
-    for (const t of tokens) {
-      if (collectionOf(t) !== collection) continue
+    // the engine's rows ride first in the collection they are external to, so the rows
+    // that alias them can resolve; our own rows go where collectionOf files them
+    const rows: Token[] = [...(c.external ? outside : []), ...tokens.filter(t => collectionOf(t) === collection)]
+    for (const t of rows) {
       if (t.value.type === 'typography') { payload.variables.push(...textParts(t, modes, byPath)); continue }
       const values: Record<string, FigmaValue> = {}
       let omitted = false
@@ -171,7 +181,7 @@ export function figmaPayloads(tokens: Token[]): { collections: FigmaCollectionPa
       if (omitted) { payload.omitted.push(figmaName(t.path)); continue }
       payload.variables.push({
         path: figmaName(t.path), today: todayVariable(t.path), type: figmaType(t.value),
-        scopes: scopesFor(t.path), description: describeFigma(t), values,
+        scopes: t.figmaScopes ? [...t.figmaScopes] : scopesFor(t.path), description: describeFigma(t), ...(t.reserved ? { hidden: true as const } : {}), values,
       })
     }
     out.push(payload)
@@ -204,8 +214,8 @@ export function figmaPayloads(tokens: Token[]): { collections: FigmaCollectionPa
 }
 
 /** the payload as files, keyed by file name */
-export function figmaFiles(tokens: Token[]): Record<string, string> {
-  const { collections: cs, styles } = figmaPayloads(tokens)
+export function figmaFiles(tokens: Token[], outside: Token[] = []): Record<string, string> {
+  const { collections: cs, styles } = figmaPayloads(tokens, outside)
   const files: Record<string, string> = {}
   for (const c of cs) files[`${c.collection}.json`] = JSON.stringify(c, null, 2) + '\n'
   files['text-styles.json'] = JSON.stringify(styles, null, 2) + '\n'

@@ -36,16 +36,20 @@ const flatten = (node: Node, pre: string[] = [], out = new Map<string, DtcgToken
   return out
 }
 
-export function audit(tokens: Token[], docs: Map<string, { key: DocumentKey; doc: DtcgGroup }>): string[] {
+export function audit(tokens: Token[], docs: Map<string, { key: DocumentKey; doc: DtcgGroup }>, externals: Token[] = []): string[] {
   const failures: string[] = []
   const fail = (msg: string) => failures.push(msg)
   const byPath = new Map<string, Token>()
+  // the engine's rows: a path here may be aliased and is never emitted or declared twice
+  const outside = new Map(externals.map(t => [key(t.path), t]))
+  const anywhere = (k: string): Token | undefined => byPath.get(k) ?? outside.get(k)
 
   // A. names
   const cssNames = new Map<string, string>()
   for (const t of tokens) {
     const k = key(t.path)
     if (byPath.has(k)) fail(`${k}: declared twice`)
+    if (outside.has(k)) fail(`${k}: the engine already emits this path`)
     byPath.set(k, t)
     if (!t.path.every(legalSegment)) fail(`${k}: a segment is not lower-case words and digits joined by hyphens`)
     if (!matchesGrammar(t.path)) fail(`${k}: not a shape the grammar allows for "${t.path[0]}"`)
@@ -73,7 +77,7 @@ export function audit(tokens: Token[], docs: Map<string, { key: DocumentKey; doc
     if (!isAlias(v)) return v
     const k = key(v.alias)
     if (seen.includes(k)) { fail(`${who}: alias cycle through ${k}`); return undefined }
-    const target = byPath.get(k)
+    const target = anywhere(k)
     if (!target) { fail(`${who}: alias to ${k}, which is not a token`); return undefined }
     if (target.value.type !== v.type) fail(`${who}: a ${v.type} that aliases ${k}, a ${target.value.type}`)
     return resolve(valueIn(target, context), who, context, [...seen, k])
@@ -84,6 +88,12 @@ export function audit(tokens: Token[], docs: Map<string, { key: DocumentKey; doc
     else if (target.value.type !== want) fail(`${who}: ${name} refers to ${key(path)}, a ${target.value.type}, not a ${want}`)
   }
   for (const t of tokens) {
+    if (t.pair) {
+      const target = byPath.get(key(t.pair))
+      if (!target) fail(`${key(t.path)}: composed with ${key(t.pair)}, which is not a token`)
+      else if (target.path[0] !== 'opacity') fail(`${key(t.path)}: composed with ${key(t.pair)}, which is not an opacity`)
+      if (t.value.type !== 'color') fail(`${key(t.path)}: only a color is composed with an opacity`)
+    }
     for (const context of contextsOf(t)) {
       const who = context ? `${key(t.path)} (${context})` : key(t.path)
       const v = valueIn(t, context)
@@ -169,6 +179,14 @@ export function audit(tokens: Token[], docs: Map<string, { key: DocumentKey; doc
       }
       if (v.type === 'transition' && v.value.delay.value < 0) fail(`${k}: a negative delay`)
       if (v.type === 'fontWeight' && !(v.value >= 1 && v.value <= 1000)) fail(`${k}: a font weight sits in 1 to 1000`)
+      if (v.type === 'color') {
+        const c = v.value
+        if (c.colorSpace !== 'srgb' || c.components.length !== 3 || !c.components.every(x => x >= 0 && x <= 1)) fail(`${k}: not an sRGB color with three components in 0 to 1`)
+        if (!(c.alpha >= 0 && c.alpha <= 1)) fail(`${k}: alpha ${c.alpha} is outside 0 to 1`)
+        if (!/^#[0-9a-f]{6}$/.test(c.hex)) fail(`${k}: hex ${c.hex} is not six lower-case digits`)
+        const back = '#' + c.components.map(x => Math.round(x * 255).toString(16).padStart(2, '0')).join('')
+        if (back !== c.hex) fail(`${k}: components round to ${back}, hex is ${c.hex}`)
+      }
       if (v.type === 'fontFamily' && (v.value.length === 0 || v.value.some(n => !n.trim()))) fail(`${k}: a font family lists at least one name`)
     }
   }

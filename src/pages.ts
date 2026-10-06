@@ -85,6 +85,21 @@ const NOTES: Record<Category, Notes> = {
     ],
     derived: ['Each size step\'s name, from the base unit; each line height\'s name, from the multiple.', 'Every description.'],
   },
+  color: {
+    title: 'Color roles',
+    declaration: 'declarations/color.ts, with the opacity steps in declarations/opacity.ts',
+    decided: [
+      'Each property\'s ladder: which engine stop every emphasis word names, with what the row is for, and which words the neutral and the families are offered.',
+      'Whose highlighter draws the focus ring.',
+      'The two illustration pair opacities.',
+    ],
+    derived: [
+      'Every row as an alias to an engine primitive: the same word on the same stop in the neutral and in every family.',
+      'The interaction levels per family: ghost and soft on the highlighter at the level\'s opacities, solid on the engine\'s stamp with its edge and on-text.',
+      'The surfaces per theme context, in the engine\'s plane order.',
+      'Each translucent row\'s pair, the opacity it is composed with.',
+    ],
+  },
   text: {
     title: 'Text styles',
     declaration: 'declarations/text.ts',
@@ -103,8 +118,8 @@ const NOTES: Record<Category, Notes> = {
 
 export const pageName = (category: Category): string => `${category}.md`
 
-export function page(category: Category, tokens: Token[], all: Token[]): string {
-  const byPath = new Map(all.map(t => [figmaName(t.path), t]))
+export function page(category: Category, tokens: Token[], all: Token[], outside: Token[] = []): string {
+  const byPath = new Map([...outside, ...all].map(t => [figmaName(t.path), t]))
   const ref = (p: TokenPath) => `\`${figmaName(p)}\``
   const literal = (v: Value, context?: string): string => {
     if (isAlias(v)) {
@@ -113,6 +128,7 @@ export function page(category: Category, tokens: Token[], all: Token[]): string 
     }
     switch (v.type) {
       case 'dimension': case 'duration': return `${v.value.value} ${v.value.unit}`
+      case 'color': return v.value.alpha === 1 ? v.value.hex : `${v.value.hex} at ${Math.round(v.value.alpha * 100)} percent`
       case 'number': case 'fontWeight': return String(v.value)
       case 'cubicBezier': return v.value.join(', ')
       case 'fontFamily': return v.value.join(', ')
@@ -134,7 +150,7 @@ export function page(category: Category, tokens: Token[], all: Token[]): string 
     return [...groups].map(([text, contexts]) => `${text} (${contexts.join(', ')})`).join('; ')
   }
   const n = NOTES[category]
-  const row = (t: Token) => `| \`${figmaName(t.path)}\` | ${shown(t)} | ${t.req} |`
+  const row = (t: Token) => `| \`${figmaName(t.path)}\` | ${shown(t)}${t.pair ? ` with \`${figmaName(t.pair)}\`` : ''} | ${t.req}${t.reserved ? ' (reserved for components)' : ''} |`
   return [
     `# ${n.title}`,
     '',

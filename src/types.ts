@@ -14,7 +14,11 @@ export type Transition = { duration: TokenPath; delay: Duration; timingFunction:
 /** a text style's parts reference the font scale; letter spacing is a length the style computes from its size */
 export type Typography = { fontFamily: TokenPath; fontSize: TokenPath; fontWeight: TokenPath; letterSpacing: Dimension; lineHeight: TokenPath }
 
+/** the Color Module shape the engine's files use: the 8-bit channels over 255 and the same color as hex */
+export type Color = { colorSpace: 'srgb'; components: readonly [number, number, number]; alpha: number; hex: string }
+
 export type Literal =
+  | { type: 'color'; value: Color }
   | { type: 'dimension'; value: Dimension }
   | { type: 'number'; value: number }
   | { type: 'duration'; value: Duration }
@@ -38,6 +42,12 @@ export type Token = {
   value: Value
   /** one value per context, for a token whose collection has contexts; absent means the same value in every context */
   byContext?: Readonly<Record<string, Value>>
+  /** the opacity token this color is composed with by hand; neither the file nor the plugin API can compose them */
+  pair?: TokenPath
+  /** emitted for component authors and hidden from publishing in Figma, so the wider designers do not see it */
+  reserved?: true
+  /** Figma scopes narrower than the property's, where a row must stay out of a picker */
+  figmaScopes?: readonly string[]
 }
 
 export const isAlias = (v: Value): v is Alias => 'alias' in v
@@ -46,4 +56,11 @@ export const isAlias = (v: Value): v is Alias => 'alias' in v
 export const valueIn = (t: Token, context?: string): Value => (context !== undefined && t.byContext?.[context]) || t.value
 
 export const px = (value: number): Dimension => ({ value, unit: 'px' })
+/** a color from six hex digits and an alpha, components as the engine writes them */
+export const color = (hex: string, alpha = 1): Color => {
+  const m = /^#([0-9a-f]{2})([0-9a-f]{2})([0-9a-f]{2})$/i.exec(hex)
+  if (!m) throw new Error(`color: not six hex digits: ${hex}`)
+  const c = (s: string) => Math.round((parseInt(s, 16) / 255) * 1e4) / 1e4
+  return { colorSpace: 'srgb', components: [c(m[1]), c(m[2]), c(m[3])], alpha, hex: hex.toLowerCase() }
+}
 export const ms = (value: number): Duration => ({ value, unit: 'ms' })

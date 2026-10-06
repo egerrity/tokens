@@ -133,9 +133,11 @@ what changed.
    color roles, with the merge, and the shadow effect styles in Figma. A translucent
    role is emitted as its pair, a color alias and an opacity token, because neither the
    token format nor the plugin API can write a composed color; the script writes the
-   pair and a map of what to compose, and leaves a row alone once it has been composed
-   by hand. The color engine emits under `color` since 0.8.0; this
-   step still waits on the map from today's color roles to the engine's.
+   pair and names what to compose in the row's description, and leaves a row alone once
+   it has been composed by hand. The color half is built: the surfaces, the scrim and
+   the semantic set in `docs/color-semantic-set.md`, as aliases onto the engine's rows
+   (`color/…`, 0.8.0), printed with the engine's two modes into a review file. Shadow
+   and the effect styles remain.
 
 Each step ends with a stop for the owner's review.
 

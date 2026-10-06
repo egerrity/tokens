@@ -27,11 +27,18 @@ for (const set of Object.values(resolver.sets) as { sources: { $ref: string }[] 
 
 const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'tokens-check-'))
 const cases: [string, Record<string, unknown>][] = []
-const modifiers = Object.entries(resolver.modifiers) as [string, { contexts: Record<string, { $ref: string }[]> }][]
+const modifiers = Object.entries(resolver.modifiers) as [string, { contexts: Record<string, { $ref: string }[]>; default?: string }][]
 if (modifiers.length === 0) cases.push(['all', sets])
+// a joined document needs one context of every modifier, so each case takes the other
+// modifiers at their default context and varies one
 for (const [name, mod] of modifiers) {
   for (const [context, sources] of Object.entries(mod.contexts)) {
     const doc = JSON.parse(JSON.stringify(sets))
+    for (const [other, om] of modifiers) {
+      if (other === name) continue
+      const d = om.default ?? Object.keys(om.contexts)[0]
+      for (const s of om.contexts[d]) merge(doc, read(s.$ref))
+    }
     for (const s of sources) merge(doc, read(s.$ref))
     cases.push([`${name}.${context}`, doc])
   }

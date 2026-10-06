@@ -582,6 +582,17 @@
       }
     },
     {
+      "path": "opacity/010",
+      "type": "FLOAT",
+      "scopes": [
+        "OPACITY"
+      ],
+      "description": "Req for: translucent layers: state grounds, shadows and scrims",
+      "values": {
+        "value": 10
+      }
+    },
+    {
       "path": "opacity/012",
       "type": "FLOAT",
       "scopes": [
@@ -601,6 +612,17 @@
       "description": "Req for: translucent layers: state grounds, shadows and scrims",
       "values": {
         "value": 16
+      }
+    },
+    {
+      "path": "opacity/020",
+      "type": "FLOAT",
+      "scopes": [
+        "OPACITY"
+      ],
+      "description": "Req for: translucent layers: state grounds, shadows and scrims",
+      "values": {
+        "value": 20
       }
     },
     {
@@ -656,6 +678,110 @@
       "description": "Req for: the disabled state of a component",
       "values": {
         "value": 38
+      }
+    },
+    {
+      "path": "opacity/scrim",
+      "type": "FLOAT",
+      "scopes": [
+        "OPACITY"
+      ],
+      "description": "Req for: the scrim behind a modal",
+      "values": {
+        "value": {
+          "alias": "opacity/064"
+        }
+      }
+    },
+    {
+      "path": "opacity/ghost/hover",
+      "type": "FLOAT",
+      "scopes": [
+        "OPACITY"
+      ],
+      "description": "Req for: the ghost ground under the pointer",
+      "values": {
+        "value": {
+          "alias": "opacity/008"
+        }
+      }
+    },
+    {
+      "path": "opacity/ghost/pressed",
+      "type": "FLOAT",
+      "scopes": [
+        "OPACITY"
+      ],
+      "description": "Req for: the ghost ground while pressed",
+      "values": {
+        "value": {
+          "alias": "opacity/012"
+        }
+      }
+    },
+    {
+      "path": "opacity/ghost/selected",
+      "type": "FLOAT",
+      "scopes": [
+        "OPACITY"
+      ],
+      "description": "Req for: the ghost ground when selected",
+      "values": {
+        "value": {
+          "alias": "opacity/016"
+        }
+      }
+    },
+    {
+      "path": "opacity/soft/enabled",
+      "type": "FLOAT",
+      "scopes": [
+        "OPACITY"
+      ],
+      "description": "Req for: the soft ground at rest",
+      "values": {
+        "value": {
+          "alias": "opacity/012"
+        }
+      }
+    },
+    {
+      "path": "opacity/soft/hover",
+      "type": "FLOAT",
+      "scopes": [
+        "OPACITY"
+      ],
+      "description": "Req for: the soft ground under the pointer",
+      "values": {
+        "value": {
+          "alias": "opacity/016"
+        }
+      }
+    },
+    {
+      "path": "opacity/soft/pressed",
+      "type": "FLOAT",
+      "scopes": [
+        "OPACITY"
+      ],
+      "description": "Req for: the soft ground while pressed",
+      "values": {
+        "value": {
+          "alias": "opacity/024"
+        }
+      }
+    },
+    {
+      "path": "opacity/soft/selected",
+      "type": "FLOAT",
+      "scopes": [
+        "OPACITY"
+      ],
+      "description": "Req for: the soft ground when selected",
+      "values": {
+        "value": {
+          "alias": "opacity/032"
+        }
       }
     },
     {

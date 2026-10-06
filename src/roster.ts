@@ -11,11 +11,14 @@ import { breakpoint } from '../declarations/breakpoint.ts'
 import { grid } from '../declarations/grid.ts'
 import { font } from '../declarations/font.ts'
 import { text } from '../declarations/text.ts'
+import { color } from '../declarations/color.ts'
 import { CATEGORIES, type Category } from '../grammar/words.ts'
 import {
   spaceTokens, sizeTokens, radiusTokens, borderWidthTokens, opacityTokens, motionTokens, breakpointTokens,
   gridTokens, fontTokens, textTokens,
 } from './derive.ts'
+import { colorTokens, opacitySemanticTokens } from './derive-color.ts'
+import { engineTokens } from './engine.ts'
 import type { Token } from './types.ts'
 
 const BY_CATEGORY: Record<Category, () => Token[]> = {
@@ -23,14 +26,18 @@ const BY_CATEGORY: Record<Category, () => Token[]> = {
   size: () => sizeTokens(size),
   radius: () => radiusTokens(radius),
   'border-width': () => borderWidthTokens(borderWidth),
-  opacity: () => opacityTokens(opacity),
+  opacity: () => [...opacityTokens(opacity), ...opacitySemanticTokens(opacity)],
   motion: () => motionTokens(motion),
   breakpoint: () => breakpointTokens(breakpoint),
   grid: () => gridTokens(grid, space.steps),
   font: () => fontTokens(font),
   text: () => textTokens(text, font),
+  color: () => colorTokens(color, opacity),
 }
 
 export const tokensOf = (category: Category): Token[] => BY_CATEGORY[category]()
 
 export const roster = (): Token[] => CATEGORIES.flatMap(tokensOf)
+
+/** the color engine's rows: aliased by the palette, never emitted here */
+export const externals = (): Token[] => engineTokens()

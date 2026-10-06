@@ -14,9 +14,18 @@ export type Collection = {
   default?: string
   /** the Figma collection this one takes over, renamed in place, where one exists */
   today?: string
+  /** a file set another generator writes into this collection's contexts, read here and never rewritten: the color engine's */
+  external?: string
 }
 
+export const THEME_CONTEXTS = ['light', 'dark'] as const
+export type ThemeContext = (typeof THEME_CONTEXTS)[number]
+
 export const collections: Record<string, Collection> = {
+  // the engine's color primitives, with the hand-authored rows that need a light and a dark value
+  theme: { contexts: THEME_CONTEXTS, default: 'light', today: 'theme', external: 'engine' },
+  // the semantic colors, every one an alias, so the theme's modes carry them
+  palette: { contexts: [], today: 'Color palettes' },
   // names pending the team's review
   scale: { contexts: [], today: 'Layout' },
   viewport: { contexts: VIEWPORTS, default: 'desktop', today: 'Type scale' },
@@ -34,6 +43,7 @@ export const viewportFallback: Readonly<Record<Viewport, Viewport | null>> = {
 /** the collection a token is filed in: by what might ever vary it */
 export function collectionOf(t: Token): string {
   const category = t.path[0]
+  if (category === 'color') return t.path[1] === 'surface' ? 'theme' : 'palette'
   if (category === 'grid' || category === 'text') return 'viewport'
   if ((category === 'space' || category === 'size') && t.layer === 'semantic') return 'viewport'
   if (category === 'motion') return 'motion'

@@ -1,6 +1,13 @@
 {
   "version": "2025.10",
   "sets": {
+    "palette": {
+      "sources": [
+        {
+          "$ref": "palette.tokens.json"
+        }
+      ]
+    },
     "scale": {
       "sources": [
         {
@@ -17,6 +24,27 @@
     }
   },
   "modifiers": {
+    "theme": {
+      "contexts": {
+        "light": [
+          {
+            "$ref": "engine.light.tokens.json"
+          },
+          {
+            "$ref": "theme.light.tokens.json"
+          }
+        ],
+        "dark": [
+          {
+            "$ref": "engine.dark.tokens.json"
+          },
+          {
+            "$ref": "theme.dark.tokens.json"
+          }
+        ]
+      },
+      "default": "light"
+    },
     "viewport": {
       "contexts": {
         "mobile": [
@@ -45,10 +73,16 @@
   },
   "resolutionOrder": [
     {
+      "$ref": "#/sets/palette"
+    },
+    {
       "$ref": "#/sets/scale"
     },
     {
       "$ref": "#/sets/motion"
+    },
+    {
+      "$ref": "#/modifiers/theme"
     },
     {
       "$ref": "#/modifiers/viewport"

@@ -3,10 +3,12 @@
 // connection's script runner (scripts/figma-call.ts prints that text).
 //
 // Every variable and style is found by its stamp first, then by today's name, then by
-// its new name, and is updated in place, so bindings survive. Nothing is deleted and no
-// value is written that is already what the payload asks for; a row a designer has
-// composed by hand (an alias with an opacity) reads back as its alias and is left alone.
-// The return value is the report.
+// its new name, and is updated in place, so bindings survive. The stamp is the identity:
+// a variable renamed by hand is renamed back. Nothing is deleted and no value is written
+// that is already what the payload asks for; a row a designer has composed by hand (an
+// alias with an opacity) reads back as its alias and is left alone. A row the script
+// cannot settle without guessing, such as two variables carrying one stamp or a name
+// another variable holds, is left alone and reported. The return value is the report.
 const PAYLOAD = /* PAYLOAD */ null
 
 // the stamp is shared plugin data, which every runtime can write; private plugin data
@@ -21,13 +23,17 @@ const report = { created: [], renamed: [], updated: [], same: 0, orphans: [], pr
 
 const allVariables = await figma.variables.getLocalVariablesAsync()
 const allCollections = await figma.variables.getLocalVariableCollectionsAsync()
+// A duplicated variable carries its original's stamp, so two variables can claim one
+// path; neither is trusted, and the row is reported instead of guessed at.
 const byStamp = new Map()
 const byName = new Map()
+const duplicated = new Set()
 for (const v of allVariables) {
   const s = stampOf(v, STAMP)
-  if (s) byStamp.set(s, v)
+  if (s) { if (byStamp.has(s)) duplicated.add(s); else byStamp.set(s, v) }
   byName.set(v.name, v)
 }
+for (const s of duplicated) { byStamp.delete(s); report.problems.push(`${s}: two variables carry this stamp; left alone, keep one by hand`) }
 const find = (path) => byStamp.get(path) || byName.get(path)
 // Figma stores numbers as single-precision floats, so a value reads back a hair off what
 // was written; a difference under a millionth is the same value
@@ -58,11 +64,16 @@ async function applyVariables(P) {
   const inCollection = allVariables.filter(v => v.variableCollectionId === c.id)
   const targets = new Map()
   for (const spec of P.variables) {
+    if (duplicated.has(spec.path)) continue
     let v = byStamp.get(spec.path)
     if (v && v.variableCollectionId !== c.id) { report.orphans.push(`${spec.path}: its stamped variable sits in another collection; a new one is created here, rebind by hand`); v = undefined }
     if (!v && spec.today) v = inCollection.find(x => x.name === spec.today)
     if (!v) v = inCollection.find(x => x.name === spec.path)
     if (!v && spec.today && byName.get(spec.today)) report.orphans.push(`${spec.path}: today's ${spec.today} sits in another collection; a new one is created here, rebind by hand`)
+    // the stamp is the identity, so a hand rename is renamed back; but a name another
+    // variable already holds cannot be taken, and Figma would throw mid-run
+    const holder = byName.get(spec.path)
+    if (holder && holder !== v) { report.problems.push(`${spec.path}: the name is held by another variable (stamped ${stampOf(holder, STAMP) || 'nothing'}); left alone, resolve by hand`); continue }
     if (!v) {
       v = figma.variables.createVariable(spec.path, c, spec.type)
       report.created.push(spec.path)
@@ -75,6 +86,7 @@ async function applyVariables(P) {
     byStamp.set(spec.path, v); byName.set(spec.path, v)
     if (spec.scopes && JSON.stringify(v.scopes) !== JSON.stringify(spec.scopes)) v.scopes = spec.scopes
     if (spec.description !== v.description) v.description = spec.description
+    if (!!spec.hidden !== v.hiddenFromPublishing) v.hiddenFromPublishing = !!spec.hidden
     targets.set(spec.path, v)
   }
 
@@ -85,6 +97,7 @@ async function applyVariables(P) {
       const a = have.easingFunctionCubicBezier, b = want && want.easingFunctionCubicBezier
       return !!b && ['x1', 'y1', 'x2', 'y2'].every(k => near(a[k], b[k]))
     }
+    if (have && typeof have === 'object' && 'r' in have) return !!want && typeof want === 'object' && 'r' in want && ['r', 'g', 'b', 'a'].every(k => near(have[k] === undefined ? 1 : have[k], want[k] === undefined ? 1 : want[k]))
     return have === want || near(have, want)
   }
   for (const spec of P.variables) {
@@ -101,6 +114,9 @@ async function applyVariables(P) {
       } else if (raw && typeof raw === 'object' && 'easing' in raw) {
         const [x1, y1, x2, y2] = raw.easing
         want = { type: 'CUSTOM_CUBIC_BEZIER', easingFunctionCubicBezier: { x1, y1, x2, y2 } }
+      } else if (raw && typeof raw === 'object' && 'color' in raw) {
+        const h = raw.color.replace('#', '')
+        want = { r: parseInt(h.slice(0, 2), 16) / 255, g: parseInt(h.slice(2, 4), 16) / 255, b: parseInt(h.slice(4, 6), 16) / 255, a: raw.alpha }
       } else {
         want = raw
       }

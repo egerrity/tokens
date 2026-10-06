@@ -1,0 +1,1209 @@
+{
+  "color": {
+    "fg": {
+      "regular": {
+        "$type": "color",
+        "$value": "{color.neutral.pen-70}",
+        "$description": "Req for: running text\nUse: body copy, labels, table cells, and the icons beside them"
+      },
+      "accent": {
+        "$type": "color",
+        "$value": "{color.neutral.pencil-47}",
+        "$description": "Req for: text that grabs the eye\nUse: the lightest AA text: in the neutral, placeholders and timestamps; in a family, the color itself, so not for body text; never for disabled"
+      },
+      "hint": {
+        "$type": "color",
+        "$value": "{color.neutral.highlighter-26}",
+        "$description": "Req for: icons and shapes only\nUse: clears the non-text bar, not the text bar, so it is kept out of the text picker: never text, never disabled"
+      },
+      "muted": {
+        "$type": "color",
+        "$value": "{color.neutral.pen-58}",
+        "$description": "Req for: secondary text\nUse: captions, helper text, metadata"
+      },
+      "strong": {
+        "$type": "color",
+        "$value": "{color.neutral.pen-100}",
+        "$description": "Req for: the strongest emphasis\nUse: display text, a key figure; not for running text"
+      },
+      "link": {
+        "enabled": {
+          "$type": "color",
+          "$value": "{color.link.default.enabled}",
+          "$description": "Req for: a link in running text, at rest\nUse: links no component owns; the Link component binds the same rows"
+        },
+        "hover": {
+          "$type": "color",
+          "$value": "{color.link.default.hover}",
+          "$description": "Req for: a link in running text, under the pointer\nUse: links no component owns; the Link component binds the same rows"
+        },
+        "pressed": {
+          "$type": "color",
+          "$value": "{color.link.default.pressed}",
+          "$description": "Req for: a link in running text, while pressed\nUse: links no component owns; the Link component binds the same rows"
+        }
+      },
+      "on-inverse": {
+        "regular": {
+          "$type": "color",
+          "$value": "{color.neutral.paper-3}",
+          "$description": "Req for: running text on an inverted ground\nUse: on color/surface/inverse and on an accent fill; the pencil clears every paper"
+        },
+        "accent": {
+          "$type": "color",
+          "$value": "{color.neutral.chalk-20}",
+          "$description": "Req for: the quietest text on an inverted ground\nUse: on color/surface/inverse only; the pens clear every chalk"
+        },
+        "muted": {
+          "$type": "color",
+          "$value": "{color.neutral.chalk-11}",
+          "$description": "Req for: secondary text on an inverted ground\nUse: on color/surface/inverse only; the pens clear every chalk"
+        },
+        "strong": {
+          "$type": "color",
+          "$value": "{color.neutral.paper-0}",
+          "$description": "Req for: the strongest text on an inverted ground\nUse: on color/surface/inverse and on an accent fill"
+        },
+        "link": {
+          "enabled": {
+            "$type": "color",
+            "$value": "{color.link.inverse.enabled}",
+            "$description": "Req for: a link on an inverted ground, at rest\nUse: re-solved for the inverted ground"
+          },
+          "hover": {
+            "$type": "color",
+            "$value": "{color.link.inverse.hover}",
+            "$description": "Req for: a link on an inverted ground, under the pointer\nUse: re-solved for the inverted ground"
+          },
+          "pressed": {
+            "$type": "color",
+            "$value": "{color.link.inverse.pressed}",
+            "$description": "Req for: a link on an inverted ground, while pressed\nUse: re-solved for the inverted ground"
+          }
+        }
+      },
+      "on-solid": {
+        "$type": "color",
+        "$value": "{color.neutral.stamp.on}",
+        "$description": "Req for: text and icons over the solid ground of a neutral control\nUse: the only text color over the solid fill; never elsewhere\nReserved for components"
+      },
+      "brand": {
+        "regular": {
+          "$type": "color",
+          "$value": "{color.brand.pen-70}",
+          "$description": "Req for: running text, in the brand color\nUse: body copy, labels, table cells, and the icons beside them"
+        },
+        "accent": {
+          "$type": "color",
+          "$value": "{color.brand.pencil-47}",
+          "$description": "Req for: text that grabs the eye, in the brand color\nUse: the lightest AA text: in the neutral, placeholders and timestamps; in a family, the color itself, so not for body text; never for disabled"
+        },
+        "hint": {
+          "$type": "color",
+          "$value": "{color.brand.highlighter-26}",
+          "$description": "Req for: icons and shapes only, in the brand color\nUse: clears the non-text bar, not the text bar, so it is kept out of the text picker: never text, never disabled\nReserved for components"
+        },
+        "muted": {
+          "$type": "color",
+          "$value": "{color.brand.pen-58}",
+          "$description": "Req for: secondary text, in the brand color\nUse: captions, helper text, metadata\nReserved for components"
+        },
+        "on-solid": {
+          "$type": "color",
+          "$value": "{color.brand.stamp.on}",
+          "$description": "Req for: text and icons over the solid ground of a brand control\nUse: the only text color over the solid fill; never elsewhere\nReserved for components"
+        }
+      },
+      "brand-alt": {
+        "regular": {
+          "$type": "color",
+          "$value": "{color.brand-alt.pen-70}",
+          "$description": "Req for: running text, in the brand-alt color\nUse: body copy, labels, table cells, and the icons beside them"
+        },
+        "accent": {
+          "$type": "color",
+          "$value": "{color.brand-alt.pencil-47}",
+          "$description": "Req for: text that grabs the eye, in the brand-alt color\nUse: the lightest AA text: in the neutral, placeholders and timestamps; in a family, the color itself, so not for body text; never for disabled"
+        },
+        "hint": {
+          "$type": "color",
+          "$value": "{color.brand-alt.highlighter-26}",
+          "$description": "Req for: icons and shapes only, in the brand-alt color\nUse: clears the non-text bar, not the text bar, so it is kept out of the text picker: never text, never disabled\nReserved for components"
+        },
+        "muted": {
+          "$type": "color",
+          "$value": "{color.brand-alt.pen-58}",
+          "$description": "Req for: secondary text, in the brand-alt color\nUse: captions, helper text, metadata\nReserved for components"
+        },
+        "on-solid": {
+          "$type": "color",
+          "$value": "{color.brand-alt.stamp.on}",
+          "$description": "Req for: text and icons over the solid ground of a brand-alt control\nUse: the only text color over the solid fill; never elsewhere\nReserved for components"
+        }
+      },
+      "critical": {
+        "regular": {
+          "$type": "color",
+          "$value": "{color.critical.pen-70}",
+          "$description": "Req for: running text, in the critical color\nUse: body copy, labels, table cells, and the icons beside them"
+        },
+        "accent": {
+          "$type": "color",
+          "$value": "{color.critical.pencil-47}",
+          "$description": "Req for: text that grabs the eye, in the critical color\nUse: the lightest AA text: in the neutral, placeholders and timestamps; in a family, the color itself, so not for body text; never for disabled"
+        },
+        "hint": {
+          "$type": "color",
+          "$value": "{color.critical.highlighter-26}",
+          "$description": "Req for: icons and shapes only, in the critical color\nUse: clears the non-text bar, not the text bar, so it is kept out of the text picker: never text, never disabled\nReserved for components"
+        },
+        "muted": {
+          "$type": "color",
+          "$value": "{color.critical.pen-58}",
+          "$description": "Req for: secondary text, in the critical color\nUse: captions, helper text, metadata\nReserved for components"
+        },
+        "on-solid": {
+          "$type": "color",
+          "$value": "{color.critical.stamp.on}",
+          "$description": "Req for: text and icons over the solid ground of a critical control\nUse: the only text color over the solid fill; never elsewhere\nReserved for components"
+        }
+      },
+      "warning": {
+        "regular": {
+          "$type": "color",
+          "$value": "{color.warning.pen-70}",
+          "$description": "Req for: running text, in the warning color\nUse: body copy, labels, table cells, and the icons beside them"
+        },
+        "accent": {
+          "$type": "color",
+          "$value": "{color.warning.pencil-47}",
+          "$description": "Req for: text that grabs the eye, in the warning color\nUse: the lightest AA text: in the neutral, placeholders and timestamps; in a family, the color itself, so not for body text; never for disabled"
+        },
+        "hint": {
+          "$type": "color",
+          "$value": "{color.warning.highlighter-26}",
+          "$description": "Req for: icons and shapes only, in the warning color\nUse: clears the non-text bar, not the text bar, so it is kept out of the text picker: never text, never disabled\nReserved for components"
+        },
+        "muted": {
+          "$type": "color",
+          "$value": "{color.warning.pen-58}",
+          "$description": "Req for: secondary text, in the warning color\nUse: captions, helper text, metadata\nReserved for components"
+        },
+        "on-solid": {
+          "$type": "color",
+          "$value": "{color.warning.stamp.on}",
+          "$description": "Req for: text and icons over the solid ground of a warning control\nUse: the only text color over the solid fill; never elsewhere\nReserved for components"
+        }
+      },
+      "positive": {
+        "regular": {
+          "$type": "color",
+          "$value": "{color.positive.pen-70}",
+          "$description": "Req for: running text, in the positive color\nUse: body copy, labels, table cells, and the icons beside them"
+        },
+        "accent": {
+          "$type": "color",
+          "$value": "{color.positive.pencil-47}",
+          "$description": "Req for: text that grabs the eye, in the positive color\nUse: the lightest AA text: in the neutral, placeholders and timestamps; in a family, the color itself, so not for body text; never for disabled"
+        },
+        "hint": {
+          "$type": "color",
+          "$value": "{color.positive.highlighter-26}",
+          "$description": "Req for: icons and shapes only, in the positive color\nUse: clears the non-text bar, not the text bar, so it is kept out of the text picker: never text, never disabled\nReserved for components"
+        },
+        "muted": {
+          "$type": "color",
+          "$value": "{color.positive.pen-58}",
+          "$description": "Req for: secondary text, in the positive color\nUse: captions, helper text, metadata\nReserved for components"
+        },
+        "on-solid": {
+          "$type": "color",
+          "$value": "{color.positive.stamp.on}",
+          "$description": "Req for: text and icons over the solid ground of a positive control\nUse: the only text color over the solid fill; never elsewhere\nReserved for components"
+        }
+      },
+      "info": {
+        "regular": {
+          "$type": "color",
+          "$value": "{color.info.pen-70}",
+          "$description": "Req for: running text, in the info color\nUse: body copy, labels, table cells, and the icons beside them"
+        },
+        "accent": {
+          "$type": "color",
+          "$value": "{color.info.pencil-47}",
+          "$description": "Req for: text that grabs the eye, in the info color\nUse: the lightest AA text: in the neutral, placeholders and timestamps; in a family, the color itself, so not for body text; never for disabled"
+        },
+        "hint": {
+          "$type": "color",
+          "$value": "{color.info.highlighter-26}",
+          "$description": "Req for: icons and shapes only, in the info color\nUse: clears the non-text bar, not the text bar, so it is kept out of the text picker: never text, never disabled\nReserved for components"
+        },
+        "muted": {
+          "$type": "color",
+          "$value": "{color.info.pen-58}",
+          "$description": "Req for: secondary text, in the info color\nUse: captions, helper text, metadata\nReserved for components"
+        },
+        "on-solid": {
+          "$type": "color",
+          "$value": "{color.info.stamp.on}",
+          "$description": "Req for: text and icons over the solid ground of an info control\nUse: the only text color over the solid fill; never elsewhere\nReserved for components"
+        }
+      }
+    },
+    "border": {
+      "regular": {
+        "$type": "color",
+        "$value": "{color.neutral.highlighter-26}",
+        "$description": "Req for: inputs, cards and dividers that must be seen\nUse: the border that clears the non-text contrast bar"
+      },
+      "accent": {
+        "$type": "color",
+        "$value": "{color.neutral.pencil-47}",
+        "$description": "Req for: a border that grabs the eye\nUse: an input in error, a highlighted card; not a regular border"
+      },
+      "hint": {
+        "$type": "color",
+        "$value": "{color.neutral.chalk-8}",
+        "$description": "Req for: the faintest border\nUse: the card edge, rows in a table, items in a list"
+      },
+      "muted": {
+        "$type": "color",
+        "$value": "{color.neutral.chalk-15}",
+        "$description": "Req for: a decorative border\nUse: strong dividers, and the border of the regular and muted grounds"
+      },
+      "strong": {
+        "$type": "color",
+        "$value": "{color.neutral.pen-70}",
+        "$description": "Req for: an emphasized outline\nUse: a selected card, a current step; kept in case, rarely the right border"
+      },
+      "focus": {
+        "$type": "color",
+        "$value": "{color.brand.highlighter-26}",
+        "$description": "Req for: the focus ring\nUse: drawn the same on every control, outside its edge"
+      },
+      "inverse": {
+        "$type": "color",
+        "$value": "{color.neutral.paper-0}",
+        "$description": "Req for: borders on an inverted ground\nUse: on color/surface/inverse only"
+      },
+      "solid": {
+        "$type": "color",
+        "$value": "{color.neutral.stamp.edge}",
+        "$description": "Req for: the edge of the solid ground of a neutral control\nUse: always drawn; it resolves to transparent where the fill needs no edge, so layout never shifts\nReserved for components"
+      },
+      "brand": {
+        "regular": {
+          "$type": "color",
+          "$value": "{color.brand.highlighter-26}",
+          "$description": "Req for: inputs, cards and dividers that must be seen, in the brand color\nUse: the border that clears the non-text contrast bar"
+        },
+        "accent": {
+          "$type": "color",
+          "$value": "{color.brand.pencil-47}",
+          "$description": "Req for: a border that grabs the eye, in the brand color\nUse: an input in error, a highlighted card; not a regular border"
+        },
+        "hint": {
+          "$type": "color",
+          "$value": "{color.brand.chalk-8}",
+          "$description": "Req for: the faintest border, in the brand color\nUse: the card edge, rows in a table, items in a list\nReserved for components"
+        },
+        "muted": {
+          "$type": "color",
+          "$value": "{color.brand.chalk-15}",
+          "$description": "Req for: a decorative border, in the brand color\nUse: strong dividers, and the border of the regular and muted grounds"
+        },
+        "strong": {
+          "$type": "color",
+          "$value": "{color.brand.pen-70}",
+          "$description": "Req for: an emphasized outline, in the brand color\nUse: a selected card, a current step; kept in case, rarely the right border\nReserved for components"
+        },
+        "solid": {
+          "$type": "color",
+          "$value": "{color.brand.stamp.edge}",
+          "$description": "Req for: the edge of the solid ground of a brand control\nUse: always drawn; it resolves to transparent where the fill needs no edge, so layout never shifts\nReserved for components"
+        }
+      },
+      "brand-alt": {
+        "regular": {
+          "$type": "color",
+          "$value": "{color.brand-alt.highlighter-26}",
+          "$description": "Req for: inputs, cards and dividers that must be seen, in the brand-alt color\nUse: the border that clears the non-text contrast bar"
+        },
+        "accent": {
+          "$type": "color",
+          "$value": "{color.brand-alt.pencil-47}",
+          "$description": "Req for: a border that grabs the eye, in the brand-alt color\nUse: an input in error, a highlighted card; not a regular border"
+        },
+        "hint": {
+          "$type": "color",
+          "$value": "{color.brand-alt.chalk-8}",
+          "$description": "Req for: the faintest border, in the brand-alt color\nUse: the card edge, rows in a table, items in a list\nReserved for components"
+        },
+        "muted": {
+          "$type": "color",
+          "$value": "{color.brand-alt.chalk-15}",
+          "$description": "Req for: a decorative border, in the brand-alt color\nUse: strong dividers, and the border of the regular and muted grounds"
+        },
+        "strong": {
+          "$type": "color",
+          "$value": "{color.brand-alt.pen-70}",
+          "$description": "Req for: an emphasized outline, in the brand-alt color\nUse: a selected card, a current step; kept in case, rarely the right border\nReserved for components"
+        },
+        "solid": {
+          "$type": "color",
+          "$value": "{color.brand-alt.stamp.edge}",
+          "$description": "Req for: the edge of the solid ground of a brand-alt control\nUse: always drawn; it resolves to transparent where the fill needs no edge, so layout never shifts\nReserved for components"
+        }
+      },
+      "critical": {
+        "regular": {
+          "$type": "color",
+          "$value": "{color.critical.highlighter-26}",
+          "$description": "Req for: inputs, cards and dividers that must be seen, in the critical color\nUse: the border that clears the non-text contrast bar"
+        },
+        "accent": {
+          "$type": "color",
+          "$value": "{color.critical.pencil-47}",
+          "$description": "Req for: a border that grabs the eye, in the critical color\nUse: an input in error, a highlighted card; not a regular border"
+        },
+        "hint": {
+          "$type": "color",
+          "$value": "{color.critical.chalk-8}",
+          "$description": "Req for: the faintest border, in the critical color\nUse: the card edge, rows in a table, items in a list\nReserved for components"
+        },
+        "muted": {
+          "$type": "color",
+          "$value": "{color.critical.chalk-15}",
+          "$description": "Req for: a decorative border, in the critical color\nUse: strong dividers, and the border of the regular and muted grounds"
+        },
+        "strong": {
+          "$type": "color",
+          "$value": "{color.critical.pen-70}",
+          "$description": "Req for: an emphasized outline, in the critical color\nUse: a selected card, a current step; kept in case, rarely the right border\nReserved for components"
+        },
+        "solid": {
+          "$type": "color",
+          "$value": "{color.critical.stamp.edge}",
+          "$description": "Req for: the edge of the solid ground of a critical control\nUse: always drawn; it resolves to transparent where the fill needs no edge, so layout never shifts\nReserved for components"
+        }
+      },
+      "warning": {
+        "regular": {
+          "$type": "color",
+          "$value": "{color.warning.highlighter-26}",
+          "$description": "Req for: inputs, cards and dividers that must be seen, in the warning color\nUse: the border that clears the non-text contrast bar"
+        },
+        "accent": {
+          "$type": "color",
+          "$value": "{color.warning.pencil-47}",
+          "$description": "Req for: a border that grabs the eye, in the warning color\nUse: an input in error, a highlighted card; not a regular border"
+        },
+        "hint": {
+          "$type": "color",
+          "$value": "{color.warning.chalk-8}",
+          "$description": "Req for: the faintest border, in the warning color\nUse: the card edge, rows in a table, items in a list\nReserved for components"
+        },
+        "muted": {
+          "$type": "color",
+          "$value": "{color.warning.chalk-15}",
+          "$description": "Req for: a decorative border, in the warning color\nUse: strong dividers, and the border of the regular and muted grounds"
+        },
+        "strong": {
+          "$type": "color",
+          "$value": "{color.warning.pen-70}",
+          "$description": "Req for: an emphasized outline, in the warning color\nUse: a selected card, a current step; kept in case, rarely the right border\nReserved for components"
+        },
+        "solid": {
+          "$type": "color",
+          "$value": "{color.warning.stamp.edge}",
+          "$description": "Req for: the edge of the solid ground of a warning control\nUse: always drawn; it resolves to transparent where the fill needs no edge, so layout never shifts\nReserved for components"
+        }
+      },
+      "positive": {
+        "regular": {
+          "$type": "color",
+          "$value": "{color.positive.highlighter-26}",
+          "$description": "Req for: inputs, cards and dividers that must be seen, in the positive color\nUse: the border that clears the non-text contrast bar"
+        },
+        "accent": {
+          "$type": "color",
+          "$value": "{color.positive.pencil-47}",
+          "$description": "Req for: a border that grabs the eye, in the positive color\nUse: an input in error, a highlighted card; not a regular border"
+        },
+        "hint": {
+          "$type": "color",
+          "$value": "{color.positive.chalk-8}",
+          "$description": "Req for: the faintest border, in the positive color\nUse: the card edge, rows in a table, items in a list\nReserved for components"
+        },
+        "muted": {
+          "$type": "color",
+          "$value": "{color.positive.chalk-15}",
+          "$description": "Req for: a decorative border, in the positive color\nUse: strong dividers, and the border of the regular and muted grounds"
+        },
+        "strong": {
+          "$type": "color",
+          "$value": "{color.positive.pen-70}",
+          "$description": "Req for: an emphasized outline, in the positive color\nUse: a selected card, a current step; kept in case, rarely the right border\nReserved for components"
+        },
+        "solid": {
+          "$type": "color",
+          "$value": "{color.positive.stamp.edge}",
+          "$description": "Req for: the edge of the solid ground of a positive control\nUse: always drawn; it resolves to transparent where the fill needs no edge, so layout never shifts\nReserved for components"
+        }
+      },
+      "info": {
+        "regular": {
+          "$type": "color",
+          "$value": "{color.info.highlighter-26}",
+          "$description": "Req for: inputs, cards and dividers that must be seen, in the info color\nUse: the border that clears the non-text contrast bar"
+        },
+        "accent": {
+          "$type": "color",
+          "$value": "{color.info.pencil-47}",
+          "$description": "Req for: a border that grabs the eye, in the info color\nUse: an input in error, a highlighted card; not a regular border"
+        },
+        "hint": {
+          "$type": "color",
+          "$value": "{color.info.chalk-8}",
+          "$description": "Req for: the faintest border, in the info color\nUse: the card edge, rows in a table, items in a list\nReserved for components"
+        },
+        "muted": {
+          "$type": "color",
+          "$value": "{color.info.chalk-15}",
+          "$description": "Req for: a decorative border, in the info color\nUse: strong dividers, and the border of the regular and muted grounds"
+        },
+        "strong": {
+          "$type": "color",
+          "$value": "{color.info.pen-70}",
+          "$description": "Req for: an emphasized outline, in the info color\nUse: a selected card, a current step; kept in case, rarely the right border\nReserved for components"
+        },
+        "solid": {
+          "$type": "color",
+          "$value": "{color.info.stamp.edge}",
+          "$description": "Req for: the edge of the solid ground of an info control\nUse: always drawn; it resolves to transparent where the fill needs no edge, so layout never shifts\nReserved for components"
+        }
+      }
+    },
+    "bg": {
+      "regular": {
+        "$type": "color",
+        "$value": "{color.neutral.paper-3}",
+        "$description": "Req for: the default ground with color\nUse: an alert, a callout, a soft badge, with the regular or muted border; every fg word but hint reads on it"
+      },
+      "accent": {
+        "$type": "color",
+        "$value": "{color.neutral.pencil-47}",
+        "$description": "Req for: the fill that grabs the eye\nUse: a solid badge, chip or progress fill; its text is fg/on-inverse/strong or regular, nothing else"
+      },
+      "hint": {
+        "$type": "color",
+        "$value": "{color.neutral.paper-1}",
+        "$description": "Req for: the lightest ground\nUse: a wash that barely leaves the surface; every fg word but hint reads on it\nReserved for components"
+      },
+      "muted": {
+        "$type": "color",
+        "$value": "{color.neutral.paper-5}",
+        "$description": "Req for: a restrained ground\nUse: a deeper tint than regular; every fg word but hint reads on it\nReserved for components"
+      },
+      "strong": {
+        "$type": "color",
+        "$value": "{color.neutral.chalk-20}",
+        "$description": "Req for: a heavy ground\nUse: the strongest combo; fg/strong, regular and muted read on it, accent does not\nReserved for components"
+      },
+      "ghost": {
+        "enabled": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0,
+              0,
+              0
+            ],
+            "alpha": 0,
+            "hex": "#000000"
+          },
+          "$description": "Req for: the ghost ground of a neutral control, at rest\nUse: transparent: ghost and outline buttons, icon buttons, rows and menu items show the surface"
+        },
+        "hover": {
+          "$type": "color",
+          "$value": "{color.neutral.highlighter-26}",
+          "$description": "Req for: the ghost ground of a neutral control, under the pointer\nUse: the highlighter at an opacity, over the surface\nComposed with: {opacity.ghost.hover}"
+        },
+        "pressed": {
+          "$type": "color",
+          "$value": "{color.neutral.highlighter-26}",
+          "$description": "Req for: the ghost ground of a neutral control, while pressed\nUse: the highlighter at an opacity, over the surface\nComposed with: {opacity.ghost.pressed}"
+        },
+        "selected": {
+          "$type": "color",
+          "$value": "{color.neutral.highlighter-26}",
+          "$description": "Req for: the ghost ground of a neutral control, when selected\nUse: the highlighter at an opacity, over the surface\nComposed with: {opacity.ghost.selected}"
+        }
+      },
+      "soft": {
+        "enabled": {
+          "$type": "color",
+          "$value": "{color.neutral.highlighter-26}",
+          "$description": "Req for: the soft ground of a neutral control, at rest\nUse: a tint at rest, stronger when touched: chips, a selected tab, a soft button; the highlighter at an opacity\nComposed with: {opacity.soft.enabled}"
+        },
+        "hover": {
+          "$type": "color",
+          "$value": "{color.neutral.highlighter-26}",
+          "$description": "Req for: the soft ground of a neutral control, under the pointer\nUse: a tint at rest, stronger when touched: chips, a selected tab, a soft button; the highlighter at an opacity\nComposed with: {opacity.soft.hover}"
+        },
+        "pressed": {
+          "$type": "color",
+          "$value": "{color.neutral.highlighter-26}",
+          "$description": "Req for: the soft ground of a neutral control, while pressed\nUse: a tint at rest, stronger when touched: chips, a selected tab, a soft button; the highlighter at an opacity\nComposed with: {opacity.soft.pressed}"
+        },
+        "selected": {
+          "$type": "color",
+          "$value": "{color.neutral.highlighter-26}",
+          "$description": "Req for: the soft ground of a neutral control, when selected\nUse: a tint at rest, stronger when touched: chips, a selected tab, a soft button; the highlighter at an opacity\nComposed with: {opacity.soft.selected}"
+        }
+      },
+      "solid": {
+        "enabled": {
+          "$type": "color",
+          "$value": "{color.neutral.stamp.fill}",
+          "$description": "Req for: the solid ground of a neutral control, at rest\nUse: the engine's stamp, solved per brand; always with the on-solid text and the solid border\nReserved for components"
+        },
+        "hover": {
+          "$type": "color",
+          "$value": "{color.neutral.stamp.fill-hover}",
+          "$description": "Req for: the solid ground of a neutral control, under the pointer\nUse: the engine's stamp, solved per brand; always with the on-solid text and the solid border\nReserved for components"
+        },
+        "pressed": {
+          "$type": "color",
+          "$value": "{color.neutral.stamp.fill-pressed}",
+          "$description": "Req for: the solid ground of a neutral control, while pressed\nUse: the engine's stamp, solved per brand; always with the on-solid text and the solid border\nReserved for components"
+        }
+      },
+      "brand": {
+        "regular": {
+          "$type": "color",
+          "$value": "{color.brand.paper-3}",
+          "$description": "Req for: the default ground with color, in the brand color\nUse: an alert, a callout, a soft badge, with the regular or muted border; every fg word but hint reads on it"
+        },
+        "accent": {
+          "$type": "color",
+          "$value": "{color.brand.pencil-47}",
+          "$description": "Req for: the fill that grabs the eye, in the brand color\nUse: a solid badge, chip or progress fill; its text is fg/on-inverse/strong or regular, nothing else"
+        },
+        "hint": {
+          "$type": "color",
+          "$value": "{color.brand.paper-1}",
+          "$description": "Req for: the lightest ground, in the brand color\nUse: a wash that barely leaves the surface; every fg word but hint reads on it\nReserved for components"
+        },
+        "muted": {
+          "$type": "color",
+          "$value": "{color.brand.paper-5}",
+          "$description": "Req for: a restrained ground, in the brand color\nUse: a deeper tint than regular; every fg word but hint reads on it\nReserved for components"
+        },
+        "strong": {
+          "$type": "color",
+          "$value": "{color.brand.chalk-20}",
+          "$description": "Req for: a heavy ground, in the brand color\nUse: the strongest combo; fg/strong, regular and muted read on it, accent does not\nReserved for components"
+        },
+        "ghost": {
+          "enabled": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                0,
+                0,
+                0
+              ],
+              "alpha": 0,
+              "hex": "#000000"
+            },
+            "$description": "Req for: the ghost ground of a brand control, at rest\nUse: transparent: ghost and outline buttons, icon buttons, rows and menu items show the surface\nReserved for components"
+          },
+          "hover": {
+            "$type": "color",
+            "$value": "{color.brand.highlighter-26}",
+            "$description": "Req for: the ghost ground of a brand control, under the pointer\nUse: the highlighter at an opacity, over the surface\nComposed with: {opacity.ghost.hover}\nReserved for components"
+          },
+          "pressed": {
+            "$type": "color",
+            "$value": "{color.brand.highlighter-26}",
+            "$description": "Req for: the ghost ground of a brand control, while pressed\nUse: the highlighter at an opacity, over the surface\nComposed with: {opacity.ghost.pressed}\nReserved for components"
+          },
+          "selected": {
+            "$type": "color",
+            "$value": "{color.brand.highlighter-26}",
+            "$description": "Req for: the ghost ground of a brand control, when selected\nUse: the highlighter at an opacity, over the surface\nComposed with: {opacity.ghost.selected}\nReserved for components"
+          }
+        },
+        "soft": {
+          "enabled": {
+            "$type": "color",
+            "$value": "{color.brand.highlighter-26}",
+            "$description": "Req for: the soft ground of a brand control, at rest\nUse: a tint at rest, stronger when touched: chips, a selected tab, a soft button; the highlighter at an opacity\nComposed with: {opacity.soft.enabled}\nReserved for components"
+          },
+          "hover": {
+            "$type": "color",
+            "$value": "{color.brand.highlighter-26}",
+            "$description": "Req for: the soft ground of a brand control, under the pointer\nUse: a tint at rest, stronger when touched: chips, a selected tab, a soft button; the highlighter at an opacity\nComposed with: {opacity.soft.hover}\nReserved for components"
+          },
+          "pressed": {
+            "$type": "color",
+            "$value": "{color.brand.highlighter-26}",
+            "$description": "Req for: the soft ground of a brand control, while pressed\nUse: a tint at rest, stronger when touched: chips, a selected tab, a soft button; the highlighter at an opacity\nComposed with: {opacity.soft.pressed}\nReserved for components"
+          },
+          "selected": {
+            "$type": "color",
+            "$value": "{color.brand.highlighter-26}",
+            "$description": "Req for: the soft ground of a brand control, when selected\nUse: a tint at rest, stronger when touched: chips, a selected tab, a soft button; the highlighter at an opacity\nComposed with: {opacity.soft.selected}\nReserved for components"
+          }
+        },
+        "solid": {
+          "enabled": {
+            "$type": "color",
+            "$value": "{color.brand.stamp.fill}",
+            "$description": "Req for: the solid ground of a brand control, at rest\nUse: the engine's stamp, solved per brand; always with the on-solid text and the solid border\nReserved for components"
+          },
+          "hover": {
+            "$type": "color",
+            "$value": "{color.brand.stamp.fill-hover}",
+            "$description": "Req for: the solid ground of a brand control, under the pointer\nUse: the engine's stamp, solved per brand; always with the on-solid text and the solid border\nReserved for components"
+          },
+          "pressed": {
+            "$type": "color",
+            "$value": "{color.brand.stamp.fill-pressed}",
+            "$description": "Req for: the solid ground of a brand control, while pressed\nUse: the engine's stamp, solved per brand; always with the on-solid text and the solid border\nReserved for components"
+          }
+        }
+      },
+      "brand-alt": {
+        "regular": {
+          "$type": "color",
+          "$value": "{color.brand-alt.paper-3}",
+          "$description": "Req for: the default ground with color, in the brand-alt color\nUse: an alert, a callout, a soft badge, with the regular or muted border; every fg word but hint reads on it"
+        },
+        "accent": {
+          "$type": "color",
+          "$value": "{color.brand-alt.pencil-47}",
+          "$description": "Req for: the fill that grabs the eye, in the brand-alt color\nUse: a solid badge, chip or progress fill; its text is fg/on-inverse/strong or regular, nothing else"
+        },
+        "hint": {
+          "$type": "color",
+          "$value": "{color.brand-alt.paper-1}",
+          "$description": "Req for: the lightest ground, in the brand-alt color\nUse: a wash that barely leaves the surface; every fg word but hint reads on it\nReserved for components"
+        },
+        "muted": {
+          "$type": "color",
+          "$value": "{color.brand-alt.paper-5}",
+          "$description": "Req for: a restrained ground, in the brand-alt color\nUse: a deeper tint than regular; every fg word but hint reads on it\nReserved for components"
+        },
+        "strong": {
+          "$type": "color",
+          "$value": "{color.brand-alt.chalk-20}",
+          "$description": "Req for: a heavy ground, in the brand-alt color\nUse: the strongest combo; fg/strong, regular and muted read on it, accent does not\nReserved for components"
+        },
+        "ghost": {
+          "enabled": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                0,
+                0,
+                0
+              ],
+              "alpha": 0,
+              "hex": "#000000"
+            },
+            "$description": "Req for: the ghost ground of a brand-alt control, at rest\nUse: transparent: ghost and outline buttons, icon buttons, rows and menu items show the surface\nReserved for components"
+          },
+          "hover": {
+            "$type": "color",
+            "$value": "{color.brand-alt.highlighter-26}",
+            "$description": "Req for: the ghost ground of a brand-alt control, under the pointer\nUse: the highlighter at an opacity, over the surface\nComposed with: {opacity.ghost.hover}\nReserved for components"
+          },
+          "pressed": {
+            "$type": "color",
+            "$value": "{color.brand-alt.highlighter-26}",
+            "$description": "Req for: the ghost ground of a brand-alt control, while pressed\nUse: the highlighter at an opacity, over the surface\nComposed with: {opacity.ghost.pressed}\nReserved for components"
+          },
+          "selected": {
+            "$type": "color",
+            "$value": "{color.brand-alt.highlighter-26}",
+            "$description": "Req for: the ghost ground of a brand-alt control, when selected\nUse: the highlighter at an opacity, over the surface\nComposed with: {opacity.ghost.selected}\nReserved for components"
+          }
+        },
+        "soft": {
+          "enabled": {
+            "$type": "color",
+            "$value": "{color.brand-alt.highlighter-26}",
+            "$description": "Req for: the soft ground of a brand-alt control, at rest\nUse: a tint at rest, stronger when touched: chips, a selected tab, a soft button; the highlighter at an opacity\nComposed with: {opacity.soft.enabled}\nReserved for components"
+          },
+          "hover": {
+            "$type": "color",
+            "$value": "{color.brand-alt.highlighter-26}",
+            "$description": "Req for: the soft ground of a brand-alt control, under the pointer\nUse: a tint at rest, stronger when touched: chips, a selected tab, a soft button; the highlighter at an opacity\nComposed with: {opacity.soft.hover}\nReserved for components"
+          },
+          "pressed": {
+            "$type": "color",
+            "$value": "{color.brand-alt.highlighter-26}",
+            "$description": "Req for: the soft ground of a brand-alt control, while pressed\nUse: a tint at rest, stronger when touched: chips, a selected tab, a soft button; the highlighter at an opacity\nComposed with: {opacity.soft.pressed}\nReserved for components"
+          },
+          "selected": {
+            "$type": "color",
+            "$value": "{color.brand-alt.highlighter-26}",
+            "$description": "Req for: the soft ground of a brand-alt control, when selected\nUse: a tint at rest, stronger when touched: chips, a selected tab, a soft button; the highlighter at an opacity\nComposed with: {opacity.soft.selected}\nReserved for components"
+          }
+        },
+        "solid": {
+          "enabled": {
+            "$type": "color",
+            "$value": "{color.brand-alt.stamp.fill}",
+            "$description": "Req for: the solid ground of a brand-alt control, at rest\nUse: the engine's stamp, solved per brand; always with the on-solid text and the solid border\nReserved for components"
+          },
+          "hover": {
+            "$type": "color",
+            "$value": "{color.brand-alt.stamp.fill-hover}",
+            "$description": "Req for: the solid ground of a brand-alt control, under the pointer\nUse: the engine's stamp, solved per brand; always with the on-solid text and the solid border\nReserved for components"
+          },
+          "pressed": {
+            "$type": "color",
+            "$value": "{color.brand-alt.stamp.fill-pressed}",
+            "$description": "Req for: the solid ground of a brand-alt control, while pressed\nUse: the engine's stamp, solved per brand; always with the on-solid text and the solid border\nReserved for components"
+          }
+        }
+      },
+      "critical": {
+        "regular": {
+          "$type": "color",
+          "$value": "{color.critical.paper-3}",
+          "$description": "Req for: the default ground with color, in the critical color\nUse: an alert, a callout, a soft badge, with the regular or muted border; every fg word but hint reads on it"
+        },
+        "accent": {
+          "$type": "color",
+          "$value": "{color.critical.pencil-47}",
+          "$description": "Req for: the fill that grabs the eye, in the critical color\nUse: a solid badge, chip or progress fill; its text is fg/on-inverse/strong or regular, nothing else"
+        },
+        "hint": {
+          "$type": "color",
+          "$value": "{color.critical.paper-1}",
+          "$description": "Req for: the lightest ground, in the critical color\nUse: a wash that barely leaves the surface; every fg word but hint reads on it\nReserved for components"
+        },
+        "muted": {
+          "$type": "color",
+          "$value": "{color.critical.paper-5}",
+          "$description": "Req for: a restrained ground, in the critical color\nUse: a deeper tint than regular; every fg word but hint reads on it\nReserved for components"
+        },
+        "strong": {
+          "$type": "color",
+          "$value": "{color.critical.chalk-20}",
+          "$description": "Req for: a heavy ground, in the critical color\nUse: the strongest combo; fg/strong, regular and muted read on it, accent does not\nReserved for components"
+        },
+        "ghost": {
+          "enabled": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                0,
+                0,
+                0
+              ],
+              "alpha": 0,
+              "hex": "#000000"
+            },
+            "$description": "Req for: the ghost ground of a critical control, at rest\nUse: transparent: ghost and outline buttons, icon buttons, rows and menu items show the surface\nReserved for components"
+          },
+          "hover": {
+            "$type": "color",
+            "$value": "{color.critical.highlighter-26}",
+            "$description": "Req for: the ghost ground of a critical control, under the pointer\nUse: the highlighter at an opacity, over the surface\nComposed with: {opacity.ghost.hover}\nReserved for components"
+          },
+          "pressed": {
+            "$type": "color",
+            "$value": "{color.critical.highlighter-26}",
+            "$description": "Req for: the ghost ground of a critical control, while pressed\nUse: the highlighter at an opacity, over the surface\nComposed with: {opacity.ghost.pressed}\nReserved for components"
+          },
+          "selected": {
+            "$type": "color",
+            "$value": "{color.critical.highlighter-26}",
+            "$description": "Req for: the ghost ground of a critical control, when selected\nUse: the highlighter at an opacity, over the surface\nComposed with: {opacity.ghost.selected}\nReserved for components"
+          }
+        },
+        "soft": {
+          "enabled": {
+            "$type": "color",
+            "$value": "{color.critical.highlighter-26}",
+            "$description": "Req for: the soft ground of a critical control, at rest\nUse: a tint at rest, stronger when touched: chips, a selected tab, a soft button; the highlighter at an opacity\nComposed with: {opacity.soft.enabled}\nReserved for components"
+          },
+          "hover": {
+            "$type": "color",
+            "$value": "{color.critical.highlighter-26}",
+            "$description": "Req for: the soft ground of a critical control, under the pointer\nUse: a tint at rest, stronger when touched: chips, a selected tab, a soft button; the highlighter at an opacity\nComposed with: {opacity.soft.hover}\nReserved for components"
+          },
+          "pressed": {
+            "$type": "color",
+            "$value": "{color.critical.highlighter-26}",
+            "$description": "Req for: the soft ground of a critical control, while pressed\nUse: a tint at rest, stronger when touched: chips, a selected tab, a soft button; the highlighter at an opacity\nComposed with: {opacity.soft.pressed}\nReserved for components"
+          },
+          "selected": {
+            "$type": "color",
+            "$value": "{color.critical.highlighter-26}",
+            "$description": "Req for: the soft ground of a critical control, when selected\nUse: a tint at rest, stronger when touched: chips, a selected tab, a soft button; the highlighter at an opacity\nComposed with: {opacity.soft.selected}\nReserved for components"
+          }
+        },
+        "solid": {
+          "enabled": {
+            "$type": "color",
+            "$value": "{color.critical.stamp.fill}",
+            "$description": "Req for: the solid ground of a critical control, at rest\nUse: the engine's stamp, solved per brand; always with the on-solid text and the solid border\nReserved for components"
+          },
+          "hover": {
+            "$type": "color",
+            "$value": "{color.critical.stamp.fill-hover}",
+            "$description": "Req for: the solid ground of a critical control, under the pointer\nUse: the engine's stamp, solved per brand; always with the on-solid text and the solid border\nReserved for components"
+          },
+          "pressed": {
+            "$type": "color",
+            "$value": "{color.critical.stamp.fill-pressed}",
+            "$description": "Req for: the solid ground of a critical control, while pressed\nUse: the engine's stamp, solved per brand; always with the on-solid text and the solid border\nReserved for components"
+          }
+        }
+      },
+      "warning": {
+        "regular": {
+          "$type": "color",
+          "$value": "{color.warning.paper-3}",
+          "$description": "Req for: the default ground with color, in the warning color\nUse: an alert, a callout, a soft badge, with the regular or muted border; every fg word but hint reads on it"
+        },
+        "accent": {
+          "$type": "color",
+          "$value": "{color.warning.pencil-47}",
+          "$description": "Req for: the fill that grabs the eye, in the warning color\nUse: a solid badge, chip or progress fill; its text is fg/on-inverse/strong or regular, nothing else"
+        },
+        "hint": {
+          "$type": "color",
+          "$value": "{color.warning.paper-1}",
+          "$description": "Req for: the lightest ground, in the warning color\nUse: a wash that barely leaves the surface; every fg word but hint reads on it\nReserved for components"
+        },
+        "muted": {
+          "$type": "color",
+          "$value": "{color.warning.paper-5}",
+          "$description": "Req for: a restrained ground, in the warning color\nUse: a deeper tint than regular; every fg word but hint reads on it\nReserved for components"
+        },
+        "strong": {
+          "$type": "color",
+          "$value": "{color.warning.chalk-20}",
+          "$description": "Req for: a heavy ground, in the warning color\nUse: the strongest combo; fg/strong, regular and muted read on it, accent does not\nReserved for components"
+        },
+        "ghost": {
+          "enabled": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                0,
+                0,
+                0
+              ],
+              "alpha": 0,
+              "hex": "#000000"
+            },
+            "$description": "Req for: the ghost ground of a warning control, at rest\nUse: transparent: ghost and outline buttons, icon buttons, rows and menu items show the surface\nReserved for components"
+          },
+          "hover": {
+            "$type": "color",
+            "$value": "{color.warning.highlighter-26}",
+            "$description": "Req for: the ghost ground of a warning control, under the pointer\nUse: the highlighter at an opacity, over the surface\nComposed with: {opacity.ghost.hover}\nReserved for components"
+          },
+          "pressed": {
+            "$type": "color",
+            "$value": "{color.warning.highlighter-26}",
+            "$description": "Req for: the ghost ground of a warning control, while pressed\nUse: the highlighter at an opacity, over the surface\nComposed with: {opacity.ghost.pressed}\nReserved for components"
+          },
+          "selected": {
+            "$type": "color",
+            "$value": "{color.warning.highlighter-26}",
+            "$description": "Req for: the ghost ground of a warning control, when selected\nUse: the highlighter at an opacity, over the surface\nComposed with: {opacity.ghost.selected}\nReserved for components"
+          }
+        },
+        "soft": {
+          "enabled": {
+            "$type": "color",
+            "$value": "{color.warning.highlighter-26}",
+            "$description": "Req for: the soft ground of a warning control, at rest\nUse: a tint at rest, stronger when touched: chips, a selected tab, a soft button; the highlighter at an opacity\nComposed with: {opacity.soft.enabled}\nReserved for components"
+          },
+          "hover": {
+            "$type": "color",
+            "$value": "{color.warning.highlighter-26}",
+            "$description": "Req for: the soft ground of a warning control, under the pointer\nUse: a tint at rest, stronger when touched: chips, a selected tab, a soft button; the highlighter at an opacity\nComposed with: {opacity.soft.hover}\nReserved for components"
+          },
+          "pressed": {
+            "$type": "color",
+            "$value": "{color.warning.highlighter-26}",
+            "$description": "Req for: the soft ground of a warning control, while pressed\nUse: a tint at rest, stronger when touched: chips, a selected tab, a soft button; the highlighter at an opacity\nComposed with: {opacity.soft.pressed}\nReserved for components"
+          },
+          "selected": {
+            "$type": "color",
+            "$value": "{color.warning.highlighter-26}",
+            "$description": "Req for: the soft ground of a warning control, when selected\nUse: a tint at rest, stronger when touched: chips, a selected tab, a soft button; the highlighter at an opacity\nComposed with: {opacity.soft.selected}\nReserved for components"
+          }
+        },
+        "solid": {
+          "enabled": {
+            "$type": "color",
+            "$value": "{color.warning.stamp.fill}",
+            "$description": "Req for: the solid ground of a warning control, at rest\nUse: the engine's stamp, solved per brand; always with the on-solid text and the solid border\nReserved for components"
+          },
+          "hover": {
+            "$type": "color",
+            "$value": "{color.warning.stamp.fill-hover}",
+            "$description": "Req for: the solid ground of a warning control, under the pointer\nUse: the engine's stamp, solved per brand; always with the on-solid text and the solid border\nReserved for components"
+          },
+          "pressed": {
+            "$type": "color",
+            "$value": "{color.warning.stamp.fill-pressed}",
+            "$description": "Req for: the solid ground of a warning control, while pressed\nUse: the engine's stamp, solved per brand; always with the on-solid text and the solid border\nReserved for components"
+          }
+        }
+      },
+      "positive": {
+        "regular": {
+          "$type": "color",
+          "$value": "{color.positive.paper-3}",
+          "$description": "Req for: the default ground with color, in the positive color\nUse: an alert, a callout, a soft badge, with the regular or muted border; every fg word but hint reads on it"
+        },
+        "accent": {
+          "$type": "color",
+          "$value": "{color.positive.pencil-47}",
+          "$description": "Req for: the fill that grabs the eye, in the positive color\nUse: a solid badge, chip or progress fill; its text is fg/on-inverse/strong or regular, nothing else"
+        },
+        "hint": {
+          "$type": "color",
+          "$value": "{color.positive.paper-1}",
+          "$description": "Req for: the lightest ground, in the positive color\nUse: a wash that barely leaves the surface; every fg word but hint reads on it\nReserved for components"
+        },
+        "muted": {
+          "$type": "color",
+          "$value": "{color.positive.paper-5}",
+          "$description": "Req for: a restrained ground, in the positive color\nUse: a deeper tint than regular; every fg word but hint reads on it\nReserved for components"
+        },
+        "strong": {
+          "$type": "color",
+          "$value": "{color.positive.chalk-20}",
+          "$description": "Req for: a heavy ground, in the positive color\nUse: the strongest combo; fg/strong, regular and muted read on it, accent does not\nReserved for components"
+        },
+        "ghost": {
+          "enabled": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                0,
+                0,
+                0
+              ],
+              "alpha": 0,
+              "hex": "#000000"
+            },
+            "$description": "Req for: the ghost ground of a positive control, at rest\nUse: transparent: ghost and outline buttons, icon buttons, rows and menu items show the surface\nReserved for components"
+          },
+          "hover": {
+            "$type": "color",
+            "$value": "{color.positive.highlighter-26}",
+            "$description": "Req for: the ghost ground of a positive control, under the pointer\nUse: the highlighter at an opacity, over the surface\nComposed with: {opacity.ghost.hover}\nReserved for components"
+          },
+          "pressed": {
+            "$type": "color",
+            "$value": "{color.positive.highlighter-26}",
+            "$description": "Req for: the ghost ground of a positive control, while pressed\nUse: the highlighter at an opacity, over the surface\nComposed with: {opacity.ghost.pressed}\nReserved for components"
+          },
+          "selected": {
+            "$type": "color",
+            "$value": "{color.positive.highlighter-26}",
+            "$description": "Req for: the ghost ground of a positive control, when selected\nUse: the highlighter at an opacity, over the surface\nComposed with: {opacity.ghost.selected}\nReserved for components"
+          }
+        },
+        "soft": {
+          "enabled": {
+            "$type": "color",
+            "$value": "{color.positive.highlighter-26}",
+            "$description": "Req for: the soft ground of a positive control, at rest\nUse: a tint at rest, stronger when touched: chips, a selected tab, a soft button; the highlighter at an opacity\nComposed with: {opacity.soft.enabled}\nReserved for components"
+          },
+          "hover": {
+            "$type": "color",
+            "$value": "{color.positive.highlighter-26}",
+            "$description": "Req for: the soft ground of a positive control, under the pointer\nUse: a tint at rest, stronger when touched: chips, a selected tab, a soft button; the highlighter at an opacity\nComposed with: {opacity.soft.hover}\nReserved for components"
+          },
+          "pressed": {
+            "$type": "color",
+            "$value": "{color.positive.highlighter-26}",
+            "$description": "Req for: the soft ground of a positive control, while pressed\nUse: a tint at rest, stronger when touched: chips, a selected tab, a soft button; the highlighter at an opacity\nComposed with: {opacity.soft.pressed}\nReserved for components"
+          },
+          "selected": {
+            "$type": "color",
+            "$value": "{color.positive.highlighter-26}",
+            "$description": "Req for: the soft ground of a positive control, when selected\nUse: a tint at rest, stronger when touched: chips, a selected tab, a soft button; the highlighter at an opacity\nComposed with: {opacity.soft.selected}\nReserved for components"
+          }
+        },
+        "solid": {
+          "enabled": {
+            "$type": "color",
+            "$value": "{color.positive.stamp.fill}",
+            "$description": "Req for: the solid ground of a positive control, at rest\nUse: the engine's stamp, solved per brand; always with the on-solid text and the solid border\nReserved for components"
+          },
+          "hover": {
+            "$type": "color",
+            "$value": "{color.positive.stamp.fill-hover}",
+            "$description": "Req for: the solid ground of a positive control, under the pointer\nUse: the engine's stamp, solved per brand; always with the on-solid text and the solid border\nReserved for components"
+          },
+          "pressed": {
+            "$type": "color",
+            "$value": "{color.positive.stamp.fill-pressed}",
+            "$description": "Req for: the solid ground of a positive control, while pressed\nUse: the engine's stamp, solved per brand; always with the on-solid text and the solid border\nReserved for components"
+          }
+        }
+      },
+      "info": {
+        "regular": {
+          "$type": "color",
+          "$value": "{color.info.paper-3}",
+          "$description": "Req for: the default ground with color, in the info color\nUse: an alert, a callout, a soft badge, with the regular or muted border; every fg word but hint reads on it"
+        },
+        "accent": {
+          "$type": "color",
+          "$value": "{color.info.pencil-47}",
+          "$description": "Req for: the fill that grabs the eye, in the info color\nUse: a solid badge, chip or progress fill; its text is fg/on-inverse/strong or regular, nothing else"
+        },
+        "hint": {
+          "$type": "color",
+          "$value": "{color.info.paper-1}",
+          "$description": "Req for: the lightest ground, in the info color\nUse: a wash that barely leaves the surface; every fg word but hint reads on it\nReserved for components"
+        },
+        "muted": {
+          "$type": "color",
+          "$value": "{color.info.paper-5}",
+          "$description": "Req for: a restrained ground, in the info color\nUse: a deeper tint than regular; every fg word but hint reads on it\nReserved for components"
+        },
+        "strong": {
+          "$type": "color",
+          "$value": "{color.info.chalk-20}",
+          "$description": "Req for: a heavy ground, in the info color\nUse: the strongest combo; fg/strong, regular and muted read on it, accent does not\nReserved for components"
+        },
+        "ghost": {
+          "enabled": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                0,
+                0,
+                0
+              ],
+              "alpha": 0,
+              "hex": "#000000"
+            },
+            "$description": "Req for: the ghost ground of an info control, at rest\nUse: transparent: ghost and outline buttons, icon buttons, rows and menu items show the surface\nReserved for components"
+          },
+          "hover": {
+            "$type": "color",
+            "$value": "{color.info.highlighter-26}",
+            "$description": "Req for: the ghost ground of an info control, under the pointer\nUse: the highlighter at an opacity, over the surface\nComposed with: {opacity.ghost.hover}\nReserved for components"
+          },
+          "pressed": {
+            "$type": "color",
+            "$value": "{color.info.highlighter-26}",
+            "$description": "Req for: the ghost ground of an info control, while pressed\nUse: the highlighter at an opacity, over the surface\nComposed with: {opacity.ghost.pressed}\nReserved for components"
+          },
+          "selected": {
+            "$type": "color",
+            "$value": "{color.info.highlighter-26}",
+            "$description": "Req for: the ghost ground of an info control, when selected\nUse: the highlighter at an opacity, over the surface\nComposed with: {opacity.ghost.selected}\nReserved for components"
+          }
+        },
+        "soft": {
+          "enabled": {
+            "$type": "color",
+            "$value": "{color.info.highlighter-26}",
+            "$description": "Req for: the soft ground of an info control, at rest\nUse: a tint at rest, stronger when touched: chips, a selected tab, a soft button; the highlighter at an opacity\nComposed with: {opacity.soft.enabled}\nReserved for components"
+          },
+          "hover": {
+            "$type": "color",
+            "$value": "{color.info.highlighter-26}",
+            "$description": "Req for: the soft ground of an info control, under the pointer\nUse: a tint at rest, stronger when touched: chips, a selected tab, a soft button; the highlighter at an opacity\nComposed with: {opacity.soft.hover}\nReserved for components"
+          },
+          "pressed": {
+            "$type": "color",
+            "$value": "{color.info.highlighter-26}",
+            "$description": "Req for: the soft ground of an info control, while pressed\nUse: a tint at rest, stronger when touched: chips, a selected tab, a soft button; the highlighter at an opacity\nComposed with: {opacity.soft.pressed}\nReserved for components"
+          },
+          "selected": {
+            "$type": "color",
+            "$value": "{color.info.highlighter-26}",
+            "$description": "Req for: the soft ground of an info control, when selected\nUse: a tint at rest, stronger when touched: chips, a selected tab, a soft button; the highlighter at an opacity\nComposed with: {opacity.soft.selected}\nReserved for components"
+          }
+        },
+        "solid": {
+          "enabled": {
+            "$type": "color",
+            "$value": "{color.info.stamp.fill}",
+            "$description": "Req for: the solid ground of an info control, at rest\nUse: the engine's stamp, solved per brand; always with the on-solid text and the solid border\nReserved for components"
+          },
+          "hover": {
+            "$type": "color",
+            "$value": "{color.info.stamp.fill-hover}",
+            "$description": "Req for: the solid ground of an info control, under the pointer\nUse: the engine's stamp, solved per brand; always with the on-solid text and the solid border\nReserved for components"
+          },
+          "pressed": {
+            "$type": "color",
+            "$value": "{color.info.stamp.fill-pressed}",
+            "$description": "Req for: the solid ground of an info control, while pressed\nUse: the engine's stamp, solved per brand; always with the on-solid text and the solid border\nReserved for components"
+          }
+        }
+      }
+    },
+    "illustration": {
+      "paper": {
+        "$type": "color",
+        "$value": "{color.brand.paper-5}",
+        "$description": "Req for: illustration: the palest wash\nUse: the brand illustration palette only; never UI"
+      },
+      "chalk-light": {
+        "$type": "color",
+        "$value": "{color.brand.chalk-11}",
+        "$description": "Req for: illustration: a light fill\nUse: the brand illustration palette only; never UI"
+      },
+      "chalk": {
+        "$type": "color",
+        "$value": "{color.brand.chalk-20}",
+        "$description": "Req for: illustration: a mid fill\nUse: the brand illustration palette only; never UI"
+      },
+      "highlighter": {
+        "$type": "color",
+        "$value": "{color.brand.highlighter-26}",
+        "$description": "Req for: illustration: an accent\nUse: the brand illustration palette only; never UI"
+      },
+      "pencil": {
+        "$type": "color",
+        "$value": "{color.brand.pencil-47}",
+        "$description": "Req for: illustration: a line or a dark fill\nUse: the brand illustration palette only; never UI"
+      },
+      "pen": {
+        "$type": "color",
+        "$value": "{color.brand.pen-58}",
+        "$description": "Req for: illustration: the darkest line\nUse: the brand illustration palette only; never UI"
+      },
+      "shadow": {
+        "$type": "color",
+        "$value": "{color.brand.pen-58}",
+        "$description": "Req for: illustration: a cast shadow\nUse: the darkest line at an opacity\nComposed with: {opacity.010}"
+      },
+      "shine": {
+        "$type": "color",
+        "$value": "{color.brand.paper-5}",
+        "$description": "Req for: illustration: a highlight\nUse: the palest wash at an opacity\nComposed with: {opacity.020}"
+      }
+    }
+  }
+}
