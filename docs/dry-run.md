@@ -71,6 +71,14 @@ for, and leaves a row composed by hand (an alias with an opacity) as it is.
 
 Then the real file, the same way.
 
+## The new file
+
+The same bundle fills an empty file, for a proposal shown clean beside the edited
+copy. The engine's plugin goes first there too, since ours never writes an engine row;
+after it, every collection, row and style comes back as `created`, with nothing to
+rename and no orphans. Text styles need the font families licensed on that file's
+plan, or the report says which style it skipped.
+
 ## With a script runner instead
 
 Where a Figma connection with a script runner is available, `node scripts/figma-call.ts

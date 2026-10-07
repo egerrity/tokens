@@ -16,6 +16,9 @@ color / <property> / <family> / <word | state>
 
 - **Property**: `fg` for text and icons, `bg` for a component's own ground, `border`,
   `surface` for the page's planes, `illustration` for the brand's illustration palette.
+  A surface is an elevation plane and reverses with the mode: `surface/high` is
+  `paper-0` in light and `paper-5` in dark. A bg is a flat fill and does not: `bg/regular`
+  is `paper-3` in both, and the theme moves what `paper-3` is.
 - **Family**: left out for the neutral, named for the rest: `brand`, `brand-alt`,
   `critical`, `warning`, `positive`, `info`.
 - **Word**: one vocabulary of five, each a combo of a text, a ground and a border that
