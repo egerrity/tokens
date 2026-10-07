@@ -89,6 +89,7 @@ export const SHAPES = {
     [['bg'], FAMILY, ['solid'], SOLID_STATE],
     [['border'], [...WORD, 'focus', 'inverse', 'solid']],
     [['border'], FAMILY, [...WORD, 'solid']],
+    [['plane'], ['high', 'mid', 'low', 'dim']],
     [['surface'], ['high', 'mid', 'low', 'dim', 'inverse', 'scrim']],
     [['illustration'], ['paper', 'chalk-light', 'chalk', 'highlighter', 'pencil', 'pen', 'shadow', 'shine']],
   ],

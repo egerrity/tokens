@@ -47,10 +47,10 @@ The console prints one report for the whole run:
 - `orphans` and `rebound`: a row whose old name sits in a collection the new row cannot
   live in. The new row is created, and every fill, stroke, effect and alias bound to
   the old one is moved to it (`rebound` counts them); the old row is left in place for
-  you to delete once nothing refers to it. The five old background rows are the known
-  case: the surfaces live in the `theme` collection, because they vary by mode, and the
-  old rows live in the palette's, which has none. A text layer with mixed fills, or a
-  font the plugin cannot load, is reported and rebound by hand.
+  you to delete once nothing refers to it. None is expected: the surfaces are palette
+  rows that alias the theme's hidden planes, so today's background rows rename into
+  them in place like the rest. A text layer with mixed fills, or a font the plugin
+  cannot load, is reported and rebound by hand.
 - `problems`: rows left alone because settling them would mean guessing: two variables
   carrying one stamp (a duplicate), a name another variable holds (a hand rename), a
   type that does not match, a mode the payload does not name. Fix each by hand and

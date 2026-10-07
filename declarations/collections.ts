@@ -43,7 +43,7 @@ export const viewportFallback: Readonly<Record<Viewport, Viewport | null>> = {
 /** the collection a token is filed in: by what might ever vary it */
 export function collectionOf(t: Token): string {
   const category = t.path[0]
-  if (category === 'color') return t.path[1] === 'surface' ? 'theme' : 'palette'
+  if (category === 'color') return t.path[1] === 'plane' ? 'theme' : 'palette'
   if (category === 'grid' || category === 'text') return 'viewport'
   if ((category === 'space' || category === 'size') && t.layer === 'semantic') return 'viewport'
   if (category === 'motion') return 'motion'

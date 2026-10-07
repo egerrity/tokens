@@ -18,7 +18,11 @@ color / <property> / <family> / <word | state>
   `surface` for the page's planes, `illustration` for the brand's illustration palette.
   A surface is an elevation plane and reverses with the mode: `surface/high` is
   `paper-0` in light and `paper-5` in dark. A bg is a flat fill and does not: `bg/regular`
-  is `paper-3` in both, and the theme moves what `paper-3` is.
+  is `paper-3` in both, and the theme moves what `paper-3` is. The reversal lives in
+  four hidden rows of the theme collection, `color/plane/high`, `mid`, `low`, `dim`, one
+  paper per mode; each surface is the palette's alias to its plane, so it follows the
+  theme's mode like every other palette row, and today's background rows rename into
+  the surfaces in place.
 - **Family**: left out for the neutral, named for the rest: `brand`, `brand-alt`,
   `critical`, `warning`, `positive`, `info`.
 - **Word**: one vocabulary of five, each a combo of a text, a ground and a border that
@@ -95,7 +99,7 @@ paper.
 | `bg/ghost/enabled`, `hover`, `pressed`, `selected` | transparent, then `highlighter-26` with `opacity/ghost/*` | the ghost ground, as pairs |
 | `bg/soft/enabled`, `hover`, `pressed`, `selected` | `highlighter-26` with `opacity/soft/*` | the soft ground, as pairs |
 | `bg/solid/enabled`, `hover`, `pressed`; `border/solid`; `fg/on-solid` (reserved) | `stamp/fill`, `fill-hover`, `fill-pressed`; `stamp/edge`; `stamp/on` | the solid ground, its edge and its on-text |
-| `surface/high`, `mid`, `low`, `dim` | the planes | elevation, in the engine's order in both modes; an input fills with `high`, like a card |
+| `surface/high`, `mid`, `low`, `dim` | `plane/high`, `mid`, `low`, `dim`, the hidden theme rows on the engine's papers per mode | elevation, in the engine's order in both modes; an input fills with `high`, like a card |
 | `surface/inverse` | `neutral/pen-70` | an inverted banner, card or toast; not interactive |
 | `surface/scrim` | black with `opacity/scrim` | a pair |
 
@@ -168,8 +172,8 @@ their own names, plus a shadow and a shine as pairs.
 
 ## Count
 
-216 color rows: 39 neutral, 27 per family, 8 illustration, 6 surfaces; 128 of them
-reserved. 52 pairs.
+220 color rows: 39 neutral, 27 per family, 8 illustration, 6 surfaces, 4 planes; 132 of
+them reserved. 52 pairs.
 
 ## Ruled
 

@@ -82,6 +82,7 @@ const SCOPES: Record<string, string[]> = {
   'color/fg': ['TEXT_FILL', 'SHAPE_FILL'],
   'color/bg': ['FRAME_FILL', 'SHAPE_FILL'],
   'color/border': ['STROKE_COLOR'],
+  'color/plane': ['FRAME_FILL'],
   'color/surface': ['FRAME_FILL'],
   'color/illustration': ['ALL_FILLS', 'STROKE_COLOR'],
 }

@@ -1955,13 +1955,13 @@
       }
     },
     {
-      "path": "color/surface/dim",
-      "today": "Background palette/Background Tertiary",
+      "path": "color/plane/dim",
       "type": "COLOR",
       "scopes": [
         "FRAME_FILL"
       ],
-      "description": "Req for: the page behind everything\nUse: elevation moves toward the page pole in both modes; a shadow marks the step in light",
+      "description": "Req for: the dim plane\nUse: what color/surface/dim aliases: one paper per mode, in the engine's order\nReserved for components; hidden from publishing",
+      "hidden": true,
       "values": {
         "light": {
           "alias": "color/neutral/paper-5"
@@ -1972,12 +1972,13 @@
       }
     },
     {
-      "path": "color/surface/low",
+      "path": "color/plane/low",
       "type": "COLOR",
       "scopes": [
         "FRAME_FILL"
       ],
-      "description": "Req for: a recessed surface: an inset well, a table header\nUse: elevation moves toward the page pole in both modes; a shadow marks the step in light",
+      "description": "Req for: the low plane\nUse: what color/surface/low aliases: one paper per mode, in the engine's order\nReserved for components; hidden from publishing",
+      "hidden": true,
       "values": {
         "light": {
           "alias": "color/neutral/paper-3"
@@ -1988,13 +1989,13 @@
       }
     },
     {
-      "path": "color/surface/mid",
-      "today": "Background palette/Background Secondary",
+      "path": "color/plane/mid",
       "type": "COLOR",
       "scopes": [
         "FRAME_FILL"
       ],
-      "description": "Req for: the resting surface of a panel or a section\nUse: elevation moves toward the page pole in both modes; a shadow marks the step in light",
+      "description": "Req for: the mid plane\nUse: what color/surface/mid aliases: one paper per mode, in the engine's order\nReserved for components; hidden from publishing",
+      "hidden": true,
       "values": {
         "light": {
           "alias": "color/neutral/paper-1"
@@ -2005,55 +2006,19 @@
       }
     },
     {
-      "path": "color/surface/high",
-      "today": "Background palette/Background Primary",
+      "path": "color/plane/high",
       "type": "COLOR",
       "scopes": [
         "FRAME_FILL"
       ],
-      "description": "Req for: the raised surface: a card, a menu, a dialog, an input\nUse: elevation moves toward the page pole in both modes; a shadow marks the step in light",
+      "description": "Req for: the high plane\nUse: what color/surface/high aliases: one paper per mode, in the engine's order\nReserved for components; hidden from publishing",
+      "hidden": true,
       "values": {
         "light": {
           "alias": "color/neutral/paper-0"
         },
         "dark": {
           "alias": "color/neutral/paper-5"
-        }
-      }
-    },
-    {
-      "path": "color/surface/inverse",
-      "today": "Background palette/Background Primary Inverse",
-      "type": "COLOR",
-      "scopes": [
-        "FRAME_FILL"
-      ],
-      "description": "Req for: an inverted banner, card or toast\nUse: the ground the on-inverse text and links are solved against; not interactive",
-      "values": {
-        "light": {
-          "alias": "color/neutral/pen-70"
-        },
-        "dark": {
-          "alias": "color/neutral/pen-70"
-        }
-      }
-    },
-    {
-      "path": "color/surface/scrim",
-      "today": "Background palette/Background Scrim",
-      "type": "COLOR",
-      "scopes": [
-        "FRAME_FILL"
-      ],
-      "description": "Req for: the scrim behind a modal\nUse: black\nCompose by hand with opacity/scrim",
-      "values": {
-        "light": {
-          "color": "#000000",
-          "alpha": 1
-        },
-        "dark": {
-          "color": "#000000",
-          "alpha": 1
         }
       }
     }

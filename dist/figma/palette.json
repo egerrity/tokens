@@ -8,6 +8,90 @@
   "todayModes": {},
   "variables": [
     {
+      "path": "color/surface/dim",
+      "today": "Background palette/Background Tertiary",
+      "type": "COLOR",
+      "scopes": [
+        "FRAME_FILL"
+      ],
+      "description": "Req for: the page behind everything\nUse: elevation moves toward the page pole in both modes; a shadow marks the step in light",
+      "values": {
+        "value": {
+          "alias": "color/plane/dim"
+        }
+      }
+    },
+    {
+      "path": "color/surface/low",
+      "type": "COLOR",
+      "scopes": [
+        "FRAME_FILL"
+      ],
+      "description": "Req for: a recessed surface: an inset well, a table header\nUse: elevation moves toward the page pole in both modes; a shadow marks the step in light",
+      "values": {
+        "value": {
+          "alias": "color/plane/low"
+        }
+      }
+    },
+    {
+      "path": "color/surface/mid",
+      "today": "Background palette/Background Secondary",
+      "type": "COLOR",
+      "scopes": [
+        "FRAME_FILL"
+      ],
+      "description": "Req for: the resting surface of a panel or a section\nUse: elevation moves toward the page pole in both modes; a shadow marks the step in light",
+      "values": {
+        "value": {
+          "alias": "color/plane/mid"
+        }
+      }
+    },
+    {
+      "path": "color/surface/high",
+      "today": "Background palette/Background Primary",
+      "type": "COLOR",
+      "scopes": [
+        "FRAME_FILL"
+      ],
+      "description": "Req for: the raised surface: a card, a menu, a dialog, an input\nUse: elevation moves toward the page pole in both modes; a shadow marks the step in light",
+      "values": {
+        "value": {
+          "alias": "color/plane/high"
+        }
+      }
+    },
+    {
+      "path": "color/surface/inverse",
+      "today": "Background palette/Background Primary Inverse",
+      "type": "COLOR",
+      "scopes": [
+        "FRAME_FILL"
+      ],
+      "description": "Req for: an inverted banner, card or toast\nUse: the ground the on-inverse text and links are solved against; not interactive",
+      "values": {
+        "value": {
+          "alias": "color/neutral/pen-70"
+        }
+      }
+    },
+    {
+      "path": "color/surface/scrim",
+      "today": "Background palette/Background Scrim",
+      "type": "COLOR",
+      "scopes": [
+        "FRAME_FILL"
+      ],
+      "description": "Req for: the scrim behind a modal\nUse: black\nCompose by hand with opacity/scrim",
+      "values": {
+        "value": {
+          "color": "#000000",
+          "alpha": 1
+        }
+      }
+    },
+    {
       "path": "color/fg/regular",
       "today": "Content palette/Content Primary",
       "type": "COLOR",

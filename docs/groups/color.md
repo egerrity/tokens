@@ -19,10 +19,14 @@ Generated from `declarations/color.ts, with the opacity steps in declarations/op
 
 | Token | Value | Required for |
 | --- | --- | --- |
-| `color/surface/dim` | `color/neutral/paper-5` (#eceef2) (light); `color/neutral/paper-0` (#0c0d0f) (dark) | the page behind everything |
-| `color/surface/low` | `color/neutral/paper-3` (#f3f5f8) (light); `color/neutral/paper-1` (#131415) (dark) | a recessed surface: an inset well, a table header |
-| `color/surface/mid` | `color/neutral/paper-1` (#f9fafd) (light); `color/neutral/paper-3` (#191b1d) (dark) | the resting surface of a panel or a section |
-| `color/surface/high` | `color/neutral/paper-0` (#ffffff) (light); `color/neutral/paper-5` (#202225) (dark) | the raised surface: a card, a menu, a dialog, an input |
+| `color/plane/dim` | `color/neutral/paper-5` (#eceef2) (light); `color/neutral/paper-0` (#0c0d0f) (dark) | the dim plane (reserved for components) |
+| `color/surface/dim` | `color/plane/dim` (`color/neutral/paper-5` (#eceef2)) | the page behind everything |
+| `color/plane/low` | `color/neutral/paper-3` (#f3f5f8) (light); `color/neutral/paper-1` (#131415) (dark) | the low plane (reserved for components) |
+| `color/surface/low` | `color/plane/low` (`color/neutral/paper-3` (#f3f5f8)) | a recessed surface: an inset well, a table header |
+| `color/plane/mid` | `color/neutral/paper-1` (#f9fafd) (light); `color/neutral/paper-3` (#191b1d) (dark) | the mid plane (reserved for components) |
+| `color/surface/mid` | `color/plane/mid` (`color/neutral/paper-1` (#f9fafd)) | the resting surface of a panel or a section |
+| `color/plane/high` | `color/neutral/paper-0` (#ffffff) (light); `color/neutral/paper-5` (#202225) (dark) | the high plane (reserved for components) |
+| `color/surface/high` | `color/plane/high` (`color/neutral/paper-0` (#ffffff)) | the raised surface: a card, a menu, a dialog, an input |
 | `color/surface/inverse` | `color/neutral/pen-70` (#2d2d2e) | an inverted banner, card or toast |
 | `color/surface/scrim` | #000000 with `opacity/scrim` | the scrim behind a modal |
 | `color/fg/regular` | `color/neutral/pen-70` (#2d2d2e) | running text |

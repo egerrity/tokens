@@ -1,8 +1,8 @@
 // Derive, the color half: the semantic color set as aliases onto the engine's rows, and
 // the pairs that a hand composes with an opacity. Property first, then the family, then
-// the emphasis word or the state; the neutral has no family word. The surfaces vary by
-// theme context and go to the theme collection; everything else is one alias and goes
-// to the palette.
+// the emphasis word or the state; the neutral has no family word. The planes vary by
+// theme context and go to the theme collection, hidden; everything else is one alias
+// and goes to the palette, the surfaces included, which alias the planes.
 import { THEME_CONTEXTS, type ThemeContext } from '../declarations/collections.ts'
 import { stepName, type TokenPath } from '../grammar/path.ts'
 import { FAMILY, STATE, type State, type Word } from '../grammar/words.ts'
@@ -56,9 +56,13 @@ export function colorTokens(d: ColorDeclaration, o: OpacityDeclaration): Token[]
     high: 'the raised surface: a card, a menu, a dialog, an input', mid: 'the resting surface of a panel or a section',
     low: 'a recessed surface: an inset well, a table header', dim: 'the page behind everything',
   }
+  // the plane is the row that varies by mode, in the theme collection and hidden; the
+  // surface is the palette's alias to it, so it follows the theme's mode like every
+  // other palette row and today's background rows rename into it in place
   for (const [name, by] of Object.entries(planes)) {
     const byContext = Object.fromEntries(THEME_CONTEXTS.map(c => [c, alias(n(by[c]))])) as Record<ThemeContext, Value>
-    out.push({ path: ['color', 'surface', name], layer: 'semantic', req: planeText[name], use: 'elevation moves toward the page pole in both modes; a shadow marks the step in light', value: byContext.light, byContext })
+    out.push({ path: ['color', 'plane', name], layer: 'semantic', req: `the ${name} plane`, use: `what color/surface/${name} aliases: one paper per mode, in the engine's order`, value: byContext.light, byContext, reserved: true })
+    out.push(row(['color', 'surface', name], alias(['color', 'plane', name]), planeText[name], 'elevation moves toward the page pole in both modes; a shadow marks the step in light'))
   }
   out.push(row(['color', 'surface', 'inverse'], alias(n('pen-70')), 'an inverted banner, card or toast', 'the ground the on-inverse text and links are solved against; not interactive'))
   out.push(row(['color', 'surface', 'scrim'], black, 'the scrim behind a modal', 'black', ['opacity', 'scrim']))

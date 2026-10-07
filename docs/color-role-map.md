@@ -33,7 +33,7 @@ One row per old row. "Code name" is what the product code reads today.
 
 | Today | Code name | Becomes | On the engine's | Note |
 | --- | --- | --- | --- | --- |
-| Background Primary | `color-palette-background-primary` | `surface/high` | `paper-0` light, `paper-5` dark | cards, menus, inputs, most page grounds |
+| Background Primary | `color-palette-background-primary` | `surface/high` | `plane/high`: `paper-0` light, `paper-5` dark | renamed in place; cards, menus, inputs, most page grounds |
 | Background Secondary | `color-palette-background-secondary` | `surface/mid` | `paper-1` / `paper-3` | `surface/low` (`paper-3` / `paper-1`) is new, to close the gap to tertiary |
 | Background Tertiary | `color-palette-background-tertiary` | `surface/dim` | `paper-5` / `paper-0` | the lowest ground only; its disabled use goes to `opacity/disabled` |
 | Background Primary Inverse | `color-palette-background-primary-inverse` | `surface/inverse` | `neutral/pen-70` | inverted banners, cards, toasts; its button use goes to the brand's stamp |
