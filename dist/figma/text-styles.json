@@ -2,7 +2,8 @@
   "kind": "text-styles",
   "styles": [
     {
-      "name": "text/display/lg",
+      "path": "text/display/lg",
+      "name": "display/lg",
       "today": "Display/lg",
       "description": "Req for: large, high-impact moments: page titles, major section introductions; the lg size",
       "family": "Matter",
@@ -19,7 +20,8 @@
       }
     },
     {
-      "name": "text/display/md",
+      "path": "text/display/md",
+      "name": "display/md",
       "today": "Display/md",
       "description": "Req for: large, high-impact moments: page titles, major section introductions; the md size",
       "family": "Matter",
@@ -36,7 +38,8 @@
       }
     },
     {
-      "name": "text/display/sm",
+      "path": "text/display/sm",
+      "name": "display/sm",
       "today": "Display/sm",
       "description": "Req for: large, high-impact moments: page titles, major section introductions; the sm size",
       "family": "Matter",
@@ -53,7 +56,8 @@
       }
     },
     {
-      "name": "text/heading/lg",
+      "path": "text/heading/lg",
+      "name": "heading/lg",
       "today": "Heading/lg",
       "description": "Req for: the headings that define content blocks and guide a reader through the page; the lg size",
       "family": "Matter",
@@ -70,7 +74,8 @@
       }
     },
     {
-      "name": "text/heading/md",
+      "path": "text/heading/md",
+      "name": "heading/md",
       "today": "Heading/md",
       "description": "Req for: the headings that define content blocks and guide a reader through the page; the md size",
       "family": "Matter",
@@ -87,7 +92,8 @@
       }
     },
     {
-      "name": "text/heading/sm",
+      "path": "text/heading/sm",
+      "name": "heading/sm",
       "today": "Heading/sm",
       "description": "Req for: the headings that define content blocks and guide a reader through the page; the sm size",
       "family": "Matter",
@@ -104,7 +110,8 @@
       }
     },
     {
-      "name": "text/heading/xs",
+      "path": "text/heading/xs",
+      "name": "heading/xs",
       "today": "Heading/xs",
       "description": "Req for: the headings that define content blocks and guide a reader through the page; the xs size",
       "family": "Matter",
@@ -121,7 +128,8 @@
       }
     },
     {
-      "name": "text/title/lg",
+      "path": "text/title/lg",
+      "name": "title/lg",
       "today": "Title/lg",
       "description": "Req for: labels for subsections, card headers and contextual identifiers; the lg size",
       "family": "Matter",
@@ -138,7 +146,8 @@
       }
     },
     {
-      "name": "text/title/md",
+      "path": "text/title/md",
+      "name": "title/md",
       "today": "Title/md",
       "description": "Req for: labels for subsections, card headers and contextual identifiers; the md size",
       "family": "Matter",
@@ -155,7 +164,8 @@
       }
     },
     {
-      "name": "text/title/sm",
+      "path": "text/title/sm",
+      "name": "title/sm",
       "today": "Title/sm",
       "description": "Req for: labels for subsections, card headers and contextual identifiers; the sm size",
       "family": "Matter",
@@ -172,7 +182,8 @@
       }
     },
     {
-      "name": "text/title/xs",
+      "path": "text/title/xs",
+      "name": "title/xs",
       "today": "Title/xs",
       "description": "Req for: labels for subsections, card headers and contextual identifiers; the xs size",
       "family": "Matter",
@@ -189,7 +200,8 @@
       }
     },
     {
-      "name": "text/body/lg",
+      "path": "text/body/lg",
+      "name": "body/lg",
       "today": "Body/lg",
       "description": "Req for: paragraphs, descriptions and general content; the lg size",
       "family": "Matter",
@@ -206,7 +218,8 @@
       }
     },
     {
-      "name": "text/body/md",
+      "path": "text/body/md",
+      "name": "body/md",
       "today": "Body/md (Default)",
       "description": "Req for: paragraphs, descriptions and general content; the md size",
       "family": "Matter",
@@ -223,7 +236,8 @@
       }
     },
     {
-      "name": "text/body/sm",
+      "path": "text/body/sm",
+      "name": "body/sm",
       "today": "Body/sm",
       "description": "Req for: paragraphs, descriptions and general content; the sm size",
       "family": "Matter",
@@ -240,7 +254,8 @@
       }
     },
     {
-      "name": "text/body/xs",
+      "path": "text/body/xs",
+      "name": "body/xs",
       "today": "Body/xs",
       "description": "Req for: paragraphs, descriptions and general content; the xs size",
       "family": "Matter",
@@ -257,7 +272,8 @@
       }
     },
     {
-      "name": "text/link/lg",
+      "path": "text/link/lg",
+      "name": "link/lg",
       "today": "Link/lg",
       "description": "Req for: navigation and actions written as underlined text; the lg size",
       "family": "Matter",
@@ -274,7 +290,8 @@
       }
     },
     {
-      "name": "text/link/md",
+      "path": "text/link/md",
+      "name": "link/md",
       "today": "Link/md (Default)",
       "description": "Req for: navigation and actions written as underlined text; the md size",
       "family": "Matter",
@@ -291,7 +308,8 @@
       }
     },
     {
-      "name": "text/link/sm",
+      "path": "text/link/sm",
+      "name": "link/sm",
       "today": "Link/sm",
       "description": "Req for: navigation and actions written as underlined text; the sm size",
       "family": "Matter",
@@ -308,7 +326,8 @@
       }
     },
     {
-      "name": "text/link/xs",
+      "path": "text/link/xs",
+      "name": "link/xs",
       "today": "Link/xs",
       "description": "Req for: navigation and actions written as underlined text; the xs size",
       "family": "Matter",
@@ -325,7 +344,8 @@
       }
     },
     {
-      "name": "text/tabular-number/sm",
+      "path": "text/tabular-number/sm",
+      "name": "tabular-number/sm",
       "today": "Tabular Number/sm",
       "description": "Req for: scannable numeric data in tables; the sm size",
       "family": "Matter",
@@ -342,7 +362,8 @@
       }
     },
     {
-      "name": "text/tabular-number/xs",
+      "path": "text/tabular-number/xs",
+      "name": "tabular-number/xs",
       "today": "Tabular Number/xs",
       "description": "Req for: scannable numeric data in tables; the xs size",
       "family": "Matter",
@@ -359,7 +380,8 @@
       }
     },
     {
-      "name": "text/button/md",
+      "path": "text/button/md",
+      "name": "button/md",
       "today": "Button/md",
       "description": "Req for: text inside buttons and other interactive components; the md size",
       "family": "Matter",
@@ -376,7 +398,8 @@
       }
     },
     {
-      "name": "text/button/sm",
+      "path": "text/button/sm",
+      "name": "button/sm",
       "today": "Button/sm",
       "description": "Req for: text inside buttons and other interactive components; the sm size",
       "family": "Matter",
@@ -393,7 +416,8 @@
       }
     },
     {
-      "name": "text/code/sm",
+      "path": "text/code/sm",
+      "name": "code/sm",
       "today": "Code/sm",
       "description": "Req for: inline code, developer references and system output; the sm size",
       "family": "Roboto Mono",

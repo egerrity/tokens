@@ -2,6 +2,7 @@
   "kind": "effect-styles",
   "styles": [
     {
+      "path": "shadow/raised",
       "name": "shadow/raised",
       "today": "Elevation shadow/Level 1",
       "description": "Req for: elevated cards, bottom sheets\nUse: the first elevation level, on surface/high; the same in both themes",
@@ -25,6 +26,7 @@
       ]
     },
     {
+      "path": "shadow/floating",
       "name": "shadow/floating",
       "today": "Elevation shadow/Level 2",
       "description": "Req for: menus, popovers, the navigation bar\nUse: the second elevation level, on surface/high; the same in both themes",
@@ -48,6 +50,7 @@
       ]
     },
     {
+      "path": "shadow/overlay",
       "name": "shadow/overlay",
       "today": "Elevation shadow/Level 3",
       "description": "Req for: dialogs, modal sheets, the floating action button\nUse: the third elevation level, on surface/high; the same in both themes",
@@ -71,6 +74,7 @@
       ]
     },
     {
+      "path": "shadow/lifted",
       "name": "shadow/lifted",
       "today": "Elevation shadow/Level 4",
       "description": "Req for: an elevated card at its strongest\nUse: the fifth elevation level, on surface/high; the same in both themes",

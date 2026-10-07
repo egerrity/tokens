@@ -179,3 +179,76 @@ export function page(category: Category, tokens: Token[], all: Token[], outside:
     '',
   ].join('\n')
 }
+
+/**
+ * The checklist after a Figma run: what the apply script leaves to a person, in order,
+ * with the translucent pairs listed as the set orders them, each with its alias and the
+ * percent to set. Generated so the list is exactly the pairs the set has.
+ */
+export function handWorkPage(tokens: Token[], outside: Token[] = []): string {
+  const byPath = new Map([...outside, ...tokens].map(t => [figmaName(t.path), t]))
+  const pairs = tokens.filter(t => t.pair)
+  // an opacity token aliases a step of the scale, so the percent is read through the chain
+  const percent = (p: TokenPath): number => {
+    let v = byPath.get(figmaName(p))?.value
+    for (let hops = 0; v && isAlias(v) && hops < 8; hops++) v = byPath.get(figmaName(v.alias))?.value
+    if (!v || isAlias(v) || v.type !== 'number') throw new Error(`${figmaName(p)}: an opacity that does not resolve to a number`)
+    return Math.round(v.value * 100)
+  }
+  // a pair's base is an alias, or a literal where the engine owns no row for it (the
+  // scrim's black)
+  const base = (t: Token): string => {
+    if (isAlias(t.value)) return `\`${figmaName(t.value.alias)}\``
+    if (t.value.type === 'color') return t.value.value.hex
+    throw new Error(`${figmaName(t.path)}: a pair whose base is neither an alias nor a color`)
+  }
+  const row = (t: Token) => `| \`${figmaName(t.path)}\` | ${base(t)} | \`${figmaName(t.pair!)}\` | ${percent(t.pair!)} |`
+  return [
+    '# The hand work after a run',
+    '',
+    'Generated with the rest of the set. The apply script never deletes and never guesses, so',
+    'what follows is a person\'s, in this order, in a copy first and in the real file after.',
+    'What is specific to one file (which rows have no successor, which modes go, what to',
+    'decide first) is in `dry-run.md`.',
+    '',
+    '## 1. Read the report',
+    '',
+    'The run ends in a window with the report; Copy takes it. `problems` first: each line is',
+    'a row the script left alone and says why. Then `orphans`, `created` and `renamed`',
+    'against what the run was expected to do.',
+    '',
+    '## 2. List the leftovers',
+    '',
+    'Run the plugin\'s second command, List the leftovers. After a run every row the set',
+    'owns and every engine row it found carries a stamp, so an unstamped variable, text',
+    'style or effect style is a leftover, whatever its name. The list gives each with where',
+    'it lives and every layer, style and variable that refers to it.',
+    '',
+    '- Under "Nothing refers to these": delete them.',
+    '- Under "Still referred to": open each use listed, bind it to the row\'s successor (the',
+    '  role map in `color-role-map.md` names it), then delete the row. A row that has to',
+    '  stay for now is marked deprecated instead.',
+    '- Under "Collections with no stamped row": delete the collection once its rows are gone.',
+    '',
+    'Run the list again: it is empty but for what was kept on purpose.',
+    '',
+    `## 3. Compose the ${pairs.length} pairs`,
+    '',
+    'A translucent row is its alias at an opacity, set in the variables panel: open the row,',
+    'keep the alias, set the opacity to the percent. The script writes the alias and leaves',
+    'the opacity to the panel, which the API cannot read or write; a composed row reads back',
+    'as its alias, so later runs leave it alone. In the order the set lists them:',
+    '',
+    '| Row | Alias | Opacity token | Percent |',
+    '| --- | --- | --- | --- |',
+    ...pairs.map(row),
+    '',
+    '## 4. Verify',
+    '',
+    '- Run Apply the set again: the report counts only `same`.',
+    '- A component that bound an old row shows the same color under the new name.',
+    '- The text styles show their family, bound; the effect styles their layers.',
+    '- Reserved rows do not appear in a consuming file\'s picker.',
+    '',
+  ].join('\n')
+}

@@ -26,15 +26,18 @@ command in the engine's repo, and the generator run again.
 `dist/figma/plugin/` is committed with the rest of the build: `manifest.json` and
 `code.js`, which is `scripts/figma/apply.js` with every payload inlined, in the order
 aliases need (scale, motion, viewport, theme, palette, then the text styles and the
-effect styles). Pull the repo and it is there.
+effect styles), and `scripts/figma/audit.js`, as the plugin's two commands. Pull the
+repo and it is there.
 
 In Figma Desktop, with the copy open: Plugins > Development > Import plugin from
 manifest… > choose `dist/figma/plugin/manifest.json`. Then Plugins > Development >
-Open console, so the report is visible, and run Plugins > Development > tokens apply.
+tokens apply > Apply the set. The run ends in a window holding the report, with a Copy
+button; the plugin stays open until the window is closed. The second command, List the
+leftovers, is for after the run (`hand-work.md`).
 
 ## 3. The report
 
-The console prints one report for the whole run:
+The window shows one report for the whole run:
 
 - `created`: rows and styles that did not exist.
 - `renamed`: today's names that became the new ones, in place, so bindings survive and
@@ -45,20 +48,25 @@ The console prints one report for the whole run:
   that map.
 - `updated`, `same`: values and descriptions that changed, and rows already right.
 - `orphans` and `rebound`: a row whose old name sits in a collection the new row cannot
-  live in. The new row is created, and every fill, stroke, effect and alias bound to
-  the old one is moved to it (`rebound` counts them); the old row is left in place for
-  you to delete once nothing refers to it. None is expected: the surfaces are palette
-  rows that alias the theme's hidden planes, so today's background rows rename into
-  them in place like the rest. A text layer with mixed fills, or a font the plugin
-  cannot load, is reported and rebound by hand.
+  live in. The new row is created, and every binding to the old one is moved to it:
+  fills, strokes, effects, grids, every plain field (a radius, a width, a gap, a text
+  layer's font), the local styles' bindings, and every alias (`rebound` counts them);
+  the old row is left in place for you to delete once nothing refers to it. Expected
+  here: today's radius, width and icon-size rows, which sit in a collection of their
+  own. Not the backgrounds: the surfaces are palette rows that alias the theme's hidden
+  planes, so those rename in place like the rest. An old row that varies by its
+  collection's modes is not moved, since the new row could not carry that; it is
+  listed under `problems` for a decision (the font rows in the fidelity collection). A
+  component property bound to an old row, a layer whose fills are mixed, or a font the
+  plugin cannot load is reported and rebound by hand.
 - `problems`: rows left alone because settling them would mean guessing: two variables
   carrying one stamp (a duplicate), a name another variable holds (a hand rename), a
   type that does not match, a mode the payload does not name. Fix each by hand and
   run again. The known mode case: `viewport` takes over today's `Type scale`
   collection, so the text styles' bindings survive; its two modes are renamed
-  (`mobile`, `desktop`), `tablet` and `wide` are added, and the iOS text-size modes are
-  left in place and listed here. They are deleted by hand: the ruling is that the OS
-  scales from the base size.
+  (`mobile`, `desktop`), `tablet` and `wide` are added, and the iOS text-size modes
+  and the `PDF` mode are left in place and listed here. They are deleted by hand: the
+  ruling is that the OS scales from the base size.
 
 The script never deletes, never writes a value that is already what the payload asks
 for, and leaves a row composed by hand (an alias with an opacity) as it is.
@@ -75,13 +83,17 @@ for, and leaves a row composed by hand (an alias with an opacity) as it is.
   them alone.
 - Reserved rows are hidden from publishing; the picker in a consuming file does not
   show them.
+- The text styles are named without `text/` (`body/md`, not `text/body/md`): the text
+  panel already says it. Their token paths keep it, and so do their stamps.
 
 Then the real file, the same way.
 
 ## After the run, by hand
 
 The script never deletes and never guesses, so these are the owner's, in the copy first
-and in the real file after.
+and in the real file after. The procedure, with every pair listed, is `hand-work.md`;
+this is what is specific to this file. The plugin's List the leftovers command says
+what still refers to each row below.
 
 Delete, once nothing refers to them:
 
@@ -101,20 +113,20 @@ Delete, once nothing refers to them:
 Decide, then fix:
 
 - The collection that swaps font families for low-fidelity work holds today's
-  `font/family/*` and `font/weight/*` under the exact names the set uses, so the report
-  says `name held by another variable` for them and the text styles bind to the old
-  rows. Either the swap is kept as a feature, and the font rows are declared into that
-  collection, or the six are renamed by hand before the run and the collection deleted
-  after.
+  `font/family/*` and `font/weight/*` under the exact names the set uses, varying by
+  its modes, so the report lists them under `problems` as rows that vary and are left
+  alone, and the text styles stay bound to them. Either the swap is kept as a feature,
+  and the font rows are declared into that collection, or each is given one value by
+  hand, after which the next run creates the `scale` rows, moves the bindings, and the
+  old collection is deleted once empty.
 - A palette row the report says was `created` rather than `renamed` is a spelling the
   rename map does not have; the file's spelling goes into `declarations/renames.ts`.
 - A text layer the rebind pass reports as mixed fills, or a font it could not load, is
   rebound by hand.
 
-Compose: the 52 pair rows, each set in the variables panel to its alias at the opacity
-its description names (seven per family and for the neutral, the scrim, the two
-illustration pairs). A composed row reads back as its alias and later runs leave it
-alone.
+Compose: the pair rows, each set in the variables panel to its alias at its percent;
+`hand-work.md` lists every one. A composed row reads back as its alias and later runs
+leave it alone.
 
 Verify: a component that bound an old background row shows its surface, the same
 variable; the text styles show the right family, bound; the effect styles show their

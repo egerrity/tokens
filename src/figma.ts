@@ -35,6 +35,9 @@ export type FigmaCollectionPayload = {
   omitted: string[]
 }
 export type FigmaTextStyle = {
+  /** the token path: the stamp, and the prefix of the variables the parts bind */
+  path: string
+  /** the name in the styles panel, which drops the category the panel states */
   name: string
   today?: string
   description: string
@@ -50,6 +53,8 @@ export type FigmaTextStyle = {
 export type FigmaStylesPayload = { kind: 'text-styles'; styles: FigmaTextStyle[] }
 /** an effect style's layers, literal: a shadow's color cannot be bound through a pair, and nothing in it varies by theme */
 export type FigmaEffectStyle = {
+  /** the token path: the stamp */
+  path: string
   name: string
   today?: string
   description: string
@@ -59,6 +64,12 @@ export type FigmaEffectsPayload = { kind: 'effect-styles'; styles: FigmaEffectSt
 
 // the style word a weight loads under, as the families name their styles
 const FONT_STYLE: Record<number, string> = { 400: 'Regular', 500: 'Medium', 600: 'SemiBold' }
+
+// A style's name in Figma drops its category when the style kind already states it:
+// every style in the text panel is a text style, so `text/` would say nothing there.
+// The effect panel holds more than shadows, so `shadow/` stays. The token path keeps
+// the category either way, and the stamp carries the path, so identity does not move.
+const styleName = (path: TokenPath): string => figmaName(path[0] === 'text' ? (path.slice(1) as TokenPath) : path)
 
 const SCOPES: Record<string, string[]> = {
   space: ['GAP'],
@@ -211,16 +222,16 @@ export function figmaPayloads(tokens: Token[], outside: Token[] = []): { collect
     if (!lineHeight || isAlias(lineHeight) || lineHeight.type !== 'number') throw new Error(`${figmaName(t.path)}: line height does not resolve`)
     const fontStyle = FONT_STYLE[weight.value]
     if (!fontStyle) throw new Error(`${figmaName(t.path)}: no font style name for weight ${weight.value}`)
-    const name = figmaName(t.path)
+    const path = figmaName(t.path)
     return {
-      name, today: todayStyle(t.path), description: describeFigma(t),
+      path, name: styleName(t.path), today: todayStyle(t.path), description: describeFigma(t),
       family: family.value[0], fontStyle,
       fontSize: sizeAt(t, undefined, byPath),
       lineHeightPx: lineHeightPx(t, undefined, byPath),
       letterSpacingPx: letterSpacingPx(t, undefined),
       parts: {
-        fontFamily: `${name}/font-family`, fontSize: `${name}/font-size`, fontWeight: `${name}/font-weight`,
-        lineHeight: `${name}/line-height`, letterSpacing: `${name}/letter-spacing`,
+        fontFamily: `${path}/font-family`, fontSize: `${path}/font-size`, fontWeight: `${path}/font-weight`,
+        lineHeight: `${path}/line-height`, letterSpacing: `${path}/letter-spacing`,
       },
     }
   })
@@ -228,7 +239,7 @@ export function figmaPayloads(tokens: Token[], outside: Token[] = []): { collect
     const v = t.value
     if (isAlias(v) || v.type !== 'shadow') throw new Error('unreachable')
     return {
-      name: figmaName(t.path), today: todayStyle(t.path), description: describeFigma(t),
+      path: figmaName(t.path), name: styleName(t.path), today: todayStyle(t.path), description: describeFigma(t),
       layers: v.value.map(l => ({ x: l.offsetX.value, y: l.offsetY.value, blur: l.blur.value, spread: l.spread.value, color: l.color.hex, alpha: l.color.alpha })),
     }
   })

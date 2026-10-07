@@ -3,6 +3,7 @@
 //
 //   node scripts/figma-call.ts <payload>...         any of scale, viewport, motion, text-styles, applied in order
 //   node scripts/figma-call.ts <payload> <n> <of>   the nth of <of> chunks of one payload's variables
+//   node scripts/figma-call.ts audit                the leftovers list (scripts/figma/audit.js), which takes no payload
 //
 // Chunks exist because a script runner caps the code it takes; each chunk is a complete
 // run over part of the variables and the runs can go in any order, except that an alias
@@ -13,6 +14,7 @@ import * as path from 'node:path'
 const args = process.argv.slice(2)
 if (!args.length) { console.error('usage: node scripts/figma-call.ts <payload>... | <payload> <n> <of>'); process.exit(1) }
 const root = path.join(import.meta.dirname, '..')
+if (args[0] === 'audit') { process.stdout.write(fs.readFileSync(path.join(root, 'scripts', 'figma', 'audit.js'), 'utf8')); process.exit(0) }
 const read = (name: string) => JSON.parse(fs.readFileSync(path.join(root, 'dist', 'figma', `${name}.json`), 'utf8'))
 let inlined: unknown
 if (args.length === 3 && /^\d+$/.test(args[1]) && /^\d+$/.test(args[2])) {

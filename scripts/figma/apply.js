@@ -41,6 +41,9 @@ for (const v of allVariables) {
 }
 for (const s of duplicated) { byStamp.delete(s); report.problems.push(`${s}: two variables carry this stamp; left alone, keep one by hand`) }
 const find = (path) => byStamp.get(path) || byName.get(path)
+const collectionName = (v) => { const c = allCollections.find(x => x.id === v.variableCollectionId); return c ? c.name : 'another collection' }
+// a row varies when its modes do not all hold one value
+const varies = (v) => new Set(Object.values(v.valuesByMode).map(x => JSON.stringify(x))).size > 1
 // Figma stores numbers as single-precision floats, so a value reads back a hair off what
 // was written; a difference under a millionth is the same value
 const near = (a, b) => typeof a === 'number' && typeof b === 'number' && Math.abs(a - b) < 1e-6
@@ -86,15 +89,19 @@ async function applyVariables(P) {
     if (!v && spec.today) v = inCollection.find(x => x.name === spec.today)
     if (!v) v = inCollection.find(x => x.name === spec.path)
     const orphan = !v && spec.today ? byName.get(spec.today) : undefined
-    if (orphan) report.orphans.push(`${spec.path}: today's ${spec.today} sits in another collection; a new one is created here and the old one's bindings move to it`)
+    // an old row that varies by its collection's modes cannot move to a row that does
+    // not; whether that variation is wanted is a decision, so the row is left alone
+    if (orphan && varies(orphan)) { report.problems.push(`${spec.path}: today's ${spec.today} sits in ${collectionName(orphan)} and varies by its modes; left alone: declare the row into that collection, or give it one value by hand and run again`); continue }
     // the stamp is the identity, so a hand rename is renamed back; but a name another
-    // variable already holds cannot be taken, and Figma would throw mid-run
-    const holder = byName.get(spec.path)
+    // variable in this collection already holds cannot be taken, and Figma would throw
+    // mid-run; the same name in another collection is an orphan or a stranger, not a block
+    const holder = inCollection.find(x => x.name === spec.path)
     if (holder && holder !== v) { report.problems.push(`${spec.path}: the name is held by another variable (stamped ${stampOf(holder, STAMP) || 'nothing'}); left alone, resolve by hand`); continue }
     if (!v) {
       v = figma.variables.createVariable(spec.path, c, spec.type)
       report.created.push(spec.path)
-      if (orphan && orphan.resolvedType === spec.type) orphanPairs.push({ old: orphan, next: v })
+      if (orphan && orphan.resolvedType === spec.type) { orphanPairs.push({ old: orphan, next: v }); report.orphans.push(`${spec.path}: today's ${spec.today} sits in ${collectionName(orphan)}; created here, and the old one's bindings move to it`) }
+      else if (orphan) report.problems.push(`${spec.path}: today's ${spec.today} sits in ${collectionName(orphan)} as a ${orphan.resolvedType}, the payload wants ${spec.type}; created here, the old one left alone`)
     } else if (v.resolvedType !== spec.type) {
       report.problems.push(`${spec.path}: is a ${v.resolvedType}, the payload wants ${spec.type}; left as it is`)
       continue
@@ -157,7 +164,7 @@ async function applyVariables(P) {
 async function applyTextStyles(P) {
   const styles = await figma.getLocalTextStylesAsync()
   for (const spec of P.styles) {
-    let s = styles.find(x => stampOf(x, STAMP) === spec.name)
+    let s = styles.find(x => stampOf(x, STAMP) === spec.path)
       || (spec.today && styles.find(x => x.name === spec.today))
       || styles.find(x => x.name === spec.name)
     try { await figma.loadFontAsync({ family: spec.family, style: spec.fontStyle }) }
@@ -181,9 +188,15 @@ async function applyTextStyles(P) {
       if (!v) { report.problems.push(`${spec.name}: no variable ${path} to bind ${field} to`); continue }
       const bound = (s.boundVariables || {})[field]
       if (bound && bound.id === v.id) continue
+      // once family and weight are bound, the style's font is whatever those rows hold,
+      // and it must be loaded before any other property is written
+      if (field !== 'fontFamily' && field !== 'fontWeight') {
+        try { await figma.loadFontAsync(s.fontName) }
+        catch (e) { report.problems.push(`${spec.name}: its bound family and weight resolve to ${s.fontName.family} ${s.fontName.style}, which cannot be loaded; ${field} left as it is`); continue }
+      }
       try { raw[field](); s.setBoundVariable(field, v); changed = true } catch (e) { report.problems.push(`${spec.name}: binding ${field}: ${e.message}`) }
     }
-    if (stampOf(s, STAMP) !== spec.name) stamp(s, STAMP, spec.name)
+    if (stampOf(s, STAMP) !== spec.path) stamp(s, STAMP, spec.path)
     if (changed) report.updated.push(spec.name); else report.same++
   }
 }
@@ -194,7 +207,7 @@ async function applyEffectStyles(P) {
   const styles = await figma.getLocalEffectStylesAsync()
   const rgba = (hex, a) => { const h = hex.replace('#', ''); return { r: parseInt(h.slice(0, 2), 16) / 255, g: parseInt(h.slice(2, 4), 16) / 255, b: parseInt(h.slice(4, 6), 16) / 255, a } }
   for (const spec of P.styles) {
-    let s = styles.find(x => stampOf(x, STAMP) === spec.name)
+    let s = styles.find(x => stampOf(x, STAMP) === spec.path)
       || (spec.today && styles.find(x => x.name === spec.today))
       || styles.find(x => x.name === spec.name)
     let changed = false
@@ -207,56 +220,85 @@ async function applyEffectStyles(P) {
     const same = have.length === want.length && have.every((e, i) => e.type === 'DROP_SHADOW' && near(e.offset.x, want[i].offset.x) && near(e.offset.y, want[i].offset.y)
       && near(e.radius, want[i].radius) && near(e.spread || 0, want[i].spread) && ['r', 'g', 'b', 'a'].every(k => near(e.color[k], want[i].color[k])))
     if (!same) { s.effects = want; changed = true }
-    if (stampOf(s, STAMP) !== spec.name) stamp(s, STAMP, spec.name)
+    if (stampOf(s, STAMP) !== spec.path) stamp(s, STAMP, spec.path)
     if (changed) report.updated.push(spec.name); else report.same++
   }
 }
 
-// An orphan's bindings move to its successor: every fill, stroke and effect bound to
-// the old row, and every variable aliasing it, now point at the new one. The old row is
-// left in place, to be deleted by hand once nothing refers to it. A plugin walks every
-// page; a script runner that cannot load pages walks the current one and says so.
+// An orphan's bindings move to its successor: every binding on every layer (a fill, a
+// stroke, an effect, a layout grid, and every plain field: a radius, a width, a gap, a
+// text layer's font), every binding on a local style, and every variable aliasing the
+// old row, now point at the new one. The old row is left in place, to be deleted by
+// hand once nothing refers to it. A component property bound to an old row, and a
+// layer whose fills are mixed and so cannot be read, are reported for the hand. A
+// plugin walks every page; a script runner that cannot load pages walks the current
+// one and says so.
 async function rebind(pairs) {
   if (!pairs.length) return
   let scope = figma.currentPage
   try { await figma.loadAllPagesAsync(); scope = figma.root }
   catch (e) { report.problems.push(`rebind: only the current page was walked, this runtime cannot load every page; run the plugin for the whole file`) }
   const byOldId = new Map(pairs.map(p => [p.old.id, p]))
-  const swapPaints = async (node, prop) => {
-    const paints = node[prop]
-    if (!Array.isArray(paints)) { if (paints === figma.mixed) report.problems.push(`rebind: ${node.name} has mixed ${prop}; rebound by hand`); return }
-    if (!paints.some(p => p.boundVariables && p.boundVariables.color && byOldId.has(p.boundVariables.color.id))) return
-    if (node.type === 'TEXT') {
-      try { for (const f of node.getRangeAllFontNames(0, node.characters.length)) await figma.loadFontAsync(f) }
-      catch (e) { report.problems.push(`rebind: ${node.name}: its font cannot be loaded; rebound by hand`); return }
-    }
-    node[prop] = paints.map(p => {
-      const b = p.boundVariables && p.boundVariables.color
-      const pair = b && byOldId.get(b.id)
-      if (!pair) return p
-      report.rebound++
-      return figma.variables.setBoundVariableForPaint(p, 'color', pair.next)
+  const next = (alias) => alias && alias.type === 'VARIABLE_ALIAS' ? byOldId.get(alias.id) : undefined
+  const mixed = []
+  const byHand = []
+  const fontsOf = async (node) => {
+    try { for (const f of node.getRangeAllFontNames(0, node.characters.length)) await figma.loadFontAsync(f); return true }
+    catch (e) { byHand.push(`${node.name}: its font cannot be loaded`); return false }
+  }
+  // a list whose entries carry their own binding (paints, effects, grids) is rebuilt
+  const swapList = async (node, prop, setter) => {
+    const list = node[prop]
+    if (list === figma.mixed) { mixed.push(`${node.name} (${prop})`); return }
+    if (!Array.isArray(list) || !list.some(x => Object.values(x.boundVariables || {}).some(next))) return
+    if (node.type === 'TEXT' && !(await fontsOf(node))) return
+    node[prop] = list.map(x => {
+      let out = x
+      for (const [field, alias] of Object.entries(x.boundVariables || {})) {
+        const pair = next(alias)
+        if (pair) { out = setter(out, field, pair.next); report.rebound++ }
+      }
+      return out
     })
   }
+  const paint = (p, field, v) => figma.variables.setBoundVariableForPaint(p, field, v)
+  const effect = (e, field, v) => figma.variables.setBoundVariableForEffect(e, field, v)
+  const grid = (g, field, v) => figma.variables.setBoundVariableForLayoutGrid(g, field, v)
   for (const node of scope.findAll(() => true)) {
-    if ('fills' in node) await swapPaints(node, 'fills')
-    if ('strokes' in node) await swapPaints(node, 'strokes')
-    if ('effects' in node && Array.isArray(node.effects) && node.effects.some(e => e.boundVariables && e.boundVariables.color && byOldId.has(e.boundVariables.color.id))) {
-      node.effects = node.effects.map(e => {
-        const b = e.boundVariables && e.boundVariables.color
-        const pair = b && byOldId.get(b.id)
-        if (!pair) return e
-        report.rebound++
-        return figma.variables.setBoundVariableForEffect(e, 'color', pair.next)
-      })
+    if ('fills' in node) await swapList(node, 'fills', paint)
+    if ('strokes' in node) await swapList(node, 'strokes', paint)
+    if ('effects' in node) await swapList(node, 'effects', effect)
+    if ('layoutGrids' in node) await swapList(node, 'layoutGrids', grid)
+    for (const [field, alias] of Object.entries(node.boundVariables || {})) {
+      if (['fills', 'strokes', 'effects', 'layoutGrids'].includes(field)) continue
+      if (field === 'componentProperties') {
+        for (const [prop, a] of Object.entries(alias || {})) { const pair = next(a); if (pair) byHand.push(`${node.name}: component property ${prop} binds ${pair.old.name}`) }
+        continue
+      }
+      if (Array.isArray(alias)) { if (alias.some(next)) byHand.push(`${node.name}: ${field} binds an old row`); continue }
+      const pair = next(alias)
+      if (!pair) continue
+      if (node.type === 'TEXT' && !(await fontsOf(node))) continue
+      try { node.setBoundVariable(field, pair.next); report.rebound++ } catch (e) { byHand.push(`${node.name}: ${field}: ${e.message}`) }
     }
   }
+  for (const s of await figma.getLocalTextStylesAsync()) {
+    for (const [field, alias] of Object.entries(s.boundVariables || {})) {
+      const pair = next(alias)
+      if (!pair) continue
+      try { await figma.loadFontAsync(s.fontName); s.setBoundVariable(field, pair.next); report.rebound++ } catch (e) { byHand.push(`text style ${s.name}: ${field}: ${e.message}`) }
+    }
+  }
+  for (const s of await figma.getLocalEffectStylesAsync()) await swapList(s, 'effects', effect)
+  for (const s of await figma.getLocalPaintStylesAsync()) await swapList(s, 'paints', paint)
   for (const v of await figma.variables.getLocalVariablesAsync()) {
     for (const [modeId, val] of Object.entries(v.valuesByMode)) {
-      const pair = val && val.type === 'VARIABLE_ALIAS' ? byOldId.get(val.id) : undefined
+      const pair = next(val)
       if (pair && v !== pair.next) { v.setValueForMode(modeId, figma.variables.createVariableAlias(pair.next)); report.rebound++ }
     }
   }
+  if (mixed.length) report.problems.push(`rebind: ${mixed.length} layers have mixed fills or strokes, which cannot be read; if one binds an old row, rebind it by hand: ${mixed.slice(0, 12).join(', ')}${mixed.length > 12 ? ', ...' : ''}`)
+  for (const h of byHand) report.problems.push(`rebind: ${h}; rebound by hand`)
   for (const { old, next } of pairs) report.orphans.push(`${old.name}: its bindings now point at ${next.name}; delete it by hand once nothing refers to it`)
 }
 

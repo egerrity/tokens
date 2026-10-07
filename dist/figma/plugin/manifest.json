@@ -11,5 +11,15 @@
     "allowedDomains": [
       "none"
     ]
-  }
+  },
+  "menu": [
+    {
+      "name": "Apply the set",
+      "command": "apply"
+    },
+    {
+      "name": "List the leftovers",
+      "command": "audit"
+    }
+  ]
 }
