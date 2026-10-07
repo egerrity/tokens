@@ -32,7 +32,7 @@ const COLOR_TODAY: Record<string, string> = {
   'bg/brand/solid/hover': PALETTE('Merge', 'Merge Intensity 3'),
   'bg/brand/solid/pressed': PALETTE('Merge', 'Merge Intensity 5'),
 }
-for (const [family, signal] of [['critical', 'Negative'], ['warning', 'Warning'], ['positive', 'Positive']]) {
+for (const [family, signal] of [['critical', 'Error'], ['warning', 'Warning'], ['positive', 'Success']]) {
   COLOR_TODAY[`fg/${family}/accent`] = PALETTE('Signal', `Signal ${signal}`)
   COLOR_TODAY[`bg/${family}/accent`] = PALETTE('Signal', `Signal ${signal} Spotlight`)
   COLOR_TODAY[`border/${family}/muted`] = PALETTE('Signal', `Signal ${signal} Highlight`)

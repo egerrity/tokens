@@ -1383,7 +1383,7 @@
     },
     {
       "path": "color/fg/critical/accent",
-      "today": "Signal palette/Signal Negative",
+      "today": "Signal palette/Signal Error",
       "type": "COLOR",
       "scopes": [
         "TEXT_FILL",
@@ -1467,7 +1467,7 @@
     },
     {
       "path": "color/border/critical/muted",
-      "today": "Signal palette/Signal Negative Highlight",
+      "today": "Signal palette/Signal Error Highlight",
       "type": "COLOR",
       "scopes": [
         "STROKE_COLOR"
@@ -1495,7 +1495,7 @@
     },
     {
       "path": "color/bg/critical/regular",
-      "today": "Signal palette/Signal Negative Accent",
+      "today": "Signal palette/Signal Error Accent",
       "type": "COLOR",
       "scopes": [
         "FRAME_FILL",
@@ -1510,7 +1510,7 @@
     },
     {
       "path": "color/bg/critical/accent",
-      "today": "Signal palette/Signal Negative Spotlight",
+      "today": "Signal palette/Signal Error Spotlight",
       "type": "COLOR",
       "scopes": [
         "FRAME_FILL",
@@ -2175,7 +2175,7 @@
     },
     {
       "path": "color/fg/positive/accent",
-      "today": "Signal palette/Signal Positive",
+      "today": "Signal palette/Signal Success",
       "type": "COLOR",
       "scopes": [
         "TEXT_FILL",
@@ -2259,7 +2259,7 @@
     },
     {
       "path": "color/border/positive/muted",
-      "today": "Signal palette/Signal Positive Highlight",
+      "today": "Signal palette/Signal Success Highlight",
       "type": "COLOR",
       "scopes": [
         "STROKE_COLOR"
@@ -2287,7 +2287,7 @@
     },
     {
       "path": "color/bg/positive/regular",
-      "today": "Signal palette/Signal Positive Accent",
+      "today": "Signal palette/Signal Success Accent",
       "type": "COLOR",
       "scopes": [
         "FRAME_FILL",
@@ -2302,7 +2302,7 @@
     },
     {
       "path": "color/bg/positive/accent",
-      "today": "Signal palette/Signal Positive Spotlight",
+      "today": "Signal palette/Signal Success Spotlight",
       "type": "COLOR",
       "scopes": [
         "FRAME_FILL",

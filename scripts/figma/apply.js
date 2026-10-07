@@ -9,7 +9,9 @@
 // that is already what the payload asks for; a row a designer has composed by hand (an
 // alias with an opacity) reads back as its alias and is left alone. A row the script
 // cannot settle without guessing, such as two variables carrying one stamp or a name
-// another variable holds, is left alone and reported. The return value is the report.
+// another variable holds, is left alone and reported. Where today's row sits in a
+// collection the new row cannot live in, the new row is created and every binding to
+// the old one moves to it. The return value is the report.
 const PAYLOAD = /* PAYLOAD */ null
 
 // the stamp is shared plugin data, which every runtime can write; private plugin data
@@ -20,7 +22,10 @@ const COLLECTION_STAMP = 'collection'
 const stampOf = (node, key) => node.getSharedPluginData(NAMESPACE, key)
 const stamp = (node, key, value) => node.setSharedPluginData(NAMESPACE, key, value)
 
-const report = { created: [], renamed: [], updated: [], same: 0, orphans: [], problems: [] }
+const report = { created: [], renamed: [], updated: [], same: 0, orphans: [], rebound: 0, problems: [] }
+// an orphan is today's row in a collection the new row cannot live in, so the new row
+// is created and the old row's bindings move to it afterwards
+const orphanPairs = []
 
 const allVariables = await figma.variables.getLocalVariablesAsync()
 const allCollections = await figma.variables.getLocalVariableCollectionsAsync()
@@ -80,7 +85,8 @@ async function applyVariables(P) {
     if (v && v.variableCollectionId !== c.id) { report.orphans.push(`${spec.path}: its stamped variable sits in another collection; a new one is created here, rebind by hand`); v = undefined }
     if (!v && spec.today) v = inCollection.find(x => x.name === spec.today)
     if (!v) v = inCollection.find(x => x.name === spec.path)
-    if (!v && spec.today && byName.get(spec.today)) report.orphans.push(`${spec.path}: today's ${spec.today} sits in another collection; a new one is created here, rebind by hand`)
+    const orphan = !v && spec.today ? byName.get(spec.today) : undefined
+    if (orphan) report.orphans.push(`${spec.path}: today's ${spec.today} sits in another collection; a new one is created here and the old one's bindings move to it`)
     // the stamp is the identity, so a hand rename is renamed back; but a name another
     // variable already holds cannot be taken, and Figma would throw mid-run
     const holder = byName.get(spec.path)
@@ -88,6 +94,7 @@ async function applyVariables(P) {
     if (!v) {
       v = figma.variables.createVariable(spec.path, c, spec.type)
       report.created.push(spec.path)
+      if (orphan && orphan.resolvedType === spec.type) orphanPairs.push({ old: orphan, next: v })
     } else if (v.resolvedType !== spec.type) {
       report.problems.push(`${spec.path}: is a ${v.resolvedType}, the payload wants ${spec.type}; left as it is`)
       continue
@@ -205,6 +212,54 @@ async function applyEffectStyles(P) {
   }
 }
 
+// An orphan's bindings move to its successor: every fill, stroke and effect bound to
+// the old row, and every variable aliasing it, now point at the new one. The old row is
+// left in place, to be deleted by hand once nothing refers to it. A plugin walks every
+// page; a script runner that cannot load pages walks the current one and says so.
+async function rebind(pairs) {
+  if (!pairs.length) return
+  let scope = figma.currentPage
+  try { await figma.loadAllPagesAsync(); scope = figma.root }
+  catch (e) { report.problems.push(`rebind: only the current page was walked, this runtime cannot load every page; run the plugin for the whole file`) }
+  const byOldId = new Map(pairs.map(p => [p.old.id, p]))
+  const swapPaints = async (node, prop) => {
+    const paints = node[prop]
+    if (!Array.isArray(paints)) { if (paints === figma.mixed) report.problems.push(`rebind: ${node.name} has mixed ${prop}; rebound by hand`); return }
+    if (!paints.some(p => p.boundVariables && p.boundVariables.color && byOldId.has(p.boundVariables.color.id))) return
+    if (node.type === 'TEXT') {
+      try { for (const f of node.getRangeAllFontNames(0, node.characters.length)) await figma.loadFontAsync(f) }
+      catch (e) { report.problems.push(`rebind: ${node.name}: its font cannot be loaded; rebound by hand`); return }
+    }
+    node[prop] = paints.map(p => {
+      const b = p.boundVariables && p.boundVariables.color
+      const pair = b && byOldId.get(b.id)
+      if (!pair) return p
+      report.rebound++
+      return figma.variables.setBoundVariableForPaint(p, 'color', pair.next)
+    })
+  }
+  for (const node of scope.findAll(() => true)) {
+    if ('fills' in node) await swapPaints(node, 'fills')
+    if ('strokes' in node) await swapPaints(node, 'strokes')
+    if ('effects' in node && Array.isArray(node.effects) && node.effects.some(e => e.boundVariables && e.boundVariables.color && byOldId.has(e.boundVariables.color.id))) {
+      node.effects = node.effects.map(e => {
+        const b = e.boundVariables && e.boundVariables.color
+        const pair = b && byOldId.get(b.id)
+        if (!pair) return e
+        report.rebound++
+        return figma.variables.setBoundVariableForEffect(e, 'color', pair.next)
+      })
+    }
+  }
+  for (const v of await figma.variables.getLocalVariablesAsync()) {
+    for (const [modeId, val] of Object.entries(v.valuesByMode)) {
+      const pair = val && val.type === 'VARIABLE_ALIAS' ? byOldId.get(val.id) : undefined
+      if (pair && v !== pair.next) { v.setValueForMode(modeId, figma.variables.createVariableAlias(pair.next)); report.rebound++ }
+    }
+  }
+  for (const { old, next } of pairs) report.orphans.push(`${old.name}: its bindings now point at ${next.name}; delete it by hand once nothing refers to it`)
+}
+
 if (!PAYLOAD) throw new Error('no payload inlined')
 for (const P of Array.isArray(PAYLOAD) ? PAYLOAD : [PAYLOAD]) {
   if (P.kind === 'variables') await applyVariables(P)
@@ -212,4 +267,5 @@ for (const P of Array.isArray(PAYLOAD) ? PAYLOAD : [PAYLOAD]) {
   else if (P.kind === 'effect-styles') await applyEffectStyles(P)
   else throw new Error(`unknown payload kind ${P.kind}`)
 }
+await rebind(orphanPairs)
 return report
