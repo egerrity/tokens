@@ -12,6 +12,7 @@
       "path": "color/neutral/paper-0",
       "type": "COLOR",
       "description": "Req for: backgrounds, inverted text",
+      "external": true,
       "values": {
         "light": {
           "color": "#ffffff",
@@ -27,6 +28,7 @@
       "path": "color/neutral/paper-1",
       "type": "COLOR",
       "description": "Req for: backgrounds, inverted text",
+      "external": true,
       "values": {
         "light": {
           "color": "#f9fafd",
@@ -42,6 +44,7 @@
       "path": "color/neutral/paper-3",
       "type": "COLOR",
       "description": "Req for: backgrounds, inverted text",
+      "external": true,
       "values": {
         "light": {
           "color": "#f3f5f8",
@@ -57,6 +60,7 @@
       "path": "color/neutral/paper-5",
       "type": "COLOR",
       "description": "Req for: backgrounds, inverted text",
+      "external": true,
       "values": {
         "light": {
           "color": "#eceef2",
@@ -72,6 +76,7 @@
       "path": "color/neutral/chalk-8",
       "type": "COLOR",
       "description": "Req for: decorative borders, inverted text, illos, signal hierarchy",
+      "external": true,
       "values": {
         "light": {
           "color": "#e3e5ea",
@@ -87,6 +92,7 @@
       "path": "color/neutral/chalk-11",
       "type": "COLOR",
       "description": "Req for: decorative borders, inverted text, illos, signal hierarchy",
+      "external": true,
       "values": {
         "light": {
           "color": "#d8dbe0",
@@ -102,6 +108,7 @@
       "path": "color/neutral/chalk-15",
       "type": "COLOR",
       "description": "Req for: decorative borders, inverted text, illos, signal hierarchy",
+      "external": true,
       "values": {
         "light": {
           "color": "#ccced2",
@@ -117,6 +124,7 @@
       "path": "color/neutral/chalk-20",
       "type": "COLOR",
       "description": "Req for: decorative borders, inverted text, illos, signal hierarchy",
+      "external": true,
       "values": {
         "light": {
           "color": "#bcbec1",
@@ -132,6 +140,7 @@
       "path": "color/neutral/highlighter-26",
       "type": "COLOR",
       "description": "Req for: focus rings, icons, large text, translucent state layers over any ground\nUse: AA large text and UI elements on every paper of every family\nTheming: tints carry neutral hue (gray); re-solved to clear its floor",
+      "external": true,
       "values": {
         "light": {
           "color": "#868789",
@@ -147,6 +156,7 @@
       "path": "color/neutral/pencil-47",
       "type": "COLOR",
       "description": "Req for: regular text, inverted backgrounds\nUse: AA standard body text on every paper of every family\nTheming: tints carry neutral hue (gray); re-solved to clear its floor",
+      "external": true,
       "values": {
         "light": {
           "color": "#6a6b6c",
@@ -162,6 +172,7 @@
       "path": "color/neutral/pen-58",
       "type": "COLOR",
       "description": "Req for: regular text, inverted backgrounds\nUse: AA standard body text on every paper and chalk of every family\nTheming: tints carry neutral hue (gray); re-solved to clear its floor",
+      "external": true,
       "values": {
         "light": {
           "color": "#474748",
@@ -177,6 +188,7 @@
       "path": "color/neutral/pen-70",
       "type": "COLOR",
       "description": "Req for: heavy-emphasis text, inverted backgrounds\nUse: AA standard body text on every paper and chalk of every family\nTheming: tints carry neutral hue (gray); re-solved to clear its floor",
+      "external": true,
       "values": {
         "light": {
           "color": "#2d2d2e",
@@ -192,6 +204,7 @@
       "path": "color/neutral/pen-100",
       "type": "COLOR",
       "description": "Req for: max-emphasis text\nUse: AA standard body text on every paper and chalk of every family",
+      "external": true,
       "values": {
         "light": {
           "color": "#000000",
@@ -207,6 +220,7 @@
       "path": "color/neutral/stamp/fill",
       "type": "COLOR",
       "description": "Req for: CTAs\nUse: Use: primary button fills; optional for avatars, badges and other elements that carry text. Not a standalone color: it has no contrast guarantee of its own, only its on-text has one. Use it alone or with its hover and pressed states. Always bordered with its edge\nTheming: fully re-solved per theme and family (gray)",
+      "external": true,
       "values": {
         "light": {
           "color": "#e3e5ea",
@@ -222,6 +236,7 @@
       "path": "color/neutral/stamp/fill-hover",
       "type": "COLOR",
       "description": "Req for: CTA pointer-over state\nUse: Use: the pointer-over state of the fill, with the fill; for nothing else. Always bordered with the edge\nTheming: follows its rest fill (gray)",
+      "external": true,
       "values": {
         "light": {
           "color": "#d3d5d9",
@@ -237,6 +252,7 @@
       "path": "color/neutral/stamp/fill-pressed",
       "type": "COLOR",
       "description": "Req for: CTA pressed state\nUse: Use: the pressed state of the fill, with the fill; for nothing else. Always bordered with the edge\nTheming: follows its rest fill (gray)",
+      "external": true,
       "values": {
         "light": {
           "color": "#c3c5c8",
@@ -252,6 +268,7 @@
       "path": "color/neutral/stamp/edge",
       "type": "COLOR",
       "description": "Req for: min APCA visibility\nUse: Use: the border of the fill and its states, always rendered with them and never without them (it resolves to transparent unless the fill sits close to the page); for nothing else\nTheming: draws for CTAs that sit close to the page; strength per family tier (gray)",
+      "external": true,
       "values": {
         "light": {
           "color": "#000000",
@@ -267,6 +284,7 @@
       "path": "color/neutral/stamp/on",
       "type": "COLOR",
       "description": "Req for: text over the CTA color\nUse: AA standard body text over its CTA\nUse: the only text color over the fill; never elsewhere\nTheming: whichever pole passes; quiet CTAs take the soft pole (gray)",
+      "external": true,
       "values": {
         "light": {
           "color": "#000000",
@@ -282,6 +300,7 @@
       "path": "color/brand/paper-1",
       "type": "COLOR",
       "description": "Req for: backgrounds, inverted text",
+      "external": true,
       "values": {
         "light": {
           "color": "#f9fafd",
@@ -297,6 +316,7 @@
       "path": "color/brand/paper-3",
       "type": "COLOR",
       "description": "Req for: backgrounds, inverted text",
+      "external": true,
       "values": {
         "light": {
           "color": "#f0f4fb",
@@ -312,6 +332,7 @@
       "path": "color/brand/paper-5",
       "type": "COLOR",
       "description": "Req for: backgrounds, inverted text",
+      "external": true,
       "values": {
         "light": {
           "color": "#e4edfc",
@@ -327,6 +348,7 @@
       "path": "color/brand/chalk-8",
       "type": "COLOR",
       "description": "Req for: decorative borders, inverted text, illos, signal hierarchy",
+      "external": true,
       "values": {
         "light": {
           "color": "#d3e4fd",
@@ -342,6 +364,7 @@
       "path": "color/brand/chalk-11",
       "type": "COLOR",
       "description": "Req for: decorative borders, inverted text, illos, signal hierarchy",
+      "external": true,
       "values": {
         "light": {
           "color": "#c2d8fa",
@@ -357,6 +380,7 @@
       "path": "color/brand/chalk-15",
       "type": "COLOR",
       "description": "Req for: decorative borders, inverted text, illos, signal hierarchy",
+      "external": true,
       "values": {
         "light": {
           "color": "#afcaf5",
@@ -372,6 +396,7 @@
       "path": "color/brand/chalk-20",
       "type": "COLOR",
       "description": "Req for: decorative borders, inverted text, illos, signal hierarchy",
+      "external": true,
       "values": {
         "light": {
           "color": "#96b8ee",
@@ -387,6 +412,7 @@
       "path": "color/brand/highlighter-26",
       "type": "COLOR",
       "description": "Req for: focus rings, icons, large text, translucent state layers over any ground\nUse: AA large text and UI elements on every paper of this family and of the neutral\nTheming: tints carry brand hue; re-solved to clear its floor",
+      "external": true,
       "values": {
         "light": {
           "color": "#5287dd",
@@ -402,6 +428,7 @@
       "path": "color/brand/pencil-47",
       "type": "COLOR",
       "description": "Req for: regular text, inverted backgrounds\nUse: AA standard body text on every paper of this family and of the neutral\nTheming: tints carry brand hue; re-solved to clear its floor",
+      "external": true,
       "values": {
         "light": {
           "color": "#265db4",
@@ -417,6 +444,7 @@
       "path": "color/brand/pen-58",
       "type": "COLOR",
       "description": "Req for: regular text, inverted backgrounds\nUse: AA standard body text on every paper and chalk of this family and of the neutral\nTheming: tints carry brand hue; re-solved to clear its floor",
+      "external": true,
       "values": {
         "light": {
           "color": "#003a8e",
@@ -432,6 +460,7 @@
       "path": "color/brand/pen-70",
       "type": "COLOR",
       "description": "Req for: heavy-emphasis text, inverted backgrounds\nUse: AA standard body text on every paper and chalk of this family and of the neutral\nTheming: tints carry brand hue; re-solved to clear its floor",
+      "external": true,
       "values": {
         "light": {
           "color": "#0e274f",
@@ -447,6 +476,7 @@
       "path": "color/brand/stamp/fill",
       "type": "COLOR",
       "description": "Req for: CTAs\nUse: Use: primary button fills; optional for avatars, badges and other elements that carry text. Not a standalone color: it has no contrast guarantee of its own, only its on-text has one. Use it alone or with its hover and pressed states. Always bordered with its edge\nTheming: fully re-solved per theme and family",
+      "external": true,
       "values": {
         "light": {
           "color": "#044baf",
@@ -462,6 +492,7 @@
       "path": "color/brand/stamp/fill-hover",
       "type": "COLOR",
       "description": "Req for: CTA pointer-over state\nUse: Use: the pointer-over state of the fill, with the fill; for nothing else. Always bordered with the edge\nTheming: follows its rest fill",
+      "external": true,
       "values": {
         "light": {
           "color": "#003e97",
@@ -477,6 +508,7 @@
       "path": "color/brand/stamp/fill-pressed",
       "type": "COLOR",
       "description": "Req for: CTA pressed state\nUse: Use: the pressed state of the fill, with the fill; for nothing else. Always bordered with the edge\nTheming: follows its rest fill",
+      "external": true,
       "values": {
         "light": {
           "color": "#00327d",
@@ -492,6 +524,7 @@
       "path": "color/brand/stamp/edge",
       "type": "COLOR",
       "description": "Req for: min APCA visibility\nUse: Use: the border of the fill and its states, always rendered with them and never without them (it resolves to transparent unless the fill sits close to the page); for nothing else\nTheming: draws for CTAs that sit close to the page; strength per family tier",
+      "external": true,
       "values": {
         "light": {
           "color": "#000000",
@@ -507,6 +540,7 @@
       "path": "color/brand/stamp/on",
       "type": "COLOR",
       "description": "Req for: text over the CTA color\nUse: AA standard body text over its CTA\nUse: the only text color over the fill; never elsewhere\nTheming: whichever pole passes; quiet CTAs take the soft pole",
+      "external": true,
       "values": {
         "light": {
           "color": "#ffffff",
@@ -522,6 +556,7 @@
       "path": "color/brand-alt/paper-1",
       "type": "COLOR",
       "description": "Req for: backgrounds, inverted text",
+      "external": true,
       "values": {
         "light": {
           "color": "#fafbfc",
@@ -537,6 +572,7 @@
       "path": "color/brand-alt/paper-3",
       "type": "COLOR",
       "description": "Req for: backgrounds, inverted text",
+      "external": true,
       "values": {
         "light": {
           "color": "#f3f5f7",
@@ -552,6 +588,7 @@
       "path": "color/brand-alt/paper-5",
       "type": "COLOR",
       "description": "Req for: backgrounds, inverted text",
+      "external": true,
       "values": {
         "light": {
           "color": "#ebeef3",
@@ -567,6 +604,7 @@
       "path": "color/brand-alt/chalk-8",
       "type": "COLOR",
       "description": "Req for: decorative borders, inverted text, illos, signal hierarchy",
+      "external": true,
       "values": {
         "light": {
           "color": "#dfe5ee",
@@ -582,6 +620,7 @@
       "path": "color/brand-alt/chalk-11",
       "type": "COLOR",
       "description": "Req for: decorative borders, inverted text, illos, signal hierarchy",
+      "external": true,
       "values": {
         "light": {
           "color": "#d2dae7",
@@ -597,6 +636,7 @@
       "path": "color/brand-alt/chalk-15",
       "type": "COLOR",
       "description": "Req for: decorative borders, inverted text, illos, signal hierarchy",
+      "external": true,
       "values": {
         "light": {
           "color": "#c3cddd",
@@ -612,6 +652,7 @@
       "path": "color/brand-alt/chalk-20",
       "type": "COLOR",
       "description": "Req for: decorative borders, inverted text, illos, signal hierarchy",
+      "external": true,
       "values": {
         "light": {
           "color": "#b0bcd0",
@@ -627,6 +668,7 @@
       "path": "color/brand-alt/highlighter-26",
       "type": "COLOR",
       "description": "Req for: focus rings, icons, large text, translucent state layers over any ground\nUse: AA large text and UI elements on every paper of this family and of the neutral\nTheming: tints carry brand-alt hue; re-solved to clear its floor",
+      "external": true,
       "values": {
         "light": {
           "color": "#7689a8",
@@ -642,6 +684,7 @@
       "path": "color/brand-alt/pencil-47",
       "type": "COLOR",
       "description": "Req for: regular text, inverted backgrounds\nUse: AA standard body text on every paper of this family and of the neutral\nTheming: tints carry brand-alt hue; re-solved to clear its floor",
+      "external": true,
       "values": {
         "light": {
           "color": "#596983",
@@ -657,6 +700,7 @@
       "path": "color/brand-alt/pen-58",
       "type": "COLOR",
       "description": "Req for: regular text, inverted backgrounds\nUse: AA standard body text on every paper and chalk of this family and of the neutral\nTheming: tints carry brand-alt hue; re-solved to clear its floor",
+      "external": true,
       "values": {
         "light": {
           "color": "#3a4961",
@@ -672,6 +716,7 @@
       "path": "color/brand-alt/pen-70",
       "type": "COLOR",
       "description": "Req for: heavy-emphasis text, inverted backgrounds\nUse: AA standard body text on every paper and chalk of this family and of the neutral\nTheming: tints carry brand-alt hue; re-solved to clear its floor",
+      "external": true,
       "values": {
         "light": {
           "color": "#252d38",
@@ -687,6 +732,7 @@
       "path": "color/brand-alt/stamp/fill",
       "type": "COLOR",
       "description": "Req for: CTAs\nUse: Use: primary button fills; optional for avatars, badges and other elements that carry text. Not a standalone color: it has no contrast guarantee of its own, only its on-text has one. Use it alone or with its hover and pressed states. Always bordered with its edge\nTheming: fully re-solved per theme and family",
+      "external": true,
       "values": {
         "light": {
           "color": "#aabddb",
@@ -702,6 +748,7 @@
       "path": "color/brand-alt/stamp/fill-hover",
       "type": "COLOR",
       "description": "Req for: CTA pointer-over state\nUse: Use: the pointer-over state of the fill, with the fill; for nothing else. Always bordered with the edge\nTheming: follows its rest fill",
+      "external": true,
       "values": {
         "light": {
           "color": "#9aadcb",
@@ -717,6 +764,7 @@
       "path": "color/brand-alt/stamp/fill-pressed",
       "type": "COLOR",
       "description": "Req for: CTA pressed state\nUse: Use: the pressed state of the fill, with the fill; for nothing else. Always bordered with the edge\nTheming: follows its rest fill",
+      "external": true,
       "values": {
         "light": {
           "color": "#8b9ebb",
@@ -732,6 +780,7 @@
       "path": "color/brand-alt/stamp/edge",
       "type": "COLOR",
       "description": "Req for: min APCA visibility\nUse: Use: the border of the fill and its states, always rendered with them and never without them (it resolves to transparent unless the fill sits close to the page); for nothing else\nTheming: draws for CTAs that sit close to the page; strength per family tier",
+      "external": true,
       "values": {
         "light": {
           "color": "#000000",
@@ -747,6 +796,7 @@
       "path": "color/brand-alt/stamp/on",
       "type": "COLOR",
       "description": "Req for: text over the CTA color\nUse: AA standard body text over its CTA\nUse: the only text color over the fill; never elsewhere\nTheming: whichever pole passes; quiet CTAs take the soft pole",
+      "external": true,
       "values": {
         "light": {
           "color": "#000000",
@@ -762,6 +812,7 @@
       "path": "color/critical/paper-1",
       "type": "COLOR",
       "description": "Req for: backgrounds, inverted text",
+      "external": true,
       "values": {
         "light": {
           "color": "#fefaf9",
@@ -777,6 +828,7 @@
       "path": "color/critical/paper-3",
       "type": "COLOR",
       "description": "Req for: backgrounds, inverted text",
+      "external": true,
       "values": {
         "light": {
           "color": "#fdf3f0",
@@ -792,6 +844,7 @@
       "path": "color/critical/paper-5",
       "type": "COLOR",
       "description": "Req for: backgrounds, inverted text",
+      "external": true,
       "values": {
         "light": {
           "color": "#ffeae4",
@@ -807,6 +860,7 @@
       "path": "color/critical/chalk-8",
       "type": "COLOR",
       "description": "Req for: decorative borders, inverted text, illos, signal hierarchy",
+      "external": true,
       "values": {
         "light": {
           "color": "#ffded6",
@@ -822,6 +876,7 @@
       "path": "color/critical/chalk-11",
       "type": "COLOR",
       "description": "Req for: decorative borders, inverted text, illos, signal hierarchy",
+      "external": true,
       "values": {
         "light": {
           "color": "#ffcfc4",
@@ -837,6 +892,7 @@
       "path": "color/critical/chalk-15",
       "type": "COLOR",
       "description": "Req for: decorative borders, inverted text, illos, signal hierarchy",
+      "external": true,
       "values": {
         "light": {
           "color": "#febdad",
@@ -852,6 +908,7 @@
       "path": "color/critical/chalk-20",
       "type": "COLOR",
       "description": "Req for: decorative borders, inverted text, illos, signal hierarchy",
+      "external": true,
       "values": {
         "light": {
           "color": "#f7a693",
@@ -867,6 +924,7 @@
       "path": "color/critical/highlighter-26",
       "type": "COLOR",
       "description": "Req for: focus rings, icons, large text, translucent state layers over any ground\nUse: AA large text and UI elements on every paper of this family and of the neutral\nTheming: tints carry critical hue (red); re-solved to clear its floor\nshifts to avoid similar colors",
+      "external": true,
       "values": {
         "light": {
           "color": "#e06046",
@@ -882,6 +940,7 @@
       "path": "color/critical/pencil-47",
       "type": "COLOR",
       "description": "Req for: regular text, inverted backgrounds\nUse: AA standard body text on every paper of this family and of the neutral\nTheming: tints carry critical hue (red); re-solved to clear its floor\nshifts to avoid similar colors",
+      "external": true,
       "values": {
         "light": {
           "color": "#ac3d27",
@@ -897,6 +956,7 @@
       "path": "color/critical/pen-58",
       "type": "COLOR",
       "description": "Req for: regular text, inverted backgrounds\nUse: AA standard body text on every paper and chalk of this family and of the neutral\nTheming: tints carry critical hue (red); re-solved to clear its floor\nshifts to avoid similar colors",
+      "external": true,
       "values": {
         "light": {
           "color": "#7d1500",
@@ -912,6 +972,7 @@
       "path": "color/critical/pen-70",
       "type": "COLOR",
       "description": "Req for: heavy-emphasis text, inverted backgrounds\nUse: AA standard body text on every paper and chalk of this family and of the neutral\nTheming: tints carry critical hue (red); re-solved to clear its floor\nshifts to avoid similar colors",
+      "external": true,
       "values": {
         "light": {
           "color": "#4c190f",
@@ -927,6 +988,7 @@
       "path": "color/critical/stamp/fill",
       "type": "COLOR",
       "description": "Req for: CTAs\nUse: Use: primary button fills; optional for avatars, badges and other elements that carry text. Not a standalone color: it has no contrast guarantee of its own, only its on-text has one. Use it alone or with its hover and pressed states. Always bordered with its edge\nTheming: fully re-solved per theme and family (red)",
+      "external": true,
       "values": {
         "light": {
           "color": "#d63e1e",
@@ -942,6 +1004,7 @@
       "path": "color/critical/stamp/fill-hover",
       "type": "COLOR",
       "description": "Req for: CTA pointer-over state\nUse: Use: the pointer-over state of the fill, with the fill; for nothing else. Always bordered with the edge\nTheming: follows its rest fill (red)",
+      "external": true,
       "values": {
         "light": {
           "color": "#c42b04",
@@ -957,6 +1020,7 @@
       "path": "color/critical/stamp/fill-pressed",
       "type": "COLOR",
       "description": "Req for: CTA pressed state\nUse: Use: the pressed state of the fill, with the fill; for nothing else. Always bordered with the edge\nTheming: follows its rest fill (red)",
+      "external": true,
       "values": {
         "light": {
           "color": "#ad2300",
@@ -972,6 +1036,7 @@
       "path": "color/critical/stamp/edge",
       "type": "COLOR",
       "description": "Req for: min APCA visibility\nUse: Use: the border of the fill and its states, always rendered with them and never without them (it resolves to transparent unless the fill sits close to the page); for nothing else\nTheming: draws for CTAs that sit close to the page; strength per family tier (red)",
+      "external": true,
       "values": {
         "light": {
           "color": "#000000",
@@ -987,6 +1052,7 @@
       "path": "color/critical/stamp/on",
       "type": "COLOR",
       "description": "Req for: text over the CTA color\nUse: AA standard body text over its CTA\nUse: the only text color over the fill; never elsewhere\nTheming: whichever pole passes; quiet CTAs take the soft pole (red)",
+      "external": true,
       "values": {
         "light": {
           "color": "#ffffff",
@@ -1002,6 +1068,7 @@
       "path": "color/warning/paper-1",
       "type": "COLOR",
       "description": "Req for: backgrounds, inverted text",
+      "external": true,
       "values": {
         "light": {
           "color": "#fffbf4",
@@ -1017,6 +1084,7 @@
       "path": "color/warning/paper-3",
       "type": "COLOR",
       "description": "Req for: backgrounds, inverted text",
+      "external": true,
       "values": {
         "light": {
           "color": "#fff7e3",
@@ -1032,6 +1100,7 @@
       "path": "color/warning/paper-5",
       "type": "COLOR",
       "description": "Req for: backgrounds, inverted text",
+      "external": true,
       "values": {
         "light": {
           "color": "#fff2d2",
@@ -1047,6 +1116,7 @@
       "path": "color/warning/chalk-8",
       "type": "COLOR",
       "description": "Req for: decorative borders, inverted text, illos, signal hierarchy",
+      "external": true,
       "values": {
         "light": {
           "color": "#ffebbd",
@@ -1062,6 +1132,7 @@
       "path": "color/warning/chalk-11",
       "type": "COLOR",
       "description": "Req for: decorative borders, inverted text, illos, signal hierarchy",
+      "external": true,
       "values": {
         "light": {
           "color": "#ffe19e",
@@ -1077,6 +1148,7 @@
       "path": "color/warning/chalk-15",
       "type": "COLOR",
       "description": "Req for: decorative borders, inverted text, illos, signal hierarchy",
+      "external": true,
       "values": {
         "light": {
           "color": "#ffd36e",
@@ -1092,6 +1164,7 @@
       "path": "color/warning/chalk-20",
       "type": "COLOR",
       "description": "Req for: decorative borders, inverted text, illos, signal hierarchy",
+      "external": true,
       "values": {
         "light": {
           "color": "#feba00",
@@ -1107,6 +1180,7 @@
       "path": "color/warning/highlighter-26",
       "type": "COLOR",
       "description": "Req for: focus rings, icons, large text, translucent state layers over any ground\nUse: AA large text and UI elements on every paper of this family and of the neutral\nTheming: tints carry warning hue (yellow); re-solved to clear its floor\nshifts to avoid similar colors",
+      "external": true,
       "values": {
         "light": {
           "color": "#c27700",
@@ -1122,6 +1196,7 @@
       "path": "color/warning/pencil-47",
       "type": "COLOR",
       "description": "Req for: regular text, inverted backgrounds\nUse: AA standard body text on every paper of this family and of the neutral\nTheming: tints carry warning hue (yellow); re-solved to clear its floor\nshifts to avoid similar colors",
+      "external": true,
       "values": {
         "light": {
           "color": "#9e5b00",
@@ -1137,6 +1212,7 @@
       "path": "color/warning/pen-58",
       "type": "COLOR",
       "description": "Req for: regular text, inverted backgrounds\nUse: AA standard body text on every paper and chalk of this family and of the neutral\nTheming: tints carry warning hue (yellow); re-solved to clear its floor\nshifts to avoid similar colors",
+      "external": true,
       "values": {
         "light": {
           "color": "#724000",
@@ -1152,6 +1228,7 @@
       "path": "color/warning/pen-70",
       "type": "COLOR",
       "description": "Req for: heavy-emphasis text, inverted backgrounds\nUse: AA standard body text on every paper and chalk of this family and of the neutral\nTheming: tints carry warning hue (yellow); re-solved to clear its floor\nshifts to avoid similar colors",
+      "external": true,
       "values": {
         "light": {
           "color": "#4b2800",
@@ -1167,6 +1244,7 @@
       "path": "color/warning/stamp/fill",
       "type": "COLOR",
       "description": "Req for: CTAs\nUse: Use: primary button fills; optional for avatars, badges and other elements that carry text. Not a standalone color: it has no contrast guarantee of its own, only its on-text has one. Use it alone or with its hover and pressed states. Always bordered with its edge\nTheming: fully re-solved per theme and family (yellow)",
+      "external": true,
       "values": {
         "light": {
           "color": "#ffc53d",
@@ -1182,6 +1260,7 @@
       "path": "color/warning/stamp/fill-hover",
       "type": "COLOR",
       "description": "Req for: CTA pointer-over state\nUse: Use: the pointer-over state of the fill, with the fill; for nothing else. Always bordered with the edge\nTheming: follows its rest fill (yellow)",
+      "external": true,
       "values": {
         "light": {
           "color": "#eeb524",
@@ -1197,6 +1276,7 @@
       "path": "color/warning/stamp/fill-pressed",
       "type": "COLOR",
       "description": "Req for: CTA pressed state\nUse: Use: the pressed state of the fill, with the fill; for nothing else. Always bordered with the edge\nTheming: follows its rest fill (yellow)",
+      "external": true,
       "values": {
         "light": {
           "color": "#dda500",
@@ -1212,6 +1292,7 @@
       "path": "color/warning/stamp/edge",
       "type": "COLOR",
       "description": "Req for: min APCA visibility\nUse: Use: the border of the fill and its states, always rendered with them and never without them (it resolves to transparent unless the fill sits close to the page); for nothing else\nTheming: draws for CTAs that sit close to the page; strength per family tier (yellow)",
+      "external": true,
       "values": {
         "light": {
           "color": "#000000",
@@ -1227,6 +1308,7 @@
       "path": "color/warning/stamp/on",
       "type": "COLOR",
       "description": "Req for: text over the CTA color\nUse: AA standard body text over its CTA\nUse: the only text color over the fill; never elsewhere\nTheming: whichever pole passes; quiet CTAs take the soft pole (yellow)",
+      "external": true,
       "values": {
         "light": {
           "color": "#000000",
@@ -1242,6 +1324,7 @@
       "path": "color/positive/paper-1",
       "type": "COLOR",
       "description": "Req for: backgrounds, inverted text",
+      "external": true,
       "values": {
         "light": {
           "color": "#f8fcf8",
@@ -1257,6 +1340,7 @@
       "path": "color/positive/paper-3",
       "type": "COLOR",
       "description": "Req for: backgrounds, inverted text",
+      "external": true,
       "values": {
         "light": {
           "color": "#eff7ef",
@@ -1272,6 +1356,7 @@
       "path": "color/positive/paper-5",
       "type": "COLOR",
       "description": "Req for: backgrounds, inverted text",
+      "external": true,
       "values": {
         "light": {
           "color": "#e0f4e2",
@@ -1287,6 +1372,7 @@
       "path": "color/positive/chalk-8",
       "type": "COLOR",
       "description": "Req for: decorative borders, inverted text, illos, signal hierarchy",
+      "external": true,
       "values": {
         "light": {
           "color": "#ccefcf",
@@ -1302,6 +1388,7 @@
       "path": "color/positive/chalk-11",
       "type": "COLOR",
       "description": "Req for: decorative borders, inverted text, illos, signal hierarchy",
+      "external": true,
       "values": {
         "light": {
           "color": "#b8e7bd",
@@ -1317,6 +1404,7 @@
       "path": "color/positive/chalk-15",
       "type": "COLOR",
       "description": "Req for: decorative borders, inverted text, illos, signal hierarchy",
+      "external": true,
       "values": {
         "light": {
           "color": "#a0dda7",
@@ -1332,6 +1420,7 @@
       "path": "color/positive/chalk-20",
       "type": "COLOR",
       "description": "Req for: decorative borders, inverted text, illos, signal hierarchy",
+      "external": true,
       "values": {
         "light": {
           "color": "#81d08c",
@@ -1347,6 +1436,7 @@
       "path": "color/positive/highlighter-26",
       "type": "COLOR",
       "description": "Req for: focus rings, icons, large text, translucent state layers over any ground\nUse: AA large text and UI elements on every paper of this family and of the neutral\nTheming: tints carry positive hue (green); re-solved to clear its floor\nshifts to avoid similar colors",
+      "external": true,
       "values": {
         "light": {
           "color": "#009d3c",
@@ -1362,6 +1452,7 @@
       "path": "color/positive/pencil-47",
       "type": "COLOR",
       "description": "Req for: regular text, inverted backgrounds\nUse: AA standard body text on every paper of this family and of the neutral\nTheming: tints carry positive hue (green); re-solved to clear its floor\nshifts to avoid similar colors",
+      "external": true,
       "values": {
         "light": {
           "color": "#1a7c34",
@@ -1377,6 +1468,7 @@
       "path": "color/positive/pen-58",
       "type": "COLOR",
       "description": "Req for: regular text, inverted backgrounds\nUse: AA standard body text on every paper and chalk of this family and of the neutral\nTheming: tints carry positive hue (green); re-solved to clear its floor\nshifts to avoid similar colors",
+      "external": true,
       "values": {
         "light": {
           "color": "#00591e",
@@ -1392,6 +1484,7 @@
       "path": "color/positive/pen-70",
       "type": "COLOR",
       "description": "Req for: heavy-emphasis text, inverted backgrounds\nUse: AA standard body text on every paper and chalk of this family and of the neutral\nTheming: tints carry positive hue (green); re-solved to clear its floor\nshifts to avoid similar colors",
+      "external": true,
       "values": {
         "light": {
           "color": "#0f3818",
@@ -1407,6 +1500,7 @@
       "path": "color/positive/stamp/fill",
       "type": "COLOR",
       "description": "Req for: CTAs\nUse: Use: primary button fills; optional for avatars, badges and other elements that carry text. Not a standalone color: it has no contrast guarantee of its own, only its on-text has one. Use it alone or with its hover and pressed states. Always bordered with its edge\nTheming: fully re-solved per theme and family (green)",
+      "external": true,
       "values": {
         "light": {
           "color": "#70d07f",
@@ -1422,6 +1516,7 @@
       "path": "color/positive/stamp/fill-hover",
       "type": "COLOR",
       "description": "Req for: CTA pointer-over state\nUse: Use: the pointer-over state of the fill, with the fill; for nothing else. Always bordered with the edge\nTheming: follows its rest fill (green)",
+      "external": true,
       "values": {
         "light": {
           "color": "#5fbf70",
@@ -1437,6 +1532,7 @@
       "path": "color/positive/stamp/fill-pressed",
       "type": "COLOR",
       "description": "Req for: CTA pressed state\nUse: Use: the pressed state of the fill, with the fill; for nothing else. Always bordered with the edge\nTheming: follows its rest fill (green)",
+      "external": true,
       "values": {
         "light": {
           "color": "#4faf61",
@@ -1452,6 +1548,7 @@
       "path": "color/positive/stamp/edge",
       "type": "COLOR",
       "description": "Req for: min APCA visibility\nUse: Use: the border of the fill and its states, always rendered with them and never without them (it resolves to transparent unless the fill sits close to the page); for nothing else\nTheming: draws for CTAs that sit close to the page; strength per family tier (green)",
+      "external": true,
       "values": {
         "light": {
           "color": "#000000",
@@ -1467,6 +1564,7 @@
       "path": "color/positive/stamp/on",
       "type": "COLOR",
       "description": "Req for: text over the CTA color\nUse: AA standard body text over its CTA\nUse: the only text color over the fill; never elsewhere\nTheming: whichever pole passes; quiet CTAs take the soft pole (green)",
+      "external": true,
       "values": {
         "light": {
           "color": "#000000",
@@ -1482,6 +1580,7 @@
       "path": "color/info/paper-1",
       "type": "COLOR",
       "description": "Req for: backgrounds, inverted text",
+      "external": true,
       "values": {
         "light": {
           "color": "#fafafd",
@@ -1497,6 +1596,7 @@
       "path": "color/info/paper-3",
       "type": "COLOR",
       "description": "Req for: backgrounds, inverted text",
+      "external": true,
       "values": {
         "light": {
           "color": "#f4f3fb",
@@ -1512,6 +1612,7 @@
       "path": "color/info/paper-5",
       "type": "COLOR",
       "description": "Req for: backgrounds, inverted text",
+      "external": true,
       "values": {
         "light": {
           "color": "#ecebfb",
@@ -1527,6 +1628,7 @@
       "path": "color/info/chalk-8",
       "type": "COLOR",
       "description": "Req for: decorative borders, inverted text, illos, signal hierarchy",
+      "external": true,
       "values": {
         "light": {
           "color": "#e1dffc",
@@ -1542,6 +1644,7 @@
       "path": "color/info/chalk-11",
       "type": "COLOR",
       "description": "Req for: decorative borders, inverted text, illos, signal hierarchy",
+      "external": true,
       "values": {
         "light": {
           "color": "#d5d2f9",
@@ -1557,6 +1660,7 @@
       "path": "color/info/chalk-15",
       "type": "COLOR",
       "description": "Req for: decorative borders, inverted text, illos, signal hierarchy",
+      "external": true,
       "values": {
         "light": {
           "color": "#c6c2f3",
@@ -1572,6 +1676,7 @@
       "path": "color/info/chalk-20",
       "type": "COLOR",
       "description": "Req for: decorative borders, inverted text, illos, signal hierarchy",
+      "external": true,
       "values": {
         "light": {
           "color": "#b5aeeb",
@@ -1587,6 +1692,7 @@
       "path": "color/info/highlighter-26",
       "type": "COLOR",
       "description": "Req for: focus rings, icons, large text, translucent state layers over any ground\nUse: AA large text and UI elements on every paper of this family and of the neutral\nTheming: tints carry info hue (blue); re-solved to clear its floor\nshifts to avoid similar colors",
+      "external": true,
       "values": {
         "light": {
           "color": "#8979da",
@@ -1602,6 +1708,7 @@
       "path": "color/info/pencil-47",
       "type": "COLOR",
       "description": "Req for: regular text, inverted backgrounds\nUse: AA standard body text on every paper of this family and of the neutral\nTheming: tints carry info hue (blue); re-solved to clear its floor\nshifts to avoid similar colors",
+      "external": true,
       "values": {
         "light": {
           "color": "#6255a5",
@@ -1617,6 +1724,7 @@
       "path": "color/info/pen-58",
       "type": "COLOR",
       "description": "Req for: regular text, inverted backgrounds\nUse: AA standard body text on every paper and chalk of this family and of the neutral\nTheming: tints carry info hue (blue); re-solved to clear its floor\nshifts to avoid similar colors",
+      "external": true,
       "values": {
         "light": {
           "color": "#443480",
@@ -1632,6 +1740,7 @@
       "path": "color/info/pen-70",
       "type": "COLOR",
       "description": "Req for: heavy-emphasis text, inverted backgrounds\nUse: AA standard body text on every paper and chalk of this family and of the neutral\nTheming: tints carry info hue (blue); re-solved to clear its floor\nshifts to avoid similar colors",
+      "external": true,
       "values": {
         "light": {
           "color": "#292348",
@@ -1647,6 +1756,7 @@
       "path": "color/info/stamp/fill",
       "type": "COLOR",
       "description": "Req for: CTAs\nUse: Use: primary button fills; optional for avatars, badges and other elements that carry text. Not a standalone color: it has no contrast guarantee of its own, only its on-text has one. Use it alone or with its hover and pressed states. Always bordered with its edge\nTheming: fully re-solved per theme and family (blue)",
+      "external": true,
       "values": {
         "light": {
           "color": "#bcb3ff",
@@ -1662,6 +1772,7 @@
       "path": "color/info/stamp/fill-hover",
       "type": "COLOR",
       "description": "Req for: CTA pointer-over state\nUse: Use: the pointer-over state of the fill, with the fill; for nothing else. Always bordered with the edge\nTheming: follows its rest fill (blue)",
+      "external": true,
       "values": {
         "light": {
           "color": "#aca0fc",
@@ -1677,6 +1788,7 @@
       "path": "color/info/stamp/fill-pressed",
       "type": "COLOR",
       "description": "Req for: CTA pressed state\nUse: Use: the pressed state of the fill, with the fill; for nothing else. Always bordered with the edge\nTheming: follows its rest fill (blue)",
+      "external": true,
       "values": {
         "light": {
           "color": "#9d90eb",
@@ -1692,6 +1804,7 @@
       "path": "color/info/stamp/edge",
       "type": "COLOR",
       "description": "Req for: min APCA visibility\nUse: Use: the border of the fill and its states, always rendered with them and never without them (it resolves to transparent unless the fill sits close to the page); for nothing else\nTheming: draws for CTAs that sit close to the page; strength per family tier (blue)",
+      "external": true,
       "values": {
         "light": {
           "color": "#000000",
@@ -1707,6 +1820,7 @@
       "path": "color/info/stamp/on",
       "type": "COLOR",
       "description": "Req for: text over the CTA color\nUse: AA standard body text over its CTA\nUse: the only text color over the fill; never elsewhere\nTheming: whichever pole passes; quiet CTAs take the soft pole (blue)",
+      "external": true,
       "values": {
         "light": {
           "color": "#000000",
@@ -1722,6 +1836,7 @@
       "path": "color/link/default/enabled",
       "type": "COLOR",
       "description": "Req for: links\nUse: AA standard body text on every paper of the neutral\nUse: hyperlinks; not a text-style CTA, which is the text stops read as states\nTheming: rides the theme’s link color; custom seed re-solves; overridable per theme",
+      "external": true,
       "values": {
         "light": {
           "alias": "color/brand/pencil-47"
@@ -1735,6 +1850,7 @@
       "path": "color/link/default/hover",
       "type": "COLOR",
       "description": "Req for: links pointer-over\nUse: AA standard body text on every paper of the neutral\nUse: hyperlinks; not a text-style CTA, which is the text stops read as states\nTheming: rides the theme’s link color; custom seed re-solves; overridable per theme",
+      "external": true,
       "values": {
         "light": {
           "alias": "color/brand/pen-58"
@@ -1748,6 +1864,7 @@
       "path": "color/link/default/pressed",
       "type": "COLOR",
       "description": "Req for: links pressed\nUse: AA standard body text on every paper of the neutral\nUse: hyperlinks; not a text-style CTA, which is the text stops read as states\nTheming: rides the theme’s link color; custom seed re-solves; overridable per theme",
+      "external": true,
       "values": {
         "light": {
           "alias": "color/brand/pen-70"
@@ -1761,6 +1878,7 @@
       "path": "color/link/inverse/enabled",
       "type": "COLOR",
       "description": "Req for: links over inverted backgrounds",
+      "external": true,
       "values": {
         "light": {
           "color": "#7baaf4",
@@ -1776,6 +1894,7 @@
       "path": "color/link/inverse/hover",
       "type": "COLOR",
       "description": "Req for: links over inverted backgrounds pointer-over",
+      "external": true,
       "values": {
         "light": {
           "color": "#a2c6ff",
@@ -1791,6 +1910,7 @@
       "path": "color/link/inverse/pressed",
       "type": "COLOR",
       "description": "Req for: links over inverted backgrounds pressed",
+      "external": true,
       "values": {
         "light": {
           "color": "#cfe1ff",
@@ -1806,6 +1926,7 @@
       "path": "color/absolute/brand",
       "type": "COLOR",
       "description": "Req for: identity seed reference\nUse: Use: a reference value (logos, swatches of the input); never a UI color, it carries no contrast guarantee\nTheming: the theme’s own input, as given",
+      "external": true,
       "values": {
         "light": {
           "color": "#044baf",
@@ -1821,6 +1942,7 @@
       "path": "color/absolute/brand-alt",
       "type": "COLOR",
       "description": "Req for: identity seed reference\nUse: Use: a reference value (logos, swatches of the input); never a UI color, it carries no contrast guarantee\nTheming: the theme’s paired input, as given",
+      "external": true,
       "values": {
         "light": {
           "color": "#a7bad8",
@@ -1834,6 +1956,7 @@
     },
     {
       "path": "color/surface/dim",
+      "today": "Background palette/Background Tertiary",
       "type": "COLOR",
       "scopes": [
         "FRAME_FILL"
@@ -1866,6 +1989,7 @@
     },
     {
       "path": "color/surface/mid",
+      "today": "Background palette/Background Secondary",
       "type": "COLOR",
       "scopes": [
         "FRAME_FILL"
@@ -1882,6 +2006,7 @@
     },
     {
       "path": "color/surface/high",
+      "today": "Background palette/Background Primary",
       "type": "COLOR",
       "scopes": [
         "FRAME_FILL"
@@ -1898,6 +2023,7 @@
     },
     {
       "path": "color/surface/inverse",
+      "today": "Background palette/Background Primary Inverse",
       "type": "COLOR",
       "scopes": [
         "FRAME_FILL"
@@ -1914,6 +2040,7 @@
     },
     {
       "path": "color/surface/scrim",
+      "today": "Background palette/Background Scrim",
       "type": "COLOR",
       "scopes": [
         "FRAME_FILL"

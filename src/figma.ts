@@ -20,6 +20,8 @@ export type FigmaVariable = {
   description: string
   /** hidden from publishing: in the library for its components, not in the consumers' pickers */
   hidden?: true
+  /** another writer's row, the color engine's plugin: found by name and stamped so aliases resolve, never created or written */
+  external?: true
   values: Record<string, FigmaValue>
 }
 export type FigmaCollectionPayload = {
@@ -188,9 +190,11 @@ export function figmaPayloads(tokens: Token[], outside: Token[] = []): { collect
         values[m] = fv
       }
       if (omitted) { payload.omitted.push(figmaName(t.path)); continue }
+      const external = outside.includes(t)
       payload.variables.push({
         path: figmaName(t.path), today: todayVariable(t.path), type: figmaType(t.value),
-        scopes: t.figmaScopes ? [...t.figmaScopes] : scopesFor(t.path), description: describeFigma(t), ...(t.reserved ? { hidden: true as const } : {}), values,
+        scopes: t.figmaScopes ? [...t.figmaScopes] : scopesFor(t.path), description: describeFigma(t),
+        ...(t.reserved ? { hidden: true as const } : {}), ...(external ? { external: true as const } : {}), values,
       })
     }
     out.push(payload)

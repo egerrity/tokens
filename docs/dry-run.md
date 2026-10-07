@@ -3,11 +3,23 @@
 How the generated set goes into a Figma file without touching the real one first. It
 needs Figma Desktop and the repo; it does not need Node.
 
-## 1. A copy of the file
+## 1. A copy of the file, with the engine in it
 
 Duplicate the work file in Figma (right-click it in the file browser, Duplicate). The
 copy keeps every collection, variable, style and library binding. Everything below
 happens in the copy; the real file is never the first target.
+
+The copy must already hold the color engine's rows under their current names,
+`color/<family>/…` in the `theme` collection, which the engine's own plugin (okchroma
+0.8 or later) writes and migrates. The apply never creates or writes an engine row: it
+finds each by name and stamps it, so the palette's aliases resolve, and reports any it
+cannot find. If the copy still has the engine's rows under `base/…`, run the engine's
+plugin on the copy first.
+
+The engine documents in the repo, `dist/tokens/engine.*.tokens.json`, are an emit for
+a sample seed; they feed the token file's joined documents and the pages, not the Figma
+run. For the real brand they are replaced by the engine's emit for its seed, one
+command in the engine's repo, and the generator run again.
 
 ## 2. The plugin
 
@@ -25,10 +37,17 @@ Open console, so the report is visible, and run Plugins > Development > tokens a
 The console prints one report for the whole run:
 
 - `created`: rows and styles that did not exist.
-- `renamed`: today's names that became the new ones, in place, so bindings survive.
+- `renamed`: today's names that became the new ones, in place, so bindings survive and
+  the code syntax on each row stays what the product code reads. The palette rows are
+  matched by the names in `declarations/renames.ts`, one old row per new row where the
+  migration map gives one; a row the report says was `created` rather than `renamed`
+  is one whose old name is spelled differently in the file, and the spelling goes into
+  that map.
 - `updated`, `same`: values and descriptions that changed, and rows already right.
-- `orphans`: a stamped row found in another collection; a new one was created here
-  and the old one's bindings move by hand.
+- `orphans`: a row whose old name sits in another collection; a new one was created
+  here and the old one's bindings move by hand. The five old background rows are the
+  known case: the surfaces live in the `theme` collection, because they vary by mode,
+  and the old rows live in the palette's.
 - `problems`: rows left alone because settling them would mean guessing: two variables
   carrying one stamp (a duplicate), a name another variable holds (a hand rename), a
   type that does not match, a mode the payload does not name. Fix each by hand and

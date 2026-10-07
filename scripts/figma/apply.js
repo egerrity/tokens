@@ -3,7 +3,8 @@
 // connection's script runner (scripts/figma-call.ts prints that text).
 //
 // Every variable and style is found by its stamp first, then by today's name, then by
-// its new name, and is updated in place, so bindings survive. The stamp is the identity:
+// its new name, and is updated in place, so bindings survive. The color engine's rows
+// are another writer's: found by name and stamped, never created or written. The stamp is the identity:
 // a variable renamed by hand is renamed back. Nothing is deleted and no value is written
 // that is already what the payload asks for; a row a designer has composed by hand (an
 // alias with an opacity) reads back as its alias and is left alone. A row the script
@@ -65,6 +66,16 @@ async function applyVariables(P) {
   const targets = new Map()
   for (const spec of P.variables) {
     if (duplicated.has(spec.path)) continue
+    // an external row belongs to another writer, the color engine's plugin: found by
+    // name and stamped so aliases resolve, never created and never written
+    if (spec.external) {
+      const e = inCollection.find(x => x.name === spec.path)
+      if (!e) { report.problems.push(`${spec.path}: an engine row that is not in the file; run the color engine's plugin first`); continue }
+      if (e.resolvedType !== spec.type) { report.problems.push(`${spec.path}: is a ${e.resolvedType}, the engine's row is a ${spec.type}; left as it is`); continue }
+      stamp(e, STAMP, spec.path); byStamp.set(spec.path, e); byName.set(spec.path, e)
+      report.same++
+      continue
+    }
     let v = byStamp.get(spec.path)
     if (v && v.variableCollectionId !== c.id) { report.orphans.push(`${spec.path}: its stamped variable sits in another collection; a new one is created here, rebind by hand`); v = undefined }
     if (!v && spec.today) v = inCollection.find(x => x.name === spec.today)

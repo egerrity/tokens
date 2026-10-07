@@ -6,6 +6,39 @@ import type { TokenPath } from '../grammar/path.ts'
 
 const TEXT_PART: Record<string, string> = { fontFamily: 'font-family', fontSize: 'font-size', fontWeight: 'font-weight' }
 
+// today's palette rows, one per new row where the migration map gives one; an old row
+// that did more than one job names the row its dominant use lands on
+const PALETTE = (group: string, name: string) => `${group} palette/${name}`
+const COLOR_TODAY: Record<string, string> = {
+  'surface/high': PALETTE('Background', 'Background Primary'),
+  'surface/mid': PALETTE('Background', 'Background Secondary'),
+  'surface/dim': PALETTE('Background', 'Background Tertiary'),
+  'surface/inverse': PALETTE('Background', 'Background Primary Inverse'),
+  'surface/scrim': PALETTE('Background', 'Background Scrim'),
+  'fg/regular': PALETTE('Content', 'Content Primary'),
+  'fg/muted': PALETTE('Content', 'Content Secondary'),
+  'fg/accent': PALETTE('Content', 'Content Tertiary'),
+  'fg/on-inverse/strong': PALETTE('Content', 'Content Primary Inverse'),
+  'border/strong': PALETTE('Stroke', 'Stroke Primary'),
+  'border/regular': PALETTE('Stroke', 'Stroke Secondary'),
+  'border/muted': PALETTE('Stroke', 'Stroke Tertiary'),
+  'border/hint': PALETTE('Stroke', 'Stroke Quaternary'),
+  'border/inverse': PALETTE('Stroke', 'Stroke Primary Inverse'),
+  'fg/brand/accent': PALETTE('Brand', 'Brand Primary'),
+  'border/brand/muted': PALETTE('Brand', 'Brand Primary Highlight'),
+  'bg/brand/regular': PALETTE('Brand', 'Brand Primary Accent'),
+  'bg/ghost/hover': PALETTE('Merge', 'Merge Intensity 1'),
+  'bg/ghost/pressed': PALETTE('Merge', 'Merge Intensity 2'),
+  'bg/brand/solid/hover': PALETTE('Merge', 'Merge Intensity 3'),
+  'bg/brand/solid/pressed': PALETTE('Merge', 'Merge Intensity 5'),
+}
+for (const [family, signal] of [['critical', 'Negative'], ['warning', 'Warning'], ['positive', 'Positive']]) {
+  COLOR_TODAY[`fg/${family}/accent`] = PALETTE('Signal', `Signal ${signal}`)
+  COLOR_TODAY[`bg/${family}/accent`] = PALETTE('Signal', `Signal ${signal} Spotlight`)
+  COLOR_TODAY[`border/${family}/muted`] = PALETTE('Signal', `Signal ${signal} Highlight`)
+  COLOR_TODAY[`bg/${family}/regular`] = PALETTE('Signal', `Signal ${signal} Accent`)
+}
+
 /** today's variable name for a token path, or for a text style's part */
 export function todayVariable(path: TokenPath, part?: string): string | undefined {
   const [category, a, b] = path
@@ -24,6 +57,8 @@ export function todayVariable(path: TokenPath, part?: string): string | undefine
       return a === 'family' || a === 'weight' ? `font/${a}/${b}` : undefined
     case 'text':
       return part && TEXT_PART[part] ? `${a}/${b}/${TEXT_PART[part]}` : undefined
+    case 'color':
+      return COLOR_TODAY[path.slice(1).join('/')]
     default:
       return undefined
   }

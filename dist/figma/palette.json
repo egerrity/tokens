@@ -9,6 +9,7 @@
   "variables": [
     {
       "path": "color/fg/regular",
+      "today": "Content palette/Content Primary",
       "type": "COLOR",
       "scopes": [
         "TEXT_FILL",
@@ -23,6 +24,7 @@
     },
     {
       "path": "color/fg/accent",
+      "today": "Content palette/Content Tertiary",
       "type": "COLOR",
       "scopes": [
         "TEXT_FILL",
@@ -50,6 +52,7 @@
     },
     {
       "path": "color/fg/muted",
+      "today": "Content palette/Content Secondary",
       "type": "COLOR",
       "scopes": [
         "TEXT_FILL",
@@ -162,6 +165,7 @@
     },
     {
       "path": "color/fg/on-inverse/strong",
+      "today": "Content palette/Content Primary Inverse",
       "type": "COLOR",
       "scopes": [
         "TEXT_FILL",
@@ -218,6 +222,7 @@
     },
     {
       "path": "color/border/regular",
+      "today": "Stroke palette/Stroke Secondary",
       "type": "COLOR",
       "scopes": [
         "STROKE_COLOR"
@@ -244,6 +249,7 @@
     },
     {
       "path": "color/border/hint",
+      "today": "Stroke palette/Stroke Quaternary",
       "type": "COLOR",
       "scopes": [
         "STROKE_COLOR"
@@ -257,6 +263,7 @@
     },
     {
       "path": "color/border/muted",
+      "today": "Stroke palette/Stroke Tertiary",
       "type": "COLOR",
       "scopes": [
         "STROKE_COLOR"
@@ -270,6 +277,7 @@
     },
     {
       "path": "color/border/strong",
+      "today": "Stroke palette/Stroke Primary",
       "type": "COLOR",
       "scopes": [
         "STROKE_COLOR"
@@ -296,6 +304,7 @@
     },
     {
       "path": "color/border/inverse",
+      "today": "Stroke palette/Stroke Primary Inverse",
       "type": "COLOR",
       "scopes": [
         "STROKE_COLOR"
@@ -397,6 +406,7 @@
     },
     {
       "path": "color/bg/ghost/hover",
+      "today": "Merge palette/Merge Intensity 1",
       "type": "COLOR",
       "scopes": [
         "FRAME_FILL",
@@ -411,6 +421,7 @@
     },
     {
       "path": "color/bg/ghost/pressed",
+      "today": "Merge palette/Merge Intensity 2",
       "type": "COLOR",
       "scopes": [
         "FRAME_FILL",
@@ -583,6 +594,7 @@
     },
     {
       "path": "color/fg/brand/accent",
+      "today": "Brand palette/Brand Primary",
       "type": "COLOR",
       "scopes": [
         "TEXT_FILL",
@@ -666,6 +678,7 @@
     },
     {
       "path": "color/border/brand/muted",
+      "today": "Brand palette/Brand Primary Highlight",
       "type": "COLOR",
       "scopes": [
         "STROKE_COLOR"
@@ -693,6 +706,7 @@
     },
     {
       "path": "color/bg/brand/regular",
+      "today": "Brand palette/Brand Primary Accent",
       "type": "COLOR",
       "scopes": [
         "FRAME_FILL",
@@ -902,6 +916,7 @@
     },
     {
       "path": "color/bg/brand/solid/hover",
+      "today": "Merge palette/Merge Intensity 3",
       "type": "COLOR",
       "scopes": [
         "FRAME_FILL",
@@ -917,6 +932,7 @@
     },
     {
       "path": "color/bg/brand/solid/pressed",
+      "today": "Merge palette/Merge Intensity 5",
       "type": "COLOR",
       "scopes": [
         "FRAME_FILL",
@@ -1367,6 +1383,7 @@
     },
     {
       "path": "color/fg/critical/accent",
+      "today": "Signal palette/Signal Negative",
       "type": "COLOR",
       "scopes": [
         "TEXT_FILL",
@@ -1450,6 +1467,7 @@
     },
     {
       "path": "color/border/critical/muted",
+      "today": "Signal palette/Signal Negative Highlight",
       "type": "COLOR",
       "scopes": [
         "STROKE_COLOR"
@@ -1477,6 +1495,7 @@
     },
     {
       "path": "color/bg/critical/regular",
+      "today": "Signal palette/Signal Negative Accent",
       "type": "COLOR",
       "scopes": [
         "FRAME_FILL",
@@ -1491,6 +1510,7 @@
     },
     {
       "path": "color/bg/critical/accent",
+      "today": "Signal palette/Signal Negative Spotlight",
       "type": "COLOR",
       "scopes": [
         "FRAME_FILL",
@@ -1759,6 +1779,7 @@
     },
     {
       "path": "color/fg/warning/accent",
+      "today": "Signal palette/Signal Warning",
       "type": "COLOR",
       "scopes": [
         "TEXT_FILL",
@@ -1842,6 +1863,7 @@
     },
     {
       "path": "color/border/warning/muted",
+      "today": "Signal palette/Signal Warning Highlight",
       "type": "COLOR",
       "scopes": [
         "STROKE_COLOR"
@@ -1869,6 +1891,7 @@
     },
     {
       "path": "color/bg/warning/regular",
+      "today": "Signal palette/Signal Warning Accent",
       "type": "COLOR",
       "scopes": [
         "FRAME_FILL",
@@ -1883,6 +1906,7 @@
     },
     {
       "path": "color/bg/warning/accent",
+      "today": "Signal palette/Signal Warning Spotlight",
       "type": "COLOR",
       "scopes": [
         "FRAME_FILL",
@@ -2151,6 +2175,7 @@
     },
     {
       "path": "color/fg/positive/accent",
+      "today": "Signal palette/Signal Positive",
       "type": "COLOR",
       "scopes": [
         "TEXT_FILL",
@@ -2234,6 +2259,7 @@
     },
     {
       "path": "color/border/positive/muted",
+      "today": "Signal palette/Signal Positive Highlight",
       "type": "COLOR",
       "scopes": [
         "STROKE_COLOR"
@@ -2261,6 +2287,7 @@
     },
     {
       "path": "color/bg/positive/regular",
+      "today": "Signal palette/Signal Positive Accent",
       "type": "COLOR",
       "scopes": [
         "FRAME_FILL",
@@ -2275,6 +2302,7 @@
     },
     {
       "path": "color/bg/positive/accent",
+      "today": "Signal palette/Signal Positive Spotlight",
       "type": "COLOR",
       "scopes": [
         "FRAME_FILL",
