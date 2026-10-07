@@ -25,7 +25,8 @@ for (const [name, content] of Object.entries(first.files)) {
 for (const folder of ['dist/tokens', 'dist/figma', 'docs/groups']) {
   const dir = path.join(root, folder)
   if (!fs.existsSync(dir)) continue
-  for (const f of fs.readdirSync(dir)) {
+  for (const f of fs.readdirSync(dir, { recursive: true }) as string[]) {
+    if (fs.statSync(path.join(dir, f)).isDirectory()) continue
     // the engine's own files are copied in, never produced here
     if (folder === 'dist/tokens' && f.startsWith('engine.')) continue
     if (!(`${folder}/${f}` in first.files)) failures.push(`${folder}/${f}: on disk but not produced by the declarations; delete it`)
