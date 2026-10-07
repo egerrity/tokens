@@ -22,7 +22,7 @@ the name alone identifies a token in code.
 ## Segments
 
 - Lower-case letters and digits. Words inside one segment join with a hyphen
-  (`line-height`, `fill-hover`). No capitals, so no two names differ only by case. Whole
+  (`line-height`, `on-inverse`). No capitals, so no two names differ only by case. Whole
   words, not abbreviations (`negative`, not `neg`), with two words of the system admitted
   as they are: `fg` and `bg`.
 - Order: category, then property, then variant, then state. A component token puts the

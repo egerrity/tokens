@@ -70,17 +70,17 @@
       "link": {
         "enabled": {
           "$type": "color",
-          "$value": "{color.link.default.enabled}",
+          "$value": "{color.link.default-0}",
           "$description": "Req for: a link in running text, at rest\nUse: links no component owns; the Link component binds the same rows"
         },
         "hover": {
           "$type": "color",
-          "$value": "{color.link.default.hover}",
+          "$value": "{color.link.default-1}",
           "$description": "Req for: a link in running text, under the pointer\nUse: links no component owns; the Link component binds the same rows"
         },
         "pressed": {
           "$type": "color",
-          "$value": "{color.link.default.pressed}",
+          "$value": "{color.link.default-2}",
           "$description": "Req for: a link in running text, while pressed\nUse: links no component owns; the Link component binds the same rows"
         }
       },
@@ -108,24 +108,24 @@
         "link": {
           "enabled": {
             "$type": "color",
-            "$value": "{color.link.inverse.enabled}",
+            "$value": "{color.link.inverse-0}",
             "$description": "Req for: a link on an inverted ground, at rest\nUse: re-solved for the inverted ground"
           },
           "hover": {
             "$type": "color",
-            "$value": "{color.link.inverse.hover}",
+            "$value": "{color.link.inverse-1}",
             "$description": "Req for: a link on an inverted ground, under the pointer\nUse: re-solved for the inverted ground"
           },
           "pressed": {
             "$type": "color",
-            "$value": "{color.link.inverse.pressed}",
+            "$value": "{color.link.inverse-2}",
             "$description": "Req for: a link on an inverted ground, while pressed\nUse: re-solved for the inverted ground"
           }
         }
       },
       "on-solid": {
         "$type": "color",
-        "$value": "{color.neutral.stamp.on}",
+        "$value": "{color.neutral.stamp-on}",
         "$description": "Req for: text and icons over the solid ground of a neutral control\nUse: the only text color over the solid fill; never elsewhere\nReserved for components"
       },
       "brand": {
@@ -151,7 +151,7 @@
         },
         "on-solid": {
           "$type": "color",
-          "$value": "{color.brand.stamp.on}",
+          "$value": "{color.brand.stamp-on}",
           "$description": "Req for: text and icons over the solid ground of a brand control\nUse: the only text color over the solid fill; never elsewhere\nReserved for components"
         }
       },
@@ -178,7 +178,7 @@
         },
         "on-solid": {
           "$type": "color",
-          "$value": "{color.brand-alt.stamp.on}",
+          "$value": "{color.brand-alt.stamp-on}",
           "$description": "Req for: text and icons over the solid ground of a brand-alt control\nUse: the only text color over the solid fill; never elsewhere\nReserved for components"
         }
       },
@@ -205,7 +205,7 @@
         },
         "on-solid": {
           "$type": "color",
-          "$value": "{color.critical.stamp.on}",
+          "$value": "{color.critical.stamp-on}",
           "$description": "Req for: text and icons over the solid ground of a critical control\nUse: the only text color over the solid fill; never elsewhere\nReserved for components"
         }
       },
@@ -232,7 +232,7 @@
         },
         "on-solid": {
           "$type": "color",
-          "$value": "{color.warning.stamp.on}",
+          "$value": "{color.warning.stamp-on}",
           "$description": "Req for: text and icons over the solid ground of a warning control\nUse: the only text color over the solid fill; never elsewhere\nReserved for components"
         }
       },
@@ -259,7 +259,7 @@
         },
         "on-solid": {
           "$type": "color",
-          "$value": "{color.positive.stamp.on}",
+          "$value": "{color.positive.stamp-on}",
           "$description": "Req for: text and icons over the solid ground of a positive control\nUse: the only text color over the solid fill; never elsewhere\nReserved for components"
         }
       },
@@ -286,7 +286,7 @@
         },
         "on-solid": {
           "$type": "color",
-          "$value": "{color.info.stamp.on}",
+          "$value": "{color.info.stamp-on}",
           "$description": "Req for: text and icons over the solid ground of an info control\nUse: the only text color over the solid fill; never elsewhere\nReserved for components"
         }
       }
@@ -329,7 +329,7 @@
       },
       "solid": {
         "$type": "color",
-        "$value": "{color.neutral.stamp.edge}",
+        "$value": "{color.neutral.stamp-edge}",
         "$description": "Req for: the edge of the solid ground of a neutral control\nUse: always drawn; it resolves to transparent where the fill needs no edge, so layout never shifts\nReserved for components"
       },
       "brand": {
@@ -360,7 +360,7 @@
         },
         "solid": {
           "$type": "color",
-          "$value": "{color.brand.stamp.edge}",
+          "$value": "{color.brand.stamp-edge}",
           "$description": "Req for: the edge of the solid ground of a brand control\nUse: always drawn; it resolves to transparent where the fill needs no edge, so layout never shifts\nReserved for components"
         }
       },
@@ -392,7 +392,7 @@
         },
         "solid": {
           "$type": "color",
-          "$value": "{color.brand-alt.stamp.edge}",
+          "$value": "{color.brand-alt.stamp-edge}",
           "$description": "Req for: the edge of the solid ground of a brand-alt control\nUse: always drawn; it resolves to transparent where the fill needs no edge, so layout never shifts\nReserved for components"
         }
       },
@@ -424,7 +424,7 @@
         },
         "solid": {
           "$type": "color",
-          "$value": "{color.critical.stamp.edge}",
+          "$value": "{color.critical.stamp-edge}",
           "$description": "Req for: the edge of the solid ground of a critical control\nUse: always drawn; it resolves to transparent where the fill needs no edge, so layout never shifts\nReserved for components"
         }
       },
@@ -456,7 +456,7 @@
         },
         "solid": {
           "$type": "color",
-          "$value": "{color.warning.stamp.edge}",
+          "$value": "{color.warning.stamp-edge}",
           "$description": "Req for: the edge of the solid ground of a warning control\nUse: always drawn; it resolves to transparent where the fill needs no edge, so layout never shifts\nReserved for components"
         }
       },
@@ -488,7 +488,7 @@
         },
         "solid": {
           "$type": "color",
-          "$value": "{color.positive.stamp.edge}",
+          "$value": "{color.positive.stamp-edge}",
           "$description": "Req for: the edge of the solid ground of a positive control\nUse: always drawn; it resolves to transparent where the fill needs no edge, so layout never shifts\nReserved for components"
         }
       },
@@ -520,7 +520,7 @@
         },
         "solid": {
           "$type": "color",
-          "$value": "{color.info.stamp.edge}",
+          "$value": "{color.info.stamp-edge}",
           "$description": "Req for: the edge of the solid ground of an info control\nUse: always drawn; it resolves to transparent where the fill needs no edge, so layout never shifts\nReserved for components"
         }
       }
@@ -607,17 +607,17 @@
       "solid": {
         "enabled": {
           "$type": "color",
-          "$value": "{color.neutral.stamp.fill}",
+          "$value": "{color.neutral.stamp-0}",
           "$description": "Req for: the solid ground of a neutral control, at rest\nUse: the engine's stamp, solved per brand; always with the on-solid text and the solid border\nReserved for components"
         },
         "hover": {
           "$type": "color",
-          "$value": "{color.neutral.stamp.fill-hover}",
+          "$value": "{color.neutral.stamp-1}",
           "$description": "Req for: the solid ground of a neutral control, under the pointer\nUse: the engine's stamp, solved per brand; always with the on-solid text and the solid border\nReserved for components"
         },
         "pressed": {
           "$type": "color",
-          "$value": "{color.neutral.stamp.fill-pressed}",
+          "$value": "{color.neutral.stamp-2}",
           "$description": "Req for: the solid ground of a neutral control, while pressed\nUse: the engine's stamp, solved per brand; always with the on-solid text and the solid border\nReserved for components"
         }
       },
@@ -703,17 +703,17 @@
         "solid": {
           "enabled": {
             "$type": "color",
-            "$value": "{color.brand.stamp.fill}",
+            "$value": "{color.brand.stamp-0}",
             "$description": "Req for: the solid ground of a brand control, at rest\nUse: the engine's stamp, solved per brand; always with the on-solid text and the solid border\nReserved for components"
           },
           "hover": {
             "$type": "color",
-            "$value": "{color.brand.stamp.fill-hover}",
+            "$value": "{color.brand.stamp-1}",
             "$description": "Req for: the solid ground of a brand control, under the pointer\nUse: the engine's stamp, solved per brand; always with the on-solid text and the solid border\nReserved for components"
           },
           "pressed": {
             "$type": "color",
-            "$value": "{color.brand.stamp.fill-pressed}",
+            "$value": "{color.brand.stamp-2}",
             "$description": "Req for: the solid ground of a brand control, while pressed\nUse: the engine's stamp, solved per brand; always with the on-solid text and the solid border\nReserved for components"
           }
         }
@@ -800,17 +800,17 @@
         "solid": {
           "enabled": {
             "$type": "color",
-            "$value": "{color.brand-alt.stamp.fill}",
+            "$value": "{color.brand-alt.stamp-0}",
             "$description": "Req for: the solid ground of a brand-alt control, at rest\nUse: the engine's stamp, solved per brand; always with the on-solid text and the solid border\nReserved for components"
           },
           "hover": {
             "$type": "color",
-            "$value": "{color.brand-alt.stamp.fill-hover}",
+            "$value": "{color.brand-alt.stamp-1}",
             "$description": "Req for: the solid ground of a brand-alt control, under the pointer\nUse: the engine's stamp, solved per brand; always with the on-solid text and the solid border\nReserved for components"
           },
           "pressed": {
             "$type": "color",
-            "$value": "{color.brand-alt.stamp.fill-pressed}",
+            "$value": "{color.brand-alt.stamp-2}",
             "$description": "Req for: the solid ground of a brand-alt control, while pressed\nUse: the engine's stamp, solved per brand; always with the on-solid text and the solid border\nReserved for components"
           }
         }
@@ -897,17 +897,17 @@
         "solid": {
           "enabled": {
             "$type": "color",
-            "$value": "{color.critical.stamp.fill}",
+            "$value": "{color.critical.stamp-0}",
             "$description": "Req for: the solid ground of a critical control, at rest\nUse: the engine's stamp, solved per brand; always with the on-solid text and the solid border\nReserved for components"
           },
           "hover": {
             "$type": "color",
-            "$value": "{color.critical.stamp.fill-hover}",
+            "$value": "{color.critical.stamp-1}",
             "$description": "Req for: the solid ground of a critical control, under the pointer\nUse: the engine's stamp, solved per brand; always with the on-solid text and the solid border\nReserved for components"
           },
           "pressed": {
             "$type": "color",
-            "$value": "{color.critical.stamp.fill-pressed}",
+            "$value": "{color.critical.stamp-2}",
             "$description": "Req for: the solid ground of a critical control, while pressed\nUse: the engine's stamp, solved per brand; always with the on-solid text and the solid border\nReserved for components"
           }
         }
@@ -994,17 +994,17 @@
         "solid": {
           "enabled": {
             "$type": "color",
-            "$value": "{color.warning.stamp.fill}",
+            "$value": "{color.warning.stamp-0}",
             "$description": "Req for: the solid ground of a warning control, at rest\nUse: the engine's stamp, solved per brand; always with the on-solid text and the solid border\nReserved for components"
           },
           "hover": {
             "$type": "color",
-            "$value": "{color.warning.stamp.fill-hover}",
+            "$value": "{color.warning.stamp-1}",
             "$description": "Req for: the solid ground of a warning control, under the pointer\nUse: the engine's stamp, solved per brand; always with the on-solid text and the solid border\nReserved for components"
           },
           "pressed": {
             "$type": "color",
-            "$value": "{color.warning.stamp.fill-pressed}",
+            "$value": "{color.warning.stamp-2}",
             "$description": "Req for: the solid ground of a warning control, while pressed\nUse: the engine's stamp, solved per brand; always with the on-solid text and the solid border\nReserved for components"
           }
         }
@@ -1091,17 +1091,17 @@
         "solid": {
           "enabled": {
             "$type": "color",
-            "$value": "{color.positive.stamp.fill}",
+            "$value": "{color.positive.stamp-0}",
             "$description": "Req for: the solid ground of a positive control, at rest\nUse: the engine's stamp, solved per brand; always with the on-solid text and the solid border\nReserved for components"
           },
           "hover": {
             "$type": "color",
-            "$value": "{color.positive.stamp.fill-hover}",
+            "$value": "{color.positive.stamp-1}",
             "$description": "Req for: the solid ground of a positive control, under the pointer\nUse: the engine's stamp, solved per brand; always with the on-solid text and the solid border\nReserved for components"
           },
           "pressed": {
             "$type": "color",
-            "$value": "{color.positive.stamp.fill-pressed}",
+            "$value": "{color.positive.stamp-2}",
             "$description": "Req for: the solid ground of a positive control, while pressed\nUse: the engine's stamp, solved per brand; always with the on-solid text and the solid border\nReserved for components"
           }
         }
@@ -1188,17 +1188,17 @@
         "solid": {
           "enabled": {
             "$type": "color",
-            "$value": "{color.info.stamp.fill}",
+            "$value": "{color.info.stamp-0}",
             "$description": "Req for: the solid ground of an info control, at rest\nUse: the engine's stamp, solved per brand; always with the on-solid text and the solid border\nReserved for components"
           },
           "hover": {
             "$type": "color",
-            "$value": "{color.info.stamp.fill-hover}",
+            "$value": "{color.info.stamp-1}",
             "$description": "Req for: the solid ground of an info control, under the pointer\nUse: the engine's stamp, solved per brand; always with the on-solid text and the solid border\nReserved for components"
           },
           "pressed": {
             "$type": "color",
-            "$value": "{color.info.stamp.fill-pressed}",
+            "$value": "{color.info.stamp-2}",
             "$description": "Req for: the solid ground of an info control, while pressed\nUse: the engine's stamp, solved per brand; always with the on-solid text and the solid border\nReserved for components"
           }
         }

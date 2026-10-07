@@ -217,9 +217,9 @@
       }
     },
     {
-      "path": "color/neutral/stamp/fill",
+      "path": "color/neutral/stamp-0",
       "type": "COLOR",
-      "description": "Req for: CTAs\nUse: Use: primary button fills; optional for avatars, badges and other elements that carry text. Not a standalone color: it has no contrast guarantee of its own, only its on-text has one. Use it alone or with its hover and pressed states. Always bordered with its edge\nTheming: fully re-solved per theme and family (gray)",
+      "description": "Req for: CTAs, the fill at rest\nUse: Use: primary button fills; optional for avatars, badges and other elements that carry text. Not a standalone color: it has no contrast guarantee of its own, only its on-text has one. Use it alone or with the two steps above it. Always bordered with its edge\nTheming: fully re-solved per theme and family (gray)",
       "external": true,
       "values": {
         "light": {
@@ -233,9 +233,9 @@
       }
     },
     {
-      "path": "color/neutral/stamp/fill-hover",
+      "path": "color/neutral/stamp-1",
       "type": "COLOR",
-      "description": "Req for: CTA pointer-over state\nUse: Use: the pointer-over state of the fill, with the fill; for nothing else. Always bordered with the edge\nTheming: follows its rest fill (gray)",
+      "description": "Req for: CTAs, the fill one step from rest\nUse: Use: the fill one step from rest, with the fill at rest; for nothing else. Always bordered with the edge\nTheming: follows the fill at rest (gray)",
       "external": true,
       "values": {
         "light": {
@@ -249,9 +249,9 @@
       }
     },
     {
-      "path": "color/neutral/stamp/fill-pressed",
+      "path": "color/neutral/stamp-2",
       "type": "COLOR",
-      "description": "Req for: CTA pressed state\nUse: Use: the pressed state of the fill, with the fill; for nothing else. Always bordered with the edge\nTheming: follows its rest fill (gray)",
+      "description": "Req for: CTAs, the fill two steps from rest\nUse: Use: the fill two steps from rest, with the fill at rest; for nothing else. Always bordered with the edge\nTheming: follows the fill at rest (gray)",
       "external": true,
       "values": {
         "light": {
@@ -265,9 +265,9 @@
       }
     },
     {
-      "path": "color/neutral/stamp/edge",
+      "path": "color/neutral/stamp-edge",
       "type": "COLOR",
-      "description": "Req for: min APCA visibility\nUse: Use: the border of the fill and its states, always rendered with them and never without them (it resolves to transparent unless the fill sits close to the page); for nothing else\nTheming: draws for CTAs that sit close to the page; strength per family tier (gray)",
+      "description": "Req for: min APCA visibility\nUse: Use: the border of the fill at every step, always rendered with it and never without it (it resolves to transparent unless the fill sits close to the page); for nothing else\nTheming: draws for CTAs that sit close to the page; strength per family tier (gray)",
       "external": true,
       "values": {
         "light": {
@@ -281,9 +281,9 @@
       }
     },
     {
-      "path": "color/neutral/stamp/on",
+      "path": "color/neutral/stamp-on",
       "type": "COLOR",
-      "description": "Req for: text over the CTA color\nUse: AA standard body text over its CTA\nUse: the only text color over the fill; never elsewhere\nTheming: whichever pole passes; quiet CTAs take the soft pole (gray)",
+      "description": "Req for: text over the CTA color\nUse: AA standard body text over its CTA\nUse: the only text color over the fill at every step; never elsewhere\nTheming: whichever pole passes; quiet CTAs take the soft pole (gray)",
       "external": true,
       "values": {
         "light": {
@@ -473,9 +473,9 @@
       }
     },
     {
-      "path": "color/brand/stamp/fill",
+      "path": "color/brand/stamp-0",
       "type": "COLOR",
-      "description": "Req for: CTAs\nUse: Use: primary button fills; optional for avatars, badges and other elements that carry text. Not a standalone color: it has no contrast guarantee of its own, only its on-text has one. Use it alone or with its hover and pressed states. Always bordered with its edge\nTheming: fully re-solved per theme and family",
+      "description": "Req for: CTAs, the fill at rest\nUse: Use: primary button fills; optional for avatars, badges and other elements that carry text. Not a standalone color: it has no contrast guarantee of its own, only its on-text has one. Use it alone or with the two steps above it. Always bordered with its edge\nTheming: fully re-solved per theme and family",
       "external": true,
       "values": {
         "light": {
@@ -489,9 +489,9 @@
       }
     },
     {
-      "path": "color/brand/stamp/fill-hover",
+      "path": "color/brand/stamp-1",
       "type": "COLOR",
-      "description": "Req for: CTA pointer-over state\nUse: Use: the pointer-over state of the fill, with the fill; for nothing else. Always bordered with the edge\nTheming: follows its rest fill",
+      "description": "Req for: CTAs, the fill one step from rest\nUse: Use: the fill one step from rest, with the fill at rest; for nothing else. Always bordered with the edge\nTheming: follows the fill at rest",
       "external": true,
       "values": {
         "light": {
@@ -505,9 +505,9 @@
       }
     },
     {
-      "path": "color/brand/stamp/fill-pressed",
+      "path": "color/brand/stamp-2",
       "type": "COLOR",
-      "description": "Req for: CTA pressed state\nUse: Use: the pressed state of the fill, with the fill; for nothing else. Always bordered with the edge\nTheming: follows its rest fill",
+      "description": "Req for: CTAs, the fill two steps from rest\nUse: Use: the fill two steps from rest, with the fill at rest; for nothing else. Always bordered with the edge\nTheming: follows the fill at rest",
       "external": true,
       "values": {
         "light": {
@@ -521,9 +521,9 @@
       }
     },
     {
-      "path": "color/brand/stamp/edge",
+      "path": "color/brand/stamp-edge",
       "type": "COLOR",
-      "description": "Req for: min APCA visibility\nUse: Use: the border of the fill and its states, always rendered with them and never without them (it resolves to transparent unless the fill sits close to the page); for nothing else\nTheming: draws for CTAs that sit close to the page; strength per family tier",
+      "description": "Req for: min APCA visibility\nUse: Use: the border of the fill at every step, always rendered with it and never without it (it resolves to transparent unless the fill sits close to the page); for nothing else\nTheming: draws for CTAs that sit close to the page; strength per family tier",
       "external": true,
       "values": {
         "light": {
@@ -537,9 +537,9 @@
       }
     },
     {
-      "path": "color/brand/stamp/on",
+      "path": "color/brand/stamp-on",
       "type": "COLOR",
-      "description": "Req for: text over the CTA color\nUse: AA standard body text over its CTA\nUse: the only text color over the fill; never elsewhere\nTheming: whichever pole passes; quiet CTAs take the soft pole",
+      "description": "Req for: text over the CTA color\nUse: AA standard body text over its CTA\nUse: the only text color over the fill at every step; never elsewhere\nTheming: whichever pole passes; quiet CTAs take the soft pole",
       "external": true,
       "values": {
         "light": {
@@ -729,9 +729,9 @@
       }
     },
     {
-      "path": "color/brand-alt/stamp/fill",
+      "path": "color/brand-alt/stamp-0",
       "type": "COLOR",
-      "description": "Req for: CTAs\nUse: Use: primary button fills; optional for avatars, badges and other elements that carry text. Not a standalone color: it has no contrast guarantee of its own, only its on-text has one. Use it alone or with its hover and pressed states. Always bordered with its edge\nTheming: fully re-solved per theme and family",
+      "description": "Req for: CTAs, the fill at rest\nUse: Use: primary button fills; optional for avatars, badges and other elements that carry text. Not a standalone color: it has no contrast guarantee of its own, only its on-text has one. Use it alone or with the two steps above it. Always bordered with its edge\nTheming: fully re-solved per theme and family",
       "external": true,
       "values": {
         "light": {
@@ -745,9 +745,9 @@
       }
     },
     {
-      "path": "color/brand-alt/stamp/fill-hover",
+      "path": "color/brand-alt/stamp-1",
       "type": "COLOR",
-      "description": "Req for: CTA pointer-over state\nUse: Use: the pointer-over state of the fill, with the fill; for nothing else. Always bordered with the edge\nTheming: follows its rest fill",
+      "description": "Req for: CTAs, the fill one step from rest\nUse: Use: the fill one step from rest, with the fill at rest; for nothing else. Always bordered with the edge\nTheming: follows the fill at rest",
       "external": true,
       "values": {
         "light": {
@@ -761,9 +761,9 @@
       }
     },
     {
-      "path": "color/brand-alt/stamp/fill-pressed",
+      "path": "color/brand-alt/stamp-2",
       "type": "COLOR",
-      "description": "Req for: CTA pressed state\nUse: Use: the pressed state of the fill, with the fill; for nothing else. Always bordered with the edge\nTheming: follows its rest fill",
+      "description": "Req for: CTAs, the fill two steps from rest\nUse: Use: the fill two steps from rest, with the fill at rest; for nothing else. Always bordered with the edge\nTheming: follows the fill at rest",
       "external": true,
       "values": {
         "light": {
@@ -777,9 +777,9 @@
       }
     },
     {
-      "path": "color/brand-alt/stamp/edge",
+      "path": "color/brand-alt/stamp-edge",
       "type": "COLOR",
-      "description": "Req for: min APCA visibility\nUse: Use: the border of the fill and its states, always rendered with them and never without them (it resolves to transparent unless the fill sits close to the page); for nothing else\nTheming: draws for CTAs that sit close to the page; strength per family tier",
+      "description": "Req for: min APCA visibility\nUse: Use: the border of the fill at every step, always rendered with it and never without it (it resolves to transparent unless the fill sits close to the page); for nothing else\nTheming: draws for CTAs that sit close to the page; strength per family tier",
       "external": true,
       "values": {
         "light": {
@@ -793,9 +793,9 @@
       }
     },
     {
-      "path": "color/brand-alt/stamp/on",
+      "path": "color/brand-alt/stamp-on",
       "type": "COLOR",
-      "description": "Req for: text over the CTA color\nUse: AA standard body text over its CTA\nUse: the only text color over the fill; never elsewhere\nTheming: whichever pole passes; quiet CTAs take the soft pole",
+      "description": "Req for: text over the CTA color\nUse: AA standard body text over its CTA\nUse: the only text color over the fill at every step; never elsewhere\nTheming: whichever pole passes; quiet CTAs take the soft pole",
       "external": true,
       "values": {
         "light": {
@@ -985,9 +985,9 @@
       }
     },
     {
-      "path": "color/critical/stamp/fill",
+      "path": "color/critical/stamp-0",
       "type": "COLOR",
-      "description": "Req for: CTAs\nUse: Use: primary button fills; optional for avatars, badges and other elements that carry text. Not a standalone color: it has no contrast guarantee of its own, only its on-text has one. Use it alone or with its hover and pressed states. Always bordered with its edge\nTheming: fully re-solved per theme and family (red)",
+      "description": "Req for: CTAs, the fill at rest\nUse: Use: primary button fills; optional for avatars, badges and other elements that carry text. Not a standalone color: it has no contrast guarantee of its own, only its on-text has one. Use it alone or with the two steps above it. Always bordered with its edge\nTheming: fully re-solved per theme and family (red)",
       "external": true,
       "values": {
         "light": {
@@ -1001,9 +1001,9 @@
       }
     },
     {
-      "path": "color/critical/stamp/fill-hover",
+      "path": "color/critical/stamp-1",
       "type": "COLOR",
-      "description": "Req for: CTA pointer-over state\nUse: Use: the pointer-over state of the fill, with the fill; for nothing else. Always bordered with the edge\nTheming: follows its rest fill (red)",
+      "description": "Req for: CTAs, the fill one step from rest\nUse: Use: the fill one step from rest, with the fill at rest; for nothing else. Always bordered with the edge\nTheming: follows the fill at rest (red)",
       "external": true,
       "values": {
         "light": {
@@ -1017,9 +1017,9 @@
       }
     },
     {
-      "path": "color/critical/stamp/fill-pressed",
+      "path": "color/critical/stamp-2",
       "type": "COLOR",
-      "description": "Req for: CTA pressed state\nUse: Use: the pressed state of the fill, with the fill; for nothing else. Always bordered with the edge\nTheming: follows its rest fill (red)",
+      "description": "Req for: CTAs, the fill two steps from rest\nUse: Use: the fill two steps from rest, with the fill at rest; for nothing else. Always bordered with the edge\nTheming: follows the fill at rest (red)",
       "external": true,
       "values": {
         "light": {
@@ -1033,9 +1033,9 @@
       }
     },
     {
-      "path": "color/critical/stamp/edge",
+      "path": "color/critical/stamp-edge",
       "type": "COLOR",
-      "description": "Req for: min APCA visibility\nUse: Use: the border of the fill and its states, always rendered with them and never without them (it resolves to transparent unless the fill sits close to the page); for nothing else\nTheming: draws for CTAs that sit close to the page; strength per family tier (red)",
+      "description": "Req for: min APCA visibility\nUse: Use: the border of the fill at every step, always rendered with it and never without it (it resolves to transparent unless the fill sits close to the page); for nothing else\nTheming: draws for CTAs that sit close to the page; strength per family tier (red)",
       "external": true,
       "values": {
         "light": {
@@ -1049,9 +1049,9 @@
       }
     },
     {
-      "path": "color/critical/stamp/on",
+      "path": "color/critical/stamp-on",
       "type": "COLOR",
-      "description": "Req for: text over the CTA color\nUse: AA standard body text over its CTA\nUse: the only text color over the fill; never elsewhere\nTheming: whichever pole passes; quiet CTAs take the soft pole (red)",
+      "description": "Req for: text over the CTA color\nUse: AA standard body text over its CTA\nUse: the only text color over the fill at every step; never elsewhere\nTheming: whichever pole passes; quiet CTAs take the soft pole (red)",
       "external": true,
       "values": {
         "light": {
@@ -1241,9 +1241,9 @@
       }
     },
     {
-      "path": "color/warning/stamp/fill",
+      "path": "color/warning/stamp-0",
       "type": "COLOR",
-      "description": "Req for: CTAs\nUse: Use: primary button fills; optional for avatars, badges and other elements that carry text. Not a standalone color: it has no contrast guarantee of its own, only its on-text has one. Use it alone or with its hover and pressed states. Always bordered with its edge\nTheming: fully re-solved per theme and family (yellow)",
+      "description": "Req for: CTAs, the fill at rest\nUse: Use: primary button fills; optional for avatars, badges and other elements that carry text. Not a standalone color: it has no contrast guarantee of its own, only its on-text has one. Use it alone or with the two steps above it. Always bordered with its edge\nTheming: fully re-solved per theme and family (yellow)",
       "external": true,
       "values": {
         "light": {
@@ -1257,9 +1257,9 @@
       }
     },
     {
-      "path": "color/warning/stamp/fill-hover",
+      "path": "color/warning/stamp-1",
       "type": "COLOR",
-      "description": "Req for: CTA pointer-over state\nUse: Use: the pointer-over state of the fill, with the fill; for nothing else. Always bordered with the edge\nTheming: follows its rest fill (yellow)",
+      "description": "Req for: CTAs, the fill one step from rest\nUse: Use: the fill one step from rest, with the fill at rest; for nothing else. Always bordered with the edge\nTheming: follows the fill at rest (yellow)",
       "external": true,
       "values": {
         "light": {
@@ -1273,9 +1273,9 @@
       }
     },
     {
-      "path": "color/warning/stamp/fill-pressed",
+      "path": "color/warning/stamp-2",
       "type": "COLOR",
-      "description": "Req for: CTA pressed state\nUse: Use: the pressed state of the fill, with the fill; for nothing else. Always bordered with the edge\nTheming: follows its rest fill (yellow)",
+      "description": "Req for: CTAs, the fill two steps from rest\nUse: Use: the fill two steps from rest, with the fill at rest; for nothing else. Always bordered with the edge\nTheming: follows the fill at rest (yellow)",
       "external": true,
       "values": {
         "light": {
@@ -1289,9 +1289,9 @@
       }
     },
     {
-      "path": "color/warning/stamp/edge",
+      "path": "color/warning/stamp-edge",
       "type": "COLOR",
-      "description": "Req for: min APCA visibility\nUse: Use: the border of the fill and its states, always rendered with them and never without them (it resolves to transparent unless the fill sits close to the page); for nothing else\nTheming: draws for CTAs that sit close to the page; strength per family tier (yellow)",
+      "description": "Req for: min APCA visibility\nUse: Use: the border of the fill at every step, always rendered with it and never without it (it resolves to transparent unless the fill sits close to the page); for nothing else\nTheming: draws for CTAs that sit close to the page; strength per family tier (yellow)",
       "external": true,
       "values": {
         "light": {
@@ -1305,9 +1305,9 @@
       }
     },
     {
-      "path": "color/warning/stamp/on",
+      "path": "color/warning/stamp-on",
       "type": "COLOR",
-      "description": "Req for: text over the CTA color\nUse: AA standard body text over its CTA\nUse: the only text color over the fill; never elsewhere\nTheming: whichever pole passes; quiet CTAs take the soft pole (yellow)",
+      "description": "Req for: text over the CTA color\nUse: AA standard body text over its CTA\nUse: the only text color over the fill at every step; never elsewhere\nTheming: whichever pole passes; quiet CTAs take the soft pole (yellow)",
       "external": true,
       "values": {
         "light": {
@@ -1497,9 +1497,9 @@
       }
     },
     {
-      "path": "color/positive/stamp/fill",
+      "path": "color/positive/stamp-0",
       "type": "COLOR",
-      "description": "Req for: CTAs\nUse: Use: primary button fills; optional for avatars, badges and other elements that carry text. Not a standalone color: it has no contrast guarantee of its own, only its on-text has one. Use it alone or with its hover and pressed states. Always bordered with its edge\nTheming: fully re-solved per theme and family (green)",
+      "description": "Req for: CTAs, the fill at rest\nUse: Use: primary button fills; optional for avatars, badges and other elements that carry text. Not a standalone color: it has no contrast guarantee of its own, only its on-text has one. Use it alone or with the two steps above it. Always bordered with its edge\nTheming: fully re-solved per theme and family (green)",
       "external": true,
       "values": {
         "light": {
@@ -1513,9 +1513,9 @@
       }
     },
     {
-      "path": "color/positive/stamp/fill-hover",
+      "path": "color/positive/stamp-1",
       "type": "COLOR",
-      "description": "Req for: CTA pointer-over state\nUse: Use: the pointer-over state of the fill, with the fill; for nothing else. Always bordered with the edge\nTheming: follows its rest fill (green)",
+      "description": "Req for: CTAs, the fill one step from rest\nUse: Use: the fill one step from rest, with the fill at rest; for nothing else. Always bordered with the edge\nTheming: follows the fill at rest (green)",
       "external": true,
       "values": {
         "light": {
@@ -1529,9 +1529,9 @@
       }
     },
     {
-      "path": "color/positive/stamp/fill-pressed",
+      "path": "color/positive/stamp-2",
       "type": "COLOR",
-      "description": "Req for: CTA pressed state\nUse: Use: the pressed state of the fill, with the fill; for nothing else. Always bordered with the edge\nTheming: follows its rest fill (green)",
+      "description": "Req for: CTAs, the fill two steps from rest\nUse: Use: the fill two steps from rest, with the fill at rest; for nothing else. Always bordered with the edge\nTheming: follows the fill at rest (green)",
       "external": true,
       "values": {
         "light": {
@@ -1545,9 +1545,9 @@
       }
     },
     {
-      "path": "color/positive/stamp/edge",
+      "path": "color/positive/stamp-edge",
       "type": "COLOR",
-      "description": "Req for: min APCA visibility\nUse: Use: the border of the fill and its states, always rendered with them and never without them (it resolves to transparent unless the fill sits close to the page); for nothing else\nTheming: draws for CTAs that sit close to the page; strength per family tier (green)",
+      "description": "Req for: min APCA visibility\nUse: Use: the border of the fill at every step, always rendered with it and never without it (it resolves to transparent unless the fill sits close to the page); for nothing else\nTheming: draws for CTAs that sit close to the page; strength per family tier (green)",
       "external": true,
       "values": {
         "light": {
@@ -1561,9 +1561,9 @@
       }
     },
     {
-      "path": "color/positive/stamp/on",
+      "path": "color/positive/stamp-on",
       "type": "COLOR",
-      "description": "Req for: text over the CTA color\nUse: AA standard body text over its CTA\nUse: the only text color over the fill; never elsewhere\nTheming: whichever pole passes; quiet CTAs take the soft pole (green)",
+      "description": "Req for: text over the CTA color\nUse: AA standard body text over its CTA\nUse: the only text color over the fill at every step; never elsewhere\nTheming: whichever pole passes; quiet CTAs take the soft pole (green)",
       "external": true,
       "values": {
         "light": {
@@ -1753,9 +1753,9 @@
       }
     },
     {
-      "path": "color/info/stamp/fill",
+      "path": "color/info/stamp-0",
       "type": "COLOR",
-      "description": "Req for: CTAs\nUse: Use: primary button fills; optional for avatars, badges and other elements that carry text. Not a standalone color: it has no contrast guarantee of its own, only its on-text has one. Use it alone or with its hover and pressed states. Always bordered with its edge\nTheming: fully re-solved per theme and family (blue)",
+      "description": "Req for: CTAs, the fill at rest\nUse: Use: primary button fills; optional for avatars, badges and other elements that carry text. Not a standalone color: it has no contrast guarantee of its own, only its on-text has one. Use it alone or with the two steps above it. Always bordered with its edge\nTheming: fully re-solved per theme and family (blue)",
       "external": true,
       "values": {
         "light": {
@@ -1769,9 +1769,9 @@
       }
     },
     {
-      "path": "color/info/stamp/fill-hover",
+      "path": "color/info/stamp-1",
       "type": "COLOR",
-      "description": "Req for: CTA pointer-over state\nUse: Use: the pointer-over state of the fill, with the fill; for nothing else. Always bordered with the edge\nTheming: follows its rest fill (blue)",
+      "description": "Req for: CTAs, the fill one step from rest\nUse: Use: the fill one step from rest, with the fill at rest; for nothing else. Always bordered with the edge\nTheming: follows the fill at rest (blue)",
       "external": true,
       "values": {
         "light": {
@@ -1785,9 +1785,9 @@
       }
     },
     {
-      "path": "color/info/stamp/fill-pressed",
+      "path": "color/info/stamp-2",
       "type": "COLOR",
-      "description": "Req for: CTA pressed state\nUse: Use: the pressed state of the fill, with the fill; for nothing else. Always bordered with the edge\nTheming: follows its rest fill (blue)",
+      "description": "Req for: CTAs, the fill two steps from rest\nUse: Use: the fill two steps from rest, with the fill at rest; for nothing else. Always bordered with the edge\nTheming: follows the fill at rest (blue)",
       "external": true,
       "values": {
         "light": {
@@ -1801,9 +1801,9 @@
       }
     },
     {
-      "path": "color/info/stamp/edge",
+      "path": "color/info/stamp-edge",
       "type": "COLOR",
-      "description": "Req for: min APCA visibility\nUse: Use: the border of the fill and its states, always rendered with them and never without them (it resolves to transparent unless the fill sits close to the page); for nothing else\nTheming: draws for CTAs that sit close to the page; strength per family tier (blue)",
+      "description": "Req for: min APCA visibility\nUse: Use: the border of the fill at every step, always rendered with it and never without it (it resolves to transparent unless the fill sits close to the page); for nothing else\nTheming: draws for CTAs that sit close to the page; strength per family tier (blue)",
       "external": true,
       "values": {
         "light": {
@@ -1817,9 +1817,9 @@
       }
     },
     {
-      "path": "color/info/stamp/on",
+      "path": "color/info/stamp-on",
       "type": "COLOR",
-      "description": "Req for: text over the CTA color\nUse: AA standard body text over its CTA\nUse: the only text color over the fill; never elsewhere\nTheming: whichever pole passes; quiet CTAs take the soft pole (blue)",
+      "description": "Req for: text over the CTA color\nUse: AA standard body text over its CTA\nUse: the only text color over the fill at every step; never elsewhere\nTheming: whichever pole passes; quiet CTAs take the soft pole (blue)",
       "external": true,
       "values": {
         "light": {
@@ -1833,7 +1833,7 @@
       }
     },
     {
-      "path": "color/link/default/enabled",
+      "path": "color/link/default-0",
       "type": "COLOR",
       "description": "Req for: links\nUse: AA standard body text on every paper of the neutral\nUse: hyperlinks; not a text-style CTA, which is the text stops read as states\nTheming: rides the theme’s link color; custom seed re-solves; overridable per theme",
       "external": true,
@@ -1847,9 +1847,9 @@
       }
     },
     {
-      "path": "color/link/default/hover",
+      "path": "color/link/default-1",
       "type": "COLOR",
-      "description": "Req for: links pointer-over\nUse: AA standard body text on every paper of the neutral\nUse: hyperlinks; not a text-style CTA, which is the text stops read as states\nTheming: rides the theme’s link color; custom seed re-solves; overridable per theme",
+      "description": "Req for: links, one step from rest\nUse: AA standard body text on every paper of the neutral\nUse: hyperlinks; not a text-style CTA, which is the text stops read as states\nTheming: rides the theme’s link color; custom seed re-solves; overridable per theme",
       "external": true,
       "values": {
         "light": {
@@ -1861,9 +1861,9 @@
       }
     },
     {
-      "path": "color/link/default/pressed",
+      "path": "color/link/default-2",
       "type": "COLOR",
-      "description": "Req for: links pressed\nUse: AA standard body text on every paper of the neutral\nUse: hyperlinks; not a text-style CTA, which is the text stops read as states\nTheming: rides the theme’s link color; custom seed re-solves; overridable per theme",
+      "description": "Req for: links, two steps from rest\nUse: AA standard body text on every paper of the neutral\nUse: hyperlinks; not a text-style CTA, which is the text stops read as states\nTheming: rides the theme’s link color; custom seed re-solves; overridable per theme",
       "external": true,
       "values": {
         "light": {
@@ -1875,7 +1875,7 @@
       }
     },
     {
-      "path": "color/link/inverse/enabled",
+      "path": "color/link/inverse-0",
       "type": "COLOR",
       "description": "Req for: links over inverted backgrounds",
       "external": true,
@@ -1891,9 +1891,9 @@
       }
     },
     {
-      "path": "color/link/inverse/hover",
+      "path": "color/link/inverse-1",
       "type": "COLOR",
-      "description": "Req for: links over inverted backgrounds pointer-over",
+      "description": "Req for: links over inverted backgrounds, one step from rest",
       "external": true,
       "values": {
         "light": {
@@ -1907,9 +1907,9 @@
       }
     },
     {
-      "path": "color/link/inverse/pressed",
+      "path": "color/link/inverse-2",
       "type": "COLOR",
-      "description": "Req for: links over inverted backgrounds pressed",
+      "description": "Req for: links over inverted backgrounds, two steps from rest",
       "external": true,
       "values": {
         "light": {

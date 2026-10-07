@@ -9,9 +9,12 @@ import { FAMILY, STATE, type State, type Word } from '../grammar/words.ts'
 import type { ColorDeclaration, Ladder, OpacityDeclaration } from './declare.ts'
 import { color, type Token, type Value } from './types.ts'
 
-/** the engine's path for a family's leaf */
-const E = (family: string, leaf: string): TokenPath => ['color', family, ...leaf.split('/')]
-const LINK = (posture: 'default' | 'inverse', state: string): TokenPath => ['color', 'link', posture, state]
+/** the engine's path for a family's leaf: every engine row is a family and one word, the word a position */
+const E = (family: string, leaf: string): TokenPath => ['color', family, leaf]
+// the engine names a state as a step from rest, and the state word is this side's
+const STEP: Record<string, number> = { enabled: 0, hover: 1, pressed: 2 }
+const stepOf = (state: string): number => { const n = STEP[state]; if (n === undefined) throw new Error(`no engine step for the state ${state}`); return n }
+const LINK = (posture: 'default' | 'inverse', state: string): TokenPath => ['color', 'link', `${posture}-${stepOf(state)}`]
 const alias = (target: TokenPath): Value => ({ type: 'color', alias: target })
 const transparent: Value = { type: 'color', value: color('#000000', 0) }
 const black: Value = { type: 'color', value: color('#000000') }
@@ -94,10 +97,9 @@ export function colorTokens(d: ColorDeclaration, o: OpacityDeclaration): Token[]
     out.push(row([...into, 'ghost', 'enabled'], transparent, `the ghost ground of ${who}, at rest`, 'transparent: ghost and outline buttons, icon buttons, rows and menu items show the surface', undefined, ghost))
     for (const s of GHOST_STATES) out.push(row([...into, 'ghost', s], alias(hl), `the ghost ground of ${who}, ${STATE_TEXT[s]}`, 'the highlighter at an opacity, over the surface', ['opacity', 'ghost', s], ghost))
     for (const s of STATE) out.push(row([...into, 'soft', s], alias(hl), `the soft ground of ${who}, ${STATE_TEXT[s]}`, 'a tint at rest, stronger when touched: chips, a selected tab, a soft button; the highlighter at an opacity', ['opacity', 'soft', s], soft))
-    const stampLeaf: Record<(typeof SOLID_STATES)[number], string> = { enabled: 'stamp/fill', hover: 'stamp/fill-hover', pressed: 'stamp/fill-pressed' }
-    for (const s of SOLID_STATES) out.push(row([...into, 'solid', s], alias(E(fam, stampLeaf[s])), `the solid ground of ${who}, ${STATE_TEXT[s]}`, `the engine's stamp, solved per brand; always with the on-solid text and the solid border`, undefined, solid))
-    out.push(row(['color', 'border', ...(family ? [family] : []), 'solid'], alias(E(fam, 'stamp/edge')), `the edge of the solid ground of ${who}`, 'always drawn; it resolves to transparent where the fill needs no edge, so layout never shifts', undefined, solid))
-    out.push(row(['color', 'fg', ...(family ? [family] : []), 'on-solid'], alias(E(fam, 'stamp/on')), `text and icons over the solid ground of ${who}`, 'the only text color over the solid fill; never elsewhere', undefined, solid))
+    for (const s of SOLID_STATES) out.push(row([...into, 'solid', s], alias(E(fam, `stamp-${stepOf(s)}`)), `the solid ground of ${who}, ${STATE_TEXT[s]}`, `the engine's stamp, solved per brand; always with the on-solid text and the solid border`, undefined, solid))
+    out.push(row(['color', 'border', ...(family ? [family] : []), 'solid'], alias(E(fam, 'stamp-edge')), `the edge of the solid ground of ${who}`, 'always drawn; it resolves to transparent where the fill needs no edge, so layout never shifts', undefined, solid))
+    out.push(row(['color', 'fg', ...(family ? [family] : []), 'on-solid'], alias(E(fam, 'stamp-on')), `text and icons over the solid ground of ${who}`, 'the only text color over the solid fill; never elsewhere', undefined, solid))
   }
 
   // the neutral

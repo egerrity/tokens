@@ -183,77 +183,75 @@
         },
         "$description": "Req for: max-emphasis text\nAA standard body text on every paper and chalk of every family"
       },
-      "stamp": {
-        "fill": {
-          "$type": "color",
-          "$value": {
-            "colorSpace": "srgb",
-            "components": [
-              0.1804,
-              0.1843,
-              0.2
-            ],
-            "alpha": 1,
-            "hex": "#2e2f33"
-          },
-          "$description": "Req for: CTAs\nUse: primary button fills; optional for avatars, badges and other elements that carry text. Not a standalone color: it has no contrast guarantee of its own, only its on-text has one. Use it alone or with its hover and pressed states. Always bordered with its edge\nTheming: fully re-solved per theme and family (gray)"
+      "stamp-0": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.1804,
+            0.1843,
+            0.2
+          ],
+          "alpha": 1,
+          "hex": "#2e2f33"
         },
-        "fill-hover": {
-          "$type": "color",
-          "$value": {
-            "colorSpace": "srgb",
-            "components": [
-              0.2314,
-              0.2353,
-              0.2471
-            ],
-            "alpha": 1,
-            "hex": "#3b3c3f"
-          },
-          "$description": "Req for: CTA pointer-over state\nUse: the pointer-over state of the fill, with the fill; for nothing else. Always bordered with the edge\nTheming: follows its rest fill (gray)"
+        "$description": "Req for: CTAs, the fill at rest\nUse: primary button fills; optional for avatars, badges and other elements that carry text. Not a standalone color: it has no contrast guarantee of its own, only its on-text has one. Use it alone or with the two steps above it. Always bordered with its edge\nTheming: fully re-solved per theme and family (gray)"
+      },
+      "stamp-1": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.2314,
+            0.2353,
+            0.2471
+          ],
+          "alpha": 1,
+          "hex": "#3b3c3f"
         },
-        "fill-pressed": {
-          "$type": "color",
-          "$value": {
-            "colorSpace": "srgb",
-            "components": [
-              0.2824,
-              0.2863,
-              0.298
-            ],
-            "alpha": 1,
-            "hex": "#48494c"
-          },
-          "$description": "Req for: CTA pressed state\nUse: the pressed state of the fill, with the fill; for nothing else. Always bordered with the edge\nTheming: follows its rest fill (gray)"
+        "$description": "Req for: CTAs, the fill one step from rest\nUse: the fill one step from rest, with the fill at rest; for nothing else. Always bordered with the edge\nTheming: follows the fill at rest (gray)"
+      },
+      "stamp-2": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.2824,
+            0.2863,
+            0.298
+          ],
+          "alpha": 1,
+          "hex": "#48494c"
         },
-        "edge": {
-          "$type": "color",
-          "$value": {
-            "colorSpace": "srgb",
-            "components": [
-              1,
-              1,
-              1
-            ],
-            "alpha": 0.08,
-            "hex": "#ffffff"
-          },
-          "$description": "Req for: min APCA visibility\nUse: the border of the fill and its states, always rendered with them and never without them (it resolves to transparent unless the fill sits close to the page); for nothing else\nTheming: draws for CTAs that sit close to the page; strength per family tier (gray)"
+        "$description": "Req for: CTAs, the fill two steps from rest\nUse: the fill two steps from rest, with the fill at rest; for nothing else. Always bordered with the edge\nTheming: follows the fill at rest (gray)"
+      },
+      "stamp-edge": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            1,
+            1,
+            1
+          ],
+          "alpha": 0.08,
+          "hex": "#ffffff"
         },
-        "on": {
-          "$type": "color",
-          "$value": {
-            "colorSpace": "srgb",
-            "components": [
-              1,
-              1,
-              1
-            ],
-            "alpha": 0.8,
-            "hex": "#ffffff"
-          },
-          "$description": "Req for: text over the CTA color\nAA standard body text over its CTA\nUse: the only text color over the fill; never elsewhere\nTheming: whichever pole passes; quiet CTAs take the soft pole (gray)"
-        }
+        "$description": "Req for: min APCA visibility\nUse: the border of the fill at every step, always rendered with it and never without it (it resolves to transparent unless the fill sits close to the page); for nothing else\nTheming: draws for CTAs that sit close to the page; strength per family tier (gray)"
+      },
+      "stamp-on": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            1,
+            1,
+            1
+          ],
+          "alpha": 0.8,
+          "hex": "#ffffff"
+        },
+        "$description": "Req for: text over the CTA color\nAA standard body text over its CTA\nUse: the only text color over the fill at every step; never elsewhere\nTheming: whichever pole passes; quiet CTAs take the soft pole (gray)"
       }
     },
     "brand": {
@@ -411,77 +409,75 @@
         },
         "$description": "Req for: heavy-emphasis text, inverted backgrounds\nAA standard body text on every paper and chalk of this family and of the neutral\nTheming: tints carry brand hue; re-solved to clear its floor"
       },
-      "stamp": {
-        "fill": {
-          "$type": "color",
-          "$value": {
-            "colorSpace": "srgb",
-            "components": [
-              0.5804,
-              0.7412,
-              1
-            ],
-            "alpha": 1,
-            "hex": "#94bdff"
-          },
-          "$description": "Req for: CTAs\nUse: primary button fills; optional for avatars, badges and other elements that carry text. Not a standalone color: it has no contrast guarantee of its own, only its on-text has one. Use it alone or with its hover and pressed states. Always bordered with its edge\nTheming: fully re-solved per theme and family"
+      "stamp-0": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.5804,
+            0.7412,
+            1
+          ],
+          "alpha": 1,
+          "hex": "#94bdff"
         },
-        "fill-hover": {
-          "$type": "color",
-          "$value": {
-            "colorSpace": "srgb",
-            "components": [
-              0.6824,
-              0.8039,
-              1
-            ],
-            "alpha": 1,
-            "hex": "#aecdff"
-          },
-          "$description": "Req for: CTA pointer-over state\nUse: the pointer-over state of the fill, with the fill; for nothing else. Always bordered with the edge\nTheming: follows its rest fill"
+        "$description": "Req for: CTAs, the fill at rest\nUse: primary button fills; optional for avatars, badges and other elements that carry text. Not a standalone color: it has no contrast guarantee of its own, only its on-text has one. Use it alone or with the two steps above it. Always bordered with its edge\nTheming: fully re-solved per theme and family"
+      },
+      "stamp-1": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.6824,
+            0.8039,
+            1
+          ],
+          "alpha": 1,
+          "hex": "#aecdff"
         },
-        "fill-pressed": {
-          "$type": "color",
-          "$value": {
-            "colorSpace": "srgb",
-            "components": [
-              0.7843,
-              0.8706,
-              1
-            ],
-            "alpha": 1,
-            "hex": "#c8deff"
-          },
-          "$description": "Req for: CTA pressed state\nUse: the pressed state of the fill, with the fill; for nothing else. Always bordered with the edge\nTheming: follows its rest fill"
+        "$description": "Req for: CTAs, the fill one step from rest\nUse: the fill one step from rest, with the fill at rest; for nothing else. Always bordered with the edge\nTheming: follows the fill at rest"
+      },
+      "stamp-2": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.7843,
+            0.8706,
+            1
+          ],
+          "alpha": 1,
+          "hex": "#c8deff"
         },
-        "edge": {
-          "$type": "color",
-          "$value": {
-            "colorSpace": "srgb",
-            "components": [
-              0,
-              0,
-              0
-            ],
-            "alpha": 0,
-            "hex": "#000000"
-          },
-          "$description": "Req for: min APCA visibility\nUse: the border of the fill and its states, always rendered with them and never without them (it resolves to transparent unless the fill sits close to the page); for nothing else\nTheming: draws for CTAs that sit close to the page; strength per family tier"
+        "$description": "Req for: CTAs, the fill two steps from rest\nUse: the fill two steps from rest, with the fill at rest; for nothing else. Always bordered with the edge\nTheming: follows the fill at rest"
+      },
+      "stamp-edge": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0,
+            0,
+            0
+          ],
+          "alpha": 0,
+          "hex": "#000000"
         },
-        "on": {
-          "$type": "color",
-          "$value": {
-            "colorSpace": "srgb",
-            "components": [
-              0,
-              0,
-              0
-            ],
-            "alpha": 1,
-            "hex": "#000000"
-          },
-          "$description": "Req for: text over the CTA color\nAA standard body text over its CTA\nUse: the only text color over the fill; never elsewhere\nTheming: whichever pole passes; quiet CTAs take the soft pole"
-        }
+        "$description": "Req for: min APCA visibility\nUse: the border of the fill at every step, always rendered with it and never without it (it resolves to transparent unless the fill sits close to the page); for nothing else\nTheming: draws for CTAs that sit close to the page; strength per family tier"
+      },
+      "stamp-on": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0,
+            0,
+            0
+          ],
+          "alpha": 1,
+          "hex": "#000000"
+        },
+        "$description": "Req for: text over the CTA color\nAA standard body text over its CTA\nUse: the only text color over the fill at every step; never elsewhere\nTheming: whichever pole passes; quiet CTAs take the soft pole"
       }
     },
     "brand-alt": {
@@ -639,77 +635,75 @@
         },
         "$description": "Req for: heavy-emphasis text, inverted backgrounds\nAA standard body text on every paper and chalk of this family and of the neutral\nTheming: tints carry brand-alt hue; re-solved to clear its floor"
       },
-      "stamp": {
-        "fill": {
-          "$type": "color",
-          "$value": {
-            "colorSpace": "srgb",
-            "components": [
-              0.3451,
-              0.3961,
-              0.4745
-            ],
-            "alpha": 1,
-            "hex": "#586579"
-          },
-          "$description": "Req for: CTAs\nUse: primary button fills; optional for avatars, badges and other elements that carry text. Not a standalone color: it has no contrast guarantee of its own, only its on-text has one. Use it alone or with its hover and pressed states. Always bordered with its edge\nTheming: fully re-solved per theme and family"
+      "stamp-0": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.3451,
+            0.3961,
+            0.4745
+          ],
+          "alpha": 1,
+          "hex": "#586579"
         },
-        "fill-hover": {
-          "$type": "color",
-          "$value": {
-            "colorSpace": "srgb",
-            "components": [
-              0.4,
-              0.451,
-              0.5333
-            ],
-            "alpha": 1,
-            "hex": "#667388"
-          },
-          "$description": "Req for: CTA pointer-over state\nUse: the pointer-over state of the fill, with the fill; for nothing else. Always bordered with the edge\nTheming: follows its rest fill"
+        "$description": "Req for: CTAs, the fill at rest\nUse: primary button fills; optional for avatars, badges and other elements that carry text. Not a standalone color: it has no contrast guarantee of its own, only its on-text has one. Use it alone or with the two steps above it. Always bordered with its edge\nTheming: fully re-solved per theme and family"
+      },
+      "stamp-1": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.4,
+            0.451,
+            0.5333
+          ],
+          "alpha": 1,
+          "hex": "#667388"
         },
-        "fill-pressed": {
-          "$type": "color",
-          "$value": {
-            "colorSpace": "srgb",
-            "components": [
-              0.4549,
-              0.5098,
-              0.5922
-            ],
-            "alpha": 1,
-            "hex": "#748297"
-          },
-          "$description": "Req for: CTA pressed state\nUse: the pressed state of the fill, with the fill; for nothing else. Always bordered with the edge\nTheming: follows its rest fill"
+        "$description": "Req for: CTAs, the fill one step from rest\nUse: the fill one step from rest, with the fill at rest; for nothing else. Always bordered with the edge\nTheming: follows the fill at rest"
+      },
+      "stamp-2": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.4549,
+            0.5098,
+            0.5922
+          ],
+          "alpha": 1,
+          "hex": "#748297"
         },
-        "edge": {
-          "$type": "color",
-          "$value": {
-            "colorSpace": "srgb",
-            "components": [
-              0,
-              0,
-              0
-            ],
-            "alpha": 0,
-            "hex": "#000000"
-          },
-          "$description": "Req for: min APCA visibility\nUse: the border of the fill and its states, always rendered with them and never without them (it resolves to transparent unless the fill sits close to the page); for nothing else\nTheming: draws for CTAs that sit close to the page; strength per family tier"
+        "$description": "Req for: CTAs, the fill two steps from rest\nUse: the fill two steps from rest, with the fill at rest; for nothing else. Always bordered with the edge\nTheming: follows the fill at rest"
+      },
+      "stamp-edge": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0,
+            0,
+            0
+          ],
+          "alpha": 0,
+          "hex": "#000000"
         },
-        "on": {
-          "$type": "color",
-          "$value": {
-            "colorSpace": "srgb",
-            "components": [
-              1,
-              1,
-              1
-            ],
-            "alpha": 1,
-            "hex": "#ffffff"
-          },
-          "$description": "Req for: text over the CTA color\nAA standard body text over its CTA\nUse: the only text color over the fill; never elsewhere\nTheming: whichever pole passes; quiet CTAs take the soft pole"
-        }
+        "$description": "Req for: min APCA visibility\nUse: the border of the fill at every step, always rendered with it and never without it (it resolves to transparent unless the fill sits close to the page); for nothing else\nTheming: draws for CTAs that sit close to the page; strength per family tier"
+      },
+      "stamp-on": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            1,
+            1,
+            1
+          ],
+          "alpha": 1,
+          "hex": "#ffffff"
+        },
+        "$description": "Req for: text over the CTA color\nAA standard body text over its CTA\nUse: the only text color over the fill at every step; never elsewhere\nTheming: whichever pole passes; quiet CTAs take the soft pole"
       }
     },
     "critical": {
@@ -867,77 +861,75 @@
         },
         "$description": "Req for: heavy-emphasis text, inverted backgrounds\nAA standard body text on every paper and chalk of this family and of the neutral\nTheming: tints carry critical hue (red); re-solved to clear its floor\nshifts to avoid similar colors"
       },
-      "stamp": {
-        "fill": {
-          "$type": "color",
-          "$value": {
-            "colorSpace": "srgb",
-            "components": [
-              0.8392,
-              0.2431,
-              0.1176
-            ],
-            "alpha": 1,
-            "hex": "#d63e1e"
-          },
-          "$description": "Req for: CTAs\nUse: primary button fills; optional for avatars, badges and other elements that carry text. Not a standalone color: it has no contrast guarantee of its own, only its on-text has one. Use it alone or with its hover and pressed states. Always bordered with its edge\nTheming: fully re-solved per theme and family (red)"
+      "stamp-0": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.8392,
+            0.2431,
+            0.1176
+          ],
+          "alpha": 1,
+          "hex": "#d63e1e"
         },
-        "fill-hover": {
-          "$type": "color",
-          "$value": {
-            "colorSpace": "srgb",
-            "components": [
-              0.9098,
-              0.3137,
-              0.1922
-            ],
-            "alpha": 1,
-            "hex": "#e85031"
-          },
-          "$description": "Req for: CTA pointer-over state\nUse: the pointer-over state of the fill, with the fill; for nothing else. Always bordered with the edge\nTheming: follows its rest fill (red)"
+        "$description": "Req for: CTAs, the fill at rest\nUse: primary button fills; optional for avatars, badges and other elements that carry text. Not a standalone color: it has no contrast guarantee of its own, only its on-text has one. Use it alone or with the two steps above it. Always bordered with its edge\nTheming: fully re-solved per theme and family (red)"
+      },
+      "stamp-1": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.9098,
+            0.3137,
+            0.1922
+          ],
+          "alpha": 1,
+          "hex": "#e85031"
         },
-        "fill-pressed": {
-          "$type": "color",
-          "$value": {
-            "colorSpace": "srgb",
-            "components": [
-              0.9804,
-              0.3804,
-              0.2549
-            ],
-            "alpha": 1,
-            "hex": "#fa6141"
-          },
-          "$description": "Req for: CTA pressed state\nUse: the pressed state of the fill, with the fill; for nothing else. Always bordered with the edge\nTheming: follows its rest fill (red)"
+        "$description": "Req for: CTAs, the fill one step from rest\nUse: the fill one step from rest, with the fill at rest; for nothing else. Always bordered with the edge\nTheming: follows the fill at rest (red)"
+      },
+      "stamp-2": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.9804,
+            0.3804,
+            0.2549
+          ],
+          "alpha": 1,
+          "hex": "#fa6141"
         },
-        "edge": {
-          "$type": "color",
-          "$value": {
-            "colorSpace": "srgb",
-            "components": [
-              0,
-              0,
-              0
-            ],
-            "alpha": 0,
-            "hex": "#000000"
-          },
-          "$description": "Req for: min APCA visibility\nUse: the border of the fill and its states, always rendered with them and never without them (it resolves to transparent unless the fill sits close to the page); for nothing else\nTheming: draws for CTAs that sit close to the page; strength per family tier (red)"
+        "$description": "Req for: CTAs, the fill two steps from rest\nUse: the fill two steps from rest, with the fill at rest; for nothing else. Always bordered with the edge\nTheming: follows the fill at rest (red)"
+      },
+      "stamp-edge": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0,
+            0,
+            0
+          ],
+          "alpha": 0,
+          "hex": "#000000"
         },
-        "on": {
-          "$type": "color",
-          "$value": {
-            "colorSpace": "srgb",
-            "components": [
-              1,
-              1,
-              1
-            ],
-            "alpha": 1,
-            "hex": "#ffffff"
-          },
-          "$description": "Req for: text over the CTA color\nAA standard body text over its CTA\nUse: the only text color over the fill; never elsewhere\nTheming: whichever pole passes; quiet CTAs take the soft pole (red)"
-        }
+        "$description": "Req for: min APCA visibility\nUse: the border of the fill at every step, always rendered with it and never without it (it resolves to transparent unless the fill sits close to the page); for nothing else\nTheming: draws for CTAs that sit close to the page; strength per family tier (red)"
+      },
+      "stamp-on": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            1,
+            1,
+            1
+          ],
+          "alpha": 1,
+          "hex": "#ffffff"
+        },
+        "$description": "Req for: text over the CTA color\nAA standard body text over its CTA\nUse: the only text color over the fill at every step; never elsewhere\nTheming: whichever pole passes; quiet CTAs take the soft pole (red)"
       }
     },
     "warning": {
@@ -1095,77 +1087,75 @@
         },
         "$description": "Req for: heavy-emphasis text, inverted backgrounds\nAA standard body text on every paper and chalk of this family and of the neutral\nTheming: tints carry warning hue (yellow); re-solved to clear its floor\nshifts to avoid similar colors"
       },
-      "stamp": {
-        "fill": {
-          "$type": "color",
-          "$value": {
-            "colorSpace": "srgb",
-            "components": [
-              1,
-              0.7725,
-              0.2392
-            ],
-            "alpha": 1,
-            "hex": "#ffc53d"
-          },
-          "$description": "Req for: CTAs\nUse: primary button fills; optional for avatars, badges and other elements that carry text. Not a standalone color: it has no contrast guarantee of its own, only its on-text has one. Use it alone or with its hover and pressed states. Always bordered with its edge\nTheming: fully re-solved per theme and family (yellow)"
+      "stamp-0": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            1,
+            0.7725,
+            0.2392
+          ],
+          "alpha": 1,
+          "hex": "#ffc53d"
         },
-        "fill-hover": {
-          "$type": "color",
-          "$value": {
-            "colorSpace": "srgb",
-            "components": [
-              0.9333,
-              0.7098,
-              0.1412
-            ],
-            "alpha": 1,
-            "hex": "#eeb524"
-          },
-          "$description": "Req for: CTA pointer-over state\nUse: the pointer-over state of the fill, with the fill; for nothing else. Always bordered with the edge\nTheming: follows its rest fill (yellow)"
+        "$description": "Req for: CTAs, the fill at rest\nUse: primary button fills; optional for avatars, badges and other elements that carry text. Not a standalone color: it has no contrast guarantee of its own, only its on-text has one. Use it alone or with the two steps above it. Always bordered with its edge\nTheming: fully re-solved per theme and family (yellow)"
+      },
+      "stamp-1": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.9333,
+            0.7098,
+            0.1412
+          ],
+          "alpha": 1,
+          "hex": "#eeb524"
         },
-        "fill-pressed": {
-          "$type": "color",
-          "$value": {
-            "colorSpace": "srgb",
-            "components": [
-              0.8667,
-              0.6471,
-              0
-            ],
-            "alpha": 1,
-            "hex": "#dda500"
-          },
-          "$description": "Req for: CTA pressed state\nUse: the pressed state of the fill, with the fill; for nothing else. Always bordered with the edge\nTheming: follows its rest fill (yellow)"
+        "$description": "Req for: CTAs, the fill one step from rest\nUse: the fill one step from rest, with the fill at rest; for nothing else. Always bordered with the edge\nTheming: follows the fill at rest (yellow)"
+      },
+      "stamp-2": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.8667,
+            0.6471,
+            0
+          ],
+          "alpha": 1,
+          "hex": "#dda500"
         },
-        "edge": {
-          "$type": "color",
-          "$value": {
-            "colorSpace": "srgb",
-            "components": [
-              0,
-              0,
-              0
-            ],
-            "alpha": 0,
-            "hex": "#000000"
-          },
-          "$description": "Req for: min APCA visibility\nUse: the border of the fill and its states, always rendered with them and never without them (it resolves to transparent unless the fill sits close to the page); for nothing else\nTheming: draws for CTAs that sit close to the page; strength per family tier (yellow)"
+        "$description": "Req for: CTAs, the fill two steps from rest\nUse: the fill two steps from rest, with the fill at rest; for nothing else. Always bordered with the edge\nTheming: follows the fill at rest (yellow)"
+      },
+      "stamp-edge": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0,
+            0,
+            0
+          ],
+          "alpha": 0,
+          "hex": "#000000"
         },
-        "on": {
-          "$type": "color",
-          "$value": {
-            "colorSpace": "srgb",
-            "components": [
-              0,
-              0,
-              0
-            ],
-            "alpha": 1,
-            "hex": "#000000"
-          },
-          "$description": "Req for: text over the CTA color\nAA standard body text over its CTA\nUse: the only text color over the fill; never elsewhere\nTheming: whichever pole passes; quiet CTAs take the soft pole (yellow)"
-        }
+        "$description": "Req for: min APCA visibility\nUse: the border of the fill at every step, always rendered with it and never without it (it resolves to transparent unless the fill sits close to the page); for nothing else\nTheming: draws for CTAs that sit close to the page; strength per family tier (yellow)"
+      },
+      "stamp-on": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0,
+            0,
+            0
+          ],
+          "alpha": 1,
+          "hex": "#000000"
+        },
+        "$description": "Req for: text over the CTA color\nAA standard body text over its CTA\nUse: the only text color over the fill at every step; never elsewhere\nTheming: whichever pole passes; quiet CTAs take the soft pole (yellow)"
       }
     },
     "positive": {
@@ -1323,77 +1313,75 @@
         },
         "$description": "Req for: heavy-emphasis text, inverted backgrounds\nAA standard body text on every paper and chalk of this family and of the neutral\nTheming: tints carry positive hue (green); re-solved to clear its floor\nshifts to avoid similar colors"
       },
-      "stamp": {
-        "fill": {
-          "$type": "color",
-          "$value": {
-            "colorSpace": "srgb",
-            "components": [
-              0.4392,
-              0.8157,
-              0.498
-            ],
-            "alpha": 1,
-            "hex": "#70d07f"
-          },
-          "$description": "Req for: CTAs\nUse: primary button fills; optional for avatars, badges and other elements that carry text. Not a standalone color: it has no contrast guarantee of its own, only its on-text has one. Use it alone or with its hover and pressed states. Always bordered with its edge\nTheming: fully re-solved per theme and family (green)"
+      "stamp-0": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.4392,
+            0.8157,
+            0.498
+          ],
+          "alpha": 1,
+          "hex": "#70d07f"
         },
-        "fill-hover": {
-          "$type": "color",
-          "$value": {
-            "colorSpace": "srgb",
-            "components": [
-              0.502,
-              0.8784,
-              0.5569
-            ],
-            "alpha": 1,
-            "hex": "#80e08e"
-          },
-          "$description": "Req for: CTA pointer-over state\nUse: the pointer-over state of the fill, with the fill; for nothing else. Always bordered with the edge\nTheming: follows its rest fill (green)"
+        "$description": "Req for: CTAs, the fill at rest\nUse: primary button fills; optional for avatars, badges and other elements that carry text. Not a standalone color: it has no contrast guarantee of its own, only its on-text has one. Use it alone or with the two steps above it. Always bordered with its edge\nTheming: fully re-solved per theme and family (green)"
+      },
+      "stamp-1": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.502,
+            0.8784,
+            0.5569
+          ],
+          "alpha": 1,
+          "hex": "#80e08e"
         },
-        "fill-pressed": {
-          "$type": "color",
-          "$value": {
-            "colorSpace": "srgb",
-            "components": [
-              0.5647,
-              0.9451,
-              0.6196
-            ],
-            "alpha": 1,
-            "hex": "#90f19e"
-          },
-          "$description": "Req for: CTA pressed state\nUse: the pressed state of the fill, with the fill; for nothing else. Always bordered with the edge\nTheming: follows its rest fill (green)"
+        "$description": "Req for: CTAs, the fill one step from rest\nUse: the fill one step from rest, with the fill at rest; for nothing else. Always bordered with the edge\nTheming: follows the fill at rest (green)"
+      },
+      "stamp-2": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.5647,
+            0.9451,
+            0.6196
+          ],
+          "alpha": 1,
+          "hex": "#90f19e"
         },
-        "edge": {
-          "$type": "color",
-          "$value": {
-            "colorSpace": "srgb",
-            "components": [
-              0,
-              0,
-              0
-            ],
-            "alpha": 0,
-            "hex": "#000000"
-          },
-          "$description": "Req for: min APCA visibility\nUse: the border of the fill and its states, always rendered with them and never without them (it resolves to transparent unless the fill sits close to the page); for nothing else\nTheming: draws for CTAs that sit close to the page; strength per family tier (green)"
+        "$description": "Req for: CTAs, the fill two steps from rest\nUse: the fill two steps from rest, with the fill at rest; for nothing else. Always bordered with the edge\nTheming: follows the fill at rest (green)"
+      },
+      "stamp-edge": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0,
+            0,
+            0
+          ],
+          "alpha": 0,
+          "hex": "#000000"
         },
-        "on": {
-          "$type": "color",
-          "$value": {
-            "colorSpace": "srgb",
-            "components": [
-              0,
-              0,
-              0
-            ],
-            "alpha": 1,
-            "hex": "#000000"
-          },
-          "$description": "Req for: text over the CTA color\nAA standard body text over its CTA\nUse: the only text color over the fill; never elsewhere\nTheming: whichever pole passes; quiet CTAs take the soft pole (green)"
-        }
+        "$description": "Req for: min APCA visibility\nUse: the border of the fill at every step, always rendered with it and never without it (it resolves to transparent unless the fill sits close to the page); for nothing else\nTheming: draws for CTAs that sit close to the page; strength per family tier (green)"
+      },
+      "stamp-on": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0,
+            0,
+            0
+          ],
+          "alpha": 1,
+          "hex": "#000000"
+        },
+        "$description": "Req for: text over the CTA color\nAA standard body text over its CTA\nUse: the only text color over the fill at every step; never elsewhere\nTheming: whichever pole passes; quiet CTAs take the soft pole (green)"
       }
     },
     "info": {
@@ -1551,140 +1539,134 @@
         },
         "$description": "Req for: heavy-emphasis text, inverted backgrounds\nAA standard body text on every paper and chalk of this family and of the neutral\nTheming: tints carry info hue (blue); re-solved to clear its floor\nshifts to avoid similar colors"
       },
-      "stamp": {
-        "fill": {
-          "$type": "color",
-          "$value": {
-            "colorSpace": "srgb",
-            "components": [
-              0.7373,
-              0.702,
-              1
-            ],
-            "alpha": 1,
-            "hex": "#bcb3ff"
-          },
-          "$description": "Req for: CTAs\nUse: primary button fills; optional for avatars, badges and other elements that carry text. Not a standalone color: it has no contrast guarantee of its own, only its on-text has one. Use it alone or with its hover and pressed states. Always bordered with its edge\nTheming: fully re-solved per theme and family (blue)"
+      "stamp-0": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.7373,
+            0.702,
+            1
+          ],
+          "alpha": 1,
+          "hex": "#bcb3ff"
         },
-        "fill-hover": {
-          "$type": "color",
-          "$value": {
-            "colorSpace": "srgb",
-            "components": [
-              0.8,
-              0.7804,
-              1
-            ],
-            "alpha": 1,
-            "hex": "#ccc7ff"
-          },
-          "$description": "Req for: CTA pointer-over state\nUse: the pointer-over state of the fill, with the fill; for nothing else. Always bordered with the edge\nTheming: follows its rest fill (blue)"
+        "$description": "Req for: CTAs, the fill at rest\nUse: primary button fills; optional for avatars, badges and other elements that carry text. Not a standalone color: it has no contrast guarantee of its own, only its on-text has one. Use it alone or with the two steps above it. Always bordered with its edge\nTheming: fully re-solved per theme and family (blue)"
+      },
+      "stamp-1": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.8,
+            0.7804,
+            1
+          ],
+          "alpha": 1,
+          "hex": "#ccc7ff"
         },
-        "fill-pressed": {
-          "$type": "color",
-          "$value": {
-            "colorSpace": "srgb",
-            "components": [
-              0.8667,
-              0.8549,
-              1
-            ],
-            "alpha": 1,
-            "hex": "#dddaff"
-          },
-          "$description": "Req for: CTA pressed state\nUse: the pressed state of the fill, with the fill; for nothing else. Always bordered with the edge\nTheming: follows its rest fill (blue)"
+        "$description": "Req for: CTAs, the fill one step from rest\nUse: the fill one step from rest, with the fill at rest; for nothing else. Always bordered with the edge\nTheming: follows the fill at rest (blue)"
+      },
+      "stamp-2": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.8667,
+            0.8549,
+            1
+          ],
+          "alpha": 1,
+          "hex": "#dddaff"
         },
-        "edge": {
-          "$type": "color",
-          "$value": {
-            "colorSpace": "srgb",
-            "components": [
-              0,
-              0,
-              0
-            ],
-            "alpha": 0,
-            "hex": "#000000"
-          },
-          "$description": "Req for: min APCA visibility\nUse: the border of the fill and its states, always rendered with them and never without them (it resolves to transparent unless the fill sits close to the page); for nothing else\nTheming: draws for CTAs that sit close to the page; strength per family tier (blue)"
+        "$description": "Req for: CTAs, the fill two steps from rest\nUse: the fill two steps from rest, with the fill at rest; for nothing else. Always bordered with the edge\nTheming: follows the fill at rest (blue)"
+      },
+      "stamp-edge": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0,
+            0,
+            0
+          ],
+          "alpha": 0,
+          "hex": "#000000"
         },
-        "on": {
-          "$type": "color",
-          "$value": {
-            "colorSpace": "srgb",
-            "components": [
-              0,
-              0,
-              0
-            ],
-            "alpha": 1,
-            "hex": "#000000"
-          },
-          "$description": "Req for: text over the CTA color\nAA standard body text over its CTA\nUse: the only text color over the fill; never elsewhere\nTheming: whichever pole passes; quiet CTAs take the soft pole (blue)"
-        }
+        "$description": "Req for: min APCA visibility\nUse: the border of the fill at every step, always rendered with it and never without it (it resolves to transparent unless the fill sits close to the page); for nothing else\nTheming: draws for CTAs that sit close to the page; strength per family tier (blue)"
+      },
+      "stamp-on": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0,
+            0,
+            0
+          ],
+          "alpha": 1,
+          "hex": "#000000"
+        },
+        "$description": "Req for: text over the CTA color\nAA standard body text over its CTA\nUse: the only text color over the fill at every step; never elsewhere\nTheming: whichever pole passes; quiet CTAs take the soft pole (blue)"
       }
     },
     "link": {
-      "default": {
-        "enabled": {
-          "$type": "color",
-          "$value": "{color.brand.pencil-47}",
-          "$description": "Req for: links\nAA standard body text on every paper of the neutral\nUse: hyperlinks; not a text-style CTA, which is the text stops read as states\nTheming: rides the theme’s link color; custom seed re-solves; overridable per theme"
-        },
-        "hover": {
-          "$type": "color",
-          "$value": "{color.brand.pen-58}",
-          "$description": "Req for: links pointer-over\nAA standard body text on every paper of the neutral\nUse: hyperlinks; not a text-style CTA, which is the text stops read as states\nTheming: rides the theme’s link color; custom seed re-solves; overridable per theme"
-        },
-        "pressed": {
-          "$type": "color",
-          "$value": "{color.brand.pen-70}",
-          "$description": "Req for: links pressed\nAA standard body text on every paper of the neutral\nUse: hyperlinks; not a text-style CTA, which is the text stops read as states\nTheming: rides the theme’s link color; custom seed re-solves; overridable per theme"
-        }
+      "default-0": {
+        "$type": "color",
+        "$value": "{color.brand.pencil-47}",
+        "$description": "Req for: links\nAA standard body text on every paper of the neutral\nUse: hyperlinks; not a text-style CTA, which is the text stops read as states\nTheming: rides the theme’s link color; custom seed re-solves; overridable per theme"
       },
-      "inverse": {
-        "enabled": {
-          "$type": "color",
-          "$value": {
-            "colorSpace": "srgb",
-            "components": [
-              0.149,
-              0.3647,
-              0.7059
-            ],
-            "alpha": 1,
-            "hex": "#265db4"
-          },
-          "$description": "Req for: links over inverted backgrounds\nAA standard body text on any family's pen-70\nUse: hyperlinks on a pen-70 ground; not a text-style CTA\nTheming: same seed as the link, re-solved for inverted backgrounds; overridable per theme"
+      "default-1": {
+        "$type": "color",
+        "$value": "{color.brand.pen-58}",
+        "$description": "Req for: links, one step from rest\nAA standard body text on every paper of the neutral\nUse: hyperlinks; not a text-style CTA, which is the text stops read as states\nTheming: rides the theme’s link color; custom seed re-solves; overridable per theme"
+      },
+      "default-2": {
+        "$type": "color",
+        "$value": "{color.brand.pen-70}",
+        "$description": "Req for: links, two steps from rest\nAA standard body text on every paper of the neutral\nUse: hyperlinks; not a text-style CTA, which is the text stops read as states\nTheming: rides the theme’s link color; custom seed re-solves; overridable per theme"
+      },
+      "inverse-0": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.149,
+            0.3647,
+            0.7059
+          ],
+          "alpha": 1,
+          "hex": "#265db4"
         },
-        "hover": {
-          "$type": "color",
-          "$value": {
-            "colorSpace": "srgb",
-            "components": [
-              0,
-              0.2275,
-              0.5569
-            ],
-            "alpha": 1,
-            "hex": "#003a8e"
-          },
-          "$description": "Req for: links over inverted backgrounds pointer-over\nAA standard body text on any family's pen-70\nUse: hyperlinks on a pen-70 ground; not a text-style CTA\nTheming: same seed as the link, re-solved for inverted backgrounds; overridable per theme"
+        "$description": "Req for: links over inverted backgrounds\nAA standard body text on any family's pen-70\nUse: hyperlinks on a pen-70 ground; not a text-style CTA\nTheming: same seed as the link, re-solved for inverted backgrounds; overridable per theme"
+      },
+      "inverse-1": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0,
+            0.2275,
+            0.5569
+          ],
+          "alpha": 1,
+          "hex": "#003a8e"
         },
-        "pressed": {
-          "$type": "color",
-          "$value": {
-            "colorSpace": "srgb",
-            "components": [
-              0.0549,
-              0.1529,
-              0.3098
-            ],
-            "alpha": 1,
-            "hex": "#0e274f"
-          },
-          "$description": "Req for: links over inverted backgrounds pressed\nAA standard body text on any family's pen-70\nUse: hyperlinks on a pen-70 ground; not a text-style CTA\nTheming: same seed as the link, re-solved for inverted backgrounds; overridable per theme"
-        }
+        "$description": "Req for: links over inverted backgrounds, one step from rest\nAA standard body text on any family's pen-70\nUse: hyperlinks on a pen-70 ground; not a text-style CTA\nTheming: same seed as the link, re-solved for inverted backgrounds; overridable per theme"
+      },
+      "inverse-2": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.0549,
+            0.1529,
+            0.3098
+          ],
+          "alpha": 1,
+          "hex": "#0e274f"
+        },
+        "$description": "Req for: links over inverted backgrounds, two steps from rest\nAA standard body text on any family's pen-70\nUse: hyperlinks on a pen-70 ground; not a text-style CTA\nTheming: same seed as the link, re-solved for inverted backgrounds; overridable per theme"
       }
     },
     "absolute": {

@@ -34,16 +34,16 @@ Generated from `declarations/color.ts, with the opacity steps in declarations/op
 | `color/fg/hint` | `color/neutral/highlighter-26` (#868789) | icons and shapes only |
 | `color/fg/muted` | `color/neutral/pen-58` (#474748) | secondary text |
 | `color/fg/strong` | `color/neutral/pen-100` (#000000) | the strongest emphasis |
-| `color/fg/link/enabled` | `color/link/default/enabled` (`color/brand/pencil-47` (#265db4)) | a link in running text, at rest |
-| `color/fg/link/hover` | `color/link/default/hover` (`color/brand/pen-58` (#003a8e)) | a link in running text, under the pointer |
-| `color/fg/link/pressed` | `color/link/default/pressed` (`color/brand/pen-70` (#0e274f)) | a link in running text, while pressed |
+| `color/fg/link/enabled` | `color/link/default-0` (`color/brand/pencil-47` (#265db4)) | a link in running text, at rest |
+| `color/fg/link/hover` | `color/link/default-1` (`color/brand/pen-58` (#003a8e)) | a link in running text, under the pointer |
+| `color/fg/link/pressed` | `color/link/default-2` (`color/brand/pen-70` (#0e274f)) | a link in running text, while pressed |
 | `color/fg/on-inverse/regular` | `color/neutral/paper-3` (#f3f5f8) | running text on an inverted ground |
 | `color/fg/on-inverse/accent` | `color/neutral/chalk-20` (#bcbec1) | the quietest text on an inverted ground |
 | `color/fg/on-inverse/muted` | `color/neutral/chalk-11` (#d8dbe0) | secondary text on an inverted ground |
 | `color/fg/on-inverse/strong` | `color/neutral/paper-0` (#ffffff) | the strongest text on an inverted ground |
-| `color/fg/on-inverse/link/enabled` | `color/link/inverse/enabled` (#7baaf4) | a link on an inverted ground, at rest |
-| `color/fg/on-inverse/link/hover` | `color/link/inverse/hover` (#a2c6ff) | a link on an inverted ground, under the pointer |
-| `color/fg/on-inverse/link/pressed` | `color/link/inverse/pressed` (#cfe1ff) | a link on an inverted ground, while pressed |
+| `color/fg/on-inverse/link/enabled` | `color/link/inverse-0` (#7baaf4) | a link on an inverted ground, at rest |
+| `color/fg/on-inverse/link/hover` | `color/link/inverse-1` (#a2c6ff) | a link on an inverted ground, under the pointer |
+| `color/fg/on-inverse/link/pressed` | `color/link/inverse-2` (#cfe1ff) | a link on an inverted ground, while pressed |
 | `color/border/regular` | `color/neutral/highlighter-26` (#868789) | inputs, cards and dividers that must be seen |
 | `color/border/accent` | `color/neutral/pencil-47` (#6a6b6c) | a border that grabs the eye |
 | `color/border/hint` | `color/neutral/chalk-8` (#e3e5ea) | the faintest border |
@@ -64,11 +64,11 @@ Generated from `declarations/color.ts, with the opacity steps in declarations/op
 | `color/bg/soft/hover` | `color/neutral/highlighter-26` (#868789) with `opacity/soft/hover` | the soft ground of a neutral control, under the pointer |
 | `color/bg/soft/pressed` | `color/neutral/highlighter-26` (#868789) with `opacity/soft/pressed` | the soft ground of a neutral control, while pressed |
 | `color/bg/soft/selected` | `color/neutral/highlighter-26` (#868789) with `opacity/soft/selected` | the soft ground of a neutral control, when selected |
-| `color/bg/solid/enabled` | `color/neutral/stamp/fill` (#e3e5ea) | the solid ground of a neutral control, at rest (reserved for components) |
-| `color/bg/solid/hover` | `color/neutral/stamp/fill-hover` (#d3d5d9) | the solid ground of a neutral control, under the pointer (reserved for components) |
-| `color/bg/solid/pressed` | `color/neutral/stamp/fill-pressed` (#c3c5c8) | the solid ground of a neutral control, while pressed (reserved for components) |
-| `color/border/solid` | `color/neutral/stamp/edge` (#000000 at 8 percent) | the edge of the solid ground of a neutral control (reserved for components) |
-| `color/fg/on-solid` | `color/neutral/stamp/on` (#000000 at 75 percent) | text and icons over the solid ground of a neutral control (reserved for components) |
+| `color/bg/solid/enabled` | `color/neutral/stamp-0` (#e3e5ea) | the solid ground of a neutral control, at rest (reserved for components) |
+| `color/bg/solid/hover` | `color/neutral/stamp-1` (#d3d5d9) | the solid ground of a neutral control, under the pointer (reserved for components) |
+| `color/bg/solid/pressed` | `color/neutral/stamp-2` (#c3c5c8) | the solid ground of a neutral control, while pressed (reserved for components) |
+| `color/border/solid` | `color/neutral/stamp-edge` (#000000 at 8 percent) | the edge of the solid ground of a neutral control (reserved for components) |
+| `color/fg/on-solid` | `color/neutral/stamp-on` (#000000 at 75 percent) | text and icons over the solid ground of a neutral control (reserved for components) |
 | `color/fg/brand/regular` | `color/brand/pen-70` (#0e274f) | running text, in the brand color |
 | `color/fg/brand/accent` | `color/brand/pencil-47` (#265db4) | text that grabs the eye, in the brand color |
 | `color/fg/brand/hint` | `color/brand/highlighter-26` (#5287dd) | icons and shapes only, in the brand color (reserved for components) |
@@ -91,11 +91,11 @@ Generated from `declarations/color.ts, with the opacity steps in declarations/op
 | `color/bg/brand/soft/hover` | `color/brand/highlighter-26` (#5287dd) with `opacity/soft/hover` | the soft ground of a brand control, under the pointer (reserved for components) |
 | `color/bg/brand/soft/pressed` | `color/brand/highlighter-26` (#5287dd) with `opacity/soft/pressed` | the soft ground of a brand control, while pressed (reserved for components) |
 | `color/bg/brand/soft/selected` | `color/brand/highlighter-26` (#5287dd) with `opacity/soft/selected` | the soft ground of a brand control, when selected (reserved for components) |
-| `color/bg/brand/solid/enabled` | `color/brand/stamp/fill` (#044baf) | the solid ground of a brand control, at rest (reserved for components) |
-| `color/bg/brand/solid/hover` | `color/brand/stamp/fill-hover` (#003e97) | the solid ground of a brand control, under the pointer (reserved for components) |
-| `color/bg/brand/solid/pressed` | `color/brand/stamp/fill-pressed` (#00327d) | the solid ground of a brand control, while pressed (reserved for components) |
-| `color/border/brand/solid` | `color/brand/stamp/edge` (#000000 at 0 percent) | the edge of the solid ground of a brand control (reserved for components) |
-| `color/fg/brand/on-solid` | `color/brand/stamp/on` (#ffffff) | text and icons over the solid ground of a brand control (reserved for components) |
+| `color/bg/brand/solid/enabled` | `color/brand/stamp-0` (#044baf) | the solid ground of a brand control, at rest (reserved for components) |
+| `color/bg/brand/solid/hover` | `color/brand/stamp-1` (#003e97) | the solid ground of a brand control, under the pointer (reserved for components) |
+| `color/bg/brand/solid/pressed` | `color/brand/stamp-2` (#00327d) | the solid ground of a brand control, while pressed (reserved for components) |
+| `color/border/brand/solid` | `color/brand/stamp-edge` (#000000 at 0 percent) | the edge of the solid ground of a brand control (reserved for components) |
+| `color/fg/brand/on-solid` | `color/brand/stamp-on` (#ffffff) | text and icons over the solid ground of a brand control (reserved for components) |
 | `color/fg/brand-alt/regular` | `color/brand-alt/pen-70` (#252d38) | running text, in the brand-alt color |
 | `color/fg/brand-alt/accent` | `color/brand-alt/pencil-47` (#596983) | text that grabs the eye, in the brand-alt color |
 | `color/fg/brand-alt/hint` | `color/brand-alt/highlighter-26` (#7689a8) | icons and shapes only, in the brand-alt color (reserved for components) |
@@ -118,11 +118,11 @@ Generated from `declarations/color.ts, with the opacity steps in declarations/op
 | `color/bg/brand-alt/soft/hover` | `color/brand-alt/highlighter-26` (#7689a8) with `opacity/soft/hover` | the soft ground of a brand-alt control, under the pointer (reserved for components) |
 | `color/bg/brand-alt/soft/pressed` | `color/brand-alt/highlighter-26` (#7689a8) with `opacity/soft/pressed` | the soft ground of a brand-alt control, while pressed (reserved for components) |
 | `color/bg/brand-alt/soft/selected` | `color/brand-alt/highlighter-26` (#7689a8) with `opacity/soft/selected` | the soft ground of a brand-alt control, when selected (reserved for components) |
-| `color/bg/brand-alt/solid/enabled` | `color/brand-alt/stamp/fill` (#aabddb) | the solid ground of a brand-alt control, at rest (reserved for components) |
-| `color/bg/brand-alt/solid/hover` | `color/brand-alt/stamp/fill-hover` (#9aadcb) | the solid ground of a brand-alt control, under the pointer (reserved for components) |
-| `color/bg/brand-alt/solid/pressed` | `color/brand-alt/stamp/fill-pressed` (#8b9ebb) | the solid ground of a brand-alt control, while pressed (reserved for components) |
-| `color/border/brand-alt/solid` | `color/brand-alt/stamp/edge` (#000000 at 0 percent) | the edge of the solid ground of a brand-alt control (reserved for components) |
-| `color/fg/brand-alt/on-solid` | `color/brand-alt/stamp/on` (#000000 at 75 percent) | text and icons over the solid ground of a brand-alt control (reserved for components) |
+| `color/bg/brand-alt/solid/enabled` | `color/brand-alt/stamp-0` (#aabddb) | the solid ground of a brand-alt control, at rest (reserved for components) |
+| `color/bg/brand-alt/solid/hover` | `color/brand-alt/stamp-1` (#9aadcb) | the solid ground of a brand-alt control, under the pointer (reserved for components) |
+| `color/bg/brand-alt/solid/pressed` | `color/brand-alt/stamp-2` (#8b9ebb) | the solid ground of a brand-alt control, while pressed (reserved for components) |
+| `color/border/brand-alt/solid` | `color/brand-alt/stamp-edge` (#000000 at 0 percent) | the edge of the solid ground of a brand-alt control (reserved for components) |
+| `color/fg/brand-alt/on-solid` | `color/brand-alt/stamp-on` (#000000 at 75 percent) | text and icons over the solid ground of a brand-alt control (reserved for components) |
 | `color/fg/critical/regular` | `color/critical/pen-70` (#4c190f) | running text, in the critical color |
 | `color/fg/critical/accent` | `color/critical/pencil-47` (#ac3d27) | text that grabs the eye, in the critical color |
 | `color/fg/critical/hint` | `color/critical/highlighter-26` (#e06046) | icons and shapes only, in the critical color (reserved for components) |
@@ -145,11 +145,11 @@ Generated from `declarations/color.ts, with the opacity steps in declarations/op
 | `color/bg/critical/soft/hover` | `color/critical/highlighter-26` (#e06046) with `opacity/soft/hover` | the soft ground of a critical control, under the pointer (reserved for components) |
 | `color/bg/critical/soft/pressed` | `color/critical/highlighter-26` (#e06046) with `opacity/soft/pressed` | the soft ground of a critical control, while pressed (reserved for components) |
 | `color/bg/critical/soft/selected` | `color/critical/highlighter-26` (#e06046) with `opacity/soft/selected` | the soft ground of a critical control, when selected (reserved for components) |
-| `color/bg/critical/solid/enabled` | `color/critical/stamp/fill` (#d63e1e) | the solid ground of a critical control, at rest (reserved for components) |
-| `color/bg/critical/solid/hover` | `color/critical/stamp/fill-hover` (#c42b04) | the solid ground of a critical control, under the pointer (reserved for components) |
-| `color/bg/critical/solid/pressed` | `color/critical/stamp/fill-pressed` (#ad2300) | the solid ground of a critical control, while pressed (reserved for components) |
-| `color/border/critical/solid` | `color/critical/stamp/edge` (#000000 at 0 percent) | the edge of the solid ground of a critical control (reserved for components) |
-| `color/fg/critical/on-solid` | `color/critical/stamp/on` (#ffffff) | text and icons over the solid ground of a critical control (reserved for components) |
+| `color/bg/critical/solid/enabled` | `color/critical/stamp-0` (#d63e1e) | the solid ground of a critical control, at rest (reserved for components) |
+| `color/bg/critical/solid/hover` | `color/critical/stamp-1` (#c42b04) | the solid ground of a critical control, under the pointer (reserved for components) |
+| `color/bg/critical/solid/pressed` | `color/critical/stamp-2` (#ad2300) | the solid ground of a critical control, while pressed (reserved for components) |
+| `color/border/critical/solid` | `color/critical/stamp-edge` (#000000 at 0 percent) | the edge of the solid ground of a critical control (reserved for components) |
+| `color/fg/critical/on-solid` | `color/critical/stamp-on` (#ffffff) | text and icons over the solid ground of a critical control (reserved for components) |
 | `color/fg/warning/regular` | `color/warning/pen-70` (#4b2800) | running text, in the warning color |
 | `color/fg/warning/accent` | `color/warning/pencil-47` (#9e5b00) | text that grabs the eye, in the warning color |
 | `color/fg/warning/hint` | `color/warning/highlighter-26` (#c27700) | icons and shapes only, in the warning color (reserved for components) |
@@ -172,11 +172,11 @@ Generated from `declarations/color.ts, with the opacity steps in declarations/op
 | `color/bg/warning/soft/hover` | `color/warning/highlighter-26` (#c27700) with `opacity/soft/hover` | the soft ground of a warning control, under the pointer (reserved for components) |
 | `color/bg/warning/soft/pressed` | `color/warning/highlighter-26` (#c27700) with `opacity/soft/pressed` | the soft ground of a warning control, while pressed (reserved for components) |
 | `color/bg/warning/soft/selected` | `color/warning/highlighter-26` (#c27700) with `opacity/soft/selected` | the soft ground of a warning control, when selected (reserved for components) |
-| `color/bg/warning/solid/enabled` | `color/warning/stamp/fill` (#ffc53d) | the solid ground of a warning control, at rest (reserved for components) |
-| `color/bg/warning/solid/hover` | `color/warning/stamp/fill-hover` (#eeb524) | the solid ground of a warning control, under the pointer (reserved for components) |
-| `color/bg/warning/solid/pressed` | `color/warning/stamp/fill-pressed` (#dda500) | the solid ground of a warning control, while pressed (reserved for components) |
-| `color/border/warning/solid` | `color/warning/stamp/edge` (#000000 at 0 percent) | the edge of the solid ground of a warning control (reserved for components) |
-| `color/fg/warning/on-solid` | `color/warning/stamp/on` (#000000) | text and icons over the solid ground of a warning control (reserved for components) |
+| `color/bg/warning/solid/enabled` | `color/warning/stamp-0` (#ffc53d) | the solid ground of a warning control, at rest (reserved for components) |
+| `color/bg/warning/solid/hover` | `color/warning/stamp-1` (#eeb524) | the solid ground of a warning control, under the pointer (reserved for components) |
+| `color/bg/warning/solid/pressed` | `color/warning/stamp-2` (#dda500) | the solid ground of a warning control, while pressed (reserved for components) |
+| `color/border/warning/solid` | `color/warning/stamp-edge` (#000000 at 0 percent) | the edge of the solid ground of a warning control (reserved for components) |
+| `color/fg/warning/on-solid` | `color/warning/stamp-on` (#000000) | text and icons over the solid ground of a warning control (reserved for components) |
 | `color/fg/positive/regular` | `color/positive/pen-70` (#0f3818) | running text, in the positive color |
 | `color/fg/positive/accent` | `color/positive/pencil-47` (#1a7c34) | text that grabs the eye, in the positive color |
 | `color/fg/positive/hint` | `color/positive/highlighter-26` (#009d3c) | icons and shapes only, in the positive color (reserved for components) |
@@ -199,11 +199,11 @@ Generated from `declarations/color.ts, with the opacity steps in declarations/op
 | `color/bg/positive/soft/hover` | `color/positive/highlighter-26` (#009d3c) with `opacity/soft/hover` | the soft ground of a positive control, under the pointer (reserved for components) |
 | `color/bg/positive/soft/pressed` | `color/positive/highlighter-26` (#009d3c) with `opacity/soft/pressed` | the soft ground of a positive control, while pressed (reserved for components) |
 | `color/bg/positive/soft/selected` | `color/positive/highlighter-26` (#009d3c) with `opacity/soft/selected` | the soft ground of a positive control, when selected (reserved for components) |
-| `color/bg/positive/solid/enabled` | `color/positive/stamp/fill` (#70d07f) | the solid ground of a positive control, at rest (reserved for components) |
-| `color/bg/positive/solid/hover` | `color/positive/stamp/fill-hover` (#5fbf70) | the solid ground of a positive control, under the pointer (reserved for components) |
-| `color/bg/positive/solid/pressed` | `color/positive/stamp/fill-pressed` (#4faf61) | the solid ground of a positive control, while pressed (reserved for components) |
-| `color/border/positive/solid` | `color/positive/stamp/edge` (#000000 at 0 percent) | the edge of the solid ground of a positive control (reserved for components) |
-| `color/fg/positive/on-solid` | `color/positive/stamp/on` (#000000) | text and icons over the solid ground of a positive control (reserved for components) |
+| `color/bg/positive/solid/enabled` | `color/positive/stamp-0` (#70d07f) | the solid ground of a positive control, at rest (reserved for components) |
+| `color/bg/positive/solid/hover` | `color/positive/stamp-1` (#5fbf70) | the solid ground of a positive control, under the pointer (reserved for components) |
+| `color/bg/positive/solid/pressed` | `color/positive/stamp-2` (#4faf61) | the solid ground of a positive control, while pressed (reserved for components) |
+| `color/border/positive/solid` | `color/positive/stamp-edge` (#000000 at 0 percent) | the edge of the solid ground of a positive control (reserved for components) |
+| `color/fg/positive/on-solid` | `color/positive/stamp-on` (#000000) | text and icons over the solid ground of a positive control (reserved for components) |
 | `color/fg/info/regular` | `color/info/pen-70` (#292348) | running text, in the info color |
 | `color/fg/info/accent` | `color/info/pencil-47` (#6255a5) | text that grabs the eye, in the info color |
 | `color/fg/info/hint` | `color/info/highlighter-26` (#8979da) | icons and shapes only, in the info color (reserved for components) |
@@ -226,11 +226,11 @@ Generated from `declarations/color.ts, with the opacity steps in declarations/op
 | `color/bg/info/soft/hover` | `color/info/highlighter-26` (#8979da) with `opacity/soft/hover` | the soft ground of an info control, under the pointer (reserved for components) |
 | `color/bg/info/soft/pressed` | `color/info/highlighter-26` (#8979da) with `opacity/soft/pressed` | the soft ground of an info control, while pressed (reserved for components) |
 | `color/bg/info/soft/selected` | `color/info/highlighter-26` (#8979da) with `opacity/soft/selected` | the soft ground of an info control, when selected (reserved for components) |
-| `color/bg/info/solid/enabled` | `color/info/stamp/fill` (#bcb3ff) | the solid ground of an info control, at rest (reserved for components) |
-| `color/bg/info/solid/hover` | `color/info/stamp/fill-hover` (#aca0fc) | the solid ground of an info control, under the pointer (reserved for components) |
-| `color/bg/info/solid/pressed` | `color/info/stamp/fill-pressed` (#9d90eb) | the solid ground of an info control, while pressed (reserved for components) |
-| `color/border/info/solid` | `color/info/stamp/edge` (#000000 at 0 percent) | the edge of the solid ground of an info control (reserved for components) |
-| `color/fg/info/on-solid` | `color/info/stamp/on` (#000000) | text and icons over the solid ground of an info control (reserved for components) |
+| `color/bg/info/solid/enabled` | `color/info/stamp-0` (#bcb3ff) | the solid ground of an info control, at rest (reserved for components) |
+| `color/bg/info/solid/hover` | `color/info/stamp-1` (#aca0fc) | the solid ground of an info control, under the pointer (reserved for components) |
+| `color/bg/info/solid/pressed` | `color/info/stamp-2` (#9d90eb) | the solid ground of an info control, while pressed (reserved for components) |
+| `color/border/info/solid` | `color/info/stamp-edge` (#000000 at 0 percent) | the edge of the solid ground of an info control (reserved for components) |
+| `color/fg/info/on-solid` | `color/info/stamp-on` (#000000) | text and icons over the solid ground of an info control (reserved for components) |
 | `color/illustration/paper` | `color/brand/paper-5` (#e4edfc) | illustration: the palest wash |
 | `color/illustration/chalk-light` | `color/brand/chalk-11` (#c2d8fa) | illustration: a light fill |
 | `color/illustration/chalk` | `color/brand/chalk-20` (#96b8ee) | illustration: a mid fill |

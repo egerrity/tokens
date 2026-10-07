@@ -21,7 +21,7 @@ the brand's seed color:
 | `pencil-47` | regular text, the emphasis fill | 4.5:1 on every paper |
 | `pen-58`, `pen-70` | regular and strong text, inverted backgrounds | 4.5:1 on every paper and chalk, both ways |
 | `pen-100` | the text pole: black in light, white in dark (neutral only) | the maximum; the engine prefers `pen-70` for running text |
-| `stamp/fill`, `fill-hover`, `fill-pressed`, `edge`, `on` | the solid button and its states, its gated outline, and the one text color over it | solved per brand; a component's rows, not the palette's |
+| `stamp-0`, `stamp-1`, `stamp-2`, `stamp-edge`, `stamp-on` | the solid button at rest, one and two steps from rest, its gated outline, and the one text color over it | solved per brand; a component's rows, not the palette's |
 
 Two rules carry over from the engine. The same token serves both modes; the theme moves
 the value, never the reference. And a solid fill that carries text is always the stamp,
@@ -64,9 +64,9 @@ One row per old row. "Code name" is what the product code reads today.
 | Brand Primary Accent | `color-palette-brand-primary-accent` | `bg/brand/regular` | `brand/paper-3` | |
 | Merge Intensity 1 | `color-palette-merge-default`, `merge-amount-intensity-1` | `bg/ghost/hover` | `neutral/highlighter-26` with `opacity/ghost/hover` | a pair; a colored control takes its family's |
 | Merge Intensity 2 | `color-palette-overlay-darker` | `bg/ghost/pressed` | with `opacity/ghost/pressed` | a pair |
-| Merge Intensity 3 | `color-palette-overlay-darkest` | `bg/brand/solid/hover` | `brand/stamp/fill-hover` | a component's row |
+| Merge Intensity 3 | `color-palette-overlay-darkest` | `bg/brand/solid/hover` | `brand/stamp-1` | a component's row |
 | Merge Intensity 4 | | nothing | | unused |
-| Merge Intensity 5 | | `bg/brand/solid/pressed` | `brand/stamp/fill-pressed` | a component's row |
+| Merge Intensity 5 | | `bg/brand/solid/pressed` | `brand/stamp-2` | a component's row |
 | Merge Intensity 1 to 5 (Inverse) | `palette-overlay-light`, `lighter`, `lightest` | nothing | | the inverse surface is no longer interactive |
 | Skeleton loader Fill, Start, End | | `surface/low`, `mid`, `dim` | | the component binds the surfaces |
 | (int) Elevation overlay Level 1 to 4 | | nothing | | unused; the planes move the paper per mode |
