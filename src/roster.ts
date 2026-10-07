@@ -12,10 +12,11 @@ import { grid } from '../declarations/grid.ts'
 import { font } from '../declarations/font.ts'
 import { text } from '../declarations/text.ts'
 import { color } from '../declarations/color.ts'
+import { shadow } from '../declarations/shadow.ts'
 import { CATEGORIES, type Category } from '../grammar/words.ts'
 import {
   spaceTokens, sizeTokens, radiusTokens, borderWidthTokens, opacityTokens, motionTokens, breakpointTokens,
-  gridTokens, fontTokens, textTokens,
+  gridTokens, fontTokens, textTokens, shadowTokens,
 } from './derive.ts'
 import { colorTokens, opacitySemanticTokens } from './derive-color.ts'
 import { engineTokens } from './engine.ts'
@@ -33,6 +34,7 @@ const BY_CATEGORY: Record<Category, () => Token[]> = {
   font: () => fontTokens(font),
   text: () => textTokens(text, font),
   color: () => colorTokens(color, opacity),
+  shadow: () => shadowTokens(shadow),
 }
 
 export const tokensOf = (category: Category): Token[] => BY_CATEGORY[category]()

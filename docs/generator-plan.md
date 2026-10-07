@@ -136,8 +136,10 @@ what changed.
    pair and names what to compose in the row's description, and leaves a row alone once
    it has been composed by hand. The color half is built: the surfaces, the scrim and
    the semantic set in `docs/color-semantic-set.md`, as aliases onto the engine's rows
-   (`color/…`, 0.8.0), printed with the engine's two modes into a review file. Shadow
-   and the effect styles remain.
+   (`color/…`, 0.8.0), printed with the engine's two modes into a review file. The
+   shadows are Material 3's four working levels under Atlassian's role names, on
+   today's recipes, as shadow composites and as effect styles. The merge for the real
+   work file remains.
 
 Each step ends with a stop for the owner's review.
 
@@ -147,8 +149,10 @@ Each step ends with a stop for the owner's review.
 - The old-to-new map for names in the product code. It needs the code-side audit.
 - Nothing in Figma is made by hand. Text styles and effect styles are not variables, but
   they are built from them, so the script that applies the Figma payload also creates
-  each text style and each shadow's effect style, binds each property to its variable,
-  and updates an existing style in place so layers keep it.
+  each text style, binding each property to its variable, and each shadow's effect
+  style, whose values are set in place because a shadow's color cannot be bound
+  through a pair and nothing in a shadow varies by theme; both are updated in place so
+  layers keep them.
 
 ## To decide before building
 

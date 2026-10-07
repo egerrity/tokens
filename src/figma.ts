@@ -46,6 +46,14 @@ export type FigmaTextStyle = {
   parts: Record<'fontFamily' | 'fontSize' | 'fontWeight' | 'lineHeight' | 'letterSpacing', string>
 }
 export type FigmaStylesPayload = { kind: 'text-styles'; styles: FigmaTextStyle[] }
+/** an effect style's layers, literal: a shadow's color cannot be bound through a pair, and nothing in it varies by theme */
+export type FigmaEffectStyle = {
+  name: string
+  today?: string
+  description: string
+  layers: { x: number; y: number; blur: number; spread: number; color: string; alpha: number }[]
+}
+export type FigmaEffectsPayload = { kind: 'effect-styles'; styles: FigmaEffectStyle[] }
 
 // the style word a weight loads under, as the families name their styles
 const FONT_STYLE: Record<number, string> = { 400: 'Regular', 500: 'Medium', 600: 'SemiBold' }
@@ -156,7 +164,7 @@ function textParts(t: Token, modes: string[], byPath: Map<string, Token>): Figma
   ]
 }
 
-export function figmaPayloads(tokens: Token[], outside: Token[] = []): { collections: FigmaCollectionPayload[]; styles: FigmaStylesPayload } {
+export function figmaPayloads(tokens: Token[], outside: Token[] = []): { collections: FigmaCollectionPayload[]; styles: FigmaStylesPayload; effects: FigmaEffectsPayload } {
   const byPath = new Map(tokens.map(t => [figmaName(t.path), t]))
   const out: FigmaCollectionPayload[] = []
   for (const [collection, c] of Object.entries(collections)) {
@@ -171,6 +179,7 @@ export function figmaPayloads(tokens: Token[], outside: Token[] = []): { collect
     const rows: Token[] = [...(c.external ? outside : []), ...tokens.filter(t => collectionOf(t) === collection)]
     for (const t of rows) {
       if (t.value.type === 'typography') { payload.variables.push(...textParts(t, modes, byPath)); continue }
+      if (t.value.type === 'shadow') continue
       const values: Record<string, FigmaValue> = {}
       let omitted = false
       for (const m of modes) {
@@ -210,14 +219,23 @@ export function figmaPayloads(tokens: Token[], outside: Token[] = []): { collect
       },
     }
   })
-  return { collections: out, styles: { kind: 'text-styles', styles } }
+  const effects: FigmaEffectStyle[] = tokens.filter(t => t.value.type === 'shadow').map(t => {
+    const v = t.value
+    if (isAlias(v) || v.type !== 'shadow') throw new Error('unreachable')
+    return {
+      name: figmaName(t.path), today: todayStyle(t.path), description: describeFigma(t),
+      layers: v.value.map(l => ({ x: l.offsetX.value, y: l.offsetY.value, blur: l.blur.value, spread: l.spread.value, color: l.color.hex, alpha: l.color.alpha })),
+    }
+  })
+  return { collections: out, styles: { kind: 'text-styles', styles }, effects: { kind: 'effect-styles', styles: effects } }
 }
 
 /** the payload as files, keyed by file name */
 export function figmaFiles(tokens: Token[], outside: Token[] = []): Record<string, string> {
-  const { collections: cs, styles } = figmaPayloads(tokens, outside)
+  const { collections: cs, styles, effects } = figmaPayloads(tokens, outside)
   const files: Record<string, string> = {}
   for (const c of cs) files[`${c.collection}.json`] = JSON.stringify(c, null, 2) + '\n'
   files['text-styles.json'] = JSON.stringify(styles, null, 2) + '\n'
+  files['effect-styles.json'] = JSON.stringify(effects, null, 2) + '\n'
   return files
 }

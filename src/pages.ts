@@ -100,6 +100,12 @@ const NOTES: Record<Category, Notes> = {
       'Each translucent row\'s pair, the opacity it is composed with.',
     ],
   },
+  shadow: {
+    title: 'Shadow',
+    declaration: 'declarations/shadow.ts',
+    decided: ['Each level, named for what sits at that height: its layers, as offsets, blur and spread in px and black at a percent, the same in both themes.'],
+    derived: ['Each level as a shadow composite, and as an effect style in Figma with its values set in place.', 'Every description.'],
+  },
   text: {
     title: 'Text styles',
     declaration: 'declarations/text.ts',
@@ -137,6 +143,7 @@ export function page(category: Category, tokens: Token[], all: Token[], outside:
         const t = v.value
         return `${ref(t.fontFamily)} ${ref(t.fontWeight)}, ${ref(t.fontSize)} (${literal(valueIn(byPath.get(figmaName(t.fontSize))!, context), context)}), line height ${ref(t.lineHeight)}, letter spacing ${t.letterSpacing.value} px`
       }
+      case 'shadow': return v.value.map(l => `${l.offsetX.value} ${l.offsetY.value} ${l.blur.value} ${l.spread.value} px, black at ${Math.round(l.color.alpha * 100)} percent`).join('; ')
     }
   }
   // a value per context, with contexts that share a value folded together

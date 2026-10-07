@@ -114,6 +114,29 @@ Every word a family has a stop for is emitted, so the whole framework is recorde
 offering a word later is removing it from a reserved list. The one word a family
 cannot have is `fg/strong`: the text pole, `pen-100`, is the neutral's alone.
 
+## Elevation
+
+Material 3's model, which the team's own levels already follow: a plane and a shadow,
+with the shadow doing the lifting in light and the plane doing it alone in dark. The
+planes are the surfaces above; the shadows are Material's four working levels (1, 2,
+3 and 5) under names for what sits at that height, as Atlassian and Primer name
+theirs, because a card, a menu and a dialog all rest on `surface/high` and take three
+different shadows, so a plane word on a shadow would mislead. The recipes are today's
+four, in order, so nothing changes in the look.
+
+| What | Plane | Shadow | Material level |
+| --- | --- | --- | --- |
+| the page | `surface/dim` | none | 0 |
+| a recessed well, a table header | `surface/low` | none | 0 |
+| a resting panel or section | `surface/mid` | none | 0 |
+| an elevated card, a bottom sheet | `surface/high` | `shadow/raised` | 1 |
+| a menu, a popover, the navigation bar | `surface/high` | `shadow/floating` | 2 |
+| a dialog, a modal sheet, the floating action button | `surface/high` | `shadow/overlay` | 3 |
+| an elevated card at its strongest | `surface/high` | `shadow/lifted` | 5 |
+
+Atlassian's rule carries over whole: a raised plane always comes with its shadow, and
+a shadow is never used to group content a border or white space would group.
+
 ## The illustration palette
 
 The brand's palette for illustrators, and only the brand's: six of its stops under

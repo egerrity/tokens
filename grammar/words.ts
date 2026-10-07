@@ -29,6 +29,9 @@ export type Word = (typeof WORD)[number]
 // the interaction levels under bg: nothing at rest, a tint at rest, the engine's stamp
 export const LEVEL = ['ghost', 'soft', 'solid'] as const
 export type Level = (typeof LEVEL)[number]
+// the shadows, named for what sits at that height, lowest first; never a plane word
+export const SHADOW = ['raised', 'floating', 'overlay', 'lifted'] as const
+export type ShadowRole = (typeof SHADOW)[number]
 const SOLID_STATE = ['enabled', 'hover', 'pressed'] as const
 
 /** a scale step: digits only, three or more (`025`, `400`, `3200`) */
@@ -89,6 +92,7 @@ export const SHAPES = {
     [['surface'], ['high', 'mid', 'low', 'dim', 'inverse', 'scrim']],
     [['illustration'], ['paper', 'chalk-light', 'chalk', 'highlighter', 'pencil', 'pen', 'shadow', 'shine']],
   ],
+  shadow: [[SHADOW]],
 } as const satisfies Record<string, readonly (readonly Segment[])[]>
 
 export type Category = keyof typeof SHAPES

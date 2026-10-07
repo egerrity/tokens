@@ -1,7 +1,7 @@
 // The shape of each declaration: only what a designer decides. Names, aliases and the
 // values that follow from a rule are derived; if a value cannot be derived from a
 // decision here, it is a decision and gets a field.
-import type { Density, Family, Level, Role, Size, State, Word } from '../grammar/words.ts'
+import type { Density, Family, Level, Role, ShadowRole, Size, State, Word } from '../grammar/words.ts'
 import type { Curve } from './types.ts'
 
 export type SpaceDeclaration = {
@@ -114,6 +114,14 @@ export type FontDeclaration = {
   size: { purpose: string; steps: readonly number[] }
   /** multiples of the font size */
   lineHeight: { purpose: string; steps: readonly number[] }
+}
+
+/** one drop shadow: offsets, blur and spread in px, black at a percent */
+export type ShadowLayer = { x: number; y: number; blur: number; spread: number; alpha: number }
+export type ShadowDeclaration = {
+  purpose: string
+  /** the levels, lowest first, each named for what sits at that height, two or more layers; the same in every theme */
+  levels: readonly { name: ShadowRole; req: string; use: string; layers: readonly ShadowLayer[] }[]
 }
 
 export type TextDeclaration = {

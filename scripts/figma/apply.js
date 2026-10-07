@@ -170,10 +170,35 @@ async function applyTextStyles(P) {
   }
 }
 
+// an effect style's layers are set as literals: a shadow's color cannot be bound through
+// a pair, and nothing in a shadow varies by theme
+async function applyEffectStyles(P) {
+  const styles = await figma.getLocalEffectStylesAsync()
+  const rgba = (hex, a) => { const h = hex.replace('#', ''); return { r: parseInt(h.slice(0, 2), 16) / 255, g: parseInt(h.slice(2, 4), 16) / 255, b: parseInt(h.slice(4, 6), 16) / 255, a } }
+  for (const spec of P.styles) {
+    let s = styles.find(x => stampOf(x, STAMP) === spec.name)
+      || (spec.today && styles.find(x => x.name === spec.today))
+      || styles.find(x => x.name === spec.name)
+    let changed = false
+    if (!s) { s = figma.createEffectStyle(); report.created.push(spec.name); changed = true }
+    else if (s.name !== spec.name) { report.renamed.push(`${s.name} -> ${spec.name}`); changed = true }
+    if (s.name !== spec.name) s.name = spec.name
+    if (s.description !== spec.description) { s.description = spec.description; changed = true }
+    const want = spec.layers.map(l => ({ type: 'DROP_SHADOW', color: rgba(l.color, l.alpha), offset: { x: l.x, y: l.y }, radius: l.blur, spread: l.spread, visible: true, blendMode: 'NORMAL' }))
+    const have = s.effects
+    const same = have.length === want.length && have.every((e, i) => e.type === 'DROP_SHADOW' && near(e.offset.x, want[i].offset.x) && near(e.offset.y, want[i].offset.y)
+      && near(e.radius, want[i].radius) && near(e.spread || 0, want[i].spread) && ['r', 'g', 'b', 'a'].every(k => near(e.color[k], want[i].color[k])))
+    if (!same) { s.effects = want; changed = true }
+    if (stampOf(s, STAMP) !== spec.name) stamp(s, STAMP, spec.name)
+    if (changed) report.updated.push(spec.name); else report.same++
+  }
+}
+
 if (!PAYLOAD) throw new Error('no payload inlined')
 for (const P of Array.isArray(PAYLOAD) ? PAYLOAD : [PAYLOAD]) {
   if (P.kind === 'variables') await applyVariables(P)
   else if (P.kind === 'text-styles') await applyTextStyles(P)
+  else if (P.kind === 'effect-styles') await applyEffectStyles(P)
   else throw new Error(`unknown payload kind ${P.kind}`)
 }
 return report

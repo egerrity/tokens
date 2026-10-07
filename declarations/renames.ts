@@ -32,6 +32,7 @@ export function todayVariable(path: TokenPath, part?: string): string | undefine
 /** today's text style name for a text style token */
 export function todayStyle(path: TokenPath): string | undefined {
   const [category, role, size] = path
+  if (category === 'shadow') { const level = ['raised', 'floating', 'overlay', 'lifted'].indexOf(role) + 1; return level ? `Elevation shadow/Level ${level}` : undefined }
   if (category !== 'text' || !(SIZE as readonly string[]).includes(size)) return undefined
   const words = role.split('-').map(w => w[0].toUpperCase() + w.slice(1)).join(' ')
   const isDefault = (role === 'body' || role === 'link') && size === 'md'

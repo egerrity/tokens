@@ -16,6 +16,8 @@ export type Typography = { fontFamily: TokenPath; fontSize: TokenPath; fontWeigh
 
 /** the Color Module shape the engine's files use: the 8-bit channels over 255 and the same color as hex */
 export type Color = { colorSpace: 'srgb'; components: readonly [number, number, number]; alpha: number; hex: string }
+/** one layer of a shadow: a literal color, because the engine owns no black, and lengths in px */
+export type Shadow = { color: Color; offsetX: Dimension; offsetY: Dimension; blur: Dimension; spread: Dimension }
 
 export type Literal =
   | { type: 'color'; value: Color }
@@ -27,6 +29,7 @@ export type Literal =
   | { type: 'fontFamily'; value: readonly string[] }
   | { type: 'fontWeight'; value: number }
   | { type: 'typography'; value: Typography }
+  | { type: 'shadow'; value: readonly Shadow[] }
 export type TokenType = Literal['type']
 export type Alias = { type: TokenType; alias: TokenPath }
 export type Value = Literal | Alias

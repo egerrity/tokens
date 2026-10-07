@@ -8,9 +8,9 @@ import { SIZE, type Size } from '../grammar/words.ts'
 import type {
   SpaceDeclaration, SizeDeclaration, RadiusDeclaration, BorderWidthDeclaration,
   OpacityDeclaration, MotionDeclaration, BreakpointDeclaration, GridDeclaration,
-  FontDeclaration, TextDeclaration, ByViewport,
+  FontDeclaration, TextDeclaration, ShadowDeclaration, ByViewport,
 } from './declare.ts'
-import { px, ms, type Token, type Value } from './types.ts'
+import { px, ms, color, type Token, type Value } from './types.ts'
 
 /** the step name of a pixel value: its number of base units times 100 */
 export const pxStep = (value: number): string => stepName((value * 100) / baseUnit)
@@ -248,4 +248,11 @@ export function textTokens(d: TextDeclaration, f: FontDeclaration): Token[] {
       use: `${f.family[s.family].names[0]} ${s.weight}, ${sizeText}, line height ${s.lineHeight} times the size, letter spacing ${s.letterSpacing} percent`,
     }, byContext)
   })
+}
+
+export function shadowTokens(d: ShadowDeclaration): Token[] {
+  return d.levels.map(l => ({
+    path: ['shadow', l.name], layer: 'semantic', req: l.req, use: l.use,
+    value: { type: 'shadow', value: l.layers.map(s => ({ color: color('#000000', s.alpha / 100), offsetX: px(s.x), offsetY: px(s.y), blur: px(s.blur), spread: px(s.spread) })) },
+  }))
 }
