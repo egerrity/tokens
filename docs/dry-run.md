@@ -78,6 +78,48 @@ for, and leaves a row composed by hand (an alias with an opacity) as it is.
 
 Then the real file, the same way.
 
+## After the run, by hand
+
+The script never deletes and never guesses, so these are the owner's, in the copy first
+and in the real file after.
+
+Delete, once nothing refers to them:
+
+- In the palette, the nine rows with no successor: Merge Intensity 4, the five inverse
+  merges, the three skeleton loader rows. Bind the skeleton component to the surfaces
+  (`low`, `mid`, `dim`) or `bg/hint` before deleting its rows.
+- In `viewport`, the iOS text-size modes the report lists under `problems`.
+- In `theme`, the leftover `utility` rows from the engine's earlier cut: old surfaces,
+  shadows and scrim, absolute black and white, alpha rows. Check the absolute and alpha
+  rows for references first.
+- Whole old collections, once empty of references: the one holding today's radius and
+  width rows (orphans; the rebind pass moves their bindings to `scale`); the one holding
+  the old spectrum, merge, scrim and elevation rows, which the palette no longer points
+  at, though product components may bind its rows directly; and any small collection
+  the set replaces.
+
+Decide, then fix:
+
+- The collection that swaps font families for low-fidelity work holds today's
+  `font/family/*` and `font/weight/*` under the exact names the set uses, so the report
+  says `name held by another variable` for them and the text styles bind to the old
+  rows. Either the swap is kept as a feature, and the font rows are declared into that
+  collection, or the six are renamed by hand before the run and the collection deleted
+  after.
+- A palette row the report says was `created` rather than `renamed` is a spelling the
+  rename map does not have; the file's spelling goes into `declarations/renames.ts`.
+- A text layer the rebind pass reports as mixed fills, or a font it could not load, is
+  rebound by hand.
+
+Compose: the 52 pair rows, each set in the variables panel to its alias at the opacity
+its description names (seven per family and for the neutral, the scrim, the two
+illustration pairs). A composed row reads back as its alias and later runs leave it
+alone.
+
+Verify: a component that bound an old background row shows its surface, the same
+variable; the text styles show the right family, bound; the effect styles show their
+new names with the same layers; the planes resolve inside the theme's extension.
+
 ## The new file
 
 The same bundle fills an empty file, for a proposal shown clean beside the edited
