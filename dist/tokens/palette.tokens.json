@@ -539,17 +539,17 @@
       "hint": {
         "$type": "color",
         "$value": "{color.neutral.paper-1}",
-        "$description": "Req for: the lightest ground\nUse: a wash that barely leaves the surface; every fg word but hint reads on it\nReserved for components"
+        "$description": "Req for: the lightest ground\nUse: a wash that barely leaves the surface; every fg word but hint reads on it"
       },
       "muted": {
         "$type": "color",
         "$value": "{color.neutral.paper-5}",
-        "$description": "Req for: a restrained ground\nUse: a deeper tint than regular; every fg word but hint reads on it\nReserved for components"
+        "$description": "Req for: a restrained ground\nUse: a deeper tint than regular; every fg word but hint reads on it"
       },
       "strong": {
         "$type": "color",
         "$value": "{color.neutral.chalk-20}",
-        "$description": "Req for: a heavy ground\nUse: the strongest combo; fg/strong, regular and muted read on it, accent does not\nReserved for components"
+        "$description": "Req for: a heavy ground\nUse: the strongest combo; fg/strong, regular and muted read on it, accent does not"
       },
       "ghost": {
         "enabled": {

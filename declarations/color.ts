@@ -58,7 +58,7 @@ export const color: ColorDeclaration = {
     },
     neutral: ['regular', 'accent', 'hint', 'muted', 'strong'],
     family: ['regular', 'accent', 'hint', 'muted', 'strong'],
-    reserved: { neutral: ['hint', 'muted', 'strong'], family: ['hint', 'muted', 'strong'] },
+    reserved: { family: ['hint', 'muted', 'strong'] },
   },
   border: {
     stops: {

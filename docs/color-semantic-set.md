@@ -94,8 +94,7 @@ paper.
 | `border/regular`, `accent`, `hint`, `muted`, `strong` | the `border` ladder | the 3:1 border for inputs; the eye-catching border; the card edge; strong dividers; an emphasized outline |
 | `border/focus` | `brand/highlighter-26` | the focus ring, drawn the same on every control |
 | `border/inverse` | `neutral/paper-0` | borders on an inverted ground |
-| `bg/regular`, `accent` | `paper-3`, `pencil-47` | the default ground with color; the fill that grabs the eye, with the on-inverse text |
-| `bg/hint`, `muted`, `strong` (reserved) | `paper-1`, `paper-5`, `chalk-20` | the lightest, the restrained and the heavy ground |
+| `bg/regular`, `accent`, `hint`, `muted`, `strong` | `paper-3`, `pencil-47`, `paper-1`, `paper-5`, `chalk-20` | the default ground with color; the fill that grabs the eye, with the on-inverse text; the lightest, the restrained and the heavy ground |
 | `bg/ghost/enabled`, `hover`, `pressed`, `selected` | transparent, then `highlighter-26` with `opacity/ghost/*` | the ghost ground, as pairs |
 | `bg/soft/enabled`, `hover`, `pressed`, `selected` | `highlighter-26` with `opacity/soft/*` | the soft ground, as pairs |
 | `bg/solid/enabled`, `hover`, `pressed`; `border/solid`; `fg/on-solid` (reserved) | `stamp/fill`, `fill-hover`, `fill-pressed`; `stamp/edge`; `stamp/on` | the solid ground, its edge and its on-text |
@@ -172,7 +171,7 @@ their own names, plus a shadow and a shine as pairs.
 
 ## Count
 
-220 color rows: 39 neutral, 27 per family, 8 illustration, 6 surfaces, 4 planes; 132 of
+220 color rows: 39 neutral, 27 per family, 8 illustration, 6 surfaces, 4 planes; 129 of
 them reserved. 52 pairs.
 
 ## Ruled
@@ -203,6 +202,10 @@ the engine's stamp for parity and hidden from designers, rather than generated b
 engine, because the engine emits primitives only and the semantic name is the
 palette's. The `muted` border is `chalk-15`. The neutral's `fg/hint` is offered, scoped
 to shapes. Every word with a stop is emitted, offered or reserved, so the framework is
-recorded in full and what designers see is decided per word.
+recorded in full and what designers see is decided per word. On 2026-10-07: the
+neutral's `bg` words are all offered; the families' `hint`, `muted` and `strong` grounds
+stay reserved. The surfaces stay palette rows over hidden planes, because today's
+background rows are then the same variables, and every consumer file's bindings follow
+the rename on the next library update.
 
 Open, for her: which reserved words to offer, as the component work asks for them.

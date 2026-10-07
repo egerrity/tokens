@@ -53,9 +53,9 @@ Generated from `declarations/color.ts, with the opacity steps in declarations/op
 | `color/border/inverse` | `color/neutral/paper-0` (#ffffff) | borders on an inverted ground |
 | `color/bg/regular` | `color/neutral/paper-3` (#f3f5f8) | the default ground with color |
 | `color/bg/accent` | `color/neutral/pencil-47` (#6a6b6c) | the fill that grabs the eye |
-| `color/bg/hint` | `color/neutral/paper-1` (#f9fafd) | the lightest ground (reserved for components) |
-| `color/bg/muted` | `color/neutral/paper-5` (#eceef2) | a restrained ground (reserved for components) |
-| `color/bg/strong` | `color/neutral/chalk-20` (#bcbec1) | a heavy ground (reserved for components) |
+| `color/bg/hint` | `color/neutral/paper-1` (#f9fafd) | the lightest ground |
+| `color/bg/muted` | `color/neutral/paper-5` (#eceef2) | a restrained ground |
+| `color/bg/strong` | `color/neutral/chalk-20` (#bcbec1) | a heavy ground |
 | `color/bg/ghost/enabled` | #000000 at 0 percent | the ghost ground of a neutral control, at rest |
 | `color/bg/ghost/hover` | `color/neutral/highlighter-26` (#868789) with `opacity/ghost/hover` | the ghost ground of a neutral control, under the pointer |
 | `color/bg/ghost/pressed` | `color/neutral/highlighter-26` (#868789) with `opacity/ghost/pressed` | the ghost ground of a neutral control, while pressed |
