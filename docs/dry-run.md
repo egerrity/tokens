@@ -54,7 +54,11 @@ The console prints one report for the whole run:
 - `problems`: rows left alone because settling them would mean guessing: two variables
   carrying one stamp (a duplicate), a name another variable holds (a hand rename), a
   type that does not match, a mode the payload does not name. Fix each by hand and
-  run again.
+  run again. The known mode case: `viewport` takes over today's `Type scale`
+  collection, so the text styles' bindings survive; its two modes are renamed
+  (`mobile`, `desktop`), `tablet` and `wide` are added, and the iOS text-size modes are
+  left in place and listed here. They are deleted by hand: the ruling is that the OS
+  scales from the base size.
 
 The script never deletes, never writes a value that is already what the payload asks
 for, and leaves a row composed by hand (an alias with an opacity) as it is.
