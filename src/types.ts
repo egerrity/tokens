@@ -4,7 +4,7 @@
 // contexts.
 import type { TokenPath } from '../grammar/path.ts'
 
-export type Layer = 'primitive' | 'semantic'
+export type Layer = 'base' | 'semantic'
 
 export type Dimension = { value: number; unit: 'px' }
 export type Duration = { value: number; unit: 'ms' }

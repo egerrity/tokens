@@ -12,7 +12,7 @@ modes), into Figma (variables, text styles, effect styles, applied in place), an
 documentation pages, deterministically: every name and every alias follows from a rule
 and a declared value, and an audit plus an independent parser prove it on every run.
 The color half is the first full use of it: a semantic color set on top of the color
-engine's primitives, built with the owner's account of what each of today's rows is
+engine's base tokens, built with the owner's account of what each of today's rows is
 used for and what is wrong with it.
 
 ## 2. What was wrong with today's color palette
@@ -140,7 +140,7 @@ stay equal, and a reader cannot tell "equal by rule" from "equal by coincidence"
 the invariant breaks silently. Invariants should be structural, not conventional.
 
 Equal either way, so nobody can say it was hidden: the mode switch (one, on theme;
-palette has no modes), hiding primitives, ownership, performance, resolution in
+palette has no modes), hiding base tokens, ownership, performance, resolution in
 consumer files, extended collections. The rename-in-place migration is a bonus, not the
 reason.
 

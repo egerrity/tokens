@@ -58,7 +58,7 @@ export function engineTokens(): Token[] {
       byContext[ctx] = valueOf(node.$value, `${key} (${ctx})`)
     }
     const lines = (t.$description ?? '').split('\n')
-    out.push({ path: p, layer: 'primitive', req: lines[0].replace(/^Req for: /, ''), use: lines.slice(1).join('\n'), value: byContext[theme.default ?? first], byContext })
+    out.push({ path: p, layer: 'base', req: lines[0].replace(/^Req for: /, ''), use: lines.slice(1).join('\n'), value: byContext[theme.default ?? first], byContext })
   }
   return out
 }

@@ -1,5 +1,5 @@
 // Derive: each declaration becomes its tokens. Every name here comes from a rule and a
-// declared value, primitives first and the semantic rows after them, so the order of a
+// declared value, base tokens first and the semantic rows after them, so the order of a
 // declaration is the order of the file.
 import { baseUnit } from '../declarations/scale.ts'
 import { VIEWPORTS, viewportFallback, type Viewport } from '../declarations/collections.ts'
@@ -52,13 +52,13 @@ const contextual = (base: Omit<Token, 'value' | 'byContext'>, byContext: Record<
 
 export function spaceTokens(d: SpaceDeclaration): Token[] {
   const steps: Token[] = d.steps.map(v => ({
-    path: ['space', pxStep(v)], layer: 'primitive', value: dim(v),
+    path: ['space', pxStep(v)], layer: 'base', value: dim(v),
     req: d.purpose, use: `${v} px. ${PREFER_SEMANTIC}`,
   }))
   const negatives: Token[] = d.negative.steps.map(v => {
     stepFor(['space'], d.steps, v, 'negative space')
     return {
-      path: ['space', 'negative', pxStep(v)], layer: 'primitive', value: dim(-v),
+      path: ['space', 'negative', pxStep(v)], layer: 'base', value: dim(-v),
       req: d.negative.purpose, use: `-${v} px, the mirror of space/${pxStep(v)}. For overlap only`,
     }
   })
@@ -78,7 +78,7 @@ export function spaceTokens(d: SpaceDeclaration): Token[] {
 
 export function sizeTokens(d: SizeDeclaration): Token[] {
   const steps: Token[] = d.steps.map(v => ({
-    path: ['size', pxStep(v)], layer: 'primitive', value: dim(v),
+    path: ['size', pxStep(v)], layer: 'base', value: dim(v),
     req: d.purpose, use: `${v} px. ${PREFER_SEMANTIC}`,
   }))
   const named = (kind: 'icon' | 'control', what: string): Token[] =>
@@ -110,11 +110,11 @@ export function sizeTokens(d: SizeDeclaration): Token[] {
 export function radiusTokens(d: RadiusDeclaration): Token[] {
   return [
     ...d.steps.map((row): Token => ({
-      path: ['radius', pxStep(row.px)], layer: 'primitive', value: dim(row.px),
+      path: ['radius', pxStep(row.px)], layer: 'base', value: dim(row.px),
       req: row.req, use: `${row.px} px`,
     })),
     {
-      path: ['radius', 'full'], layer: 'primitive', value: dim(d.full.px),
+      path: ['radius', 'full'], layer: 'base', value: dim(d.full.px),
       req: d.full.req, use: 'fully rounded ends at any height',
     },
   ]
@@ -122,7 +122,7 @@ export function radiusTokens(d: RadiusDeclaration): Token[] {
 
 export function borderWidthTokens(d: BorderWidthDeclaration): Token[] {
   return d.steps.map(v => ({
-    path: ['border-width', pxStep(v)], layer: 'primitive', value: dim(v),
+    path: ['border-width', pxStep(v)], layer: 'base', value: dim(v),
     req: d.purpose, use: `${v} px`,
   }))
 }
@@ -130,7 +130,7 @@ export function borderWidthTokens(d: BorderWidthDeclaration): Token[] {
 export function opacityTokens(d: OpacityDeclaration): Token[] {
   return [
     ...d.steps.map((percent): Token => ({
-      path: ['opacity', stepName(percent)], layer: 'primitive', value: { type: 'number', value: percent / 100 },
+      path: ['opacity', stepName(percent)], layer: 'base', value: { type: 'number', value: percent / 100 },
       req: d.purpose, use: `${percent} percent`,
     })),
     {
@@ -142,11 +142,11 @@ export function opacityTokens(d: OpacityDeclaration): Token[] {
 
 export function motionTokens(d: MotionDeclaration): Token[] {
   const easings: Token[] = Object.entries(d.easing).map(([word, row]) => ({
-    path: ['motion', 'easing', word], layer: 'primitive', value: { type: 'cubicBezier', value: row.curve },
+    path: ['motion', 'easing', word], layer: 'base', value: { type: 'cubicBezier', value: row.curve },
     req: row.req, use: `cubic-bezier(${row.curve.join(', ')})`,
   }))
   const durations: Token[] = d.duration.steps.map(row => ({
-    path: ['motion', 'duration', stepName(row.ms)], layer: 'primitive', value: { type: 'duration', value: ms(row.ms) },
+    path: ['motion', 'duration', stepName(row.ms)], layer: 'base', value: { type: 'duration', value: ms(row.ms) },
     req: row.req, use: `${row.ms} ms`,
   }))
   const transitions: Token[] = Object.entries(d.transition).map(([word, row]) => {
@@ -165,7 +165,7 @@ export function motionTokens(d: MotionDeclaration): Token[] {
 
 export function breakpointTokens(d: BreakpointDeclaration): Token[] {
   return bySize(d.widths).map(([word, row]) => ({
-    path: ['breakpoint', word], layer: 'primitive', value: dim(row.px),
+    path: ['breakpoint', word], layer: 'base', value: dim(row.px),
     req: row.req, use: `a minimum width of ${row.px} px`,
   }))
 }
@@ -200,19 +200,19 @@ export function gridTokens(d: GridDeclaration, spaceSteps: readonly number[]): T
 
 export function fontTokens(d: FontDeclaration): Token[] {
   const families: Token[] = Object.entries(d.family).map(([word, row]) => ({
-    path: ['font', 'family', word], layer: 'primitive', value: { type: 'fontFamily', value: row.names },
+    path: ['font', 'family', word], layer: 'base', value: { type: 'fontFamily', value: row.names },
     req: row.req, use: `${row.names.slice(0, -1).join(', ')}, falling back to the generic ${row.names[row.names.length - 1]}`,
   }))
   const weights: Token[] = Object.entries(d.weight).map(([word, row]) => ({
-    path: ['font', 'weight', word], layer: 'primitive', value: { type: 'fontWeight', value: row.value },
+    path: ['font', 'weight', word], layer: 'base', value: { type: 'fontWeight', value: row.value },
     req: row.req, use: `weight ${row.value}`,
   }))
   const sizes: Token[] = d.size.steps.map(v => ({
-    path: ['font', 'size', pxStep(v)], layer: 'primitive', value: dim(v),
+    path: ['font', 'size', pxStep(v)], layer: 'base', value: dim(v),
     req: d.size.purpose, use: `${v} px. Use a text style, not a size, wherever one exists`,
   }))
   const lineHeights: Token[] = d.lineHeight.steps.map(v => ({
-    path: ['font', 'line-height', multipleStep(v)], layer: 'primitive', value: { type: 'number', value: v },
+    path: ['font', 'line-height', multipleStep(v)], layer: 'base', value: { type: 'number', value: v },
     req: d.lineHeight.purpose, use: `${v} times the font size`,
   }))
   return [...families, ...weights, ...sizes, ...lineHeights]

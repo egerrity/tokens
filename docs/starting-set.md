@@ -12,7 +12,7 @@ the variables and styles), and the audit page beside this one
 
 ## Space
 
-**Primitives.** The 21 steps and six negative steps exist and are kept exactly: the same
+**Base tokens.** The 21 steps and six negative steps exist and are kept exactly: the same
 step numbers, the same values, the same rule (the base unit is 4 px and the step is the
 number of base units times 100, so 2 px is `050`, 4 px is `100`, 10 px is `250`, 16 px is
 `400`). The only change is where the word sits. `Primitives/space-400` becomes the Figma
@@ -77,7 +77,7 @@ To decide:
 
 ## Size
 
-Primitives: the eight steps exist and are kept, `size/300` to `size/1400`, on the same
+Base tokens: the eight steps exist and are kept, `size/300` to `size/1400`, on the same
 rule as space, with a ninth added at 64 px, `size/1600`.
 
 | Path | Aliases | px | Status |
@@ -167,7 +167,7 @@ The two added steps are what the selection controls use today (3, 4 and 6 px by 
 
 ## Motion
 
-The docs name the values and say the tokens exist in the code repository, as primitive
+The docs name the values and say the tokens exist in the code repository, as base
 and semantic motion files, so the code-side audit should find them. Figma now has timing
 and easing variable types, so the durations and easings can be Figma variables; the docs
 page that says Figma has no motion variables is out of date. All rows documented, none
@@ -239,7 +239,7 @@ shadow is dark, never a colored glow.
 
 **Proposed.**
 
-Primitives: one standard opacity scale, the eight steps the color engine work settled
+Base tokens: one standard opacity scale, the eight steps the color engine work settled
 on, as plain numbers with no color and no mode.
 
 | Path | Value |

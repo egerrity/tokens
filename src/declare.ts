@@ -15,7 +15,7 @@ export type SpaceDeclaration = {
     property: 'gap' | 'padding'
     where: string
     density: Density
-    /** the primitive step it aliases, by its px value */
+    /** the base step it aliases, by its px value */
     px: number
     /** the documented cases it covers */
     covers: readonly string[]
