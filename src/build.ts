@@ -8,6 +8,7 @@ import { audit } from './audit.ts'
 import { documents, resolver, serialize } from './dtcg.ts'
 import { figmaFiles, figmaPayloads } from './figma.ts'
 import { handWorkPage, page, pageName } from './pages.ts'
+import { slotsPage } from './slots.ts'
 import { externals, roster, tokensOf } from './roster.ts'
 import type { Token } from './types.ts'
 
@@ -24,6 +25,7 @@ export function build(): Build {
   Object.assign(files, figmaPlugin(tokens, outside))
   for (const category of CATEGORIES) files[`docs/groups/${pageName(category)}`] = page(category, tokensOf(category), tokens, outside)
   files['docs/hand-work.md'] = handWorkPage(tokens, outside)
+  files['docs/slots.md'] = slotsPage(tokens, outside)
   return { count: tokens.length, failures: audit(tokens, docs, outside), files }
 }
 

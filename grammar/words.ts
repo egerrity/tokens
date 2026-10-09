@@ -36,64 +36,72 @@ const SOLID_STATE = ['enabled', 'hover', 'pressed'] as const
 
 /** a scale step: digits only, three or more (`025`, `400`, `3200`) */
 export const STEP = 'step'
-export type Segment = readonly string[] | typeof STEP
+// a shape names the slot each segment fills, so the audit can hold the slot rules and the
+// inventory page can say what fills each slot today
+export type Slot = 'property' | 'family' | 'variant' | 'specifier'
+export const SLOTS = ['category', 'property', 'family', 'variant', 'specifier'] as const
+export type Segment = { readonly slot: Slot; readonly words: readonly string[] | typeof STEP }
+const P = (words: readonly string[]): Segment => ({ slot: 'property', words })
+const F = (words: readonly string[]): Segment => ({ slot: 'family', words })
+const V = (words: readonly string[]): Segment => ({ slot: 'variant', words })
+const S = (words: readonly string[] | typeof STEP): Segment => ({ slot: 'specifier', words })
 export const isStep = (s: string): boolean => /^\d{3,}$/.test(s)
 
 export const SHAPES = {
   space: [
-    [STEP],
-    [['negative'], STEP],
-    [['gap'], ['control', 'content', 'layout'], DENSITY],
-    [['padding'], ['card', 'container'], DENSITY],
+    [S(STEP)],
+    [P(['negative']), S(STEP)],
+    [P(['gap']), V(['control', 'content', 'layout']), S(DENSITY)],
+    [P(['padding']), V(['card', 'container']), S(DENSITY)],
   ],
   size: [
-    [STEP],
-    [['icon'], SIZE],
-    [['control'], SIZE],
-    [['illustration'], ['spot', 'hero'], SIZE],
-    [['measure']],
+    [S(STEP)],
+    [P(['icon']), S(SIZE)],
+    [P(['control']), S(SIZE)],
+    [P(['illustration']), V(['spot', 'hero']), S(SIZE)],
+    [S(['measure'])],
   ],
-  radius: [[STEP], [['full']]],
-  'border-width': [[STEP]],
+  radius: [[S(STEP)], [S(['full'])]],
+  'border-width': [[S(STEP)]],
   opacity: [
-    [STEP],
-    [['disabled', 'scrim']],
-    [['ghost'], ['hover', 'pressed', 'selected']],
-    [['soft'], STATE],
+    [S(STEP)],
+    [S(['disabled', 'scrim'])],
+    [V(['ghost']), S(['hover', 'pressed', 'selected'])],
+    [V(['soft']), S(STATE)],
   ],
   motion: [
-    [['easing'], ['default', 'enter', 'exit', 'linear']],
-    [['duration'], STEP],
-    [['transition'], ['default', 'default-opacity', 'default-fast', 'open', 'dismiss', 'slide-in', 'slide-out']],
+    [P(['easing']), S(['default', 'enter', 'exit', 'linear'])],
+    [P(['duration']), S(STEP)],
+    [P(['transition']), S(['default', 'default-opacity', 'default-fast', 'open', 'dismiss', 'slide-in', 'slide-out'])],
   ],
-  breakpoint: [[SIZE]],
-  grid: [[['columns', 'margin', 'gutter', 'max-width']]],
+  breakpoint: [[S(SIZE)]],
+  grid: [[S(['columns', 'margin', 'gutter', 'max-width'])]],
   font: [
-    [['family'], ['sans', 'number', 'mono']],
-    [['weight'], ['regular', 'medium', 'semibold']],
-    [['size'], STEP],
-    [['line-height'], STEP],
+    [P(['family']), S(['sans', 'number', 'mono'])],
+    [P(['weight']), S(['regular', 'medium', 'semibold'])],
+    [P(['size']), S(STEP)],
+    [P(['line-height']), S(STEP)],
   ],
-  text: [[ROLE, SIZE]],
+  text: [[V(ROLE), S(SIZE)]],
   color: [
-    [['fg'], [...WORD, 'on-solid']],
-    [['fg'], ['link'], LINK_STATE],
-    [['fg'], ['on-inverse'], WORD],
-    [['fg'], ['on-inverse'], ['link'], LINK_STATE],
-    [['fg'], FAMILY, [...WORD, 'on-solid']],
-    [['bg'], WORD],
-    [['bg'], ['ghost', 'soft'], STATE],
-    [['bg'], ['solid'], SOLID_STATE],
-    [['bg'], FAMILY, WORD],
-    [['bg'], FAMILY, ['ghost', 'soft'], STATE],
-    [['bg'], FAMILY, ['solid'], SOLID_STATE],
-    [['border'], [...WORD, 'focus', 'inverse', 'solid']],
-    [['border'], FAMILY, [...WORD, 'solid']],
-    [['plane'], ['high', 'mid', 'low', 'dim']],
-    [['surface'], ['high', 'mid', 'low', 'dim', 'inverse', 'scrim']],
-    [['illustration'], ['paper', 'chalk-light', 'chalk', 'highlighter', 'pencil', 'pen', 'shadow', 'shine']],
+    [P(['fg']), S([...WORD, 'on-solid'])],
+    [P(['fg']), V(['link']), S(LINK_STATE)],
+    [P(['fg']), V(['on-inverse']), S(WORD)],
+    [P(['fg']), V(['on-inverse']), V(['link']), S(LINK_STATE)],
+    [P(['fg']), F(FAMILY), S([...WORD, 'on-solid'])],
+    [P(['bg']), S(WORD)],
+    [P(['bg']), V(['ghost', 'soft']), S(STATE)],
+    [P(['bg']), V(['solid']), S(SOLID_STATE)],
+    [P(['bg']), F(FAMILY), S(WORD)],
+    [P(['bg']), F(FAMILY), V(['ghost', 'soft']), S(STATE)],
+    [P(['bg']), F(FAMILY), V(['solid']), S(SOLID_STATE)],
+    [P(['border']), S([...WORD, 'focus', 'inverse', 'solid'])],
+    [P(['border']), F(FAMILY), S([...WORD, 'solid'])],
+    [P(['plane']), S(['high', 'mid', 'low', 'dim'])],
+    [P(['surface']), S(['high', 'mid', 'low', 'dim', 'inverse', 'scrim'])],
+    [P(['illustration']), S(['paper', 'chalk-light', 'chalk', 'highlighter', 'pencil', 'pen', 'shadow', 'shine'])],
   ],
-  shadow: [[SHADOW]],
+  shadow: [[S(SHADOW)]],
 } as const satisfies Record<string, readonly (readonly Segment[])[]>
 
 export type Category = keyof typeof SHAPES

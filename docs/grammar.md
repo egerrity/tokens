@@ -39,7 +39,7 @@ the name alone identifies a token in code.
 | --- | --- | --- |
 | Base: a value on a scale, named for its position | category, a property where the category has one, then a position: a step or a named place on the scale | `space/400`, `radius/full`, `font/weight/medium`, `color/brand/paper-1` |
 | Semantic: a value named for its purpose | category, property, the family where the role has one, the variant, then the final word: a state, a size, a density or a name | `size/icon/sm`, `space/gap/content/condensed`, `color/bg/positive/solid/enabled` |
-| Component: a value only one component needs | component, property, family, variant, state | none yet |
+| Component: a value only one component needs | component, property, family, variant, then a state, or a name where the component has none | `skeleton-loader/bg/regular`, `skeleton-loader/bg/shine` (proposed) |
 
 One column is one segment. A base ends in a position; a state as a segment of its
 own belongs only to the semantic and component layers. The engine's rows are base tokens
@@ -51,35 +51,29 @@ declaration, so tools can read it without parsing names.
 
 ## The five slots
 
-A path is read left to right as category, property, family, variant, leaf. Every token
-has a category and a leaf; the three middle slots appear where the category or the layer
-needs them. What each slot holds today is an audit of every path in the system, the
-color engine's included (507: 212 base tokens, of which 122 are the engine's, and 295
-semantic).
+A path is read left to right as category, property, family, variant, specifier. Every
+token has a category and a specifier; the three middle slots appear when the category
+or the layer calls for them. The rules are here. For each slot, what it holds in each
+layer and what fills it today is a generated table in `slots.md`, and the audit holds
+the rules on every build.
 
-| Slot | Base | Semantic | Component |
-| --- | --- | --- | --- |
-| category | always | always | the component's name takes its place |
-| property | only where the category has several scales (`font`, `motion`) | usual; absent in `opacity`, `text`, `grid`, `shadow` | always |
-| family | `color` only | `color` only | `color` roles only |
-| variant | `negative` only | where, level, role, kind, posture | yes |
-| leaf | a position | a state, a size, a density, a word, or a name | a state |
+| | category | property | family | variant | specifier |
+| --- | --- | --- | --- | --- | --- |
+| **Base** | Always.<br>The kind of value, in the everyday word. | When the category has more than one scale.<br>Which scale: weight, duration, negative. | When the category holds a parallel set.<br>Which member: the same scale for each, built by one rule. | Never.<br>A base narrows by position alone. | Always.<br>A position: a step, or a named place on the scale. |
+| **Semantic** | Always.<br>The kind of value, in the everyday word. | When the category has more than one aspect; then every token of that aspect carries it.<br>Which purpose: a gap or a padding, a fg or a bg. | When the category holds a parallel set.<br>Which member: the same roles for each, so a path reads the same in every family. | When the property offers a choice among kinds that are not parallel.<br>Which kind: a where, a level, a role, a posture. | Always.<br>The word that makes the token unique in its group: a state, a size, a density, a word, or a name from the group's list. |
+| **Component** | Always.<br>The component's name, in the category's place. | Always.<br>The property the component sets. | When the property's roles have families.<br>Which member, as in the semantic layer. | As semantic.<br>Which kind. | Always.<br>A state; a name where the component has no states. |
 
 ### Category
 
 The first segment: the kind of value, in the everyday word a designer would look for.
 A category is the root of a group in the token file and of a folder in Figma.
 
-- Holds today: `space`, `size`, `radius`, `border-width`, `opacity`, `motion`,
-  `breakpoint`, `grid`, `font`, `text`, `shadow`, `color`. Base tokens live in nine of
-  them (the color base tokens are the engine's), semantic tokens in eight.
 - Parent: none in the name. A collection is a container, not a parent: a category can
   span collections (`space` steps sit in `scale`, the semantic gaps in `viewport`), and
   a collection never takes a category's word.
 - Do: add a category only for a new kind of value with its own scale or its own word
-  list (a blur, a z-order), named as a designer says it, lower-case, hyphenated if two
-  words; register it with its shapes in `grammar/words.ts`, which is the only place a
-  word enters the system.
+  list, named as a designer says it, lower-case, hyphenated if two words; register it
+  with its shapes in `grammar/words.ts`, the only place a word enters the system.
 - Don't: a category for a data type (`dimension`), a layer (`base`), a context
   (`dark`, `mobile`), a collection (`scale`), a component (that is the component layer,
   whose first segment is the component's name), or a synonym of one that exists
@@ -88,61 +82,61 @@ A category is the root of a group in the token file and of a folder in Figma.
 ### Property
 
 The aspect of the category that the token sets: a kind within the category that has
-its own scale or its own list of words. Where a category has one aspect, the property
-is omitted and the category stands for it (`space/400`, `radius/full`).
+its own scale or its own list of words. It appears when the category has more than one
+such aspect, and then every token of that aspect carries it; where a category has one
+aspect, the category stands for it (`space/400`, `radius/full`).
 
-- Holds today. Base: `font/family|weight|size|line-height`,
-  `motion/easing|duration`. Semantic: `space/gap|padding`, `size/icon|control|illustration`,
-  `motion/transition`, `color/fg|bg|border|surface|plane|illustration`.
-- Parent: the category. A property appears only when the category has more than one
-  aspect, and then every token of that aspect carries it.
-- Do: name the aspect as a noun (`gap`, `weight`, `fg`); add one when a category gains a
-  second aspect with its own ladder or list; keep one property per path.
-- Don't: a state, a size, a density or a level as a property (those are a leaf or a
-  variant); a property for a single value, which is a leaf instead (`size/measure`);
-  a second property under the first.
+- Parent: the category.
+- Do: name the aspect as a noun (`gap`, `weight`, `negative`, `fg`); add one when a
+  category gains a second aspect with its own ladder or list; one property per path.
+- Don't: a state, a size, a density or a level as a property (those are a specifier or
+  a variant); a property for a single value, which is a specifier instead
+  (`size/measure`); a second property under the first.
 
 ### Family
 
-A color family: a hue role the engine solves per seed. Color only. In a role the family
-follows the property (`fg/brand/accent`); in a base it follows the category
-(`color/brand/pen-70`), since color has no property at that layer. The neutral is
-implied by its absence.
+A named member of a parallel set: every member carries the same words and the same
+ladder below it, built by one rule, so a path reads the same in every member
+(`fg/brand/accent` is `fg/critical/accent` with the family swapped). It appears when
+the category holds such a set, and the set can grow without changing any shape: a new
+member adds rows, never words. It sits after the property, or after the category where
+the layer has no property (`color/brand/pen-70`); one member may be implied by its
+absence (the neutral).
 
-- Holds today. Semantic: `brand`, `brand-alt`, `critical`, `warning`, `positive`,
-  `info`. Base: the same six, plus `neutral` spelled (a base has no property
-  for an absence to hang off), `link`, and `absolute` for the two seed records.
-- Parent: the property in a role; the category in a base. Every family carries the
-  same words per property, and a word a family lacks a stop for does not exist for it.
-- Do: add a family when the engine emits one, and only then; give it the same word
-  lists as the others, with offered and reserved as the only difference.
-- Don't: a family right after `color` in a semantic row, since a family in that place
-  is what marks a base; a one-off hue outside the engine; a word in one family
-  that the others lack.
+- Parent: the property in a role; the category in a base.
+- Do: add a family when a parallel set gains a member, by the rule that builds the set;
+  give it the same word lists as the others, with offered and reserved as the only
+  difference.
+- Don't: a family directly after the category in a semantic row, since a family in that
+  place is what marks a base; a member that does not carry the ladder; a word in one
+  family that the others lack.
+
+Family, variant, mode: a family is parallel, so everything below it is the same for
+every member and a new member costs no new rule; a variant narrows, so its siblings may
+carry different things below them and a new one may need a shape of its own; a mode is
+neither, the same path with a different value, switched on the frame.
 
 ### Variant
 
 A qualifier that narrows which one, within a property or a category, that is neither a
-state nor a position. Each variant is one closed list, one axis per segment.
+state nor a position. It appears when the property, or the category where there is
+none, offers a choice among kinds that are not parallel. Each variant is one closed
+list, one axis per segment; two may stack when each is its own axis, posture before
+role (`fg/on-inverse/link/hover`).
 
-- Holds today. Base: `negative` (`space`), the only one. Semantic: where
-  (`control`, `content`, `layout`, `card`, `container`), kind (`spot`, `hero`), level
-  (`ghost`, `soft`, `solid`), role (`display`, `heading`, `title`, `body`, `link`,
-  `tabular-number`, `button`, `code`), posture (`on-inverse`, `link`).
 - Parent: the property, or the category where there is no property (`text/heading`,
-  `opacity/soft`). Two variants may stack when each is its own axis, posture before
-  role (`fg/on-inverse/link/hover`); three tokens do, and none stacks further.
+  `opacity/soft`).
 - Do: a closed list per axis; the same axis in the same place everywhere; a variant
   where there is a choice among kinds, not among values.
-- Don't: a state or a size as a variant (those are the leaf); a variant that exists
-  for one token; a variant on a base, whose only qualifier is the sign of its scale.
+- Don't: a state or a size as a variant (those are the specifier); a variant that
+  exists for one token; a variant on a base, which narrows by position alone.
 
-### Leaf
+### Specifier
 
-The last segment: what tells a token from its siblings. Everything before it is the
-group the token belongs to, and a path is a token or a group, never both, so a default
-is spelled (`normal`, `enabled`, `regular`) rather than left bare. The leaf's kind is
-what the layers differ on.
+The last segment: the word that makes a token unique within its group. Everything
+before it is the group the token belongs to, and a path is a token or a group, never
+both, so a default is spelled (`normal`, `enabled`, `regular`) rather than left bare.
+The specifier's kind is what the layers differ on.
 
 - Base: a position on the scale. A step of three or more digits (`400`, `016`,
   `080`) or a named place on the scale (`full`, `enter`, `sans`, `medium`,
@@ -152,14 +146,15 @@ what the layers differ on.
   a density (`condensed`, `normal`, `spacious`), an emphasis word (`regular`, `accent`,
   `hint`, `muted`, `strong`), or a name from the group's own list (`high`, `scrim`,
   `focus`, `raised`, `open`, `gutter`, `measure`, `disabled`, `on-solid`).
-- Component: a state, with the default spelled.
-- Parent and siblings: a group's token leaves come from one list. A word's meaning is
+- Component: a state, with the default spelled; a word from the component’s own list
+  where it has no states (a skeleton loader’s `regular` ground and its `shine`).
+- Parent and siblings: a group's specifiers come from one list. A word's meaning is
   fixed by its group: `regular` under `font/weight` is a weight, under `fg` an emphasis.
-- Do: take the leaf from the list its group uses; spell the default; digits only for a
-  step, three or more.
-- Don't: a state on a base, which names its steps inside the position word
-  instead (`stamp-1`); a synonym beside an existing word (`subtle` next to `muted`); a
-  leaf that is a group elsewhere; a number under three digits.
+- Do: take the specifier from the list its group uses; spell the default; digits only
+  for a step, three or more.
+- Don't: a state on a base, which names its steps inside the position word instead
+  (`stamp-1`); a synonym beside an existing word (`subtle` next to `muted`); a
+  specifier that is a group elsewhere; a number under three digits.
 
 ## Scales
 
@@ -274,16 +269,26 @@ Kept slim. Match what exists, name it better, add the obvious gaps.
 
 ## Today's names, renamed
 
-| Today | Path | CSS |
-| --- | --- | --- |
-| `Primitives/space-400` | `space/400` | `--ds-space-400` |
-| `Primitives/negative-space-400` | `space/negative/400` | `--ds-space-negative-400` |
-| `radius-200` | `radius/200` | `--ds-radius-200` |
-| `width-025` | `border-width/025` | `--ds-border-width-025` |
-| `icon-sm` | `size/icon/sm` | `--ds-size-icon-sm` |
-| `font/weight/medium` | `font/weight/medium` | `--ds-font-weight-medium` |
-| `heading/lg/font-size` and its two siblings | one text style, `text/heading/lg` | per part, `--ds-text-heading-lg-font-size` |
-| `motion-easing-enter` | `motion/easing/enter` | `--ds-motion-easing-enter` |
+One row per category, the one the rollout renames in place where a row exists today and
+creates where none does.
+
+| Category | Today | Path | CSS |
+| --- | --- | --- | --- |
+| space | `Primitives/space-400` | `space/400` | `--ds-space-400` |
+| space | `Primitives/negative-space-400` | `space/negative/400` | `--ds-space-negative-400` |
+| size | `Primitives/size-400` | `size/400` | `--ds-size-400` |
+| size | `icon-sm` | `size/icon/sm` | `--ds-size-icon-sm` |
+| radius | `radius-200` | `radius/200` | `--ds-radius-200` |
+| border-width | `width-025` | `border-width/025` | `--ds-border-width-025` |
+| opacity | none; merge rows carried opacity inside a color | `opacity/016` | `--ds-opacity-016` |
+| motion | `motion-easing-enter`, in code only | `motion/easing/enter` | `--ds-motion-easing-enter` |
+| breakpoint | none; the type collection's modes stood in (`Desktop Web`) | `breakpoint/md` | `--ds-breakpoint-md` |
+| grid | none | `grid/gutter` | `--ds-grid-gutter` |
+| font | `font/weight/medium` | `font/weight/medium` | `--ds-font-weight-medium` |
+| text | `heading/lg/font-size` and its two siblings | one text style, `text/heading/lg` | per part, `--ds-text-heading-lg-font-size` |
+| shadow | the effect style `Elevation shadow/Level 1` | `shadow/raised` | `--ds-shadow-raised` |
+| color | `Content palette/Content Primary` | `color/fg/regular` | `--ds-color-fg-regular` |
+| color | `Signal palette/Signal Error` | `color/fg/critical/accent` | `--ds-color-fg-critical-accent` |
 
 ## What changed from the v1 proposal
 
@@ -316,6 +321,27 @@ Changed:
 `theme` and `palette` are the owner's names; the other three are placeholders pending the
 team's review. Renaming a collection later costs nothing, since the Figma script finds a
 collection by its stamp.
+
+### Why these collections, and why now
+
+A collection is the one thing in Figma a designer switches per frame, so there is one
+per axis, and the axis is what names it: `theme` for what light, dark and a brand change
+(the engine's bases and the planes); `palette` for the color roles, which never change
+with a mode, and the word designers already use for them; `viewport` for what the width
+changes (the grid, the text styles, the semantic space and size rows), one axis that web
+reads by breakpoint and native by device class; `scale` for the values that never vary
+(the steps, the opacities, the shadows); `motion` for what a reduced-motion setting will
+change one day.
+
+Mode potential decides a row's home, not its layer. A base and a semantic row sit
+together when they would switch together and apart when one would and the other would
+not: the space steps never vary, so they sit in `scale`; the semantic gaps change with
+the viewport, so they sit with the type and the grid.
+
+It is decided ahead of time because Figma cannot move a variable between collections.
+A row placed right is renamed in place forever; a row placed wrong becomes, later, a new
+variable plus every binding re-pointed by hand. The collection is the one part of a
+row's address that the script cannot fix after the fact.
 
 ## Open
 

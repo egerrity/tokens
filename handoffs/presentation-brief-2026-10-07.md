@@ -195,7 +195,7 @@ now the nine with no successor.
 - The worksheet: `docs/color-role-worksheet.csv` (also the Google Sheet "Color role
   worksheet" in the owner's Drive).
 - `docs/color-semantic-set.md`, `docs/color-role-map.md`, `docs/dry-run.md`,
-  `docs/grammar-draft.md`, `docs/generator-plan.md`, and the generated pages in
+  `docs/grammar.md`, `docs/generator-plan.md`, and the generated pages in
   `docs/groups/`.
 
 ## 11. A board, if it is one

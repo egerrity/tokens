@@ -15,10 +15,13 @@
 //   G. documents: every roster token appears once per document of its collection, with
 //      exactly $type, $value and $description, the documents of one collection hold the
 //      same paths, and the bytes parse back to the same tokens
+//   H. slots: every shape is a property, then a family, then variants, then one
+//      specifier, each at most once except the variant; a family draws from the family
+//      list; a base carries no variant and never ends in a state word
 import { collections, collectionOf } from '../declarations/collections.ts'
 import { motion } from '../declarations/motion.ts'
-import { cssBody, legalSegment, matchesGrammar, stepName, type TokenPath } from '../grammar/path.ts'
-import { isStep } from '../grammar/words.ts'
+import { cssBody, legalSegment, matchesGrammar, slotsOf, stepName, type TokenPath } from '../grammar/path.ts'
+import { FAMILY, SHAPES, STATE, isStep } from '../grammar/words.ts'
 import { pxStep } from './derive.ts'
 import { serialize, type DtcgGroup, type DtcgToken, type DocumentKey } from './dtcg.ts'
 import { isAlias, valueIn, type Token, type TokenType, type Value } from './types.ts'
@@ -230,6 +233,22 @@ export function audit(tokens: Token[], docs: Map<string, { key: DocumentKey; doc
   }
   for (const [k, where] of seenIn) if (where.size > 1) fail(`${k}: emitted in ${[...where].join(' and ')}`)
   for (const k of byPath.keys()) if (!seenIn.has(k)) fail(`${k}: in the roster but in no document`)
+
+  // H. slots
+  for (const [category, shapes] of Object.entries(SHAPES)) {
+    for (const shape of shapes) {
+      const slots = shape.map(seg => seg.slot).join(' ')
+      if (!/^(property )?(family )?(variant )*specifier$/.test(slots)) fail(`${category}: the shape "${slots}" is not property, family, variants, then one specifier`)
+      for (const seg of shape) if (seg.slot === 'family' && seg.words !== 'step' && !seg.words.every(w => (FAMILY as readonly string[]).includes(w))) fail(`${category}: a family slot admits a word outside the family list`)
+    }
+  }
+  for (const t of tokens) {
+    const slots = slotsOf(t.path)
+    if (!slots) continue
+    const k = key(t.path)
+    if (t.layer === 'base' && slots.includes('variant')) fail(`${k}: a base with a variant; a base narrows by position alone`)
+    if (t.layer === 'base' && (STATE as readonly string[]).includes(t.path[t.path.length - 1])) fail(`${k}: a base ending in a state word; a state is a semantic or component specifier`)
+  }
 
   return failures
 }

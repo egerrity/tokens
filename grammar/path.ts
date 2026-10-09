@@ -2,7 +2,7 @@
 // with slashes it is the Figma variable, with hyphens the CSS name (after the build's
 // prefix), with dots inside braces the alias in a token file. Nothing spells a name by
 // hand.
-import { SHAPES, STEP, isStep, type Category, type Segment } from './words.ts'
+import { SHAPES, STEP, isStep, type Category, type Segment, type Slot } from './words.ts'
 
 export type TokenPath = readonly string[]
 
@@ -22,12 +22,18 @@ export const stepName = (n: number): string => {
 }
 
 const matches = (segment: Segment, word: string): boolean =>
-  segment === STEP ? isStep(word) : segment.includes(word)
+  segment.words === STEP ? isStep(word) : segment.words.includes(word)
+
+/** the shape a path matches: its category's shape of the same length whose every segment admits the word */
+const shapeOf = (path: TokenPath): readonly Segment[] | undefined => {
+  const shapes: readonly (readonly Segment[])[] | undefined = SHAPES[path[0] as Category]
+  if (!shapes) return undefined
+  const rest = path.slice(1)
+  return shapes.find(shape => shape.length === rest.length && shape.every((seg, i) => matches(seg, rest[i])))
+}
 
 /** true when the path is its category followed by one of that category's shapes */
-export function matchesGrammar(path: TokenPath): boolean {
-  const shapes: readonly (readonly Segment[])[] | undefined = SHAPES[path[0] as Category]
-  if (!shapes) return false
-  const rest = path.slice(1)
-  return shapes.some(shape => shape.length === rest.length && shape.every((seg, i) => matches(seg, rest[i])))
-}
+export const matchesGrammar = (path: TokenPath): boolean => shapeOf(path) !== undefined
+
+/** the slot each segment after the category fills, for a path the grammar allows */
+export const slotsOf = (path: TokenPath): readonly Slot[] | undefined => shapeOf(path)?.map(seg => seg.slot)

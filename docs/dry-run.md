@@ -11,7 +11,8 @@ happens in the copy; the real file is never the first target.
 
 The copy must already hold the color engine's rows under their current names,
 `color/<family>/…` in the `theme` collection, which the engine's own plugin (okchroma
-0.8 or later) writes and migrates. The apply never creates or writes an engine row: it
+0.9 or later, whose rows are a family and one position word, `stamp-1` rather than
+`stamp/fill-hover`) writes and migrates. The apply never creates or writes an engine row: it
 finds each by name and stamps it, so the palette's aliases resolve, and reports any it
 cannot find. If the copy still has the engine's rows under `base/…`, run the engine's
 plugin on the copy first.

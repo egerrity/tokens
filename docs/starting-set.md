@@ -3,7 +3,7 @@
 A proposal to cut, not a decision. Each row says where it comes from: "exists" means a
 variable or style is in the library file today, "documented" means the design docs state
 it but nothing in Figma holds it, "gap" means it is added here. Paths follow
-`grammar-draft.md` beside this page.
+`grammar.md` beside this page.
 
 Sources read 2026-10-02: the design docs file (Layout, Motion and Typography foundations
 pages, and the component property variables), the library file (Surface and States pages,

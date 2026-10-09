@@ -24,7 +24,7 @@ prints the plugin code that applies one payload inside Figma.
   `scripts/figma/apply.js` writes them into a file, finding each by its stamp.
 - `docs/groups/`: one generated page per group, what is decided and what is derived.
 - `docs/generator-plan.md`: the plan the generator is built to, and its build order.
-- `docs/grammar-draft.md`: the naming grammar every token path follows.
+- `docs/grammar.md`: the naming grammar every token path follows.
 - `docs/figma-foundations-audit.md`: what the library file defines today.
 - `docs/starting-set.md`: today's values and the proposed sets, named under the grammar.
 - `prompts/`: two-stage instructions for a coding agent to audit token values and
