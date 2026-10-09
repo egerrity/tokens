@@ -1,0 +1,16 @@
+# Working in this repo
+
+- The repo carries no employer name, no person's name and no home path. Work values may
+  live here; people and the company may not.
+- Commit only on the owner's word; push only after an explicit yes.
+- The Figma apply script never deletes. Never write into the owner's work Figma files;
+  copies and scratch files only.
+- A translucent color is always a pair, a color alias and an opacity token, never a
+  composed value.
+- Prose follows `docs/writing.md`; terms are defined in `docs/glossary.md` before use. In
+  short: a layer word is never a noun on its own (*a base token*, never *a base*); no
+  metaphors (no ladder, no rung); one slot order for every token; describe a thing by
+  what it is, not by who makes it. These rules are for prose, not for the generated
+  token descriptions, which have their own rules in `src/figma.ts` and `src/dtcg.ts`.
+- A comment is a present-tense claim about the code at HEAD, never dated; history goes
+  to the commit message, the changelog or a session page.

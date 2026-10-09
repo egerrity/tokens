@@ -14,7 +14,7 @@ against what the run was expected to do.
 ## 2. List the leftovers
 
 Run the plugin's second command, List the leftovers. After a run every row the set
-owns and every engine row it found carries a stamp, so an unstamped variable, text
+owns and every engine row it found carries a identity tag, so an untagged variable, text
 style or effect style is a leftover, whatever its name. The list gives each with where
 it lives and every layer, style and variable that refers to it.
 
@@ -22,7 +22,7 @@ it lives and every layer, style and variable that refers to it.
 - Under "Still referred to": open each use listed, bind it to the row's successor (the
   role map in `color-role-map.md` names it), then delete the row. A row that has to
   stay for now is marked deprecated instead.
-- Under "Collections with no stamped row": delete the collection once its rows are gone.
+- Under "Collections with no tagged row": delete the collection once its rows are gone.
 
 Run the list again: it is empty but for what was kept on purpose.
 

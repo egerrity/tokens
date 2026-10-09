@@ -17,7 +17,7 @@
 //      same paths, and the bytes parse back to the same tokens
 //   H. slots: every shape is a property, then a family, then variants, then one
 //      specifier, each at most once except the variant; a family draws from the family
-//      list; a base carries no variant and never ends in a state word
+//      list; a base token carries no variant and never ends in a state word
 import { collections, collectionOf } from '../declarations/collections.ts'
 import { motion } from '../declarations/motion.ts'
 import { cssBody, legalSegment, matchesGrammar, slotsOf, stepName, type TokenPath } from '../grammar/path.ts'
@@ -246,8 +246,8 @@ export function audit(tokens: Token[], docs: Map<string, { key: DocumentKey; doc
     const slots = slotsOf(t.path)
     if (!slots) continue
     const k = key(t.path)
-    if (t.layer === 'base' && slots.includes('variant')) fail(`${k}: a base with a variant; a base narrows by position alone`)
-    if (t.layer === 'base' && (STATE as readonly string[]).includes(t.path[t.path.length - 1])) fail(`${k}: a base ending in a state word; a state is a semantic or component specifier`)
+    if (t.layer === 'base' && slots.includes('variant')) fail(`${k}: a base token with a variant; a base token narrows by position alone`)
+    if (t.layer === 'base' && (STATE as readonly string[]).includes(t.path[t.path.length - 1])) fail(`${k}: a base token ending in a state word; a state is a semantic or component specifier`)
   }
 
   return failures

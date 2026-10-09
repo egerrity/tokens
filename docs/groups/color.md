@@ -4,14 +4,14 @@ Generated from `declarations/color.ts, with the opacity steps in declarations/op
 
 ## Decided
 
-- Each property's ladder: which engine stop every emphasis word names, with what the row is for, and which words the neutral and the families are offered.
+- Each property's word table: which stop every emphasis word points at, with what the row is for, and which words the neutral and the families are offered.
 - Whose highlighter draws the focus ring.
 - The two illustration pair opacities.
 
 ## Derived
 
 - Every row as an alias to an engine base: the same word on the same stop in the neutral and in every family.
-- The interaction levels per family: ghost and soft on the highlighter at the level's opacities, solid on the engine's stamp with its edge and on-text.
+- The interaction levels per family: ghost and soft on the highlighter at the level's opacities, solid on the engine's identity tag with its edge and on-text.
 - The surfaces per theme context, in the engine's plane order.
 - Each translucent row's pair, the opacity it is composed with.
 

@@ -77,8 +77,8 @@ Figma's variable picker searches descriptions.
   `<collection>.<context>.tokens.json`. A collection with one context writes one file.
 - **A resolver document** that joins these files with the color engine's files.
 - **A Figma payload**, the same tokens with the terse descriptions, each carrying its
-  path and today's name. A script applies it: it finds each variable by its ID stamp, or
-  by today's name where no stamp exists yet, renames it in place and stamps it. Bindings
+  path and today's name. A script applies it: it finds each variable by its identity tag, or
+  by today's name where no tag exists yet, renames it in place and tags it. Bindings
   survive because the variable is never recreated.
 - **One page per group** saying what is decided and what is derived.
 
@@ -126,9 +126,9 @@ what changed.
    description on every token, the audit passes, the independent parser accepts them, and
    a second run changes nothing.
 2. **The groups with contexts.** Typography and the grid across the four viewports,
-   then the Figma payload and the script that applies it by stamp, including the text
+   then the Figma payload and the script that applies it by identity tag, including the text
    styles bound to the typography variables. Built and dry-run in a Figma file: every
-   variable and style created, bound and stamped, and a second run changes nothing.
+   variable and style created, bound and tagged, and a second run changes nothing.
 3. **The groups that read color.** Shadow, the scrim, the elevation surfaces and the
    color roles, with the merge, and the shadow effect styles in Figma. A translucent
    role is emitted as its pair, a color alias and an opacity token, because neither the

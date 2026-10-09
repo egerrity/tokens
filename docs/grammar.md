@@ -3,6 +3,7 @@
 Signed off by the owner on 2026-10-05, pending the team's review. It joins three inputs: the v1 naming proposal, the pattern the
 "Design token naming compared" guide recommends for a team starting fresh (Polaris), and
 the shape the color engine's token file already has.
+The words it uses are defined once in `glossary.md`.
 
 ## The rule
 
@@ -41,9 +42,8 @@ the name alone identifies a token in code.
 | Semantic: a value named for its purpose | category, property, the family where the role has one, the variant, then the final word: a state, a size, a density or a name | `size/icon/sm`, `space/gap/content/condensed`, `color/bg/positive/solid/enabled` |
 | Component: a value only one component needs | component, property, family, variant, then a state, or a name where the component has none | `skeleton-loader/bg/regular`, `skeleton-loader/bg/shine` (proposed) |
 
-One column is one segment. A base ends in a position; a state as a segment of its
-own belongs only to the semantic and component layers. The engine's rows are base tokens
-spelled by the engine, a family and one word, and the word is a position too: a band at
+One column is one segment. A base token ends in a position; a state as a segment of its
+own belongs only to the semantic and component layers. The color base tokens are a family and one word, and the word is a position too: a band at
 a lightness (`pen-70`) or the stamp at a step (`stamp-1`).
 
 The layer is not a segment of the name. It is recorded for every token in the
@@ -59,9 +59,9 @@ the rules on every build.
 
 | | category | property | family | variant | specifier |
 | --- | --- | --- | --- | --- | --- |
-| **Base** | Always.<br>The kind of value, in the everyday word. | When the category has more than one scale.<br>Which scale: weight, duration, negative. | When the category holds a parallel set.<br>Which member: the same scale for each, built by one rule. | Never.<br>A base narrows by position alone. | Always.<br>A position: a step, or a named place on the scale. |
+| **Base** | Always.<br>The kind of value, in the everyday word. | When the category has more than one scale.<br>Which scale: weight, duration, negative. | When the category holds a parallel set.<br>Which member: the same scale for each, built by one rule. | Never.<br>A base token narrows by position alone. | Always.<br>A position: a step, or a named place on the scale. |
 | **Semantic** | Always.<br>The kind of value, in the everyday word. | When the category has more than one aspect; then every token of that aspect carries it.<br>Which purpose: a gap or a padding, a fg or a bg. | When the category holds a parallel set.<br>Which member: the same roles for each, so a path reads the same in every family. | When the property offers a choice among kinds that are not parallel.<br>Which kind: a where, a level, a role, a posture. | Always.<br>The word that makes the token unique in its group: a state, a size, a density, a word, or a name from the group's list. |
-| **Component** | Always.<br>The component's name, in the category's place. | Always.<br>The property the component sets. | When the property's roles have families.<br>Which member, as in the semantic layer. | As semantic.<br>Which kind. | Always.<br>A state; a name where the component has no states. |
+| **Component** | Always.<br>The component's name, in the category's place. | Always.<br>The property the component sets. | When the property's roles have families.<br>Which member, as in the semantic layer. | As the semantic layer.<br>Which kind. | Always.<br>A state; a name where the component has no states. |
 
 ### Category
 
@@ -88,27 +88,27 @@ aspect, the category stands for it (`space/400`, `radius/full`).
 
 - Parent: the category.
 - Do: name the aspect as a noun (`gap`, `weight`, `negative`, `fg`); add one when a
-  category gains a second aspect with its own ladder or list; one property per path.
+  category gains a second aspect with its own scale or list; one property per path.
 - Don't: a state, a size, a density or a level as a property (those are a specifier or
   a variant); a property for a single value, which is a specifier instead
   (`size/measure`); a second property under the first.
 
 ### Family
 
-A named member of a parallel set: every member carries the same words and the same
-ladder below it, built by one rule, so a path reads the same in every member
+A named member of a parallel set: every member carries the same words below it, each
+pointing at the same kind of stop, built by one rule, so a path reads the same in every member
 (`fg/brand/accent` is `fg/critical/accent` with the family swapped). It appears when
 the category holds such a set, and the set can grow without changing any shape: a new
 member adds rows, never words. It sits after the property, or after the category where
 the layer has no property (`color/brand/pen-70`); one member may be implied by its
 absence (the neutral).
 
-- Parent: the property in a role; the category in a base.
+- Parent: the property in a role; the category in a base token.
 - Do: add a family when a parallel set gains a member, by the rule that builds the set;
   give it the same word lists as the others, with offered and reserved as the only
   difference.
 - Don't: a family directly after the category in a semantic row, since a family in that
-  place is what marks a base; a member that does not carry the ladder; a word in one
+  place is what marks a base token; a member that does not carry every word; a word in one
   family that the others lack.
 
 Family, variant, mode: a family is parallel, so everything below it is the same for
@@ -129,7 +129,7 @@ role (`fg/on-inverse/link/hover`).
 - Do: a closed list per axis; the same axis in the same place everywhere; a variant
   where there is a choice among kinds, not among values.
 - Don't: a state or a size as a variant (those are the specifier); a variant that
-  exists for one token; a variant on a base, which narrows by position alone.
+  exists for one token; a variant on a base token, which narrows by position alone.
 
 ### Specifier
 
@@ -152,7 +152,7 @@ The specifier's kind is what the layers differ on.
   fixed by its group: `regular` under `font/weight` is a weight, under `fg` an emphasis.
 - Do: take the specifier from the list its group uses; spell the default; digits only
   for a step, three or more.
-- Don't: a state on a base, which names its steps inside the position word instead
+- Don't: a state on a base token, which names its steps inside the position word instead
   (`stamp-1`); a synonym beside an existing word (`subtle` next to `muted`); a
   specifier that is a group elsewhere; a number under three digits.
 
@@ -253,11 +253,11 @@ not a token value.
 
 Kept slim. Match what exists, name it better, add the obvious gaps.
 
-- Color: property first (`fg`, `bg`, `border`, `surface`), then the family where the
-  role has one (the neutral is implied by its absence), then the word, or the level and
+- Color: in the one order, a property (`fg`, `bg`, `border`, `surface`), then the
+  family where the role has one (the neutral is implied by its absence), then the word, or the level and
   its state (`color/fg/critical/regular`, `color/bg/brand/soft/hover`). The roles and
-  the engine's base tokens share the `color` group; the engine's rows are family-first
-  and hidden, so the two orders never meet in a picker.
+  the color base tokens share the `color` group; a base token uses no property, so its
+  family follows the category, and it is hidden, so a designer only ever picks a role.
 - Space: a gap or a padding, then where it applies (inside a control, between pieces of
   content, between blocks of layout, inside a card or a container), then a density word.
   The documented cases each one covers go in its description.
@@ -304,7 +304,7 @@ Changed:
 - Scope becomes one prefix. Brands and products are contexts on the same names, so a
   component binds to one name whichever brand is showing.
 - Segments are lower-case with hyphens, not camelCase.
-- A value named for a purpose (`success`) is a semantic token, not a base.
+- A value named for a purpose (`success`) is a semantic token, not a base token.
 - The segment breakdown lives in the generator's declaration, which is where the names
   are built from, not in a second record beside each name.
 
@@ -326,7 +326,7 @@ collection by its stamp.
 
 A collection is the one thing in Figma a designer switches per frame, so there is one
 per axis, and the axis is what names it: `theme` for what light, dark and a brand change
-(the engine's bases and the planes); `palette` for the color roles, which never change
+(the color base tokens and the planes); `palette` for the color roles, which never change
 with a mode, and the word designers already use for them; `viewport` for what the width
 changes (the grid, the text styles, the semantic space and size rows), one axis that web
 reads by breakpoint and native by device class; `scale` for the values that never vary

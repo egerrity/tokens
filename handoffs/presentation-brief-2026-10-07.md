@@ -170,12 +170,12 @@ now the nine with no successor.
 - The audit: every file on disk matches the declarations, every name is in the
   grammar, every token has a description, every alias resolves, every scale ascends.
   An independent parser (Terrazzo) accepts the joined documents.
-- Figma: every variable and style is stamped with its path and found by stamp first,
+- Figma: every variable and style is tagged with its path and found by its identity tag first,
   then by today's name, then by its new name; renamed in place; values written only
   when different; a second run changes nothing. The script never deletes. The engine's
-  rows are another writer's: found by name and stamped, never created or written.
+  rows are another writer's: found by name and tagged, never created or written.
   Reserved rows are hidden from publishing. A row the script cannot settle without
-  guessing (a duplicated stamp, a taken name, a type mismatch) is reported, not
+  guessing (a duplicated identity tag, a taken name, a type mismatch) is reported, not
   touched.
 - A development plugin carries the whole set, so the work machine needs no Node.
 

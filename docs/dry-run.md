@@ -11,9 +11,9 @@ happens in the copy; the real file is never the first target.
 
 The copy must already hold the color engine's rows under their current names,
 `color/<family>/…` in the `theme` collection, which the engine's own plugin (okchroma
-0.9 or later, whose rows are a family and one position word, `stamp-1` rather than
-`stamp/fill-hover`) writes and migrates. The apply never creates or writes an engine row: it
-finds each by name and stamps it, so the palette's aliases resolve, and reports any it
+0.9 or later, whose rows are a family and one position word, `identity tag-1` rather than
+`identity tag/fill-hover`) writes and migrates. The apply never creates or writes an engine row: it
+finds each by name and tags it, so the palette's aliases resolve, and reports any it
 cannot find. If the copy still has the engine's rows under `base/…`, run the engine's
 plugin on the copy first.
 
@@ -61,7 +61,7 @@ The window shows one report for the whole run:
   component property bound to an old row, a layer whose fills are mixed, or a font the
   plugin cannot load is reported and rebound by hand.
 - `problems`: rows left alone because settling them would mean guessing: two variables
-  carrying one stamp (a duplicate), a name another variable holds (a hand rename), a
+  carrying one identity tag (a duplicate), a name another variable holds (a hand rename), a
   type that does not match, a mode the payload does not name. Fix each by hand and
   run again. The known mode case: `viewport` takes over today's `Type scale`
   collection, so the text styles' bindings survive; its two modes are renamed
@@ -85,7 +85,7 @@ for, and leaves a row composed by hand (an alias with an opacity) as it is.
 - Reserved rows are hidden from publishing; the picker in a consuming file does not
   show them.
 - The text styles are named without `text/` (`body/md`, not `text/body/md`): the text
-  panel already says it. Their token paths keep it, and so do their stamps.
+  panel already says it. Their token paths keep it, and so do their tags.
 
 Then the real file, the same way.
 

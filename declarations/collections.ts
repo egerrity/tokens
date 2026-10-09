@@ -22,7 +22,7 @@ export const THEME_CONTEXTS = ['light', 'dark'] as const
 export type ThemeContext = (typeof THEME_CONTEXTS)[number]
 
 export const collections: Record<string, Collection> = {
-  // the engine's base colors, with the hand-authored rows that need a light and a dark value
+  // the color base tokens, with the hand-authored rows that need a light and a dark value
   theme: { contexts: THEME_CONTEXTS, default: 'light', today: 'theme', external: 'engine' },
   // the semantic colors, every one an alias, so the theme's modes carry them
   palette: { contexts: [], today: 'Color palettes' },

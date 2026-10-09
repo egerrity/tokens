@@ -1,10 +1,10 @@
 // Lists what the set does not own, so the hand work after a run deletes nothing that is
 // still referred to and misses nothing that is not. Read-only. After a run every row the
-// set owns, and every engine row it found, carries a stamp, so an unstamped variable,
+// set owns, and every engine row it found, carries a identity tag, so an untagged variable,
 // text style or effect style is a leftover by definition, whatever its name. Each is
 // listed with where it lives and every layer, style and variable that refers to it, the
 // unreferenced ones first. Paint and grid styles are not listed: the set writes none, so
-// a stamp says nothing about them; a paint style bound to a leftover is listed as a use.
+// a identity tag says nothing about them; a paint style bound to a leftover is listed as a use.
 // A plugin walks every page; a script runner that cannot load pages walks the current
 // one and says so. The return value is the list as text, with its counts.
 const NAMESPACE = 'tokens'
@@ -19,7 +19,7 @@ const paintStyles = await figma.getLocalPaintStylesAsync()
 const collectionName = new Map(collections.map(c => [c.id, c.name]))
 const modeName = new Map(collections.flatMap(c => c.modes.map(m => [m.modeId, m.name])))
 
-// id -> entry, for every unstamped variable and style
+// id -> entry, for every untagged variable and style
 const left = new Map()
 for (const v of variables) if (!stampOf(v, STAMP)) left.set(v.id, { name: v.name, where: collectionName.get(v.variableCollectionId) || 'no collection', uses: [] })
 for (const s of textStyles) if (!stampOf(s, STAMP)) left.set(s.id, { name: s.name, where: 'text styles', uses: [] })
@@ -66,7 +66,7 @@ const entries = [...left.values()].sort(byName)
 const unbound = entries.filter(e => !e.uses.length)
 const bound = entries.filter(e => e.uses.length)
 const grouped = (list) => { const g = new Map(); for (const e of list) g.set(e.where, [...(g.get(e.where) || []), e]); return g }
-const lines = [`${entries.length} unstamped: ${unbound.length} that nothing refers to, ${bound.length} still referred to`]
+const lines = [`${entries.length} untagged: ${unbound.length} that nothing refers to, ${bound.length} still referred to`]
 for (const n of notes) lines.push(`note: ${n}`)
 lines.push('', '## Nothing refers to these; delete them')
 for (const [w, es] of grouped(unbound)) { lines.push('', `${w}:`); for (const e of es) lines.push(`  ${e.name}`) }
@@ -81,5 +81,5 @@ for (const [w, es] of grouped(bound)) {
 }
 const rowsOf = (c) => variables.filter(v => v.variableCollectionId === c.id)
 const unowned = collections.filter(c => rowsOf(c).length && rowsOf(c).every(v => !stampOf(v, STAMP)))
-if (unowned.length) { lines.push('', '## Collections with no stamped row; delete each once its rows are gone'); for (const c of unowned) lines.push(`  ${c.name} (${rowsOf(c).length} rows)`) }
-return { text: lines.join('\n'), unstamped: entries.length, unreferenced: unbound.length, referenced: bound.length }
+if (unowned.length) { lines.push('', '## Collections with no tagged row; delete each once its rows are gone'); for (const c of unowned) lines.push(`  ${c.name} (${rowsOf(c).length} rows)`) }
+return { text: lines.join('\n'), untagged: entries.length, unreferenced: unbound.length, referenced: bound.length }

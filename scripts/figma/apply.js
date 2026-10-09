@@ -39,7 +39,7 @@ for (const v of allVariables) {
   if (s) { if (byStamp.has(s)) duplicated.add(s); else byStamp.set(s, v) }
   byName.set(v.name, v)
 }
-for (const s of duplicated) { byStamp.delete(s); report.problems.push(`${s}: two variables carry this stamp; left alone, keep one by hand`) }
+for (const s of duplicated) { byStamp.delete(s); report.problems.push(`${s}: two variables carry this identity tag; left alone, keep one by hand`) }
 const find = (path) => byStamp.get(path) || byName.get(path)
 const collectionName = (v) => { const c = allCollections.find(x => x.id === v.variableCollectionId); return c ? c.name : 'another collection' }
 // a row varies when its modes do not all hold one value
@@ -85,7 +85,7 @@ async function applyVariables(P) {
       continue
     }
     let v = byStamp.get(spec.path)
-    if (v && v.variableCollectionId !== c.id) { report.orphans.push(`${spec.path}: its stamped variable sits in another collection; a new one is created here, rebind by hand`); v = undefined }
+    if (v && v.variableCollectionId !== c.id) { report.orphans.push(`${spec.path}: its tagged variable sits in another collection; a new one is created here, rebind by hand`); v = undefined }
     if (!v && spec.today) v = inCollection.find(x => x.name === spec.today)
     if (!v) v = inCollection.find(x => x.name === spec.path)
     const orphan = !v && spec.today ? byName.get(spec.today) : undefined
@@ -96,7 +96,7 @@ async function applyVariables(P) {
     // variable in this collection already holds cannot be taken, and Figma would throw
     // mid-run; the same name in another collection is an orphan or a stranger, not a block
     const holder = inCollection.find(x => x.name === spec.path)
-    if (holder && holder !== v) { report.problems.push(`${spec.path}: the name is held by another variable (stamped ${stampOf(holder, STAMP) || 'nothing'}); left alone, resolve by hand`); continue }
+    if (holder && holder !== v) { report.problems.push(`${spec.path}: the name is held by another variable (tagged ${stampOf(holder, STAMP) || 'nothing'}); left alone, resolve by hand`); continue }
     if (!v) {
       v = figma.variables.createVariable(spec.path, c, spec.type)
       report.created.push(spec.path)
