@@ -6,11 +6,11 @@ Generated from `declarations/size.ts`. To change anything here, edit the declara
 
 - The scale: the list of steps, in px.
 - The icon sizes, the control heights and the illustration sizes, each a size word with a px value; a value on the scale references its step, one above it holds its value.
-- The measure, the longest line of running text, which sits above the scale and holds its own value.
+- A paragraph's maximum width, the longest line of running text, which sits above the scale and holds its own value.
 
 ## Derived
 
-- Each step's name, from the base unit.
+- Each step's name, from the unit.
 - Each semantic token's reference to its step.
 - Every description.
 
@@ -40,4 +40,4 @@ Generated from `declarations/size.ts`. To change anything here, edit the declara
 | `size/illustration/hero/sm` | 200 px | the width and height of a hero illustration |
 | `size/illustration/hero/md` | 256 px | the width and height of a hero illustration |
 | `size/illustration/hero/lg` | 300 px | the width and height of a hero illustration |
-| `size/measure` | 640 px | the longest line of running text: paragraphs, descriptions, long-form content |
+| `size/max-width/paragraph` | 640 px | the longest line of running text: paragraphs, descriptions, long-form content |

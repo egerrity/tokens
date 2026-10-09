@@ -29,8 +29,8 @@ export type SizeDeclaration = {
   control: { purpose: string; sizes: Partial<Record<Size, number>> }
   /** each kind of illustration at its sizes; a size on the scale aliases its step, one above the scale holds its value */
   illustration: Record<string, { purpose: string; sizes: Partial<Record<Size, number>> }>
-  /** the longest line of running text, a width above the scale */
-  measure: { px: number; req: string; use: string }
+  /** the widths things may grow to, each above the scale; a paragraph's is the longest line of running text */
+  maxWidth: Record<string, { px: number; req: string; use: string }>
 }
 
 export type RadiusDeclaration = {

@@ -12,7 +12,7 @@ import type {
 } from './declare.ts'
 import { px, ms, color, type Token, type Value } from './types.ts'
 
-/** the step name of a pixel value: its number of base units times 100 */
+/** the step name of a pixel value: its number of units times 100 */
 export const pxStep = (value: number): string => stepName((value * 100) / baseUnit)
 /** the step name of a multiple, such as a line height: the multiple times 100 */
 export const multipleStep = (value: number): string => stepName(Math.round(value * 100))
@@ -100,11 +100,11 @@ export function sizeTokens(d: SizeDeclaration): Token[] {
         use: `the ${word} ${kind} illustration; ${v} px${onScale ? ` through size/${pxStep(v)}` : ', above the size scale'}`,
       }
     }))
-  const measure: Token = {
-    path: ['size', 'measure'], layer: 'semantic', value: dim(d.measure.px),
-    req: d.measure.req, use: `${d.measure.use}; ${d.measure.px} px, above the size scale`,
-  }
-  return [...steps, ...named('icon', 'icon'), ...named('control', 'control height'), ...illustrations, measure]
+  const maxWidths: Token[] = Object.entries(d.maxWidth).map(([what, m]) => ({
+    path: ['size', 'max-width', what], layer: 'semantic', value: dim(m.px),
+    req: m.req, use: `${m.use}; ${m.px} px, above the size scale`,
+  }))
+  return [...steps, ...named('icon', 'icon'), ...named('control', 'control height'), ...illustrations, ...maxWidths]
 }
 
 export function radiusTokens(d: RadiusDeclaration): Token[] {

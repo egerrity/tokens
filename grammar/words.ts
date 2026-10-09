@@ -59,7 +59,7 @@ export const SHAPES = {
     [P(['icon']), S(SIZE)],
     [P(['control']), S(SIZE)],
     [P(['illustration']), V(['spot', 'hero']), S(SIZE)],
-    [S(['measure'])],
+    [P(['max-width']), S(['paragraph'])],
   ],
   radius: [[S(STEP)], [S(['full'])]],
   'border-width': [[S(STEP)]],

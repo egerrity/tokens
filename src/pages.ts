@@ -18,7 +18,7 @@ const NOTES: Record<Category, Notes> = {
       'The words that say where a semantic row applies.',
     ],
     derived: [
-      'Each step\'s name, from the base unit.',
+      'Each step\'s name, from the unit.',
       'Each negative step, as the mirror of its positive step.',
       'Each semantic token\'s reference to its step.',
       'Every description.',
@@ -30,21 +30,21 @@ const NOTES: Record<Category, Notes> = {
     decided: [
       'The scale: the list of steps, in px.',
       'The icon sizes, the control heights and the illustration sizes, each a size word with a px value; a value on the scale references its step, one above it holds its value.',
-      'The measure, the longest line of running text, which sits above the scale and holds its own value.',
+      'A paragraph\'s maximum width, the longest line of running text, which sits above the scale and holds its own value.',
     ],
-    derived: ['Each step\'s name, from the base unit.', 'Each semantic token\'s reference to its step.', 'Every description.'],
+    derived: ['Each step\'s name, from the unit.', 'Each semantic token\'s reference to its step.', 'Every description.'],
   },
   radius: {
     title: 'Radius',
     declaration: 'declarations/radius.ts',
     decided: ['The steps, in px, each with what it is for.', 'The value that stands for fully rounded.'],
-    derived: ['Each step\'s name, from the base unit.', 'Every description.'],
+    derived: ['Each step\'s name, from the unit.', 'Every description.'],
   },
   'border-width': {
     title: 'Border width',
     declaration: 'declarations/border-width.ts',
     decided: ['The steps, in px.'],
-    derived: ['Each step\'s name, from the base unit.', 'Every description.'],
+    derived: ['Each step\'s name, from the unit.', 'Every description.'],
   },
   opacity: {
     title: 'Opacity',
@@ -83,7 +83,7 @@ const NOTES: Record<Category, Notes> = {
       'The size scale, in px.',
       'The line heights, as multiples of the font size.',
     ],
-    derived: ['Each size step\'s name, from the base unit; each line height\'s name, from the multiple.', 'Every description.'],
+    derived: ['Each size step\'s name, from the unit; each line height\'s name, from the multiple.', 'Every description.'],
   },
   color: {
     title: 'Color roles',

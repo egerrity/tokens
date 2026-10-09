@@ -566,8 +566,8 @@
       }
     },
     {
-      "path": "size/measure",
-      "today": "Primitives/size-measure",
+      "path": "size/max-width/paragraph",
+      "today": "size/measure",
       "type": "FLOAT",
       "scopes": [
         "WIDTH_HEIGHT"

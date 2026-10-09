@@ -15,9 +15,11 @@ export const size: SizeDeclaration = {
     spot: { purpose: 'the width and height of a spot illustration', sizes: { sm: 48, md: 56, lg: 64 } },
     hero: { purpose: 'the width and height of a hero illustration', sizes: { sm: 200, md: 256, lg: 300 } },
   },
-  measure: {
-    px: 640,
-    req: 'the longest line of running text: paragraphs, descriptions, long-form content',
-    use: 'the maximum width of a block of body text, about seventy characters at the body size. Not for controls, tables or cards',
+  maxWidth: {
+    paragraph: {
+      px: 640,
+      req: 'the longest line of running text: paragraphs, descriptions, long-form content',
+      use: 'the maximum width of a block of body text, about seventy characters at the body size. Not for controls, tables or cards',
+    },
   },
 }

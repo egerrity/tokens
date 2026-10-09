@@ -15,8 +15,8 @@ const LAYERS = ['base', 'semantic', 'component'] as const
 const HOLDS: Record<SlotName, Record<(typeof LAYERS)[number], string>> = {
   category: { base: 'The kind of value, in the everyday word.', semantic: 'The kind of value, in the everyday word.', component: 'The component’s name, in the category’s place.' },
   property: { base: 'Which scale.', semantic: 'Which purpose.', component: 'Always: the property the component sets.' },
-  family: { base: 'Which member: the same scale for each, built by one rule.', semantic: 'Which member: the same roles for each.', component: 'As the semantic layer.' },
-  variant: { base: 'Never: a base token narrows by position alone.', semantic: 'Which kind: a where, a level, a role, a posture.', component: 'As the semantic layer.' },
+  family: { base: 'Which member: the same scale for each, built by one rule.', semantic: 'Which member: the same roles for each.', component: 'As in the semantic layer.' },
+  variant: { base: 'Never: a base token narrows by position alone.', semantic: 'Which kind: where it applies (control, content, layout), the level (ghost, soft, solid), the text role (heading, body), the ground it sits on (on-inverse).', component: 'As in the semantic layer.' },
   specifier: { base: 'A position: a step of three or more digits, or a named place on the scale.', semantic: 'A state, a size, a density, an emphasis word, or a name from the group’s own list.', component: 'A state, with the default spelled; a name where the component has no states.' },
 }
 

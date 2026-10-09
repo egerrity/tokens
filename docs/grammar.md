@@ -26,8 +26,9 @@ the name alone identifies a token in code.
   (`line-height`, `on-inverse`). No capitals, so no two names differ only by case. Whole
   words, not abbreviations (`negative`, not `neg`), with two words of the system admitted
   as they are: `fg` and `bg`.
-- Order: category, then property, then variant, then state. A component token puts the
-  component first. State is always last.
+- Order: category, then property, then family, then variant, then specifier. One order
+  for every token; a token uses the slots it needs. A component token's category is the
+  component's name. A state is always last.
 - A path is a token or a group, never both. So a default is spelled out, not left bare:
   `space/gap/content/normal` beside `space/gap/content/condensed`, and `…/enabled` beside
   `…/hover`.
@@ -57,11 +58,17 @@ or the layer calls for them. The rules are here. For each slot, what it holds in
 layer and what fills it today is a generated table in `slots.md`, and the audit holds
 the rules on every build.
 
+- category: the kind of value, in the everyday word
+- property: which part of the category the value applies to — text, a gap, a weight
+- family: which of several otherwise identical sets the token belongs to — the flavor that tells them apart
+- variant: which subgroup of the property — a level, a role, a kind, or where it applies
+- specifier: the final word that makes a token unique in its group: a position for a base token; a state, size, density, word or name for a semantic token
+
 | | category | property | family | variant | specifier |
 | --- | --- | --- | --- | --- | --- |
-| **Base** | Always.<br>The kind of value, in the everyday word. | When the category has more than one scale.<br>Which scale: weight, duration, negative. | When the category holds a parallel set.<br>Which member: the same scale for each, built by one rule. | Never.<br>A base token narrows by position alone. | Always.<br>A position: a step, or a named place on the scale. |
-| **Semantic** | Always.<br>The kind of value, in the everyday word. | When the category has more than one aspect; then every token of that aspect carries it.<br>Which purpose: a gap or a padding, a fg or a bg. | When the category holds a parallel set.<br>Which member: the same roles for each, so a path reads the same in every family. | When the property offers a choice among kinds that are not parallel.<br>Which kind: a where, a level, a role, a posture. | Always.<br>The word that makes the token unique in its group: a state, a size, a density, a word, or a name from the group's list. |
-| **Component** | Always.<br>The component's name, in the category's place. | Always.<br>The property the component sets. | When the property's roles have families.<br>Which member, as in the semantic layer. | As the semantic layer.<br>Which kind. | Always.<br>A state; a name where the component has no states. |
+| **Base** | Always.<br>The kind of value, in the everyday word. | When the category has more than one scale.<br>Which scale: weight, duration, negative. | When the category holds several sets of the same tokens, built by one rule.<br>Which member: the same scale for each, built by one rule. | Never.<br>A base token narrows by position alone. | Always.<br>A position: a step, or a named place on the scale. |
+| **Semantic** | Always.<br>The kind of value, in the everyday word. | When the category has more than one aspect; then every token of that aspect carries it.<br>Which purpose: a gap or a padding, a fg or a bg. | When the category holds several sets of the same tokens, built by one rule.<br>Which member: the same roles for each, so a path reads the same in every family. | When the property offers a choice among kinds that do not share the same tokens below them.<br>Which kind: where it applies (control, content, layout), the level (ghost, soft, solid), the text role (heading, body), the ground it sits on (on-inverse). | Always.<br>The word that makes the token unique in its group: a state, a size, a density, a word, or a name from the group's list. |
+| **Component** | Always.<br>The component's name, in the category's place. | Always.<br>The property the component sets. | When the property's roles have families.<br>Which member, as in the semantic layer. | As in the semantic layer.<br>Which kind. | Always.<br>A state; a name where the component has no states. |
 
 ### Category
 
@@ -81,48 +88,56 @@ A category is the root of a group in the token file and of a folder in Figma.
 
 ### Property
 
-The aspect of the category that the token sets: a kind within the category that has
-its own scale or its own list of words. It appears when the category has more than one
-such aspect, and then every token of that aspect carries it; where a category has one
-aspect, the category stands for it (`space/400`, `radius/full`).
+What a token is applied to — text, a ground, a border — a kind within the category
+with its own scale or its own list of words. It appears when the category has more than
+one such aspect, and then every token of that aspect carries it; where a category has
+one aspect, the category stands for it (`space/400`, `radius/full`).
 
 - Parent: the category.
 - Do: name the aspect as a noun (`gap`, `weight`, `negative`, `fg`); add one when a
   category gains a second aspect with its own scale or list; one property per path.
 - Don't: a state, a size, a density or a level as a property (those are a specifier or
   a variant); a property for a single value, which is a specifier instead
-  (`size/measure`); a second property under the first.
+  (`opacity/disabled`); a second property under the first.
 
 ### Family
 
-A named member of a parallel set: every member carries the same words below it, each
-pointing at the same kind of stop, built by one rule, so a path reads the same in every member
-(`fg/brand/accent` is `fg/critical/accent` with the family swapped). It appears when
-the category holds such a set, and the set can grow without changing any shape: a new
-member adds rows, never words. It sits after the property, or after the category where
-the layer has no property (`color/brand/pen-70`); one member may be implied by its
-absence (the neutral).
+Which color a token belongs to: `brand`, `brand-alt`, `critical`, `warning`,
+`positive` or `info`. The neutral is the family a token has when no family word is
+written, so `fg/regular` is the neutral's text and `fg/brand/regular` is the brand's.
+
+Every family has the same tokens below it: the same five words, the same levels, the
+same states. Once you know one family's tokens you know them all; only the family word
+changes. That is what makes a family different from a variant: swap the word and
+nothing else moves.
+
+A category has a family slot when it holds several sets like this, built by one rule.
+Today only color does. Adding a family, say a new signal color, adds its rows and
+changes no word and no shape.
+
+It sits after the property (`fg/brand/accent`). A color base token has no property,
+so there it comes right after the category (`color/brand/pen-70`).
 
 - Parent: the property in a role; the category in a base token.
-- Do: add a family when a parallel set gains a member, by the rule that builds the set;
-  give it the same word lists as the others, with offered and reserved as the only
+- Do: add a family when the set it belongs to gains a member, by the rule that builds
+  the set; give it the same words as the others, with offered and reserved as the only
   difference.
-- Don't: a family directly after the category in a semantic row, since a family in that
-  place is what marks a base token; a member that does not carry every word; a word in one
-  family that the others lack.
+- Don't: a family right after the category in a semantic token, since that place is
+  what marks a base token; a member that lacks some of the words; a word in one family
+  that the others lack.
 
-Family, variant, mode: a family is parallel, so everything below it is the same for
-every member and a new member costs no new rule; a variant narrows, so its siblings may
-carry different things below them and a new one may need a shape of its own; a mode is
-neither, the same path with a different value, switched on the frame.
+Family, variant, mode: swap a family word and nothing below it changes; swap a variant
+word and what sits below it may change (`ghost` has three states, `solid` another
+three); a mode changes no word at all, only the value, when a designer switches it on
+the frame.
 
 ### Variant
 
-A qualifier that narrows which one, within a property or a category, that is neither a
-state nor a position. It appears when the property, or the category where there is
-none, offers a choice among kinds that are not parallel. Each variant is one closed
-list, one axis per segment; two may stack when each is its own axis, posture before
-role (`fg/on-inverse/link/hover`).
+Which subgroup of the property the token belongs to — a level, a role, a kind, or where
+it applies — neither a state nor a position. It appears when the property, or the
+category where there is none, offers a choice among subgroups that do not share the
+same tokens below them. Each variant is one closed list, one axis per segment; two may
+stack when each is its own axis, the ground before the role (`fg/on-inverse/link/hover`).
 
 - Parent: the property, or the category where there is no property (`text/heading`,
   `opacity/soft`).
@@ -145,7 +160,7 @@ The specifier's kind is what the layers differ on.
 - Semantic: a state (`enabled`, `hover`, `pressed`, `selected`), a size (`xs` to `lg`),
   a density (`condensed`, `normal`, `spacious`), an emphasis word (`regular`, `accent`,
   `hint`, `muted`, `strong`), or a name from the group's own list (`high`, `scrim`,
-  `focus`, `raised`, `open`, `gutter`, `measure`, `disabled`, `on-solid`).
+  `focus`, `raised`, `open`, `gutter`, `paragraph`, `disabled`, `on-solid`).
 - Component: a state, with the default spelled; a word from the component’s own list
   where it has no states (a skeleton loader’s `regular` ground and its `shine`).
 - Parent and siblings: a group's specifiers come from one list. A word's meaning is
@@ -158,8 +173,8 @@ The specifier's kind is what the layers differ on.
 
 ## Scales
 
-- A dimension step is a number: the base unit is 4 px, and the step is the number of
-  base units times 100, at least three digits. So 2 px is `050`, 4 px is `100`, 10 px is
+- A dimension step is a number: the unit is 4 px, and the step is the number of units
+  times 100, at least three digits. So 2 px is `050`, 4 px is `100`, 10 px is
   `250`, 16 px is `400`. This is the rule the current space, size, radius and border
   width variables already follow; their step numbers do not change.
 - A step on a scale that is not a dimension is the value itself, three digits: an opacity
@@ -180,7 +195,7 @@ The specifier's kind is what the layers differ on.
 | Category | Holds |
 | --- | --- |
 | `space` | the spacing scale, its negative steps, and the semantic gaps and paddings |
-| `size` | the sizing scale, and semantic sizes such as icons, control heights and the measure |
+| `size` | the sizing scale, and semantic sizes such as icons, control heights and a paragraph's maximum width |
 | `radius` | corner radius |
 | `border-width` | border and outline widths |
 | `font` | the type scales: `font-size`, `font-weight`, `font-family`, `font-line-height`, `font-letter-spacing` |
@@ -190,7 +205,7 @@ The specifier's kind is what the layers differ on.
 | `grid` | columns, margin, gutter and the width at which content stops growing |
 | `opacity` | the opacity scale, and the disabled opacity |
 | `shadow` | the elevation shadows |
-| `color` | the color families the color engine generates, and the color roles built on them |
+| `color` | the color families and their stops, and the color roles built on them |
 
 Inside `color`, the next segment is the family, spelled as the color engine writes it:
 `neutral`, `brand`, `brand-alt`, `critical`, `warning`, `positive`, `info`, `link`,
@@ -228,7 +243,7 @@ not a token value.
 - Type sizes and the grid change by viewport (mobile, tablet, desktop, wide), one axis
   that web reads by breakpoint and native by device class, so each is a set of contexts
   on identical paths. A user's text-size setting is applied by the operating system from
-  the base size; it is not a context the tokens carry.
+  the token's size; it is not a context the tokens carry.
 
 ## Figma collections and token files
 
@@ -246,8 +261,8 @@ not a token value.
   and brand; type, the grid and the semantic space and size rows change with viewport;
   the scales never change; motion will change with reduced motion.
 - One owner per row. A generated row is written from code to Figma and never read back.
-  A hand-authored row in the same collection is told apart by a hidden stamp in Figma and
-  by the generator's own list in code, not by its name.
+  A hand-authored row in the same collection is told apart by a hidden identity tag in
+  Figma and by the generator's own list in code, not by its name.
 
 ## The semantic layer
 
@@ -312,7 +327,7 @@ Changed:
 
 | Collection | Axis | Holds |
 | --- | --- | --- |
-| `theme` | light, dark; brand extensions | the color engine's `color/…` base tokens |
+| `theme` | light, dark; brand extensions | the color base tokens, `color/…` |
 | `palette` | none | the semantic colors: roles, surfaces, scrim, each an alias |
 | `viewport` | mobile, tablet, desktop, wide | the grid, the text styles, the semantic space and size rows |
 | `scale` | none | the base tokens that never vary: space, size, radius, border width, opacity, breakpoints, font families, weights, sizes and line heights |
@@ -320,7 +335,7 @@ Changed:
 
 `theme` and `palette` are the owner's names; the other three are placeholders pending the
 team's review. Renaming a collection later costs nothing, since the Figma script finds a
-collection by its stamp.
+collection by its identity tag.
 
 ### Why these collections, and why now
 
@@ -333,7 +348,7 @@ reads by breakpoint and native by device class; `scale` for the values that neve
 (the steps, the opacities, the shadows); `motion` for what a reduced-motion setting will
 change one day.
 
-Mode potential decides a row's home, not its layer. A base and a semantic row sit
+Mode potential decides a row's home, not its layer. A base row and a semantic row sit
 together when they would switch together and apart when one would and the other would
 not: the space steps never vary, so they sit in `scale`; the semantic gaps change with
 the viewport, so they sit with the type and the grid.

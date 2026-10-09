@@ -86,7 +86,7 @@ rule as space, with a ninth added at 64 px, `size/1600`.
 | `size/control/sm`, `md`, `lg` | `size/1000`, `1200`, `1400` | 40, 48, 56 | documented as fixed heights; the 40 px row has no size word in the docs |
 | `size/illustration/spot/sm`, `md`, `lg` | `size/1200`, `1400`, `1600` | 48, 56, 64 | owner's sizes |
 | `size/illustration/hero/sm`, `md`, `lg` | raw | 200, 256, 300 | owner's sizes, above the scale |
-| `size/measure` | raw | 640 | proposed, in place of the documented 720 px paragraph width |
+| `size/max-width/paragraph` | raw | 640 | proposed, in place of the documented 720 px paragraph width |
 
 The docs' "responsive width" table lists three rows under one heading: a desktop content
 max width (1280), a paragraph max width (720) and a mobile content min width (320). They
@@ -96,10 +96,10 @@ are three different things, and the first draft here wrongly named them as one s
   content stops growing. It is now `grid/max-width`, beside the columns, margin and
   gutter. 1280 is the `xl` breakpoint and a common choice; Bootstrap's widest container
   is 1320, Tailwind's is the breakpoint itself.
-- The **paragraph max width** is the measure, the longest comfortable line of running
+- The **paragraph max width** is the longest comfortable line of running
   text. The long-standing guidance is 45 to 75 characters per line, about 65 at best. At
   the 15 px body size, 720 px is roughly 95 characters, past the comfortable range; 640
-  px is about 80 at 15 px and about 70 at 18 px. So `size/measure` is proposed at 640,
+  px is about 80 at 15 px and about 70 at 18 px. So `size/max-width/paragraph` is proposed at 640,
   for the owner to confirm.
 - The **mobile content min width** is not a size to bind anything to. 320 CSS px is the
   width at which content must still reflow without horizontal scrolling (the WCAG reflow

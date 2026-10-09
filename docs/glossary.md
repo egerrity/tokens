@@ -14,20 +14,13 @@ above them or everyday ones.
 - **Slot.** The role a segment plays in the path. Five, always in this order: category,
   property, family, variant, specifier. Every path has a category and a specifier; the
   three middle slots appear when the category or the layer calls for them.
-- **Category.** The first segment: the kind of value, in the everyday word (`space`,
-  `color`, `motion`).
-- **Property.** The aspect of the category the token sets (`gap`, `weight`, `fg`). It
-  appears when the category has more than one aspect with its own scale or list.
-- **Family.** A named member of a parallel set: every member carries the same words below
-  it, each pointing at the same kind of stop. Today only color has families (`brand`, `critical` …); the
-  neutral is implied by its absence.
-- **Variant.** A qualifier that narrows which one, within a property, that is neither a
-  state nor a position (`ghost`, `heading`, `on-inverse`).
-- **Specifier.** The last segment: the word that makes a token unique within its group.
-  Its kind depends on the layer: a position in a base token, a state, size, density, word
-  or name in a semantic token, a state in a component token.
+- **Category.** The kind of value, in the everyday word (`space`, `color`, `motion`). The first segment; the root of a group in the token file and of a folder in Figma.
+- **Property.** Which part of the category the value applies to — text, a gap, a weight (`fg`, `gap`, `weight`). It appears when the category has more than one part with its own scale or list.
+- **Family.** Which of several otherwise identical sets the token belongs to — the flavor that tells them apart. Today only color has families (`brand`, `critical` …); in a semantic token the neutral is the default, so no family word is written for it.
+- **Variant.** Which subgroup of the property — a level, a role, a kind, or where it applies (`ghost`, `heading`, `spot`, `content`).
+- **Specifier.** The final word that makes a token unique in its group: a position for a base token; a state, size, density, word or name for a semantic token; a state for a component token.
 - **Shape.** One allowed sequence of segments for a category, as a list of word lists:
-  `space`, then `gap`, then a where-word, then a density word. The grammar is the set of
+  `space`, then `gap`, then where it applies, then a density word. The grammar is the set of
   shapes; a path is legal when it matches one.
 - **Word list.** The closed list of words a segment may draw from (the state words, the
   size words, the five emphasis words). A word enters the system by being added to a
@@ -87,12 +80,13 @@ above them or everyday ones.
   table holds in the neutral and in every family.
 - **Level.** One of three interaction grounds under `bg`: `ghost` (nothing at rest),
   `soft` (a tint at rest), `solid` (the stamp).
-- **Posture.** Which ground a link is read against: `default` or `inverse`.
+- **Link ground.** Which ground a link is read against: `default` or `inverse`. The code
+  calls it `posture`.
 - **Plane.** One of four hidden theme rows that hold a paper per mode (`plane/high` …);
   what a surface points at.
 - **Surface.** A semantic color for a ground that is an elevation plane and reverses
   with the mode (`surface/high`). A `bg` is a flat fill and does not.
-- **Pair.** A translucent semantic color, emitted as two tokens: a color alias and an
+- **Pair.** A translucent semantic color, written as two tokens: a color alias and an
   opacity token (`bg/ghost/hover` with `opacity/ghost/hover`). Never a computed color.
   In Figma the pair is composed by hand, once.
 - **Offered, reserved.** Whether a role is in the picker. Offered rows are published;

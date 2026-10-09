@@ -9,7 +9,7 @@ Generated from `declarations/radius.ts`. To change anything here, edit the decla
 
 ## Derived
 
-- Each step's name, from the base unit.
+- Each step's name, from the unit.
 - Every description.
 
 ## Tokens

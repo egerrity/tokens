@@ -165,13 +165,15 @@
         }
       }
     },
-    "measure": {
-      "$type": "dimension",
-      "$value": {
-        "value": 640,
-        "unit": "px"
-      },
-      "$description": "Req for: the longest line of running text: paragraphs, descriptions, long-form content\nUse: the maximum width of a block of body text, about seventy characters at the body size. Not for controls, tables or cards; 640 px, above the size scale"
+    "max-width": {
+      "paragraph": {
+        "$type": "dimension",
+        "$value": {
+          "value": 640,
+          "unit": "px"
+        },
+        "$description": "Req for: the longest line of running text: paragraphs, descriptions, long-form content\nUse: the maximum width of a block of body text, about seventy characters at the body size. Not for controls, tables or cards; 640 px, above the size scale"
+      }
     }
   },
   "grid": {

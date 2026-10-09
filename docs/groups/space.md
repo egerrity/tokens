@@ -11,7 +11,7 @@ Generated from `declarations/space.ts`. To change anything here, edit the declar
 
 ## Derived
 
-- Each step's name, from the base unit.
+- Each step's name, from the unit.
 - Each negative step, as the mirror of its positive step.
 - Each semantic token's reference to its step.
 - Every description.

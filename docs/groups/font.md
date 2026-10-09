@@ -11,7 +11,7 @@ Generated from `declarations/font.ts`. To change anything here, edit the declara
 
 ## Derived
 
-- Each size step's name, from the base unit; each line height's name, from the multiple.
+- Each size step's name, from the unit; each line height's name, from the multiple.
 - Every description.
 
 ## Tokens

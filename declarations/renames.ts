@@ -48,6 +48,7 @@ export function todayVariable(path: TokenPath, part?: string): string | undefine
       return path.length === 2 ? `Primitives/space-${a}` : undefined
     case 'size':
       if (a === 'icon') return `icon-${b}`
+      if (a === 'max-width' && b === 'paragraph') return 'size/measure'
       return path.length === 2 ? `Primitives/size-${a}` : undefined
     case 'radius':
       return `radius-${a}`
