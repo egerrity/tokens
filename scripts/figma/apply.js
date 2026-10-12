@@ -88,7 +88,11 @@ async function applyVariables(P) {
     if (v && v.variableCollectionId !== c.id) { report.orphans.push(`${spec.path}: its tagged variable sits in another collection; a new one is created here, rebind by hand`); v = undefined }
     if (!v && spec.today) v = inCollection.find(x => x.name === spec.today)
     if (!v) v = inCollection.find(x => x.name === spec.path)
-    const orphan = !v && spec.today ? byName.get(spec.today) : undefined
+    // today's row in another collection is an orphan on every run until it is deleted
+    // by hand, whether the new row is created now or was created by an earlier run, so
+    // a run that stopped before the rebind pass is finished by the next one
+    const named = spec.today ? byName.get(spec.today) : undefined
+    const orphan = named && named !== v && named.variableCollectionId !== c.id ? named : undefined
     // an old row that varies by its collection's modes cannot move to a row that does
     // not; whether that variation is wanted is a decision, so the row is left alone
     if (orphan && varies(orphan)) { report.problems.push(`${spec.path}: today's ${spec.today} sits in ${collectionName(orphan)} and varies by its modes; left alone: declare the row into that collection, or give it one value by hand and run again`); continue }
@@ -100,12 +104,12 @@ async function applyVariables(P) {
     if (!v) {
       v = figma.variables.createVariable(spec.path, c, spec.type)
       report.created.push(spec.path)
-      if (orphan && orphan.resolvedType === spec.type) { orphanPairs.push({ old: orphan, next: v }); report.orphans.push(`${spec.path}: today's ${spec.today} sits in ${collectionName(orphan)}; created here, and the old one's bindings move to it`) }
-      else if (orphan) report.problems.push(`${spec.path}: today's ${spec.today} sits in ${collectionName(orphan)} as a ${orphan.resolvedType}, the payload wants ${spec.type}; created here, the old one left alone`)
     } else if (v.resolvedType !== spec.type) {
       report.problems.push(`${spec.path}: is a ${v.resolvedType}, the payload wants ${spec.type}; left as it is`)
       continue
     }
+    if (orphan && orphan.resolvedType === spec.type) { orphanPairs.push({ old: orphan, next: v }); report.orphans.push(`${spec.path}: today's ${spec.today} sits in ${collectionName(orphan)}; its bindings move to this row`) }
+    else if (orphan) report.problems.push(`${spec.path}: today's ${spec.today} sits in ${collectionName(orphan)} as a ${orphan.resolvedType}, the payload wants ${spec.type}; the old one left alone`)
     if (v.name !== spec.path) { report.renamed.push(`${v.name} -> ${spec.path}`); v.name = spec.path }
     stamp(v, STAMP, spec.path)
     byStamp.set(spec.path, v); byName.set(spec.path, v)
