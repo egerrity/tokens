@@ -49,18 +49,42 @@ const show = (x) => {
   if (x.easingFunctionCubicBezier) { const e = x.easingFunctionCubicBezier; return `cubic-bezier(${e.x1}, ${e.y1}, ${e.x2}, ${e.y2})` }
   return JSON.stringify(x)
 }
-const change = (isNew, key, label, have, want, write) => {
+// A line the owner keeps is remembered on the row itself, so the next run lists it
+// apart from what is new, unticked, until the set catches up or the owner updates it.
+const KEPT = 'kept'
+const keptOn = (node) => { try { const s = node.getSharedPluginData(NAMESPACE, KEPT); return s ? JSON.parse(s) : [] } catch (e) { return [] } }
+const marked = new Map()
+const touched = new Set()
+const change = (isNew, key, label, have, want, write, node) => {
   if (isNew) { write(); return true }
-  if (PLANNING) { diffs.push({ key, label, have: show(have), want: show(want) }); return false }
-  if (keep.has(key)) { report.kept.push(`${label}: kept ${show(have)}; the set says ${show(want)}`); return false }
+  const field = key.slice(key.indexOf('|') + 1)
+  if (node) touched.add(node)
+  if (PLANNING) { diffs.push({ key, label, have: show(have), want: show(want), before: !!node && keptOn(node).includes(field) }); return false }
+  if (keep.has(key)) {
+    if (node) marked.set(node, [...(marked.get(node) || []), field])
+    report.kept.push(`${label}: kept ${show(have)}; the set says ${show(want)}`)
+    return false
+  }
   write(); return true
 }
-// the window: every difference, ticked to update; unticked is kept
+// after the second pass: every touched row carries the fields kept this run, or nothing
+const remember = () => {
+  for (const node of touched) {
+    const fields = marked.get(node) || []
+    try { node.setSharedPluginData(NAMESPACE, KEPT, fields.length ? JSON.stringify(fields) : '') } catch (e) { /* a row that cannot carry data */ }
+  }
+}
+// the window: what is new, ticked to update; what was kept before, unticked, below it
 const review = (list) => new Promise(resolve => {
   if (typeof figma.showUI !== 'function') return resolve([])
   const esc = s => String(s).replace(/[&<>]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' })[c])
-  const rows = list.map((d, i) => `<label><input type=checkbox checked data-i=${i}> <b>${esc(d.label)}</b>: ${esc(d.have)} → ${esc(d.want)}</label>`).join('')
-  figma.showUI(`<style>body{margin:0;height:100vh;display:flex;flex-direction:column;font:12px/1.5 ui-monospace,Menlo,monospace}header{display:flex;gap:8px;align-items:center;padding:8px;flex-wrap:wrap}main{flex:1;overflow:auto;padding:0 8px 8px}label{display:block;white-space:nowrap}p{margin:0;flex-basis:100%}</style><header><b>tokens: the file differs from the set in ${list.length} places</b><button id=all>Update all</button><button id=none>Keep all</button><button id=go>Apply</button><p>Ticked: the set's value is written. Unticked: the file's value is kept, reported, and listed again next run.</p></header><main>${rows}</main><script>const boxes=[...document.querySelectorAll('input')];document.getElementById('all').onclick=()=>boxes.forEach(b=>b.checked=true);document.getElementById('none').onclick=()=>boxes.forEach(b=>b.checked=false);document.getElementById('go').onclick=()=>{parent.postMessage({pluginMessage:{update:boxes.filter(b=>b.checked).map(b=>+b.dataset.i)}},'*')}</script>`, { width: 760, height: 560, title: 'tokens: review the differences' })
+  const line = (d, i) => `<label><input type=checkbox ${d.before ? '' : 'checked'} data-i=${i}> <b>${esc(d.label)}</b>: ${esc(d.have)} → ${esc(d.want)}</label>`
+  const fresh = list.map((d, i) => [d, i]).filter(([d]) => !d.before), old = list.map((d, i) => [d, i]).filter(([d]) => d.before)
+  const rows = [
+    fresh.length ? `<h3>New: ${fresh.length}</h3>` + fresh.map(([d, i]) => line(d, i)).join('') : '<h3>Nothing new</h3>',
+    old.length ? `<h3>Kept before: ${old.length}, still kept unless ticked</h3>` + old.map(([d, i]) => line(d, i)).join('') : '',
+  ].join('')
+  figma.showUI(`<style>body{margin:0;height:100vh;display:flex;flex-direction:column;font:12px/1.5 ui-monospace,Menlo,monospace}header{display:flex;gap:8px;align-items:center;padding:8px;flex-wrap:wrap}main{flex:1;overflow:auto;padding:0 8px 8px}label{display:block;white-space:nowrap}h3{margin:8px 0 4px;font-size:12px}p{margin:0;flex-basis:100%}</style><header><b>tokens: the file differs from the set in ${list.length} places</b><button id=all>Update all</button><button id=none>Keep all</button><button id=go>Apply</button><p>Ticked: the set's value is written. Unticked: the file's value is kept, reported, and remembered on the row.</p></header><main>${rows}</main><script>const boxes=[...document.querySelectorAll('input')];document.getElementById('all').onclick=()=>boxes.forEach(b=>b.checked=true);document.getElementById('none').onclick=()=>boxes.forEach(b=>b.checked=false);document.getElementById('go').onclick=()=>{parent.postMessage({pluginMessage:{update:boxes.filter(b=>b.checked).map(b=>+b.dataset.i)}},'*')}</script>`, { width: 760, height: 560, title: 'tokens: review the differences' })
   figma.ui.onmessage = (m) => { if (m && Array.isArray(m.update)) { const on = new Set(m.update); resolve(list.filter((_, i) => !on.has(i)).map(d => d.key)) } }
 })
 // an orphan is today's row in a collection the new row cannot live in, so the new row
@@ -154,17 +178,17 @@ async function applyVariables(P) {
     }
     if (orphan && orphan.resolvedType === spec.type) { orphanPairs.push({ old: orphan, next: v }); report.orphans.push(`${spec.path}: today's ${spec.today} sits in ${collectionName(orphan)}; its bindings move to this row`) }
     else if (orphan) report.problems.push(`${spec.path}: today's ${spec.today} sits in ${collectionName(orphan)} as a ${orphan.resolvedType}, the payload wants ${spec.type}; the old one left alone`)
-    if (v.name !== spec.path) change(isNew, `${spec.path}|name`, `${spec.path} name`, v.name, spec.path, () => { report.renamed.push(`${v.name} -> ${spec.path}`); v.name = spec.path })
+    if (v.name !== spec.path) change(isNew, `${spec.path}|name`, `${spec.path} name`, v.name, spec.path, () => { report.renamed.push(`${v.name} -> ${spec.path}`); v.name = spec.path }, v)
     stamp(v, STAMP, spec.path)
     byStamp.set(spec.path, v); byName.set(spec.path, v)
     // scopes are a set: Figma keeps its own order, so a difference is what is added or removed
     if (spec.scopes) {
       const have = new Set(v.scopes), want = new Set(spec.scopes)
       const added = spec.scopes.filter(s => !have.has(s)), removed = v.scopes.filter(s => !want.has(s))
-      if (added.length || removed.length) change(isNew, `${spec.path}|scopes`, `${spec.path} scopes`, v.scopes.join(', ') || 'none', [...added.map(s => '+ ' + s), ...removed.map(s => '− ' + s)].join(', '), () => { v.scopes = spec.scopes })
+      if (added.length || removed.length) change(isNew, `${spec.path}|scopes`, `${spec.path} scopes`, v.scopes.join(', ') || 'none', [...added.map(s => '+ ' + s), ...removed.map(s => '− ' + s)].join(', '), () => { v.scopes = spec.scopes }, v)
     }
-    if (spec.description !== v.description) change(isNew, `${spec.path}|description`, `${spec.path} description`, v.description, spec.description, () => { v.description = spec.description })
-    if (!!spec.hidden !== v.hiddenFromPublishing) change(isNew, `${spec.path}|hidden`, `${spec.path} hidden from publishing`, v.hiddenFromPublishing, !!spec.hidden, () => { v.hiddenFromPublishing = !!spec.hidden })
+    if (spec.description !== v.description) change(isNew, `${spec.path}|description`, `${spec.path} description`, v.description, spec.description, () => { v.description = spec.description }, v)
+    if (!!spec.hidden !== v.hiddenFromPublishing) change(isNew, `${spec.path}|hidden`, `${spec.path} hidden from publishing`, v.hiddenFromPublishing, !!spec.hidden, () => { v.hiddenFromPublishing = !!spec.hidden }, v)
     targets.set(spec.path, v)
   }
 
@@ -223,7 +247,7 @@ async function applyVariables(P) {
       }
       change(fresh.has(spec.path), `${spec.path}|value|${m}`, `${spec.path} (${m})`, have, want, () => {
         try { v.setValueForMode(modeIds[m], want); changed = true } catch (e) { report.problems.push(`${spec.path} (${m}): ${e.message}`) }
-      })
+      }, v)
     }
     if (changed) report.updated.push(spec.path); else if (!PLANNING) report.same++
   }
@@ -240,8 +264,8 @@ async function applyTextStyles(P) {
     let changed = false
     const isNew = !s
     if (!s) { s = figma.createTextStyle(); report.created.push(spec.name); changed = true }
-    if (s.name !== spec.name) change(isNew, `${spec.path}|name`, `text style ${spec.name} name`, s.name, spec.name, () => { if (!isNew) report.renamed.push(`${s.name} -> ${spec.name}`); s.name = spec.name; changed = true })
-    if (s.description !== spec.description) change(isNew, `${spec.path}|description`, `text style ${spec.name} description`, s.description, spec.description, () => { s.description = spec.description; changed = true })
+    if (s.name !== spec.name) change(isNew, `${spec.path}|name`, `text style ${spec.name} name`, s.name, spec.name, () => { if (!isNew) report.renamed.push(`${s.name} -> ${spec.name}`); s.name = spec.name; changed = true }, s)
+    if (s.description !== spec.description) change(isNew, `${spec.path}|description`, `text style ${spec.name} description`, s.description, spec.description, () => { s.description = spec.description; changed = true }, s)
     // a bound property takes its value from the variable, so the raw value is set only
     // on the way to binding it; setting a raw value on a bound property would unbind it
     const raw = {
@@ -264,7 +288,7 @@ async function applyTextStyles(P) {
       }
       change(isNew, `${spec.path}|${field}`, `text style ${spec.name} ${field}`, bound ? `bound to ${(byId.get(bound.id) || {}).name || bound.id}` : 'not bound', `bound to ${path}`, () => {
         try { raw[field](); s.setBoundVariable(field, v); changed = true } catch (e) { report.problems.push(`${spec.name}: binding ${field}: ${e.message}`) }
-      })
+      }, s)
     }
     if (stampOf(s, STAMP) !== spec.path) stamp(s, STAMP, spec.path)
     if (changed) report.updated.push(spec.name); else if (!PLANNING) report.same++
@@ -283,14 +307,14 @@ async function applyEffectStyles(P) {
     let changed = false
     const isNew = !s
     if (!s) { s = figma.createEffectStyle(); report.created.push(spec.name); changed = true }
-    if (s.name !== spec.name) change(isNew, `${spec.path}|name`, `effect style ${spec.name} name`, s.name, spec.name, () => { if (!isNew) report.renamed.push(`${s.name} -> ${spec.name}`); s.name = spec.name; changed = true })
-    if (s.description !== spec.description) change(isNew, `${spec.path}|description`, `effect style ${spec.name} description`, s.description, spec.description, () => { s.description = spec.description; changed = true })
+    if (s.name !== spec.name) change(isNew, `${spec.path}|name`, `effect style ${spec.name} name`, s.name, spec.name, () => { if (!isNew) report.renamed.push(`${s.name} -> ${spec.name}`); s.name = spec.name; changed = true }, s)
+    if (s.description !== spec.description) change(isNew, `${spec.path}|description`, `effect style ${spec.name} description`, s.description, spec.description, () => { s.description = spec.description; changed = true }, s)
     const want = spec.layers.map(l => ({ type: 'DROP_SHADOW', color: rgba(l.color, l.alpha), offset: { x: l.x, y: l.y }, radius: l.blur, spread: l.spread, visible: true, blendMode: 'NORMAL' }))
     const have = s.effects
     const same = have.length === want.length && have.every((e, i) => e.type === 'DROP_SHADOW' && near(e.offset.x, want[i].offset.x) && near(e.offset.y, want[i].offset.y)
       && near(e.radius, want[i].radius) && near(e.spread || 0, want[i].spread) && ['r', 'g', 'b', 'a'].every(k => near(e.color[k], want[i].color[k])))
     const layers = (list) => list.map(e => `${e.offset.x} ${e.offset.y} ${e.radius} ${e.spread || 0} ${show(e.color)}`).join('; ')
-    if (!same) change(isNew, `${spec.path}|effects`, `effect style ${spec.name} layers`, layers(have), layers(want), () => { s.effects = want; changed = true })
+    if (!same) change(isNew, `${spec.path}|effects`, `effect style ${spec.name} layers`, layers(have), layers(want), () => { s.effects = want; changed = true }, s)
     if (stampOf(s, STAMP) !== spec.path) stamp(s, STAMP, spec.path)
     if (changed) report.updated.push(spec.name); else if (!PLANNING) report.same++
   }
@@ -480,6 +504,7 @@ PLANNING = false
 if (diffs.length) for (const k of await review(diffs)) keep.add(k)
 report.same = 0; orphanPairs.length = 0; retiredPairs.length = 0; retiredStyles.length = 0
 await pass()
+remember()
 for (const k of ['created', 'renamed', 'updated', 'orphans', 'problems']) report[k] = [...new Set(report[k])]
 await rebind([...orphanPairs, ...retiredPairs])
 await restyle(retiredStyles)
