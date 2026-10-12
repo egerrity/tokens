@@ -119,7 +119,12 @@ async function applyVariables(P) {
     if (v.name !== spec.path) { report.renamed.push(`${v.name} -> ${spec.path}`); v.name = spec.path }
     stamp(v, STAMP, spec.path)
     byStamp.set(spec.path, v); byName.set(spec.path, v)
-    if (spec.scopes && JSON.stringify(v.scopes) !== JSON.stringify(spec.scopes)) v.scopes = spec.scopes
+    // scopes: a new row takes the declared list in place of Figma's "all"; a row that has
+    // a list gains any declared scope it lacks and keeps every scope the hand added
+    if (spec.scopes) {
+      if (v.scopes.includes('ALL_SCOPES')) { if (spec.scopes.length) v.scopes = spec.scopes }
+      else { const missing = spec.scopes.filter(s => !v.scopes.includes(s)); if (missing.length) v.scopes = [...v.scopes, ...missing] }
+    }
     if (spec.description !== v.description) v.description = spec.description
     if (!!spec.hidden !== v.hiddenFromPublishing) v.hiddenFromPublishing = !!spec.hidden
     targets.set(spec.path, v)
