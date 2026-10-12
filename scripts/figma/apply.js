@@ -272,7 +272,20 @@ async function rebind(pairs) {
   const paint = (p, field, v) => figma.variables.setBoundVariableForPaint(p, field, v)
   const effect = (e, field, v) => figma.variables.setBoundVariableForEffect(e, field, v)
   const grid = (g, field, v) => figma.variables.setBoundVariableForLayoutGrid(g, field, v)
-  for (const node of scope.findAll(() => true)) {
+  // only a layer with a binding can bind an old row; asking each layer whether it has
+  // any is cheap, reading every layer's paints is not
+  const bound = scope.findAll(n => { try { const b = n.boundVariables; return !!b && Object.keys(b).length > 0 } catch (e) { return false } })
+  // a window says where the walk is, and the walk yields between batches so Figma can
+  // repaint; without that a long walk looks like a hang
+  let progress = () => {}
+  try {
+    figma.showUI('<style>body{margin:0;padding:12px;font:12px/1.4 ui-monospace,Menlo,monospace}</style><pre id=p>starting</pre><script>onmessage=e=>{document.getElementById("p").textContent=e.data.pluginMessage.text}</script>', { width: 420, height: 100, title: 'tokens: rebinding' })
+    progress = (text) => figma.ui.postMessage({ text })
+  } catch (e) { /* a runtime without a UI */ }
+  progress(`${bound.length} bound layers to walk`)
+  let visited = 0
+  for (const node of bound) {
+    if (++visited % 250 === 0) { progress(`${visited} of ${bound.length} bound layers walked, ${report.rebound} bindings moved`); await new Promise(r => setTimeout(r, 0)) }
     // editing an instance re-creates its nested sublayers, so a reference taken when the
     // walk began can be gone by the time it is reached; such a layer is skipped, and its
     // name is read once, before any edit, so a failure can still be labelled
