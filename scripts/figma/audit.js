@@ -6,10 +6,14 @@
 // unreferenced ones first. Paint and grid styles are not listed: the set writes none, so
 // a identity tag says nothing about them; a paint style bound to a leftover is listed as a use.
 // A plugin walks every page; a script runner that cannot load pages walks the current
-// one and says so. The return value is the list as text, with its counts.
+// one and says so. The return value is the list as text, with its counts, and the same
+// list as CSV, one line per use, for a spreadsheet to tick off: a leftover with a
+// successor in the rename map names it.
 const NAMESPACE = 'tokens'
 const STAMP = 'path'
 const stampOf = (node, key) => node.getSharedPluginData(NAMESPACE, key)
+// today's names and what replaces each, inlined by the build
+const TODAY = /* TODAY */ null || {}
 
 const variables = await figma.variables.getLocalVariablesAsync()
 const collections = await figma.variables.getLocalVariableCollectionsAsync()
@@ -82,4 +86,16 @@ for (const [w, es] of grouped(bound)) {
 const rowsOf = (c) => variables.filter(v => v.variableCollectionId === c.id)
 const unowned = collections.filter(c => rowsOf(c).length && rowsOf(c).every(v => !stampOf(v, STAMP)))
 if (unowned.length) { lines.push('', '## Collections with no tagged row; delete each once its rows are gone'); for (const c of unowned) lines.push(`  ${c.name} (${rowsOf(c).length} rows)`) }
-return { text: lines.join('\n'), untagged: entries.length, unreferenced: unbound.length, referenced: bound.length }
+
+// the same list as CSV: a line per use, a line for a row with none, every use included
+const q = (s) => '"' + String(s == null ? '' : s).replace(/"/g, '""') + '"'
+const split = (u) => { const i = u.lastIndexOf(': '); return i < 0 ? [u, ''] : [u.slice(0, i), u.slice(i + 2)] }
+const rows = [['Collection', 'Row', 'Action', 'Successor', 'Uses', 'Use', 'Field', 'Done']]
+for (const e of [...unbound, ...bound]) {
+  const successor = TODAY[e.name] || ''
+  if (!e.uses.length) { rows.push([e.where, e.name, 'delete', successor, 0, '', '', '']); continue }
+  for (const u of e.uses) { const [at, field] = split(u); rows.push([e.where, e.name, 'rebind, then delete', successor, e.uses.length, at, field, '']) }
+}
+for (const c of unowned) rows.push([c.name, '(the collection)', 'delete once its rows are gone', '', rowsOf(c).length, '', '', ''])
+const csv = '﻿' + rows.map(r => r.map(q).join(',')).join('\r\n') + '\r\n'
+return { text: lines.join('\n'), csv, untagged: entries.length, unreferenced: unbound.length, referenced: bound.length }

@@ -58,6 +58,11 @@ function figmaPlugin(tokens: Token[], outside: Token[]): Record<string, string> 
   const extra = collections.map(c => c.collection).filter(n => !PLUGIN_ORDER.includes(n))
   if (missing.length || extra.length) throw new Error(`plugin order: missing ${missing.join(', ') || 'none'}, unordered ${extra.join(', ') || 'none'}`)
   const payloads = [...PLUGIN_ORDER.map(n => byName.get(n)), styles, effects]
+  // today's names and their successors, for the leftovers list to name a successor
+  const today: Record<string, string> = {}
+  for (const c of collections) for (const v of c.variables) if (v.today) today[v.today] = v.path
+  for (const s of styles.styles) if (s.today) today[s.today] = s.name
+  for (const e of effects.styles) if (e.today) today[e.today] = e.name
   const script = (name: string) => fs.readFileSync(path.join(import.meta.dirname, '..', 'scripts', 'figma', name), 'utf8')
   const code = [
     '// Generated: scripts/figma/apply.js with every payload inlined, in alias order, and',
@@ -67,13 +72,23 @@ function figmaPlugin(tokens: Token[], outside: Token[]): Record<string, string> 
     script('apply.js').replace('/* PAYLOAD */ null', JSON.stringify(payloads)),
     '}',
     'const audit = async () => {',
-    script('audit.js'),
+    script('audit.js').replace('/* TODAY */ null', JSON.stringify(today)),
     '}',
-    'const show = (title, text) => {',
+    // the report window: the text with a Copy button, and a CSV of the same report to download
+    'const show = (title, text, csv, filename) => {',
     "  const esc = s => String(s).replace(/[&<>]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' })[c])",
-    "  figma.showUI(`<style>body{margin:0;height:100vh;display:flex;flex-direction:column;font:12px/1.4 ui-monospace,Menlo,monospace}header{display:flex;gap:8px;align-items:center;padding:8px}textarea{flex:1;margin:0 8px 8px;white-space:pre;font:inherit;resize:none}</style><header><b>${esc(title)}</b><button id=c>Copy</button><span id=s></span></header><textarea id=t readonly>${esc(text)}</textarea><script>const t=document.getElementById('t');document.getElementById('c').onclick=()=>{t.select();const done=()=>{document.getElementById('s').textContent='copied'};const old=()=>{document.execCommand('copy');done()};(navigator.clipboard&&navigator.clipboard.writeText)?navigator.clipboard.writeText(t.value).then(done,old):old()}</script>`, { width: 640, height: 520, title })",
+    "  const dl = csv ? `<button id=d>Download CSV</button>` : ''",
+    "  figma.showUI(`<style>body{margin:0;height:100vh;display:flex;flex-direction:column;font:12px/1.4 ui-monospace,Menlo,monospace}header{display:flex;gap:8px;align-items:center;padding:8px}textarea{flex:1;margin:0 8px 8px;white-space:pre;font:inherit;resize:none}</style><header><b>${esc(title)}</b><button id=c>Copy</button>${dl}<span id=s></span></header><textarea id=t readonly>${esc(text)}</textarea><script>const t=document.getElementById('t');const s=document.getElementById('s');document.getElementById('c').onclick=()=>{t.select();const done=()=>{s.textContent='copied'};const old=()=>{document.execCommand('copy');done()};(navigator.clipboard&&navigator.clipboard.writeText)?navigator.clipboard.writeText(t.value).then(done,old):old()};const d=document.getElementById('d');if(d){d.onclick=()=>{const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([${JSON.stringify(csv || '')}],{type:'text/csv;charset=utf-8'}));a.download=${JSON.stringify(filename || 'tokens.csv')};document.body.appendChild(a);a.click();a.remove();s.textContent='downloaded'}}</script>`, { width: 640, height: 520, title })",
     '}',
-    "const run = figma.command === 'audit' ? audit().then(r => show('tokens: the leftovers', r.text)) : apply().then(r => show('tokens: applied', JSON.stringify(r, null, 2)))",
+    // the apply report as CSV: a line per item under its section, with a column to tick
+    'const applyCsv = r => {',
+    "  const q = s => '\"' + String(s == null ? '' : s).replace(/\"/g, '\"\"') + '\"'",
+    "  const rows = [['Section', 'Item', 'Done']]",
+    "  for (const k of ['created', 'renamed', 'updated', 'orphans', 'problems']) for (const item of r[k] || []) rows.push([k, item, ''])",
+    "  rows.push(['same', r.same, ''], ['rebound', r.rebound, ''])",
+    "  return '\\uFEFF' + rows.map(x => x.map(q).join(',')).join('\\r\\n') + '\\r\\n'",
+    '}',
+    "const run = figma.command === 'audit' ? audit().then(r => show('tokens: the leftovers', r.text, r.csv, 'tokens-leftovers.csv')) : apply().then(r => show('tokens: applied', JSON.stringify(r, null, 2), applyCsv(r), 'tokens-applied.csv'))",
     "run.catch(e => show('tokens: failed', [e && e.message, e && e.stack].filter(Boolean).join('\\n') || String(e)))",
     '',
   ].join('\n')

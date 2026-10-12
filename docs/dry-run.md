@@ -34,8 +34,10 @@ repo and it is there.
 In Figma Desktop, with the copy open: Plugins > Development > Import plugin from
 manifest… > choose `dist/figma/plugin/manifest.json`. Then Plugins > Development >
 tokens apply > Apply the set. The run ends in a window holding the report, with a Copy
-button; the plugin stays open until the window is closed. The second command, List the
-leftovers, is for after the run (`hand-work.md`).
+button and a Download CSV button; the plugin stays open until the window is closed. The
+second command, List the leftovers, is for after the run (`hand-work.md`); its CSV is
+the checklist for the hand work, one line per use, with the successor named where the
+rename map has one, and a Done column to tick.
 
 ## 3. The report
 
