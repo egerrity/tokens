@@ -127,7 +127,7 @@ Delete, once nothing refers to them:
 
 - In the palette, the nine rows with no successor: Merge Intensity 4, the five inverse
   merges, the three skeleton loader rows. Bind the skeleton component to the surfaces
-  (`low`, `mid`, `dim`) or `bg/hint` before deleting its rows.
+  (`low`, `mid`, `dim`) or `bg/neutral/hint` before deleting its rows.
 - In `viewport`, the iOS text-size modes the report lists under `problems`.
 - In `theme`, the leftover `utility` rows from the engine's earlier cut: old surfaces,
   shadows and scrim, absolute black and white, alpha rows. Check the absolute and alpha

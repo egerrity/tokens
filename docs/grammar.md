@@ -102,9 +102,12 @@ one aspect, the category stands for it (`space/400`, `radius/full`).
 
 ### Family
 
-Which color a token belongs to: `brand`, `brand-alt`, `critical`, `warning`,
-`positive` or `info`. The neutral is the family a token has when no family word is
-written, so `fg/regular` is the neutral's text and `fg/brand/regular` is the brand's.
+Which color a token belongs to: `neutral`, `brand`, `brand-alt`, `critical`, `warning`,
+`positive` or `info`. The neutral is written like any family, so `fg/neutral/regular` is
+the neutral's text and `fg/brand/regular` is the brand's: a property that has families
+always carries one, and the picker groups the neutral with the rest. The links are the
+engine's `link` family (`fg/link/enabled`). Surfaces, planes and the illustration
+palette have no families, so no family word.
 
 Every family has the same tokens below it: the same five words, the same levels, the
 same states. Once you know one family's tokens you know them all; only the family word
@@ -137,7 +140,7 @@ Which subgroup of the property the token belongs to — a level, a role, a kind,
 it applies — neither a state nor a position. It appears when the property, or the
 category where there is none, offers a choice among subgroups that do not share the
 same tokens below them. Each variant is one closed list, one axis per segment; two may
-stack when each is its own axis, the ground before the role (`fg/on-inverse/link/hover`).
+stack when each is its own axis, the ground before the role (`fg/link/on-inverse/hover`).
 
 - Parent: the property, or the category where there is no property (`text/heading`,
   `opacity/soft`).
@@ -273,8 +276,8 @@ not a token value.
 Kept slim. Match what exists, name it better, add the obvious gaps.
 
 - Color: in the one order, a property (`fg`, `bg`, `border`, `surface`), then the
-  family where the role has one (the neutral is implied by its absence), then the word, or the level and
-  its state (`color/fg/critical/regular`, `color/bg/brand/soft/hover`). The roles and
+  family where the property has them, the neutral written like any other, then the word,
+  or the level and its state (`color/fg/neutral/regular`, `color/bg/brand/soft/hover`). The roles and
   the color base tokens share the `color` group; a base token uses no property, so its
   family follows the category, and it is hidden, so a designer only ever picks a role.
 - Space: a gap or a padding, then where it applies (inside a control, between pieces of

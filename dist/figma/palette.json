@@ -93,8 +93,9 @@
       }
     },
     {
-      "path": "color/fg/regular",
+      "path": "color/fg/neutral/regular",
       "today": "Content palette/Content Primary",
+      "earlier": "color/fg/regular",
       "type": "COLOR",
       "scopes": [
         "TEXT_FILL",
@@ -108,8 +109,9 @@
       }
     },
     {
-      "path": "color/fg/accent",
+      "path": "color/fg/neutral/accent",
       "today": "Content palette/Content Tertiary",
+      "earlier": "color/fg/accent",
       "type": "COLOR",
       "scopes": [
         "TEXT_FILL",
@@ -123,7 +125,8 @@
       }
     },
     {
-      "path": "color/fg/hint",
+      "path": "color/fg/neutral/hint",
+      "earlier": "color/fg/hint",
       "type": "COLOR",
       "scopes": [
         "SHAPE_FILL"
@@ -136,8 +139,9 @@
       }
     },
     {
-      "path": "color/fg/muted",
+      "path": "color/fg/neutral/muted",
       "today": "Content palette/Content Secondary",
+      "earlier": "color/fg/muted",
       "type": "COLOR",
       "scopes": [
         "TEXT_FILL",
@@ -151,7 +155,8 @@
       }
     },
     {
-      "path": "color/fg/strong",
+      "path": "color/fg/neutral/strong",
+      "earlier": "color/fg/strong",
       "type": "COLOR",
       "scopes": [
         "TEXT_FILL",
@@ -207,7 +212,8 @@
       }
     },
     {
-      "path": "color/fg/on-inverse/regular",
+      "path": "color/fg/neutral/on-inverse/regular",
+      "earlier": "color/fg/on-inverse/regular",
       "type": "COLOR",
       "scopes": [
         "TEXT_FILL",
@@ -221,7 +227,8 @@
       }
     },
     {
-      "path": "color/fg/on-inverse/accent",
+      "path": "color/fg/neutral/on-inverse/accent",
+      "earlier": "color/fg/on-inverse/accent",
       "type": "COLOR",
       "scopes": [
         "TEXT_FILL",
@@ -235,7 +242,8 @@
       }
     },
     {
-      "path": "color/fg/on-inverse/muted",
+      "path": "color/fg/neutral/on-inverse/muted",
+      "earlier": "color/fg/on-inverse/muted",
       "type": "COLOR",
       "scopes": [
         "TEXT_FILL",
@@ -249,8 +257,9 @@
       }
     },
     {
-      "path": "color/fg/on-inverse/strong",
+      "path": "color/fg/neutral/on-inverse/strong",
       "today": "Content palette/Content Primary Inverse",
+      "earlier": "color/fg/on-inverse/strong",
       "type": "COLOR",
       "scopes": [
         "TEXT_FILL",
@@ -264,7 +273,8 @@
       }
     },
     {
-      "path": "color/fg/on-inverse/link/enabled",
+      "path": "color/fg/link/on-inverse/enabled",
+      "earlier": "color/fg/on-inverse/link/enabled",
       "type": "COLOR",
       "scopes": [
         "TEXT_FILL",
@@ -278,7 +288,8 @@
       }
     },
     {
-      "path": "color/fg/on-inverse/link/hover",
+      "path": "color/fg/link/on-inverse/hover",
+      "earlier": "color/fg/on-inverse/link/hover",
       "type": "COLOR",
       "scopes": [
         "TEXT_FILL",
@@ -292,7 +303,8 @@
       }
     },
     {
-      "path": "color/fg/on-inverse/link/pressed",
+      "path": "color/fg/link/on-inverse/pressed",
+      "earlier": "color/fg/on-inverse/link/pressed",
       "type": "COLOR",
       "scopes": [
         "TEXT_FILL",
@@ -306,8 +318,9 @@
       }
     },
     {
-      "path": "color/border/regular",
+      "path": "color/border/neutral/regular",
       "today": "Stroke palette/Stroke Secondary",
+      "earlier": "color/border/regular",
       "type": "COLOR",
       "scopes": [
         "STROKE_COLOR"
@@ -320,7 +333,8 @@
       }
     },
     {
-      "path": "color/border/accent",
+      "path": "color/border/neutral/accent",
+      "earlier": "color/border/accent",
       "type": "COLOR",
       "scopes": [
         "STROKE_COLOR"
@@ -333,8 +347,9 @@
       }
     },
     {
-      "path": "color/border/hint",
+      "path": "color/border/neutral/hint",
       "today": "Stroke palette/Stroke Quaternary",
+      "earlier": "color/border/hint",
       "type": "COLOR",
       "scopes": [
         "STROKE_COLOR"
@@ -347,8 +362,9 @@
       }
     },
     {
-      "path": "color/border/muted",
+      "path": "color/border/neutral/muted",
       "today": "Stroke palette/Stroke Tertiary",
+      "earlier": "color/border/muted",
       "type": "COLOR",
       "scopes": [
         "STROKE_COLOR"
@@ -361,8 +377,9 @@
       }
     },
     {
-      "path": "color/border/strong",
+      "path": "color/border/neutral/strong",
       "today": "Stroke palette/Stroke Primary",
+      "earlier": "color/border/strong",
       "type": "COLOR",
       "scopes": [
         "STROKE_COLOR"
@@ -375,12 +392,13 @@
       }
     },
     {
-      "path": "color/border/focus",
+      "path": "color/border/neutral/focus",
+      "earlier": "color/border/focus",
       "type": "COLOR",
       "scopes": [
         "STROKE_COLOR"
       ],
-      "description": "Req for: the focus ring\nUse: drawn the same on every control, outside its edge",
+      "description": "Req for: the focus ring\nUse: drawn the same on every control, outside its edge; the brand family's highlighter, filed with the neutral's borders because there is one ring",
       "values": {
         "value": {
           "alias": "color/brand/highlighter-26"
@@ -388,8 +406,9 @@
       }
     },
     {
-      "path": "color/border/inverse",
+      "path": "color/border/neutral/inverse",
       "today": "Stroke palette/Stroke Primary Inverse",
+      "earlier": "color/border/inverse",
       "type": "COLOR",
       "scopes": [
         "STROKE_COLOR"
@@ -402,7 +421,8 @@
       }
     },
     {
-      "path": "color/bg/regular",
+      "path": "color/bg/neutral/regular",
+      "earlier": "color/bg/regular",
       "type": "COLOR",
       "scopes": [
         "FRAME_FILL",
@@ -416,13 +436,14 @@
       }
     },
     {
-      "path": "color/bg/accent",
+      "path": "color/bg/neutral/accent",
+      "earlier": "color/bg/accent",
       "type": "COLOR",
       "scopes": [
         "FRAME_FILL",
         "SHAPE_FILL"
       ],
-      "description": "Req for: the fill that grabs the eye\nUse: a solid badge, chip or progress fill; its text is fg/on-inverse/strong or regular, nothing else",
+      "description": "Req for: the fill that grabs the eye\nUse: a solid badge, chip or progress fill; its text is fg/neutral/on-inverse/strong or regular, nothing else",
       "values": {
         "value": {
           "alias": "color/neutral/pencil-47"
@@ -430,7 +451,8 @@
       }
     },
     {
-      "path": "color/bg/hint",
+      "path": "color/bg/neutral/hint",
+      "earlier": "color/bg/hint",
       "type": "COLOR",
       "scopes": [
         "FRAME_FILL",
@@ -444,7 +466,8 @@
       }
     },
     {
-      "path": "color/bg/muted",
+      "path": "color/bg/neutral/muted",
+      "earlier": "color/bg/muted",
       "type": "COLOR",
       "scopes": [
         "FRAME_FILL",
@@ -458,13 +481,14 @@
       }
     },
     {
-      "path": "color/bg/strong",
+      "path": "color/bg/neutral/strong",
+      "earlier": "color/bg/strong",
       "type": "COLOR",
       "scopes": [
         "FRAME_FILL",
         "SHAPE_FILL"
       ],
-      "description": "Req for: a heavy ground\nUse: the strongest combo; fg/strong, regular and muted read on it, accent does not",
+      "description": "Req for: a heavy ground\nUse: the strongest combo; fg/neutral/strong, regular and muted read on it, accent does not",
       "values": {
         "value": {
           "alias": "color/neutral/chalk-20"
@@ -472,7 +496,8 @@
       }
     },
     {
-      "path": "color/bg/ghost/enabled",
+      "path": "color/bg/neutral/ghost/enabled",
+      "earlier": "color/bg/ghost/enabled",
       "type": "COLOR",
       "scopes": [
         "FRAME_FILL",
@@ -486,8 +511,9 @@
       }
     },
     {
-      "path": "color/bg/ghost/hover",
+      "path": "color/bg/neutral/ghost/hover",
       "today": "Merge palette/Merge Intensity 1",
+      "earlier": "color/bg/ghost/hover",
       "type": "COLOR",
       "scopes": [
         "FRAME_FILL",
@@ -502,8 +528,9 @@
       }
     },
     {
-      "path": "color/bg/ghost/pressed",
+      "path": "color/bg/neutral/ghost/pressed",
       "today": "Merge palette/Merge Intensity 2",
+      "earlier": "color/bg/ghost/pressed",
       "type": "COLOR",
       "scopes": [
         "FRAME_FILL",
@@ -518,7 +545,8 @@
       }
     },
     {
-      "path": "color/bg/ghost/selected",
+      "path": "color/bg/neutral/ghost/selected",
+      "earlier": "color/bg/ghost/selected",
       "type": "COLOR",
       "scopes": [
         "FRAME_FILL",
@@ -533,7 +561,8 @@
       }
     },
     {
-      "path": "color/bg/ghost/selected-hover",
+      "path": "color/bg/neutral/ghost/selected-hover",
+      "earlier": "color/bg/ghost/selected-hover",
       "type": "COLOR",
       "scopes": [
         "FRAME_FILL",
@@ -548,7 +577,8 @@
       }
     },
     {
-      "path": "color/bg/ghost/selected-pressed",
+      "path": "color/bg/neutral/ghost/selected-pressed",
+      "earlier": "color/bg/ghost/selected-pressed",
       "type": "COLOR",
       "scopes": [
         "FRAME_FILL",
@@ -563,7 +593,8 @@
       }
     },
     {
-      "path": "color/bg/soft/enabled",
+      "path": "color/bg/neutral/soft/enabled",
+      "earlier": "color/bg/soft/enabled",
       "type": "COLOR",
       "scopes": [
         "FRAME_FILL",
@@ -578,7 +609,8 @@
       }
     },
     {
-      "path": "color/bg/soft/hover",
+      "path": "color/bg/neutral/soft/hover",
+      "earlier": "color/bg/soft/hover",
       "type": "COLOR",
       "scopes": [
         "FRAME_FILL",
@@ -593,7 +625,8 @@
       }
     },
     {
-      "path": "color/bg/soft/pressed",
+      "path": "color/bg/neutral/soft/pressed",
+      "earlier": "color/bg/soft/pressed",
       "type": "COLOR",
       "scopes": [
         "FRAME_FILL",
@@ -608,7 +641,8 @@
       }
     },
     {
-      "path": "color/bg/soft/selected",
+      "path": "color/bg/neutral/soft/selected",
+      "earlier": "color/bg/soft/selected",
       "type": "COLOR",
       "scopes": [
         "FRAME_FILL",
@@ -623,7 +657,8 @@
       }
     },
     {
-      "path": "color/bg/soft/selected-hover",
+      "path": "color/bg/neutral/soft/selected-hover",
+      "earlier": "color/bg/soft/selected-hover",
       "type": "COLOR",
       "scopes": [
         "FRAME_FILL",
@@ -638,7 +673,8 @@
       }
     },
     {
-      "path": "color/bg/soft/selected-pressed",
+      "path": "color/bg/neutral/soft/selected-pressed",
+      "earlier": "color/bg/soft/selected-pressed",
       "type": "COLOR",
       "scopes": [
         "FRAME_FILL",
@@ -653,7 +689,8 @@
       }
     },
     {
-      "path": "color/bg/solid/enabled",
+      "path": "color/bg/neutral/solid/enabled",
+      "earlier": "color/bg/solid/enabled",
       "type": "COLOR",
       "scopes": [
         "FRAME_FILL",
@@ -668,7 +705,8 @@
       }
     },
     {
-      "path": "color/bg/solid/hover",
+      "path": "color/bg/neutral/solid/hover",
+      "earlier": "color/bg/solid/hover",
       "type": "COLOR",
       "scopes": [
         "FRAME_FILL",
@@ -683,7 +721,8 @@
       }
     },
     {
-      "path": "color/bg/solid/pressed",
+      "path": "color/bg/neutral/solid/pressed",
+      "earlier": "color/bg/solid/pressed",
       "type": "COLOR",
       "scopes": [
         "FRAME_FILL",
@@ -698,7 +737,8 @@
       }
     },
     {
-      "path": "color/border/solid",
+      "path": "color/border/neutral/solid",
+      "earlier": "color/border/solid",
       "type": "COLOR",
       "scopes": [
         "STROKE_COLOR"
@@ -712,7 +752,8 @@
       }
     },
     {
-      "path": "color/fg/on-solid",
+      "path": "color/fg/neutral/on-solid",
+      "earlier": "color/fg/on-solid",
       "type": "COLOR",
       "scopes": [
         "TEXT_FILL",
@@ -874,7 +915,7 @@
         "FRAME_FILL",
         "SHAPE_FILL"
       ],
-      "description": "Req for: the fill that grabs the eye, in the brand color\nUse: a solid badge, chip or progress fill; its text is fg/on-inverse/strong or regular, nothing else",
+      "description": "Req for: the fill that grabs the eye, in the brand color\nUse: a solid badge, chip or progress fill; its text is fg/neutral/on-inverse/strong or regular, nothing else",
       "values": {
         "value": {
           "alias": "color/brand/pencil-47"
@@ -918,7 +959,7 @@
         "FRAME_FILL",
         "SHAPE_FILL"
       ],
-      "description": "Req for: a heavy ground, in the brand color\nUse: the strongest combo; fg/strong, regular and muted read on it, accent does not\nReserved for components; hidden from publishing",
+      "description": "Req for: a heavy ground, in the brand color\nUse: the strongest combo; fg/neutral/strong, regular and muted read on it, accent does not\nReserved for components; hidden from publishing",
       "hidden": true,
       "values": {
         "value": {
@@ -1338,7 +1379,7 @@
         "FRAME_FILL",
         "SHAPE_FILL"
       ],
-      "description": "Req for: the fill that grabs the eye, in the brand-alt color\nUse: a solid badge, chip or progress fill; its text is fg/on-inverse/strong or regular, nothing else",
+      "description": "Req for: the fill that grabs the eye, in the brand-alt color\nUse: a solid badge, chip or progress fill; its text is fg/neutral/on-inverse/strong or regular, nothing else",
       "values": {
         "value": {
           "alias": "color/brand-alt/pencil-47"
@@ -1382,7 +1423,7 @@
         "FRAME_FILL",
         "SHAPE_FILL"
       ],
-      "description": "Req for: a heavy ground, in the brand-alt color\nUse: the strongest combo; fg/strong, regular and muted read on it, accent does not\nReserved for components; hidden from publishing",
+      "description": "Req for: a heavy ground, in the brand-alt color\nUse: the strongest combo; fg/neutral/strong, regular and muted read on it, accent does not\nReserved for components; hidden from publishing",
       "hidden": true,
       "values": {
         "value": {
@@ -1804,7 +1845,7 @@
         "FRAME_FILL",
         "SHAPE_FILL"
       ],
-      "description": "Req for: the fill that grabs the eye, in the critical color\nUse: a solid badge, chip or progress fill; its text is fg/on-inverse/strong or regular, nothing else",
+      "description": "Req for: the fill that grabs the eye, in the critical color\nUse: a solid badge, chip or progress fill; its text is fg/neutral/on-inverse/strong or regular, nothing else",
       "values": {
         "value": {
           "alias": "color/critical/pencil-47"
@@ -1848,7 +1889,7 @@
         "FRAME_FILL",
         "SHAPE_FILL"
       ],
-      "description": "Req for: a heavy ground, in the critical color\nUse: the strongest combo; fg/strong, regular and muted read on it, accent does not\nReserved for components; hidden from publishing",
+      "description": "Req for: a heavy ground, in the critical color\nUse: the strongest combo; fg/neutral/strong, regular and muted read on it, accent does not\nReserved for components; hidden from publishing",
       "hidden": true,
       "values": {
         "value": {
@@ -2270,7 +2311,7 @@
         "FRAME_FILL",
         "SHAPE_FILL"
       ],
-      "description": "Req for: the fill that grabs the eye, in the warning color\nUse: a solid badge, chip or progress fill; its text is fg/on-inverse/strong or regular, nothing else",
+      "description": "Req for: the fill that grabs the eye, in the warning color\nUse: a solid badge, chip or progress fill; its text is fg/neutral/on-inverse/strong or regular, nothing else",
       "values": {
         "value": {
           "alias": "color/warning/pencil-47"
@@ -2314,7 +2355,7 @@
         "FRAME_FILL",
         "SHAPE_FILL"
       ],
-      "description": "Req for: a heavy ground, in the warning color\nUse: the strongest combo; fg/strong, regular and muted read on it, accent does not\nReserved for components; hidden from publishing",
+      "description": "Req for: a heavy ground, in the warning color\nUse: the strongest combo; fg/neutral/strong, regular and muted read on it, accent does not\nReserved for components; hidden from publishing",
       "hidden": true,
       "values": {
         "value": {
@@ -2736,7 +2777,7 @@
         "FRAME_FILL",
         "SHAPE_FILL"
       ],
-      "description": "Req for: the fill that grabs the eye, in the positive color\nUse: a solid badge, chip or progress fill; its text is fg/on-inverse/strong or regular, nothing else",
+      "description": "Req for: the fill that grabs the eye, in the positive color\nUse: a solid badge, chip or progress fill; its text is fg/neutral/on-inverse/strong or regular, nothing else",
       "values": {
         "value": {
           "alias": "color/positive/pencil-47"
@@ -2780,7 +2821,7 @@
         "FRAME_FILL",
         "SHAPE_FILL"
       ],
-      "description": "Req for: a heavy ground, in the positive color\nUse: the strongest combo; fg/strong, regular and muted read on it, accent does not\nReserved for components; hidden from publishing",
+      "description": "Req for: a heavy ground, in the positive color\nUse: the strongest combo; fg/neutral/strong, regular and muted read on it, accent does not\nReserved for components; hidden from publishing",
       "hidden": true,
       "values": {
         "value": {
@@ -3198,7 +3239,7 @@
         "FRAME_FILL",
         "SHAPE_FILL"
       ],
-      "description": "Req for: the fill that grabs the eye, in the info color\nUse: a solid badge, chip or progress fill; its text is fg/on-inverse/strong or regular, nothing else",
+      "description": "Req for: the fill that grabs the eye, in the info color\nUse: a solid badge, chip or progress fill; its text is fg/neutral/on-inverse/strong or regular, nothing else",
       "values": {
         "value": {
           "alias": "color/info/pencil-47"
@@ -3242,7 +3283,7 @@
         "FRAME_FILL",
         "SHAPE_FILL"
       ],
-      "description": "Req for: a heavy ground, in the info color\nUse: the strongest combo; fg/strong, regular and muted read on it, accent does not\nReserved for components; hidden from publishing",
+      "description": "Req for: a heavy ground, in the info color\nUse: the strongest combo; fg/neutral/strong, regular and muted read on it, accent does not\nReserved for components; hidden from publishing",
       "hidden": true,
       "values": {
         "value": {

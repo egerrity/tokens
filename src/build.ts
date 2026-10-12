@@ -62,7 +62,7 @@ function figmaPlugin(tokens: Token[], outside: Token[]): Record<string, string> 
   const payloads = [...PLUGIN_ORDER.map(n => byName.get(n)), styles, effects, retirements]
   // today's names and their successors, for the leftovers list to name a successor
   const today: Record<string, string> = {}
-  for (const c of collections) for (const v of c.variables) if (v.today) today[v.today] = v.path
+  for (const c of collections) for (const v of c.variables) { if (v.today) today[v.today] = v.path; if (v.earlier) today[v.earlier] = v.path }
   for (const s of styles.styles) if (s.today) today[s.today] = s.name
   for (const e of effects.styles) if (e.today) today[e.today] = e.name
   for (const r of retirements.variables) today[r.today] = r.path

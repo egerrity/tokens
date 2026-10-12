@@ -5,7 +5,7 @@
 // so bindings survive. The payload is a rendering of the roster, never a second source:
 // every value here is a conversion of a token value, stated beside the conversion.
 import { collections, collectionOf } from '../declarations/collections.ts'
-import { retiredStyles, retiredVariables, todayMode, todayStyle, todayVariable } from '../declarations/renames.ts'
+import { previousPath, retiredStyles, retiredVariables, todayMode, todayStyle, todayVariable } from '../declarations/renames.ts'
 import { figmaName, type TokenPath } from '../grammar/path.ts'
 import { isAlias, valueIn, type Token, type Value } from './types.ts'
 
@@ -15,6 +15,8 @@ export type FigmaValue = number | string | { alias: string; opacity?: string } |
 export type FigmaVariable = {
   path: string
   today?: string
+  /** the set's own earlier spelling of the path, for a row a previous build wrote */
+  earlier?: string
   type: FigmaType
   /** absent means the variable is left on Figma's default, every picker */
   scopes?: string[]
@@ -220,7 +222,7 @@ export function figmaPayloads(tokens: Token[], outside: Token[] = []): { collect
       if (omitted) { payload.omitted.push(figmaName(t.path)); continue }
       const external = outside.includes(t)
       payload.variables.push({
-        path: figmaName(t.path), today: todayVariable(t.path), type: figmaType(t.value),
+        path: figmaName(t.path), today: todayVariable(t.path), earlier: previousPath(t.path), type: figmaType(t.value),
         scopes: t.figmaScopes ? [...t.figmaScopes] : scopesFor(t.path), description: describeFigma(t),
         ...(t.reserved ? { hidden: true as const } : {}), ...(external ? { external: true as const } : {}), values,
       })

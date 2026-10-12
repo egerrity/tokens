@@ -15,9 +15,12 @@ export type Size = (typeof SIZE)[number]
 export const ROLE = ['display', 'heading', 'title', 'body', 'link', 'tabular-number', 'button', 'code'] as const
 export type Role = (typeof ROLE)[number]
 
-// the color families the engine generates; the neutral is implied where a row has none
+// the colored families the engine generates, each with the same words as the neutral
 export const FAMILY = ['brand', 'brand-alt', 'critical', 'warning', 'positive', 'info'] as const
 export type Family = (typeof FAMILY)[number]
+// the family slot of a role: the neutral is written like any family, so a property that
+// has families always carries one and the picker groups the neutral with the rest
+export const FAMILIES = ['neutral', ...FAMILY] as const
 // a condition and an interaction combine with the condition first; the selected ground
 // eases back under the pointer and when pressed, since pressing a selected thing is
 // usually how it comes off
@@ -89,19 +92,16 @@ export const SHAPES = {
   color: [
     // the one color base token of ours: a named position with no scale, like radius/full
     [S(['transparent'])],
-    [P(['fg']), S([...WORD, 'on-solid'])],
-    [P(['fg']), V(['link']), S(LINK_STATE)],
-    [P(['fg']), V(['on-inverse']), S(WORD)],
-    [P(['fg']), V(['on-inverse']), V(['link']), S(LINK_STATE)],
-    [P(['fg']), F(FAMILY), S([...WORD, 'on-solid'])],
-    [P(['bg']), S(WORD)],
-    [P(['bg']), V(['ghost', 'soft']), S(STATE)],
-    [P(['bg']), V(['solid']), S(SOLID_STATE)],
-    [P(['bg']), F(FAMILY), S(WORD)],
-    [P(['bg']), F(FAMILY), V(['ghost', 'soft']), S(STATE)],
-    [P(['bg']), F(FAMILY), V(['solid']), S(SOLID_STATE)],
-    [P(['border']), S([...WORD, 'focus', 'inverse', 'solid'])],
-    [P(['border']), F(FAMILY), S([...WORD, 'solid'])],
+    [P(['fg']), F(FAMILIES), S([...WORD, 'on-solid'])],
+    // the on-inverse words are the neutral's alone; the links are the engine's link family
+    [P(['fg']), F(['neutral']), V(['on-inverse']), S(WORD)],
+    [P(['fg']), F(['link']), S(LINK_STATE)],
+    [P(['fg']), F(['link']), V(['on-inverse']), S(LINK_STATE)],
+    [P(['bg']), F(FAMILIES), S(WORD)],
+    [P(['bg']), F(FAMILIES), V(['ghost', 'soft']), S(STATE)],
+    [P(['bg']), F(FAMILIES), V(['solid']), S(SOLID_STATE)],
+    [P(['border']), F(FAMILIES), S([...WORD, 'solid'])],
+    [P(['border']), F(['neutral']), S(['focus', 'inverse'])],
     [P(['plane']), S(['high', 'mid', 'low', 'dim'])],
     [P(['surface']), S(['high', 'mid', 'low', 'dim', 'inverse', 'scrim'])],
     [P(['illustration']), S(['paper', 'chalk-light', 'chalk', 'highlighter', 'pencil', 'pen', 'shadow', 'shine'])],

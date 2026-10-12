@@ -6,7 +6,7 @@ import type { ColorDeclaration } from '../src/declare.ts'
 // versatile; `accent` is the signature stop, pencil-47, in every property, and grabs
 // the eye. A property says once which engine stop each word names, and that holds in
 // the neutral and in every family, so `fg/brand/accent` is the brand's pencil-47
-// exactly as `fg/accent` is the neutral's. The neutral and the families then each
+// exactly as `fg/neutral/accent` is the neutral's. The neutral and the families then each
 // offer a subset of the words; a word a designer does not get today can be offered
 // later without a new name.
 //
@@ -50,10 +50,10 @@ export const color: ColorDeclaration = {
   bg: {
     stops: {
       regular: { stop: 'paper-3', req: 'the default ground with color', use: 'an alert, a callout, a soft badge, with the regular or muted border; every fg word but hint reads on it' },
-      accent: { stop: 'pencil-47', req: 'the fill that grabs the eye', use: 'a solid badge, chip or progress fill; its text is fg/on-inverse/strong or regular, nothing else' },
+      accent: { stop: 'pencil-47', req: 'the fill that grabs the eye', use: 'a solid badge, chip or progress fill; its text is fg/neutral/on-inverse/strong or regular, nothing else' },
       hint: { stop: 'paper-1', req: 'the lightest ground', use: 'a wash that barely leaves the surface; every fg word but hint reads on it' },
       muted: { stop: 'paper-5', req: 'a restrained ground', use: 'a deeper tint than regular; every fg word but hint reads on it' },
-      strong: { stop: 'chalk-20', req: 'a heavy ground', use: 'the strongest combo; fg/strong, regular and muted read on it, accent does not' },
+      strong: { stop: 'chalk-20', req: 'a heavy ground', use: 'the strongest combo; fg/neutral/strong, regular and muted read on it, accent does not' },
 
     },
     neutral: ['regular', 'accent', 'hint', 'muted', 'strong'],

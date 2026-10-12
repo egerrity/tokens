@@ -1,6 +1,6 @@
 // Derive, the color half: the semantic color set as aliases onto the color base tokens,
-// and the pairs that a hand composes with an opacity. The property, then the family,
-// then the emphasis word or the state; the neutral has no family word. The planes vary
+// and the pairs each row carries with an opacity. The property, then the family, then
+// the emphasis word or the state; the neutral is written like any family. The planes vary
 // by theme context and go to the theme collection, hidden; everything else is one alias
 // and goes to the palette, the surfaces included, which alias the planes. One color base
 // token is ours and not the engine's: `transparent`, a named position with no scale,
@@ -82,7 +82,7 @@ export function colorTokens(d: ColorDeclaration, o: OpacityDeclaration): Token[]
     for (const w of words) {
       const rung = l.stops[w]
       if (!rung) throw new Error(`color/${property}: the word ${w} is offered but names no stop`)
-      const path: TokenPath = ['color', property, ...prefix, ...(family ? [family] : []), w]
+      const path: TokenPath = ['color', property, family ?? 'neutral', ...prefix, w]
       const req = family ? `${rung.req}, in the ${family} color` : rung.req
       out.push(row(path, alias(E(family ?? 'neutral', rung.stop)), req, rung.use, undefined, !!(family ? l.reserved?.family : l.reserved?.neutral)?.includes(w), rung.shapesOnly ? ['SHAPE_FILL'] : undefined))
     }
@@ -94,7 +94,7 @@ export function colorTokens(d: ColorDeclaration, o: OpacityDeclaration): Token[]
   // level the family is not offered is reserved for components.
   const interaction = (family: string | null): void => {
     const fam = family ?? 'neutral'
-    const into: TokenPath = ['color', 'bg', ...(family ? [family] : [])]
+    const into: TokenPath = ['color', 'bg', fam]
     const who = family ? `${an(family)} control` : 'a neutral control'
     const offered = family ? d.interaction.family : d.interaction.neutral
     const hl = E(fam, 'highlighter-26')
@@ -103,18 +103,18 @@ export function colorTokens(d: ColorDeclaration, o: OpacityDeclaration): Token[]
     for (const s of GHOST_STATES) out.push(row([...into, 'ghost', s], alias(hl), `the ghost ground of ${who}, ${STATE_TEXT[s]}`, 'the highlighter at an opacity, over the surface', ['opacity', 'ghost', s], ghost))
     for (const s of STATE) out.push(row([...into, 'soft', s], alias(hl), `the soft ground of ${who}, ${STATE_TEXT[s]}`, 'a tint at rest, stronger when touched: chips, a selected tab, a soft button; the highlighter at an opacity', ['opacity', 'soft', s], soft))
     for (const s of SOLID_STATES) out.push(row([...into, 'solid', s], alias(E(fam, `stamp-${stepOf(s)}`)), `the solid ground of ${who}, ${STATE_TEXT[s]}`, `the engine's stamp, solved per brand; always with the on-solid text and the solid border`, undefined, solid))
-    out.push(row(['color', 'border', ...(family ? [family] : []), 'solid'], alias(E(fam, 'stamp-edge')), `the edge of the solid ground of ${who}`, 'always drawn; it resolves to transparent where the fill needs no edge, so layout never shifts', undefined, solid))
-    out.push(row(['color', 'fg', ...(family ? [family] : []), 'on-solid'], alias(E(fam, 'stamp-on')), `text and icons over the solid ground of ${who}`, 'the only text color over the solid fill; never elsewhere', undefined, solid))
+    out.push(row(['color', 'border', fam, 'solid'], alias(E(fam, 'stamp-edge')), `the edge of the solid ground of ${who}`, 'always drawn; it resolves to transparent where the fill needs no edge, so layout never shifts', undefined, solid))
+    out.push(row(['color', 'fg', fam, 'on-solid'], alias(E(fam, 'stamp-on')), `text and icons over the solid ground of ${who}`, 'the only text color over the solid fill; never elsewhere', undefined, solid))
   }
 
   // the neutral
   ladder('fg', d.fg, null)
   for (const s of LINK_STATES) out.push(row(['color', 'fg', 'link', s], alias(LINK('default', s)), `a link in running text, ${STATE_TEXT[s]}`, 'links no component owns; the Link component binds the same rows'))
   ladder('fg', d.onInverse, null, ['on-inverse'])
-  for (const s of LINK_STATES) out.push(row(['color', 'fg', 'on-inverse', 'link', s], alias(LINK('inverse', s)), `a link on an inverted ground, ${STATE_TEXT[s]}`, 're-solved for the inverted ground'))
+  for (const s of LINK_STATES) out.push(row(['color', 'fg', 'link', 'on-inverse', s], alias(LINK('inverse', s)), `a link on an inverted ground, ${STATE_TEXT[s]}`, 're-solved for the inverted ground'))
   ladder('border', d.border, null)
-  out.push(row(['color', 'border', 'focus'], alias(E(d.focus, 'highlighter-26')), 'the focus ring', 'drawn the same on every control, outside its edge'))
-  out.push(row(['color', 'border', 'inverse'], alias(n('paper-0')), 'borders on an inverted ground', `on ${['color', 'surface', 'inverse'].join('/')} only`))
+  out.push(row(['color', 'border', 'neutral', 'focus'], alias(E(d.focus, 'highlighter-26')), 'the focus ring', `drawn the same on every control, outside its edge; the ${d.focus} family's highlighter, filed with the neutral's borders because there is one ring`))
+  out.push(row(['color', 'border', 'neutral', 'inverse'], alias(n('paper-0')), 'borders on an inverted ground', `on ${['color', 'surface', 'inverse'].join('/')} only`))
   ladder('bg', d.bg, null)
   interaction(null)
 

@@ -151,6 +151,8 @@ async function applyVariables(P) {
     let v = byStamp.get(spec.path)
     if (v && v.variableCollectionId !== c.id) { report.orphans.push(`${spec.path}: its tagged variable sits in another collection; a new one is created here, rebind by hand`); v = undefined }
     if (!v && spec.today) v = inCollection.find(x => x.name === spec.today)
+    // a row a previous build wrote under the set's earlier spelling of this path
+    if (!v && spec.earlier) v = inCollection.find(x => x.name === spec.earlier)
     if (!v) v = inCollection.find(x => x.name === spec.path)
     // today's row in another collection is an orphan on every run until it is deleted
     // by hand, whether the new row is created now or was created by an earlier run, so

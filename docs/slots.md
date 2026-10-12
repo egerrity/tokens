@@ -27,7 +27,7 @@ ours, a named position with no scale.
 | Layer | Holds | Today |
 | --- | --- | --- |
 | Base | Which member: the same scale for each, built by one rule. | `color`: `neutral`, `brand`, `brand-alt`, `critical`, `warning`, `positive`, `info`, `link`, `absolute` |
-| Semantic | Which member: the same roles for each. | `color`: `brand`, `brand-alt`, `critical`, `warning`, `positive`, `info` |
+| Semantic | Which member: the same roles for each. | `color`: `neutral`, `link`, `brand`, `brand-alt`, `critical`, `warning`, `positive`, `info` |
 | Component | As in the semantic layer. | none yet |
 
 ## variant
@@ -35,7 +35,7 @@ ours, a named position with no scale.
 | Layer | Holds | Today |
 | --- | --- | --- |
 | Base | Never: a base token narrows by position alone. | none |
-| Semantic | Which kind: where it applies (control, content, layout), the level (ghost, soft, solid), the text role (heading, body), the ground it sits on (on-inverse). | `space`: `control`, `content`, `layout`, `card`, `container` · `size`: `spot`, `hero` · `opacity`: `ghost`, `soft` · `text`: `display`, `heading`, `title`, `body`, `link`, `tabular-number`, `button`, `code` · `color`: `link`, `on-inverse`, `ghost`, `soft`, `solid` |
+| Semantic | Which kind: where it applies (control, content, layout), the level (ghost, soft, solid), the text role (heading, body), the ground it sits on (on-inverse). | `space`: `control`, `content`, `layout`, `card`, `container` · `size`: `spot`, `hero` · `opacity`: `ghost`, `soft` · `text`: `display`, `heading`, `title`, `body`, `link`, `tabular-number`, `button`, `code` · `color`: `on-inverse`, `ghost`, `soft`, `solid` |
 | Component | As in the semantic layer. | none yet |
 
 ## specifier

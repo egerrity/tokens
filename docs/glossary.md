@@ -16,7 +16,7 @@ above them or everyday ones.
   three middle slots appear when the category or the layer calls for them.
 - **Category.** The kind of value, in the everyday word (`space`, `color`, `motion`). The first segment; the root of a group in the token file and of a folder in Figma.
 - **Property.** Which part of the category the value applies to — text, a gap, a weight (`fg`, `gap`, `weight`). It appears when the category has more than one part with its own scale or list.
-- **Family.** Which of several otherwise identical sets the token belongs to — the flavor that tells them apart. Today only color has families (`brand`, `critical` …); in a semantic token the neutral is the default, so no family word is written for it.
+- **Family.** Which of several otherwise identical sets the token belongs to — the flavor that tells them apart. Today only color has families (`neutral`, `brand`, `critical` …); a property that has families always carries one, the neutral written like the rest.
 - **Variant.** Which subgroup of the property — a level, a role, a kind, or where it applies (`ghost`, `heading`, `spot`, `content`).
 - **Specifier.** The final word that makes a token unique in its group: a position for a base token; a state, size, density, word or name for a semantic token; a state for a component token.
 - **Shape.** One allowed sequence of segments for a category, as a list of word lists:
@@ -69,8 +69,8 @@ above them or everyday ones.
   `highlighter`, `pencil`, `pen`. The number after it is the lightness, inverted, so
   bigger is stronger.
 - **Seed.** The brand hex every family's stops are computed from.
-- **The neutral.** The gray family. In a role it is implied by the absence of a family
-  word (`fg/regular` is the neutral's; `fg/brand/regular` is the brand's).
+- **The neutral.** The gray family, written in a role like any other (`fg/neutral/regular`
+  is the neutral's; `fg/brand/regular` is the brand's).
 - **Stamp (color).** The engine's button fill: `stamp-0` at rest, `stamp-1` and `stamp-2`
   one and two steps from rest, `stamp-edge` its outline, `stamp-on` the text over it.
   Positions, not states; the roles name the states.
@@ -88,7 +88,7 @@ above them or everyday ones.
 - **Surface.** A semantic color for a ground that is an elevation plane and reverses
   with the mode (`surface/high`). A `bg` is a flat fill and does not.
 - **Pair.** A translucent semantic color, written as two tokens: a color alias and an
-  opacity token (`bg/ghost/hover` with `opacity/ghost/hover`). Never a computed color.
+  opacity token (`bg/neutral/ghost/hover` with `opacity/ghost/hover`). Never a computed color.
   In Figma the row's value is its color with the opacity token bound to the row's
   opacity, which the plugin writes; a layer that binds the row needs nothing more.
 - **Offered, reserved.** Whether a role is in the picker. Offered rows are published;

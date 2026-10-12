@@ -15,20 +15,20 @@ const COLOR_TODAY: Record<string, string> = {
   'surface/dim': PALETTE('Background', 'Background Tertiary'),
   'surface/inverse': PALETTE('Background', 'Background Primary Inverse'),
   'surface/scrim': PALETTE('Background', 'Background Scrim'),
-  'fg/regular': PALETTE('Content', 'Content Primary'),
-  'fg/muted': PALETTE('Content', 'Content Secondary'),
-  'fg/accent': PALETTE('Content', 'Content Tertiary'),
-  'fg/on-inverse/strong': PALETTE('Content', 'Content Primary Inverse'),
-  'border/strong': PALETTE('Stroke', 'Stroke Primary'),
-  'border/regular': PALETTE('Stroke', 'Stroke Secondary'),
-  'border/muted': PALETTE('Stroke', 'Stroke Tertiary'),
-  'border/hint': PALETTE('Stroke', 'Stroke Quaternary'),
-  'border/inverse': PALETTE('Stroke', 'Stroke Primary Inverse'),
+  'fg/neutral/regular': PALETTE('Content', 'Content Primary'),
+  'fg/neutral/muted': PALETTE('Content', 'Content Secondary'),
+  'fg/neutral/accent': PALETTE('Content', 'Content Tertiary'),
+  'fg/neutral/on-inverse/strong': PALETTE('Content', 'Content Primary Inverse'),
+  'border/neutral/strong': PALETTE('Stroke', 'Stroke Primary'),
+  'border/neutral/regular': PALETTE('Stroke', 'Stroke Secondary'),
+  'border/neutral/muted': PALETTE('Stroke', 'Stroke Tertiary'),
+  'border/neutral/hint': PALETTE('Stroke', 'Stroke Quaternary'),
+  'border/neutral/inverse': PALETTE('Stroke', 'Stroke Primary Inverse'),
   'fg/brand/accent': PALETTE('Brand', 'Brand Primary'),
   'border/brand/muted': PALETTE('Brand', 'Brand Primary Highlight'),
   'bg/brand/regular': PALETTE('Brand', 'Brand Primary Accent'),
-  'bg/ghost/hover': PALETTE('Merge', 'Merge Intensity 1'),
-  'bg/ghost/pressed': PALETTE('Merge', 'Merge Intensity 2'),
+  'bg/neutral/ghost/hover': PALETTE('Merge', 'Merge Intensity 1'),
+  'bg/neutral/ghost/pressed': PALETTE('Merge', 'Merge Intensity 2'),
   'bg/brand/solid/hover': PALETTE('Merge', 'Merge Intensity 3'),
   'bg/brand/solid/pressed': PALETTE('Merge', 'Merge Intensity 5'),
 }
@@ -63,6 +63,21 @@ export function todayVariable(path: TokenPath, part?: string): string | undefine
     default:
       return undefined
   }
+}
+
+/**
+ * The set's own earlier spelling of a path, where the set has renamed one: a row a
+ * previous build wrote under the earlier path is found by it and renamed in place, so
+ * a copy made before the rename takes the new name with its bindings intact. The
+ * neutral's roles were spelled without the family word, and the inverse link carried
+ * its variant before its family.
+ */
+export function previousPath(path: TokenPath): string | undefined {
+  const [category, property, family, ...rest] = path
+  if (category !== 'color') return undefined
+  if (property === 'fg' && family === 'link' && rest[0] === 'on-inverse') return ['color', 'fg', 'on-inverse', 'link', ...rest.slice(1)].join('/')
+  if (['fg', 'bg', 'border'].includes(property) && family === 'neutral') return ['color', property, ...rest].join('/')
+  return undefined
 }
 
 /** today's text style name for a text style token */

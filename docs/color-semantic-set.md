@@ -17,14 +17,16 @@ color / <property> / <family> / <word | state>
 - **Property**: `fg` for text and icons, `bg` for a component's own ground, `border`,
   `surface` for the page's planes, `illustration` for the brand's illustration palette.
   A surface is an elevation plane and reverses with the mode: `surface/high` is
-  `paper-0` in light and `paper-5` in dark. A bg is a flat fill and does not: `bg/regular`
+  `paper-0` in light and `paper-5` in dark. A bg is a flat fill and does not: `bg/neutral/regular`
   is `paper-3` in both, and the theme moves what `paper-3` is. The reversal lives in
   four hidden rows of the theme collection, `color/plane/high`, `mid`, `low`, `dim`, one
   paper per mode; each surface is the palette's alias to its plane, so it follows the
   theme's mode like every other palette row, and today's background rows rename into
   the surfaces in place.
-- **Family**: left out for the neutral, named for the rest: `brand`, `brand-alt`,
-  `critical`, `warning`, `positive`, `info`.
+- **Family**: always written where the property has families, the neutral like the
+  rest: `neutral`, `brand`, `brand-alt`, `critical`, `warning`, `positive`, `info`; the
+  links are the engine's `link` family. Surfaces, planes and the illustration palette
+  have none.
 - **Word**: one vocabulary of five, each a combo of a text, a ground and a border that
   go together, always listed in one order: `regular`, `accent`, `hint`, `muted`,
   `strong`. The two a designer reaches for first, then the rest in rising emphasis.
@@ -33,7 +35,7 @@ color / <property> / <family> / <word | state>
   regular borders or card grounds; `hint` is light and versatile, and its text is the
   one that is not AA; `muted` is colored but restrained; `strong` is heavy and bold. A property says once which engine stop each word names, and that holds
   in the neutral and in every family, so `fg/brand/accent` is the brand's `pencil-47`
-  exactly as `fg/accent` is the neutral's.
+  exactly as `fg/neutral/accent` is the neutral's.
 - **Level**, for the interactive grounds, a second axis under `bg` cordoned by its own
   group: `ghost` is nothing at rest and the family's highlighter at an opacity when
   touched (ghost and outline buttons, icon buttons, rows, menu items); `soft` is that
@@ -68,7 +70,7 @@ Four rules the rows rest on:
 What each word names, per property. A blank cell is a word the property does not use;
 a starred stop is reserved for components.
 
-| Word | `fg` | `fg/on-inverse` | `bg` | `border` |
+| Word | `fg` | `fg/neutral/on-inverse` | `bg` | `border` |
 | --- | --- | --- | --- | --- |
 | `regular` | `pen-70` | `paper-3` | `paper-3` | `highlighter-26` |
 | `accent` | `pencil-47` | `chalk-20` | `pencil-47` | `pencil-47` |
@@ -80,26 +82,26 @@ Every `fg` word but `hint` is an AA stop for small text; `hint` clears 3:1 and i
 icons and shapes only, so in Figma it is scoped to shape fills and never appears in
 the text picker. On the inverted ground the
 four words are all AA against `surface/inverse`, because the pens clear every chalk.
-On the grounds: every `fg` word but `hint` reads on `bg/regular`, `muted` and `hint`;
-`fg/strong`, `regular` and `muted` read on `bg/strong`; `bg/accent` takes
-`fg/on-inverse/strong` and `regular` and nothing else, because the pencil clears every
+On the grounds: every `fg` word but `hint` reads on `bg/neutral/regular`, `muted` and `hint`;
+`fg/neutral/strong`, `regular` and `muted` read on `bg/neutral/strong`; `bg/neutral/accent` takes
+`fg/neutral/on-inverse/strong` and `regular` and nothing else, because the pencil clears every
 paper.
 
 ## The neutral
 
 | Row | Stop | For |
 | --- | --- | --- |
-| `fg/regular`, `accent`, `hint`, `muted`, `strong` | the `fg` word table | running text and its icons; the quietest text; icons and large text; secondary text; display text |
+| `fg/neutral/regular`, `accent`, `hint`, `muted`, `strong` | the `fg` word table | running text and its icons; the quietest text; icons and large text; secondary text; display text |
 | `fg/link/enabled`, `hover`, `pressed` | `link/default-0`, `-1`, `-2` | links in running text, which no component owns |
-| `fg/on-inverse/regular`, `accent`, `muted`, `strong` | the inverse word table | the same words on `surface/inverse` |
-| `fg/on-inverse/link/enabled`, `hover`, `pressed` | `link/inverse-0`, `-1`, `-2` | links on an inverted ground |
-| `border/regular`, `accent`, `hint`, `muted`, `strong` | the `border` word table | the 3:1 border for inputs; the eye-catching border; the card edge; strong dividers; an emphasized outline |
-| `border/focus` | `brand/highlighter-26` | the focus ring, drawn the same on every control |
-| `border/inverse` | `neutral/paper-0` | borders on an inverted ground |
-| `bg/regular`, `accent`, `hint`, `muted`, `strong` | `paper-3`, `pencil-47`, `paper-1`, `paper-5`, `chalk-20` | the default ground with color; the fill that grabs the eye, with the on-inverse text; the lightest, the restrained and the heavy ground |
-| `bg/ghost/enabled`, `hover`, `pressed`, `selected` | `color/transparent`, then `highlighter-26` with `opacity/ghost/*` | the ghost ground: nothing at rest, then pairs |
-| `bg/soft/enabled`, `hover`, `pressed`, `selected` | `highlighter-26` with `opacity/soft/*` | the soft ground, as pairs |
-| `bg/solid/enabled`, `hover`, `pressed`; `border/solid`; `fg/on-solid` (reserved) | `stamp-0`, `stamp-1`, `stamp-2`; `stamp-edge`; `stamp-on` | the solid ground, its edge and its on-text |
+| `fg/neutral/on-inverse/regular`, `accent`, `muted`, `strong` | the inverse word table | the same words on `surface/inverse` |
+| `fg/link/on-inverse/enabled`, `hover`, `pressed` | `link/inverse-0`, `-1`, `-2` | links on an inverted ground |
+| `border/neutral/regular`, `accent`, `hint`, `muted`, `strong` | the `border` word table | the 3:1 border for inputs; the eye-catching border; the card edge; strong dividers; an emphasized outline |
+| `border/neutral/focus` | `brand/highlighter-26` | the focus ring, drawn the same on every control |
+| `border/neutral/inverse` | `neutral/paper-0` | borders on an inverted ground |
+| `bg/neutral/regular`, `accent`, `hint`, `muted`, `strong` | `paper-3`, `pencil-47`, `paper-1`, `paper-5`, `chalk-20` | the default ground with color; the fill that grabs the eye, with the on-inverse text; the lightest, the restrained and the heavy ground |
+| `bg/neutral/ghost/enabled`, `hover`, `pressed`, `selected` | `color/transparent`, then `highlighter-26` with `opacity/ghost/*` | the ghost ground: nothing at rest, then pairs |
+| `bg/neutral/soft/enabled`, `hover`, `pressed`, `selected` | `highlighter-26` with `opacity/soft/*` | the soft ground, as pairs |
+| `bg/neutral/solid/enabled`, `hover`, `pressed`; `border/neutral/solid`; `fg/neutral/on-solid` (reserved) | `stamp-0`, `stamp-1`, `stamp-2`; `stamp-edge`; `stamp-on` | the solid ground, its edge and its on-text |
 | `surface/high`, `mid`, `low`, `dim` | `plane/high`, `mid`, `low`, `dim`, the hidden theme rows on the neutral's papers per mode | elevation, in the scale's order in both modes; an input fills with `high`, like a card |
 | `surface/inverse` | `neutral/pen-70` | an inverted banner, card or toast; not interactive |
 | `surface/scrim` | black with `opacity/scrim` | a pair |
@@ -120,7 +122,7 @@ The same for `brand`, `brand-alt`, `critical`, `warning`, `positive` and `info`:
 
 Every word a family has a stop for is written, so the whole framework is recorded and
 offering a word later is removing it from a reserved list. The one word a family
-cannot have is `fg/strong`: the text pole, `pen-100`, is the neutral's alone.
+cannot have is `fg/neutral/strong`: the text pole, `pen-100`, is the neutral's alone.
 
 ## Elevation
 
@@ -202,7 +204,7 @@ By the owner on 2026-10-06, on the interactions: three levels, not one, cordoned
 level group under `bg`, named `ghost`, `soft` and `solid`; the solid is aliased from
 the engine's stamp for parity and hidden from designers, rather than generated by the
 engine, because the engine writes base tokens only and the semantic name is the
-palette's. The `muted` border is `chalk-15`. The neutral's `fg/hint` is offered, scoped
+palette's. The `muted` border is `chalk-15`. The neutral's `fg/neutral/hint` is offered, scoped
 to shapes. Every word with a stop is written, offered or reserved, so the framework is
 recorded in full and what designers see is decided per word. On 2026-10-07: the
 neutral's `bg` words are all offered; the families' `hint`, `muted` and `strong` grounds

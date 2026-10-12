@@ -239,7 +239,8 @@ export function audit(tokens: Token[], docs: Map<string, { key: DocumentKey; doc
     for (const shape of shapes) {
       const slots = shape.map(seg => seg.slot).join(' ')
       if (!/^(property )?(family )?(variant )*specifier$/.test(slots)) fail(`${category}: the shape "${slots}" is not property, family, variants, then one specifier`)
-      for (const seg of shape) if (seg.slot === 'family' && seg.words !== 'step' && !seg.words.every(w => (FAMILY as readonly string[]).includes(w))) fail(`${category}: a family slot admits a word outside the family list`)
+      // a family slot takes the neutral, a colored family, or the engine's link family
+      for (const seg of shape) if (seg.slot === 'family' && seg.words !== 'step' && !seg.words.every(w => w === 'neutral' || w === 'link' || (FAMILY as readonly string[]).includes(w))) fail(`${category}: a family slot admits a word outside the family list`)
     }
   }
   for (const t of tokens) {

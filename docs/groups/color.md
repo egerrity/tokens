@@ -30,50 +30,50 @@ Generated from `declarations/color.ts, with the opacity steps in declarations/op
 | `color/surface/high` | `color/plane/high` (`color/neutral/paper-0` (#ffffff)) | the raised surface: a card, a menu, a dialog, an input |
 | `color/surface/inverse` | `color/neutral/pen-70` (#2d2d2e) | an inverted banner, card or toast |
 | `color/surface/scrim` | #000000 with `opacity/scrim` | the scrim behind a modal |
-| `color/fg/regular` | `color/neutral/pen-70` (#2d2d2e) | running text |
-| `color/fg/accent` | `color/neutral/pencil-47` (#6a6b6c) | text that grabs the eye |
-| `color/fg/hint` | `color/neutral/highlighter-26` (#868789) | icons and shapes only |
-| `color/fg/muted` | `color/neutral/pen-58` (#474748) | secondary text |
-| `color/fg/strong` | `color/neutral/pen-100` (#000000) | the strongest emphasis |
+| `color/fg/neutral/regular` | `color/neutral/pen-70` (#2d2d2e) | running text |
+| `color/fg/neutral/accent` | `color/neutral/pencil-47` (#6a6b6c) | text that grabs the eye |
+| `color/fg/neutral/hint` | `color/neutral/highlighter-26` (#868789) | icons and shapes only |
+| `color/fg/neutral/muted` | `color/neutral/pen-58` (#474748) | secondary text |
+| `color/fg/neutral/strong` | `color/neutral/pen-100` (#000000) | the strongest emphasis |
 | `color/fg/link/enabled` | `color/link/default-0` (`color/brand/pencil-47` (#265db4)) | a link in running text, at rest |
 | `color/fg/link/hover` | `color/link/default-1` (`color/brand/pen-58` (#003a8e)) | a link in running text, under the pointer |
 | `color/fg/link/pressed` | `color/link/default-2` (`color/brand/pen-70` (#0e274f)) | a link in running text, while pressed |
-| `color/fg/on-inverse/regular` | `color/neutral/paper-3` (#f3f5f8) | running text on an inverted ground |
-| `color/fg/on-inverse/accent` | `color/neutral/chalk-20` (#bcbec1) | the quietest text on an inverted ground |
-| `color/fg/on-inverse/muted` | `color/neutral/chalk-11` (#d8dbe0) | secondary text on an inverted ground |
-| `color/fg/on-inverse/strong` | `color/neutral/paper-0` (#ffffff) | the strongest text on an inverted ground |
-| `color/fg/on-inverse/link/enabled` | `color/link/inverse-0` (#7baaf4) | a link on an inverted ground, at rest |
-| `color/fg/on-inverse/link/hover` | `color/link/inverse-1` (#a2c6ff) | a link on an inverted ground, under the pointer |
-| `color/fg/on-inverse/link/pressed` | `color/link/inverse-2` (#cfe1ff) | a link on an inverted ground, while pressed |
-| `color/border/regular` | `color/neutral/highlighter-26` (#868789) | inputs, cards and dividers that must be seen |
-| `color/border/accent` | `color/neutral/pencil-47` (#6a6b6c) | a border that grabs the eye |
-| `color/border/hint` | `color/neutral/chalk-8` (#e3e5ea) | the faintest border |
-| `color/border/muted` | `color/neutral/chalk-15` (#ccced2) | a decorative border |
-| `color/border/strong` | `color/neutral/pen-70` (#2d2d2e) | an emphasized outline |
-| `color/border/focus` | `color/brand/highlighter-26` (#5287dd) | the focus ring |
-| `color/border/inverse` | `color/neutral/paper-0` (#ffffff) | borders on an inverted ground |
-| `color/bg/regular` | `color/neutral/paper-3` (#f3f5f8) | the default ground with color |
-| `color/bg/accent` | `color/neutral/pencil-47` (#6a6b6c) | the fill that grabs the eye |
-| `color/bg/hint` | `color/neutral/paper-1` (#f9fafd) | the lightest ground |
-| `color/bg/muted` | `color/neutral/paper-5` (#eceef2) | a restrained ground |
-| `color/bg/strong` | `color/neutral/chalk-20` (#bcbec1) | a heavy ground |
-| `color/bg/ghost/enabled` | `color/transparent` (#000000 at 0 percent) | the ghost ground of a neutral control, at rest |
-| `color/bg/ghost/hover` | `color/neutral/highlighter-26` (#868789) with `opacity/ghost/hover` | the ghost ground of a neutral control, under the pointer |
-| `color/bg/ghost/pressed` | `color/neutral/highlighter-26` (#868789) with `opacity/ghost/pressed` | the ghost ground of a neutral control, while pressed |
-| `color/bg/ghost/selected` | `color/neutral/highlighter-26` (#868789) with `opacity/ghost/selected` | the ghost ground of a neutral control, when selected |
-| `color/bg/ghost/selected-hover` | `color/neutral/highlighter-26` (#868789) with `opacity/ghost/selected-hover` | the ghost ground of a neutral control, when selected, under the pointer |
-| `color/bg/ghost/selected-pressed` | `color/neutral/highlighter-26` (#868789) with `opacity/ghost/selected-pressed` | the ghost ground of a neutral control, when selected, while pressed |
-| `color/bg/soft/enabled` | `color/neutral/highlighter-26` (#868789) with `opacity/soft/enabled` | the soft ground of a neutral control, at rest |
-| `color/bg/soft/hover` | `color/neutral/highlighter-26` (#868789) with `opacity/soft/hover` | the soft ground of a neutral control, under the pointer |
-| `color/bg/soft/pressed` | `color/neutral/highlighter-26` (#868789) with `opacity/soft/pressed` | the soft ground of a neutral control, while pressed |
-| `color/bg/soft/selected` | `color/neutral/highlighter-26` (#868789) with `opacity/soft/selected` | the soft ground of a neutral control, when selected |
-| `color/bg/soft/selected-hover` | `color/neutral/highlighter-26` (#868789) with `opacity/soft/selected-hover` | the soft ground of a neutral control, when selected, under the pointer |
-| `color/bg/soft/selected-pressed` | `color/neutral/highlighter-26` (#868789) with `opacity/soft/selected-pressed` | the soft ground of a neutral control, when selected, while pressed |
-| `color/bg/solid/enabled` | `color/neutral/stamp-0` (#e3e5ea) | the solid ground of a neutral control, at rest (reserved for components) |
-| `color/bg/solid/hover` | `color/neutral/stamp-1` (#d3d5d9) | the solid ground of a neutral control, under the pointer (reserved for components) |
-| `color/bg/solid/pressed` | `color/neutral/stamp-2` (#c3c5c8) | the solid ground of a neutral control, while pressed (reserved for components) |
-| `color/border/solid` | `color/neutral/stamp-edge` (#000000 at 8 percent) | the edge of the solid ground of a neutral control (reserved for components) |
-| `color/fg/on-solid` | `color/neutral/stamp-on` (#000000 at 75 percent) | text and icons over the solid ground of a neutral control (reserved for components) |
+| `color/fg/neutral/on-inverse/regular` | `color/neutral/paper-3` (#f3f5f8) | running text on an inverted ground |
+| `color/fg/neutral/on-inverse/accent` | `color/neutral/chalk-20` (#bcbec1) | the quietest text on an inverted ground |
+| `color/fg/neutral/on-inverse/muted` | `color/neutral/chalk-11` (#d8dbe0) | secondary text on an inverted ground |
+| `color/fg/neutral/on-inverse/strong` | `color/neutral/paper-0` (#ffffff) | the strongest text on an inverted ground |
+| `color/fg/link/on-inverse/enabled` | `color/link/inverse-0` (#7baaf4) | a link on an inverted ground, at rest |
+| `color/fg/link/on-inverse/hover` | `color/link/inverse-1` (#a2c6ff) | a link on an inverted ground, under the pointer |
+| `color/fg/link/on-inverse/pressed` | `color/link/inverse-2` (#cfe1ff) | a link on an inverted ground, while pressed |
+| `color/border/neutral/regular` | `color/neutral/highlighter-26` (#868789) | inputs, cards and dividers that must be seen |
+| `color/border/neutral/accent` | `color/neutral/pencil-47` (#6a6b6c) | a border that grabs the eye |
+| `color/border/neutral/hint` | `color/neutral/chalk-8` (#e3e5ea) | the faintest border |
+| `color/border/neutral/muted` | `color/neutral/chalk-15` (#ccced2) | a decorative border |
+| `color/border/neutral/strong` | `color/neutral/pen-70` (#2d2d2e) | an emphasized outline |
+| `color/border/neutral/focus` | `color/brand/highlighter-26` (#5287dd) | the focus ring |
+| `color/border/neutral/inverse` | `color/neutral/paper-0` (#ffffff) | borders on an inverted ground |
+| `color/bg/neutral/regular` | `color/neutral/paper-3` (#f3f5f8) | the default ground with color |
+| `color/bg/neutral/accent` | `color/neutral/pencil-47` (#6a6b6c) | the fill that grabs the eye |
+| `color/bg/neutral/hint` | `color/neutral/paper-1` (#f9fafd) | the lightest ground |
+| `color/bg/neutral/muted` | `color/neutral/paper-5` (#eceef2) | a restrained ground |
+| `color/bg/neutral/strong` | `color/neutral/chalk-20` (#bcbec1) | a heavy ground |
+| `color/bg/neutral/ghost/enabled` | `color/transparent` (#000000 at 0 percent) | the ghost ground of a neutral control, at rest |
+| `color/bg/neutral/ghost/hover` | `color/neutral/highlighter-26` (#868789) with `opacity/ghost/hover` | the ghost ground of a neutral control, under the pointer |
+| `color/bg/neutral/ghost/pressed` | `color/neutral/highlighter-26` (#868789) with `opacity/ghost/pressed` | the ghost ground of a neutral control, while pressed |
+| `color/bg/neutral/ghost/selected` | `color/neutral/highlighter-26` (#868789) with `opacity/ghost/selected` | the ghost ground of a neutral control, when selected |
+| `color/bg/neutral/ghost/selected-hover` | `color/neutral/highlighter-26` (#868789) with `opacity/ghost/selected-hover` | the ghost ground of a neutral control, when selected, under the pointer |
+| `color/bg/neutral/ghost/selected-pressed` | `color/neutral/highlighter-26` (#868789) with `opacity/ghost/selected-pressed` | the ghost ground of a neutral control, when selected, while pressed |
+| `color/bg/neutral/soft/enabled` | `color/neutral/highlighter-26` (#868789) with `opacity/soft/enabled` | the soft ground of a neutral control, at rest |
+| `color/bg/neutral/soft/hover` | `color/neutral/highlighter-26` (#868789) with `opacity/soft/hover` | the soft ground of a neutral control, under the pointer |
+| `color/bg/neutral/soft/pressed` | `color/neutral/highlighter-26` (#868789) with `opacity/soft/pressed` | the soft ground of a neutral control, while pressed |
+| `color/bg/neutral/soft/selected` | `color/neutral/highlighter-26` (#868789) with `opacity/soft/selected` | the soft ground of a neutral control, when selected |
+| `color/bg/neutral/soft/selected-hover` | `color/neutral/highlighter-26` (#868789) with `opacity/soft/selected-hover` | the soft ground of a neutral control, when selected, under the pointer |
+| `color/bg/neutral/soft/selected-pressed` | `color/neutral/highlighter-26` (#868789) with `opacity/soft/selected-pressed` | the soft ground of a neutral control, when selected, while pressed |
+| `color/bg/neutral/solid/enabled` | `color/neutral/stamp-0` (#e3e5ea) | the solid ground of a neutral control, at rest (reserved for components) |
+| `color/bg/neutral/solid/hover` | `color/neutral/stamp-1` (#d3d5d9) | the solid ground of a neutral control, under the pointer (reserved for components) |
+| `color/bg/neutral/solid/pressed` | `color/neutral/stamp-2` (#c3c5c8) | the solid ground of a neutral control, while pressed (reserved for components) |
+| `color/border/neutral/solid` | `color/neutral/stamp-edge` (#000000 at 8 percent) | the edge of the solid ground of a neutral control (reserved for components) |
+| `color/fg/neutral/on-solid` | `color/neutral/stamp-on` (#000000 at 75 percent) | text and icons over the solid ground of a neutral control (reserved for components) |
 | `color/fg/brand/regular` | `color/brand/pen-70` (#0e274f) | running text, in the brand color |
 | `color/fg/brand/accent` | `color/brand/pencil-47` (#265db4) | text that grabs the eye, in the brand color |
 | `color/fg/brand/hint` | `color/brand/highlighter-26` (#5287dd) | icons and shapes only, in the brand color (reserved for components) |
