@@ -37,7 +37,13 @@ tokens apply > Apply the set. The run ends in a window holding the report, with 
 button and a Download CSV button; the plugin stays open until the window is closed. The
 second command, List the leftovers, is for after the run (`hand-work.md`); its CSV is
 the checklist for the hand work, one line per use, with the successor named where the
-rename map has one, and a Done column to tick.
+rename map has one, and a Done column to tick. The third, Delete what nothing refers to,
+runs the same walk and opens a window listing every untagged row and style with no use
+in the file, each ticked; nothing is deleted until the button is clicked, and a
+collection emptied that way goes with its rows. It refuses to run before the set has
+been applied, because until then the engine's rows carry no tag. What it cannot see is
+another file: on the published library, a consumer file's bindings are invisible from
+here, so there it comes after the consumer audit, never before.
 
 ## 3. The report
 

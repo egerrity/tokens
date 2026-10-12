@@ -45,11 +45,12 @@ const PLUGIN_ORDER = ['scale', 'motion', 'viewport', 'theme', 'palette']
 
 /**
  * The development plugin: the apply script with every payload inlined, in alias order,
- * and the audit script, as two menu commands, so a Figma file takes the whole set in
- * one run from Plugins > Development with no script runner and no size cap, and the
- * leftovers are listed the same way. Each command ends in a window holding its report
- * with a Copy button, and the plugin stays open until the window is closed: a console
- * shows a report only while it is open, a window shows it until it is read.
+ * the audit script, and the delete script, as three menu commands, so a Figma file takes
+ * the whole set in one run from Plugins > Development with no script runner and no size
+ * cap, the leftovers are listed the same way, and what nothing refers to is deleted on a
+ * click from a ticked list. Each command ends in a window holding its report with a Copy
+ * button and a CSV to download, and the plugin stays open until the window is closed: a
+ * console shows a report only while it is open, a window shows it until it is read.
  */
 function figmaPlugin(tokens: Token[], outside: Token[]): Record<string, string> {
   const { collections, styles, effects } = figmaPayloads(tokens, outside)
@@ -74,6 +75,27 @@ function figmaPlugin(tokens: Token[], outside: Token[]): Record<string, string> 
     'const audit = async () => {',
     script('audit.js').replace('/* TODAY */ null', JSON.stringify(today)),
     '}',
+    script('delete.js'),
+    // the delete command: the leftovers walk, then a window listing what nothing refers
+    // to, each line ticked, and nothing happens until the button is clicked
+    'const del = async () => {',
+    '  const r = await audit()',
+    "  if (!r.applied) return { title: 'tokens: nothing deleted', text: 'Run Apply the set first: before it, the engine\\'s rows carry no tag, and this list could not tell them from leftovers.' }",
+    "  if (!r.deletable.length) return { title: 'tokens: nothing to delete', text: 'Nothing untagged is unreferenced in this file.' }",
+    '  const chosen = await choose(r.deletable)',
+    '  const done = await remove(chosen)',
+    "  const text = [`deleted ${done.deleted.length}, refused ${done.refused.length}`, '', '## Deleted', ...done.deleted.map(x => '  ' + x), '', '## Refused', ...done.refused.map(x => '  ' + x)].join('\\n')",
+    "  const q = s => '\"' + String(s == null ? '' : s).replace(/\"/g, '\"\"') + '\"'",
+    "  const csv = '\\uFEFF' + [['Result', 'Item'], ...done.deleted.map(x => ['deleted', x]), ...done.refused.map(x => ['refused', x])].map(x => x.map(q).join(',')).join('\\r\\n') + '\\r\\n'",
+    "  return { title: 'tokens: deleted', text, csv, filename: 'tokens-deleted.csv' }",
+    '}',
+    // the window that lists the candidates with a box each, and resolves with the ticked ones on the click
+    'const choose = (list) => new Promise(resolve => {',
+    "  const esc = s => String(s).replace(/[&<>]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' })[c])",
+    "  const rows = list.map((c, i) => `<label><input type=checkbox checked data-i=${i}> ${esc(c.where)}: ${esc(c.name)}</label>`).join('')",
+    "  figma.showUI(`<style>body{margin:0;height:100vh;display:flex;flex-direction:column;font:12px/1.4 ui-monospace,Menlo,monospace}header{display:flex;gap:8px;align-items:center;padding:8px;flex-wrap:wrap}main{flex:1;overflow:auto;padding:0 8px 8px}label{display:block;white-space:nowrap}p{margin:0;flex-basis:100%;color:#a00}</style><header><b>tokens: delete what nothing refers to</b><button id=all>All</button><button id=none>None</button><button id=go>Delete the ticked</button><p>Only this file was checked. On a published library, a consumer file's bindings are invisible from here.</p></header><main>${rows}</main><script>const boxes=[...document.querySelectorAll('input')];document.getElementById('all').onclick=()=>boxes.forEach(b=>b.checked=true);document.getElementById('none').onclick=()=>boxes.forEach(b=>b.checked=false);document.getElementById('go').onclick=()=>{parent.postMessage({pluginMessage:{chosen:boxes.filter(b=>b.checked).map(b=>+b.dataset.i)}},'*')}</script>`, { width: 640, height: 520, title: 'tokens: delete what nothing refers to' })",
+    '  figma.ui.onmessage = (m) => { if (m && Array.isArray(m.chosen)) resolve(m.chosen.map(i => list[i])) }',
+    '})',
     // the report window: the text with a Copy button, and a CSV of the same report to download
     'const show = (title, text, csv, filename) => {',
     "  const esc = s => String(s).replace(/[&<>]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' })[c])",
@@ -88,14 +110,16 @@ function figmaPlugin(tokens: Token[], outside: Token[]): Record<string, string> 
     "  rows.push(['same', r.same, ''], ['rebound', r.rebound, ''])",
     "  return '\\uFEFF' + rows.map(x => x.map(q).join(',')).join('\\r\\n') + '\\r\\n'",
     '}',
-    "const run = figma.command === 'audit' ? audit().then(r => show('tokens: the leftovers', r.text, r.csv, 'tokens-leftovers.csv')) : apply().then(r => show('tokens: applied', JSON.stringify(r, null, 2), applyCsv(r), 'tokens-applied.csv'))",
+    "const run = figma.command === 'audit' ? audit().then(r => show('tokens: the leftovers', r.text, r.csv, 'tokens-leftovers.csv'))",
+    "  : figma.command === 'delete' ? del().then(r => show(r.title, r.text, r.csv, r.filename))",
+    "  : apply().then(r => show('tokens: applied', JSON.stringify(r, null, 2), applyCsv(r), 'tokens-applied.csv'))",
     "run.catch(e => show('tokens: failed', [e && e.message, e && e.stack].filter(Boolean).join('\\n') || String(e)))",
     '',
   ].join('\n')
   const manifest = {
     name: 'tokens apply', id: 'tokens-apply', api: '1.0.0', main: 'code.js',
     editorType: ['figma'], documentAccess: 'dynamic-page', networkAccess: { allowedDomains: ['none'] },
-    menu: [{ name: 'Apply the set', command: 'apply' }, { name: 'List the leftovers', command: 'audit' }],
+    menu: [{ name: 'Apply the set', command: 'apply' }, { name: 'List the leftovers', command: 'audit' }, { name: 'Delete what nothing refers to', command: 'delete' }],
   }
   return { 'dist/figma/plugin/code.js': code, 'dist/figma/plugin/manifest.json': JSON.stringify(manifest, null, 2) + '\n' }
 }

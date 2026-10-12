@@ -3,8 +3,10 @@
 - The repo carries no employer name, no person's name and no home path. Work values may
   live here; people and the company may not.
 - Commit only on the owner's word; push only after an explicit yes.
-- The Figma apply script never deletes. Never write into the owner's work Figma files;
-  copies and scratch files only.
+- The Figma apply script never deletes. The plugin's delete command deletes only what the
+  leftovers walk found nothing referring to in the file, listed and ticked in its window,
+  on a click; it never touches a tagged row. Never write into the owner's work Figma
+  files; copies and scratch files only.
 - A translucent color is always a pair, a color alias and an opacity token, never a
   composed value.
 - Prose follows `docs/writing.md`; terms are defined in `docs/glossary.md` before use. In

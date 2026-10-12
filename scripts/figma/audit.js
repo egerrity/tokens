@@ -25,9 +25,12 @@ const modeName = new Map(collections.flatMap(c => c.modes.map(m => [m.modeId, m.
 
 // id -> entry, for every untagged variable and style
 const left = new Map()
-for (const v of variables) if (!stampOf(v, STAMP)) left.set(v.id, { name: v.name, where: collectionName.get(v.variableCollectionId) || 'no collection', uses: [] })
-for (const s of textStyles) if (!stampOf(s, STAMP)) left.set(s.id, { name: s.name, where: 'text styles', uses: [] })
-for (const s of effectStyles) if (!stampOf(s, STAMP)) left.set(s.id, { name: s.name, where: 'effect styles', uses: [] })
+for (const v of variables) if (!stampOf(v, STAMP)) left.set(v.id, { id: v.id, kind: 'variable', name: v.name, where: collectionName.get(v.variableCollectionId) || 'no collection', uses: [] })
+for (const s of textStyles) if (!stampOf(s, STAMP)) left.set(s.id, { id: s.id, kind: 'style', name: s.name, where: 'text styles', uses: [] })
+for (const s of effectStyles) if (!stampOf(s, STAMP)) left.set(s.id, { id: s.id, kind: 'style', name: s.name, where: 'effect styles', uses: [] })
+// whether the set has been applied here: before that, the engine's rows carry no tag and
+// may have no use yet, and a delete that trusted this list would take them
+const applied = variables.some(v => stampOf(v, STAMP))
 
 const notes = []
 const use = (id, text) => { const e = left.get(id); if (e) e.uses.push(text) }
@@ -98,4 +101,8 @@ for (const e of [...unbound, ...bound]) {
 }
 for (const c of unowned) rows.push([c.name, '(the collection)', 'delete once its rows are gone', '', rowsOf(c).length, '', '', ''])
 const csv = '﻿' + rows.map(r => r.map(q).join(',')).join('\r\n') + '\r\n'
-return { text: lines.join('\n'), csv, untagged: entries.length, unreferenced: unbound.length, referenced: bound.length }
+return {
+  text: lines.join('\n'), csv, untagged: entries.length, unreferenced: unbound.length, referenced: bound.length, applied,
+  // what nothing refers to, for the delete command: by id, with what and where it is
+  deletable: unbound.map(e => ({ id: e.id, kind: e.kind, name: e.name, where: e.where })),
+}

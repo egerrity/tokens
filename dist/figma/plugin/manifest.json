@@ -20,6 +20,10 @@
     {
       "name": "List the leftovers",
       "command": "audit"
+    },
+    {
+      "name": "Delete what nothing refers to",
+      "command": "delete"
     }
   ]
 }

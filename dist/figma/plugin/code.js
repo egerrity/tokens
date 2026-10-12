@@ -380,9 +380,12 @@ const modeName = new Map(collections.flatMap(c => c.modes.map(m => [m.modeId, m.
 
 // id -> entry, for every untagged variable and style
 const left = new Map()
-for (const v of variables) if (!stampOf(v, STAMP)) left.set(v.id, { name: v.name, where: collectionName.get(v.variableCollectionId) || 'no collection', uses: [] })
-for (const s of textStyles) if (!stampOf(s, STAMP)) left.set(s.id, { name: s.name, where: 'text styles', uses: [] })
-for (const s of effectStyles) if (!stampOf(s, STAMP)) left.set(s.id, { name: s.name, where: 'effect styles', uses: [] })
+for (const v of variables) if (!stampOf(v, STAMP)) left.set(v.id, { id: v.id, kind: 'variable', name: v.name, where: collectionName.get(v.variableCollectionId) || 'no collection', uses: [] })
+for (const s of textStyles) if (!stampOf(s, STAMP)) left.set(s.id, { id: s.id, kind: 'style', name: s.name, where: 'text styles', uses: [] })
+for (const s of effectStyles) if (!stampOf(s, STAMP)) left.set(s.id, { id: s.id, kind: 'style', name: s.name, where: 'effect styles', uses: [] })
+// whether the set has been applied here: before that, the engine's rows carry no tag and
+// may have no use yet, and a delete that trusted this list would take them
+const applied = variables.some(v => stampOf(v, STAMP))
 
 const notes = []
 const use = (id, text) => { const e = left.get(id); if (e) e.uses.push(text) }
@@ -453,9 +456,57 @@ for (const e of [...unbound, ...bound]) {
 }
 for (const c of unowned) rows.push([c.name, '(the collection)', 'delete once its rows are gone', '', rowsOf(c).length, '', '', ''])
 const csv = '﻿' + rows.map(r => r.map(q).join(',')).join('\r\n') + '\r\n'
-return { text: lines.join('\n'), csv, untagged: entries.length, unreferenced: unbound.length, referenced: bound.length }
+return {
+  text: lines.join('\n'), csv, untagged: entries.length, unreferenced: unbound.length, referenced: bound.length, applied,
+  // what nothing refers to, for the delete command: by id, with what and where it is
+  deletable: unbound.map(e => ({ id: e.id, kind: e.kind, name: e.name, where: e.where })),
+}
 
 }
+// Deletes what the leftovers walk found nothing referring to: untagged variables and
+// styles with no use in this file, chosen in the window and deleted on a click, never
+// before. A collection whose every row went this way goes with them. It never touches a
+// tagged row, so never one the set or the engine owns, and never a row with a use. What
+// "nothing refers to it" cannot see is another file: on a published library, a consumer
+// file's bindings are invisible from here, so there this command comes after the
+// consumer audit, not before. The return value is what was deleted and what refused.
+const remove = async (chosen) => {
+  const report = { deleted: [], refused: [] }
+  const emptied = new Set()
+  for (const c of chosen) {
+    try {
+      const n = c.kind === 'variable' ? await figma.variables.getVariableByIdAsync(c.id) : await figma.getStyleByIdAsync(c.id)
+      if (!n) { report.refused.push(`${c.where}: ${c.name}: no longer exists`); continue }
+      if (c.kind === 'variable') emptied.add(n.variableCollectionId)
+      n.remove()
+      report.deleted.push(`${c.where}: ${c.name}`)
+    } catch (e) { report.refused.push(`${c.where}: ${c.name}: ${e.message}`) }
+  }
+  // a collection emptied by this command has nothing left to hold
+  for (const col of await figma.variables.getLocalVariableCollectionsAsync()) {
+    if (!emptied.has(col.id) || col.variableIds.length) continue
+    try { col.remove(); report.deleted.push(`collection ${col.name}`) } catch (e) { report.refused.push(`collection ${col.name}: ${e.message}`) }
+  }
+  return report
+}
+
+const del = async () => {
+  const r = await audit()
+  if (!r.applied) return { title: 'tokens: nothing deleted', text: 'Run Apply the set first: before it, the engine\'s rows carry no tag, and this list could not tell them from leftovers.' }
+  if (!r.deletable.length) return { title: 'tokens: nothing to delete', text: 'Nothing untagged is unreferenced in this file.' }
+  const chosen = await choose(r.deletable)
+  const done = await remove(chosen)
+  const text = [`deleted ${done.deleted.length}, refused ${done.refused.length}`, '', '## Deleted', ...done.deleted.map(x => '  ' + x), '', '## Refused', ...done.refused.map(x => '  ' + x)].join('\n')
+  const q = s => '"' + String(s == null ? '' : s).replace(/"/g, '""') + '"'
+  const csv = '\uFEFF' + [['Result', 'Item'], ...done.deleted.map(x => ['deleted', x]), ...done.refused.map(x => ['refused', x])].map(x => x.map(q).join(',')).join('\r\n') + '\r\n'
+  return { title: 'tokens: deleted', text, csv, filename: 'tokens-deleted.csv' }
+}
+const choose = (list) => new Promise(resolve => {
+  const esc = s => String(s).replace(/[&<>]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' })[c])
+  const rows = list.map((c, i) => `<label><input type=checkbox checked data-i=${i}> ${esc(c.where)}: ${esc(c.name)}</label>`).join('')
+  figma.showUI(`<style>body{margin:0;height:100vh;display:flex;flex-direction:column;font:12px/1.4 ui-monospace,Menlo,monospace}header{display:flex;gap:8px;align-items:center;padding:8px;flex-wrap:wrap}main{flex:1;overflow:auto;padding:0 8px 8px}label{display:block;white-space:nowrap}p{margin:0;flex-basis:100%;color:#a00}</style><header><b>tokens: delete what nothing refers to</b><button id=all>All</button><button id=none>None</button><button id=go>Delete the ticked</button><p>Only this file was checked. On a published library, a consumer file's bindings are invisible from here.</p></header><main>${rows}</main><script>const boxes=[...document.querySelectorAll('input')];document.getElementById('all').onclick=()=>boxes.forEach(b=>b.checked=true);document.getElementById('none').onclick=()=>boxes.forEach(b=>b.checked=false);document.getElementById('go').onclick=()=>{parent.postMessage({pluginMessage:{chosen:boxes.filter(b=>b.checked).map(b=>+b.dataset.i)}},'*')}</script>`, { width: 640, height: 520, title: 'tokens: delete what nothing refers to' })
+  figma.ui.onmessage = (m) => { if (m && Array.isArray(m.chosen)) resolve(m.chosen.map(i => list[i])) }
+})
 const show = (title, text, csv, filename) => {
   const esc = s => String(s).replace(/[&<>]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' })[c])
   const dl = csv ? `<button id=d>Download CSV</button>` : ''
@@ -468,5 +519,7 @@ const applyCsv = r => {
   rows.push(['same', r.same, ''], ['rebound', r.rebound, ''])
   return '\uFEFF' + rows.map(x => x.map(q).join(',')).join('\r\n') + '\r\n'
 }
-const run = figma.command === 'audit' ? audit().then(r => show('tokens: the leftovers', r.text, r.csv, 'tokens-leftovers.csv')) : apply().then(r => show('tokens: applied', JSON.stringify(r, null, 2), applyCsv(r), 'tokens-applied.csv'))
+const run = figma.command === 'audit' ? audit().then(r => show('tokens: the leftovers', r.text, r.csv, 'tokens-leftovers.csv'))
+  : figma.command === 'delete' ? del().then(r => show(r.title, r.text, r.csv, r.filename))
+  : apply().then(r => show('tokens: applied', JSON.stringify(r, null, 2), applyCsv(r), 'tokens-applied.csv'))
 run.catch(e => show('tokens: failed', [e && e.message, e && e.stack].filter(Boolean).join('\n') || String(e)))
