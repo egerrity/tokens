@@ -95,7 +95,7 @@ paper.
 | `border/focus` | `brand/highlighter-26` | the focus ring, drawn the same on every control |
 | `border/inverse` | `neutral/paper-0` | borders on an inverted ground |
 | `bg/regular`, `accent`, `hint`, `muted`, `strong` | `paper-3`, `pencil-47`, `paper-1`, `paper-5`, `chalk-20` | the default ground with color; the fill that grabs the eye, with the on-inverse text; the lightest, the restrained and the heavy ground |
-| `bg/ghost/enabled`, `hover`, `pressed`, `selected` | transparent, then `highlighter-26` with `opacity/ghost/*` | the ghost ground, as pairs |
+| `bg/ghost/enabled`, `hover`, `pressed`, `selected` | `color/transparent`, then `highlighter-26` with `opacity/ghost/*` | the ghost ground: nothing at rest, then pairs |
 | `bg/soft/enabled`, `hover`, `pressed`, `selected` | `highlighter-26` with `opacity/soft/*` | the soft ground, as pairs |
 | `bg/solid/enabled`, `hover`, `pressed`; `border/solid`; `fg/on-solid` (reserved) | `stamp-0`, `stamp-1`, `stamp-2`; `stamp-edge`; `stamp-on` | the solid ground, its edge and its on-text |
 | `surface/high`, `mid`, `low`, `dim` | `plane/high`, `mid`, `low`, `dim`, the hidden theme rows on the neutral's papers per mode | elevation, in the scale's order in both modes; an input fills with `high`, like a card |

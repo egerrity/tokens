@@ -378,6 +378,7 @@
   --ds-text-code-sm-font-weight: var(--ds-font-weight-medium);
   --ds-text-code-sm-letter-spacing: 0px;
   --ds-text-code-sm-line-height: var(--ds-font-line-height-150);
+  --ds-color-transparent: #00000000;
   --ds-color-plane-dim: var(--ds-color-neutral-paper-5);
   --ds-color-surface-dim: var(--ds-color-plane-dim);
   --ds-color-plane-low: var(--ds-color-neutral-paper-3);
@@ -415,7 +416,7 @@
   --ds-color-bg-hint: var(--ds-color-neutral-paper-1);
   --ds-color-bg-muted: var(--ds-color-neutral-paper-5);
   --ds-color-bg-strong: var(--ds-color-neutral-chalk-20);
-  --ds-color-bg-ghost-enabled: #00000000;
+  --ds-color-bg-ghost-enabled: var(--ds-color-transparent);
   --ds-color-bg-ghost-hover: var(--ds-color-neutral-highlighter-26);
   --ds-color-bg-ghost-pressed: var(--ds-color-neutral-highlighter-26);
   --ds-color-bg-ghost-selected: var(--ds-color-neutral-highlighter-26);
@@ -442,7 +443,7 @@
   --ds-color-bg-brand-hint: var(--ds-color-brand-paper-1);
   --ds-color-bg-brand-muted: var(--ds-color-brand-paper-5);
   --ds-color-bg-brand-strong: var(--ds-color-brand-chalk-20);
-  --ds-color-bg-brand-ghost-enabled: #00000000;
+  --ds-color-bg-brand-ghost-enabled: var(--ds-color-transparent);
   --ds-color-bg-brand-ghost-hover: var(--ds-color-brand-highlighter-26);
   --ds-color-bg-brand-ghost-pressed: var(--ds-color-brand-highlighter-26);
   --ds-color-bg-brand-ghost-selected: var(--ds-color-brand-highlighter-26);
@@ -469,7 +470,7 @@
   --ds-color-bg-brand-alt-hint: var(--ds-color-brand-alt-paper-1);
   --ds-color-bg-brand-alt-muted: var(--ds-color-brand-alt-paper-5);
   --ds-color-bg-brand-alt-strong: var(--ds-color-brand-alt-chalk-20);
-  --ds-color-bg-brand-alt-ghost-enabled: #00000000;
+  --ds-color-bg-brand-alt-ghost-enabled: var(--ds-color-transparent);
   --ds-color-bg-brand-alt-ghost-hover: var(--ds-color-brand-alt-highlighter-26);
   --ds-color-bg-brand-alt-ghost-pressed: var(--ds-color-brand-alt-highlighter-26);
   --ds-color-bg-brand-alt-ghost-selected: var(--ds-color-brand-alt-highlighter-26);
@@ -496,7 +497,7 @@
   --ds-color-bg-critical-hint: var(--ds-color-critical-paper-1);
   --ds-color-bg-critical-muted: var(--ds-color-critical-paper-5);
   --ds-color-bg-critical-strong: var(--ds-color-critical-chalk-20);
-  --ds-color-bg-critical-ghost-enabled: #00000000;
+  --ds-color-bg-critical-ghost-enabled: var(--ds-color-transparent);
   --ds-color-bg-critical-ghost-hover: var(--ds-color-critical-highlighter-26);
   --ds-color-bg-critical-ghost-pressed: var(--ds-color-critical-highlighter-26);
   --ds-color-bg-critical-ghost-selected: var(--ds-color-critical-highlighter-26);
@@ -523,7 +524,7 @@
   --ds-color-bg-warning-hint: var(--ds-color-warning-paper-1);
   --ds-color-bg-warning-muted: var(--ds-color-warning-paper-5);
   --ds-color-bg-warning-strong: var(--ds-color-warning-chalk-20);
-  --ds-color-bg-warning-ghost-enabled: #00000000;
+  --ds-color-bg-warning-ghost-enabled: var(--ds-color-transparent);
   --ds-color-bg-warning-ghost-hover: var(--ds-color-warning-highlighter-26);
   --ds-color-bg-warning-ghost-pressed: var(--ds-color-warning-highlighter-26);
   --ds-color-bg-warning-ghost-selected: var(--ds-color-warning-highlighter-26);
@@ -550,7 +551,7 @@
   --ds-color-bg-positive-hint: var(--ds-color-positive-paper-1);
   --ds-color-bg-positive-muted: var(--ds-color-positive-paper-5);
   --ds-color-bg-positive-strong: var(--ds-color-positive-chalk-20);
-  --ds-color-bg-positive-ghost-enabled: #00000000;
+  --ds-color-bg-positive-ghost-enabled: var(--ds-color-transparent);
   --ds-color-bg-positive-ghost-hover: var(--ds-color-positive-highlighter-26);
   --ds-color-bg-positive-ghost-pressed: var(--ds-color-positive-highlighter-26);
   --ds-color-bg-positive-ghost-selected: var(--ds-color-positive-highlighter-26);
@@ -577,7 +578,7 @@
   --ds-color-bg-info-hint: var(--ds-color-info-paper-1);
   --ds-color-bg-info-muted: var(--ds-color-info-paper-5);
   --ds-color-bg-info-strong: var(--ds-color-info-chalk-20);
-  --ds-color-bg-info-ghost-enabled: #00000000;
+  --ds-color-bg-info-ghost-enabled: var(--ds-color-transparent);
   --ds-color-bg-info-ghost-hover: var(--ds-color-info-highlighter-26);
   --ds-color-bg-info-ghost-pressed: var(--ds-color-info-highlighter-26);
   --ds-color-bg-info-ghost-selected: var(--ds-color-info-highlighter-26);

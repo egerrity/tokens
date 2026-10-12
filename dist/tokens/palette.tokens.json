@@ -554,16 +554,7 @@
       "ghost": {
         "enabled": {
           "$type": "color",
-          "$value": {
-            "colorSpace": "srgb",
-            "components": [
-              0,
-              0,
-              0
-            ],
-            "alpha": 0,
-            "hex": "#000000"
-          },
+          "$value": "{color.transparent}",
           "$description": "Req for: the ghost ground of a neutral control, at rest\nUse: transparent: ghost and outline buttons, icon buttons, rows and menu items show the surface"
         },
         "hover": {
@@ -650,16 +641,7 @@
         "ghost": {
           "enabled": {
             "$type": "color",
-            "$value": {
-              "colorSpace": "srgb",
-              "components": [
-                0,
-                0,
-                0
-              ],
-              "alpha": 0,
-              "hex": "#000000"
-            },
+            "$value": "{color.transparent}",
             "$description": "Req for: the ghost ground of a brand control, at rest\nUse: transparent: ghost and outline buttons, icon buttons, rows and menu items show the surface\nReserved for components"
           },
           "hover": {
@@ -747,16 +729,7 @@
         "ghost": {
           "enabled": {
             "$type": "color",
-            "$value": {
-              "colorSpace": "srgb",
-              "components": [
-                0,
-                0,
-                0
-              ],
-              "alpha": 0,
-              "hex": "#000000"
-            },
+            "$value": "{color.transparent}",
             "$description": "Req for: the ghost ground of a brand-alt control, at rest\nUse: transparent: ghost and outline buttons, icon buttons, rows and menu items show the surface\nReserved for components"
           },
           "hover": {
@@ -844,16 +817,7 @@
         "ghost": {
           "enabled": {
             "$type": "color",
-            "$value": {
-              "colorSpace": "srgb",
-              "components": [
-                0,
-                0,
-                0
-              ],
-              "alpha": 0,
-              "hex": "#000000"
-            },
+            "$value": "{color.transparent}",
             "$description": "Req for: the ghost ground of a critical control, at rest\nUse: transparent: ghost and outline buttons, icon buttons, rows and menu items show the surface\nReserved for components"
           },
           "hover": {
@@ -941,16 +905,7 @@
         "ghost": {
           "enabled": {
             "$type": "color",
-            "$value": {
-              "colorSpace": "srgb",
-              "components": [
-                0,
-                0,
-                0
-              ],
-              "alpha": 0,
-              "hex": "#000000"
-            },
+            "$value": "{color.transparent}",
             "$description": "Req for: the ghost ground of a warning control, at rest\nUse: transparent: ghost and outline buttons, icon buttons, rows and menu items show the surface\nReserved for components"
           },
           "hover": {
@@ -1038,16 +993,7 @@
         "ghost": {
           "enabled": {
             "$type": "color",
-            "$value": {
-              "colorSpace": "srgb",
-              "components": [
-                0,
-                0,
-                0
-              ],
-              "alpha": 0,
-              "hex": "#000000"
-            },
+            "$value": "{color.transparent}",
             "$description": "Req for: the ghost ground of a positive control, at rest\nUse: transparent: ghost and outline buttons, icon buttons, rows and menu items show the surface\nReserved for components"
           },
           "hover": {
@@ -1135,16 +1081,7 @@
         "ghost": {
           "enabled": {
             "$type": "color",
-            "$value": {
-              "colorSpace": "srgb",
-              "components": [
-                0,
-                0,
-                0
-              ],
-              "alpha": 0,
-              "hex": "#000000"
-            },
+            "$value": "{color.transparent}",
             "$description": "Req for: the ghost ground of an info control, at rest\nUse: transparent: ghost and outline buttons, icon buttons, rows and menu items show the surface\nReserved for components"
           },
           "hover": {

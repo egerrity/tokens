@@ -659,6 +659,22 @@
       }
     }
   },
+  "color": {
+    "transparent": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0,
+          0,
+          0
+        ],
+        "alpha": 0,
+        "hex": "#000000"
+      },
+      "$description": "Req for: nothing drawn\nUse: a fill, ground or stroke that must exist and show nothing; the ghost level at rest aliases it"
+    }
+  },
   "shadow": {
     "raised": {
       "$type": "shadow",

@@ -84,6 +84,8 @@ export const SHAPES = {
   ],
   text: [[V(ROLE), S(SIZE)]],
   color: [
+    // the one color base token of ours: a named position with no scale, like radius/full
+    [S(['transparent'])],
     [P(['fg']), S([...WORD, 'on-solid'])],
     [P(['fg']), V(['link']), S(LINK_STATE)],
     [P(['fg']), V(['on-inverse']), S(WORD)],

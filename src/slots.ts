@@ -20,7 +20,7 @@ const HOLDS: Record<SlotName, Record<(typeof LAYERS)[number], string>> = {
   specifier: { base: 'A position: a step of three or more digits, or a named place on the scale.', semantic: 'A state, a size, a density, an emphasis word, or a name from the group’s own list.', component: 'A state, with the default spelled; a name where the component has no states.' },
 }
 
-// the color base tokens are declared by the engine, not in our shapes: each is a family and one position word
+// the engine's color base tokens are not in our shapes: each is a family and one position word; ours (`transparent`) is
 const engineSlots = (path: TokenPath): readonly Slot[] | undefined =>
   path[0] === 'color' && path.length === 3 ? ['family', 'specifier'] : undefined
 
@@ -55,8 +55,9 @@ export function slotsPage(tokens: Token[], outside: Token[] = []): string {
     '',
     'Generated with the rest of the set. For each slot: what it holds in each layer, in the',
     'grammar\'s words, and what fills it today, read from the shapes every path matches. The',
-    'rules for the slots are in `grammar.md`. The color base tokens are read as a family and one position word.',
-    'Their words are the engine\'s, not a shape of ours.',
+    'rules for the slots are in `grammar.md`. The color base tokens are read as a family and one position word;',
+    'their words are the engine\'s, not a shape of ours, except `transparent`, the one color base token of',
+    'ours, a named position with no scale.',
     '',
   ]
   for (const slot of SLOTS) {

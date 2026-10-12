@@ -19,6 +19,7 @@ Generated from `declarations/color.ts, with the opacity steps in declarations/op
 
 | Token | Value | Required for |
 | --- | --- | --- |
+| `color/transparent` | #000000 at 0 percent | nothing drawn |
 | `color/plane/dim` | `color/neutral/paper-5` (#eceef2) (light); `color/neutral/paper-0` (#0c0d0f) (dark) | the dim plane (reserved for components) |
 | `color/surface/dim` | `color/plane/dim` (`color/neutral/paper-5` (#eceef2)) | the page behind everything |
 | `color/plane/low` | `color/neutral/paper-3` (#f3f5f8) (light); `color/neutral/paper-1` (#131415) (dark) | the low plane (reserved for components) |
@@ -56,7 +57,7 @@ Generated from `declarations/color.ts, with the opacity steps in declarations/op
 | `color/bg/hint` | `color/neutral/paper-1` (#f9fafd) | the lightest ground |
 | `color/bg/muted` | `color/neutral/paper-5` (#eceef2) | a restrained ground |
 | `color/bg/strong` | `color/neutral/chalk-20` (#bcbec1) | a heavy ground |
-| `color/bg/ghost/enabled` | #000000 at 0 percent | the ghost ground of a neutral control, at rest |
+| `color/bg/ghost/enabled` | `color/transparent` (#000000 at 0 percent) | the ghost ground of a neutral control, at rest |
 | `color/bg/ghost/hover` | `color/neutral/highlighter-26` (#868789) with `opacity/ghost/hover` | the ghost ground of a neutral control, under the pointer |
 | `color/bg/ghost/pressed` | `color/neutral/highlighter-26` (#868789) with `opacity/ghost/pressed` | the ghost ground of a neutral control, while pressed |
 | `color/bg/ghost/selected` | `color/neutral/highlighter-26` (#868789) with `opacity/ghost/selected` | the ghost ground of a neutral control, when selected |
@@ -83,7 +84,7 @@ Generated from `declarations/color.ts, with the opacity steps in declarations/op
 | `color/bg/brand/hint` | `color/brand/paper-1` (#f9fafd) | the lightest ground, in the brand color (reserved for components) |
 | `color/bg/brand/muted` | `color/brand/paper-5` (#e4edfc) | a restrained ground, in the brand color (reserved for components) |
 | `color/bg/brand/strong` | `color/brand/chalk-20` (#96b8ee) | a heavy ground, in the brand color (reserved for components) |
-| `color/bg/brand/ghost/enabled` | #000000 at 0 percent | the ghost ground of a brand control, at rest (reserved for components) |
+| `color/bg/brand/ghost/enabled` | `color/transparent` (#000000 at 0 percent) | the ghost ground of a brand control, at rest (reserved for components) |
 | `color/bg/brand/ghost/hover` | `color/brand/highlighter-26` (#5287dd) with `opacity/ghost/hover` | the ghost ground of a brand control, under the pointer (reserved for components) |
 | `color/bg/brand/ghost/pressed` | `color/brand/highlighter-26` (#5287dd) with `opacity/ghost/pressed` | the ghost ground of a brand control, while pressed (reserved for components) |
 | `color/bg/brand/ghost/selected` | `color/brand/highlighter-26` (#5287dd) with `opacity/ghost/selected` | the ghost ground of a brand control, when selected (reserved for components) |
@@ -110,7 +111,7 @@ Generated from `declarations/color.ts, with the opacity steps in declarations/op
 | `color/bg/brand-alt/hint` | `color/brand-alt/paper-1` (#fafbfc) | the lightest ground, in the brand-alt color (reserved for components) |
 | `color/bg/brand-alt/muted` | `color/brand-alt/paper-5` (#ebeef3) | a restrained ground, in the brand-alt color (reserved for components) |
 | `color/bg/brand-alt/strong` | `color/brand-alt/chalk-20` (#b0bcd0) | a heavy ground, in the brand-alt color (reserved for components) |
-| `color/bg/brand-alt/ghost/enabled` | #000000 at 0 percent | the ghost ground of a brand-alt control, at rest (reserved for components) |
+| `color/bg/brand-alt/ghost/enabled` | `color/transparent` (#000000 at 0 percent) | the ghost ground of a brand-alt control, at rest (reserved for components) |
 | `color/bg/brand-alt/ghost/hover` | `color/brand-alt/highlighter-26` (#7689a8) with `opacity/ghost/hover` | the ghost ground of a brand-alt control, under the pointer (reserved for components) |
 | `color/bg/brand-alt/ghost/pressed` | `color/brand-alt/highlighter-26` (#7689a8) with `opacity/ghost/pressed` | the ghost ground of a brand-alt control, while pressed (reserved for components) |
 | `color/bg/brand-alt/ghost/selected` | `color/brand-alt/highlighter-26` (#7689a8) with `opacity/ghost/selected` | the ghost ground of a brand-alt control, when selected (reserved for components) |
@@ -137,7 +138,7 @@ Generated from `declarations/color.ts, with the opacity steps in declarations/op
 | `color/bg/critical/hint` | `color/critical/paper-1` (#fefaf9) | the lightest ground, in the critical color (reserved for components) |
 | `color/bg/critical/muted` | `color/critical/paper-5` (#ffeae4) | a restrained ground, in the critical color (reserved for components) |
 | `color/bg/critical/strong` | `color/critical/chalk-20` (#f7a693) | a heavy ground, in the critical color (reserved for components) |
-| `color/bg/critical/ghost/enabled` | #000000 at 0 percent | the ghost ground of a critical control, at rest (reserved for components) |
+| `color/bg/critical/ghost/enabled` | `color/transparent` (#000000 at 0 percent) | the ghost ground of a critical control, at rest (reserved for components) |
 | `color/bg/critical/ghost/hover` | `color/critical/highlighter-26` (#e06046) with `opacity/ghost/hover` | the ghost ground of a critical control, under the pointer (reserved for components) |
 | `color/bg/critical/ghost/pressed` | `color/critical/highlighter-26` (#e06046) with `opacity/ghost/pressed` | the ghost ground of a critical control, while pressed (reserved for components) |
 | `color/bg/critical/ghost/selected` | `color/critical/highlighter-26` (#e06046) with `opacity/ghost/selected` | the ghost ground of a critical control, when selected (reserved for components) |
@@ -164,7 +165,7 @@ Generated from `declarations/color.ts, with the opacity steps in declarations/op
 | `color/bg/warning/hint` | `color/warning/paper-1` (#fffbf4) | the lightest ground, in the warning color (reserved for components) |
 | `color/bg/warning/muted` | `color/warning/paper-5` (#fff2d2) | a restrained ground, in the warning color (reserved for components) |
 | `color/bg/warning/strong` | `color/warning/chalk-20` (#feba00) | a heavy ground, in the warning color (reserved for components) |
-| `color/bg/warning/ghost/enabled` | #000000 at 0 percent | the ghost ground of a warning control, at rest (reserved for components) |
+| `color/bg/warning/ghost/enabled` | `color/transparent` (#000000 at 0 percent) | the ghost ground of a warning control, at rest (reserved for components) |
 | `color/bg/warning/ghost/hover` | `color/warning/highlighter-26` (#c27700) with `opacity/ghost/hover` | the ghost ground of a warning control, under the pointer (reserved for components) |
 | `color/bg/warning/ghost/pressed` | `color/warning/highlighter-26` (#c27700) with `opacity/ghost/pressed` | the ghost ground of a warning control, while pressed (reserved for components) |
 | `color/bg/warning/ghost/selected` | `color/warning/highlighter-26` (#c27700) with `opacity/ghost/selected` | the ghost ground of a warning control, when selected (reserved for components) |
@@ -191,7 +192,7 @@ Generated from `declarations/color.ts, with the opacity steps in declarations/op
 | `color/bg/positive/hint` | `color/positive/paper-1` (#f8fcf8) | the lightest ground, in the positive color (reserved for components) |
 | `color/bg/positive/muted` | `color/positive/paper-5` (#e0f4e2) | a restrained ground, in the positive color (reserved for components) |
 | `color/bg/positive/strong` | `color/positive/chalk-20` (#81d08c) | a heavy ground, in the positive color (reserved for components) |
-| `color/bg/positive/ghost/enabled` | #000000 at 0 percent | the ghost ground of a positive control, at rest (reserved for components) |
+| `color/bg/positive/ghost/enabled` | `color/transparent` (#000000 at 0 percent) | the ghost ground of a positive control, at rest (reserved for components) |
 | `color/bg/positive/ghost/hover` | `color/positive/highlighter-26` (#009d3c) with `opacity/ghost/hover` | the ghost ground of a positive control, under the pointer (reserved for components) |
 | `color/bg/positive/ghost/pressed` | `color/positive/highlighter-26` (#009d3c) with `opacity/ghost/pressed` | the ghost ground of a positive control, while pressed (reserved for components) |
 | `color/bg/positive/ghost/selected` | `color/positive/highlighter-26` (#009d3c) with `opacity/ghost/selected` | the ghost ground of a positive control, when selected (reserved for components) |
@@ -218,7 +219,7 @@ Generated from `declarations/color.ts, with the opacity steps in declarations/op
 | `color/bg/info/hint` | `color/info/paper-1` (#fafafd) | the lightest ground, in the info color (reserved for components) |
 | `color/bg/info/muted` | `color/info/paper-5` (#ecebfb) | a restrained ground, in the info color (reserved for components) |
 | `color/bg/info/strong` | `color/info/chalk-20` (#b5aeeb) | a heavy ground, in the info color (reserved for components) |
-| `color/bg/info/ghost/enabled` | #000000 at 0 percent | the ghost ground of an info control, at rest (reserved for components) |
+| `color/bg/info/ghost/enabled` | `color/transparent` (#000000 at 0 percent) | the ghost ground of an info control, at rest (reserved for components) |
 | `color/bg/info/ghost/hover` | `color/info/highlighter-26` (#8979da) with `opacity/ghost/hover` | the ghost ground of an info control, under the pointer (reserved for components) |
 | `color/bg/info/ghost/pressed` | `color/info/highlighter-26` (#8979da) with `opacity/ghost/pressed` | the ghost ground of an info control, while pressed (reserved for components) |
 | `color/bg/info/ghost/selected` | `color/info/highlighter-26` (#8979da) with `opacity/ghost/selected` | the ghost ground of an info control, when selected (reserved for components) |

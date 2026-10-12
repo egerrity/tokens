@@ -480,8 +480,7 @@
       "description": "Req for: the ghost ground of a neutral control, at rest\nUse: transparent: ghost and outline buttons, icon buttons, rows and menu items show the surface",
       "values": {
         "value": {
-          "color": "#000000",
-          "alpha": 0
+          "alias": "color/transparent"
         }
       }
     },
@@ -870,8 +869,7 @@
       "hidden": true,
       "values": {
         "value": {
-          "color": "#000000",
-          "alpha": 0
+          "alias": "color/transparent"
         }
       }
     },
@@ -1264,8 +1262,7 @@
       "hidden": true,
       "values": {
         "value": {
-          "color": "#000000",
-          "alpha": 0
+          "alias": "color/transparent"
         }
       }
     },
@@ -1660,8 +1657,7 @@
       "hidden": true,
       "values": {
         "value": {
-          "color": "#000000",
-          "alpha": 0
+          "alias": "color/transparent"
         }
       }
     },
@@ -2056,8 +2052,7 @@
       "hidden": true,
       "values": {
         "value": {
-          "color": "#000000",
-          "alpha": 0
+          "alias": "color/transparent"
         }
       }
     },
@@ -2452,8 +2447,7 @@
       "hidden": true,
       "values": {
         "value": {
-          "color": "#000000",
-          "alpha": 0
+          "alias": "color/transparent"
         }
       }
     },
@@ -2844,8 +2838,7 @@
       "hidden": true,
       "values": {
         "value": {
-          "color": "#000000",
-          "alpha": 0
+          "alias": "color/transparent"
         }
       }
     },

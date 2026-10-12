@@ -1,8 +1,10 @@
-// Derive, the color half: the semantic color set as aliases onto the engine's rows, and
-// the pairs that a hand composes with an opacity. Property first, then the family, then
-// the emphasis word or the state; the neutral has no family word. The planes vary by
-// theme context and go to the theme collection, hidden; everything else is one alias
-// and goes to the palette, the surfaces included, which alias the planes.
+// Derive, the color half: the semantic color set as aliases onto the color base tokens,
+// and the pairs that a hand composes with an opacity. The property, then the family,
+// then the emphasis word or the state; the neutral has no family word. The planes vary
+// by theme context and go to the theme collection, hidden; everything else is one alias
+// and goes to the palette, the surfaces included, which alias the planes. One color base
+// token is ours and not the engine's: `transparent`, a named position with no scale,
+// bindable wherever a layer must exist and show nothing.
 import { THEME_CONTEXTS, type ThemeContext } from '../declarations/collections.ts'
 import { stepName, type TokenPath } from '../grammar/path.ts'
 import { FAMILY, STATE, type State, type Word } from '../grammar/words.ts'
@@ -16,7 +18,7 @@ const STEP: Record<string, number> = { enabled: 0, hover: 1, pressed: 2 }
 const stepOf = (state: string): number => { const n = STEP[state]; if (n === undefined) throw new Error(`no engine step for the state ${state}`); return n }
 const LINK = (posture: 'default' | 'inverse', state: string): TokenPath => ['color', 'link', `${posture}-${stepOf(state)}`]
 const alias = (target: TokenPath): Value => ({ type: 'color', alias: target })
-const transparent: Value = { type: 'color', value: color('#000000', 0) }
+const TRANSPARENT: TokenPath = ['color', 'transparent']
 const black: Value = { type: 'color', value: color('#000000') }
 
 const row = (path: TokenPath, value: Value, req: string, use: string, pair?: TokenPath, reserved = false, figmaScopes?: readonly string[]): Token =>
@@ -46,6 +48,9 @@ export function opacitySemanticTokens(d: OpacityDeclaration): Token[] {
 export function colorTokens(d: ColorDeclaration, o: OpacityDeclaration): Token[] {
   const out: Token[] = []
   const n = (leaf: string) => E('neutral', leaf)
+
+  // the one color base token of ours: nothing, as a value, so a layer can bind it
+  out.push({ path: TRANSPARENT, layer: 'base', req: 'nothing drawn', use: 'a fill, ground or stroke that must exist and show nothing; the ghost level at rest aliases it', value: { type: 'color', value: color('#000000', 0) } })
 
   // surfaces: the planes, in the engine's order per mode, so elevation always moves
   // toward the page pole's side of the ramp
@@ -94,7 +99,7 @@ export function colorTokens(d: ColorDeclaration, o: OpacityDeclaration): Token[]
     const offered = family ? d.interaction.family : d.interaction.neutral
     const hl = E(fam, 'highlighter-26')
     const ghost = !offered.includes('ghost'), soft = !offered.includes('soft'), solid = !offered.includes('solid')
-    out.push(row([...into, 'ghost', 'enabled'], transparent, `the ghost ground of ${who}, at rest`, 'transparent: ghost and outline buttons, icon buttons, rows and menu items show the surface', undefined, ghost))
+    out.push(row([...into, 'ghost', 'enabled'], alias(TRANSPARENT), `the ghost ground of ${who}, at rest`, 'transparent: ghost and outline buttons, icon buttons, rows and menu items show the surface', undefined, ghost))
     for (const s of GHOST_STATES) out.push(row([...into, 'ghost', s], alias(hl), `the ghost ground of ${who}, ${STATE_TEXT[s]}`, 'the highlighter at an opacity, over the surface', ['opacity', 'ghost', s], ghost))
     for (const s of STATE) out.push(row([...into, 'soft', s], alias(hl), `the soft ground of ${who}, ${STATE_TEXT[s]}`, 'a tint at rest, stronger when touched: chips, a selected tab, a soft button; the highlighter at an opacity', ['opacity', 'soft', s], soft))
     for (const s of SOLID_STATES) out.push(row([...into, 'solid', s], alias(E(fam, `stamp-${stepOf(s)}`)), `the solid ground of ${who}, ${STATE_TEXT[s]}`, `the engine's stamp, solved per brand; always with the on-solid text and the solid border`, undefined, solid))
