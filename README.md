@@ -84,5 +84,5 @@ Every output is committed, so nothing has to be run to read it.
 - `handoffs/` — briefs and session handoffs, dated.
 - `prompts/` — instructions for a coding agent to audit token values and component usage
   in the product code.
-- okchroma (`github.com/egerrity/okchroma`, on npm): the color engine. Its README and
+- okchroma (`npmjs.com/package/okchroma`): the color engine. Its README and
   `docs/agents.md` are the contract for the color base tokens; read them there.
