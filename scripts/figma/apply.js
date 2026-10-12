@@ -91,8 +91,7 @@ async function applyVariables(P) {
     // today's row in another collection is an orphan on every run until it is deleted
     // by hand, whether the new row is created now or was created by an earlier run, so
     // a run that stopped before the rebind pass is finished by the next one
-    const named = spec.today ? byName.get(spec.today) : undefined
-    const orphan = named && named !== v && named.variableCollectionId !== c.id ? named : undefined
+    const orphan = spec.today ? allVariables.find(x => x.name === spec.today && x !== v && x.variableCollectionId !== c.id) : undefined
     // an old row that varies by its collection's modes cannot move to a row that does
     // not; whether that variation is wanted is a decision, so the row is left alone
     if (orphan && varies(orphan)) { report.problems.push(`${spec.path}: today's ${spec.today} sits in ${collectionName(orphan)} and varies by its modes; left alone: declare the row into that collection, or give it one value by hand and run again`); continue }
@@ -272,9 +271,6 @@ async function rebind(pairs) {
   const paint = (p, field, v) => figma.variables.setBoundVariableForPaint(p, field, v)
   const effect = (e, field, v) => figma.variables.setBoundVariableForEffect(e, field, v)
   const grid = (g, field, v) => figma.variables.setBoundVariableForLayoutGrid(g, field, v)
-  // only a layer with a binding can bind an old row; asking each layer whether it has
-  // any is cheap, reading every layer's paints is not
-  const bound = scope.findAll(n => { try { const b = n.boundVariables; return !!b && Object.keys(b).length > 0 } catch (e) { return false } })
   // a window says where the walk is, and the walk yields between batches so Figma can
   // repaint; without that a long walk looks like a hang
   let progress = () => {}
@@ -282,10 +278,17 @@ async function rebind(pairs) {
     figma.showUI('<style>body{margin:0;padding:12px;font:12px/1.4 ui-monospace,Menlo,monospace}</style><pre id=p>starting</pre><script>onmessage=e=>{document.getElementById("p").textContent=e.data.pluginMessage.text}</script>', { width: 420, height: 100, title: 'tokens: rebinding' })
     progress = (text) => figma.ui.postMessage({ text })
   } catch (e) { /* a runtime without a UI */ }
-  progress(`${bound.length} bound layers to walk`)
+  // the walk runs again until a pass moves nothing: editing an instance re-creates its
+  // nested sublayers, which a walk that began earlier never saw
+  for (let pass = 1; pass <= 4; pass++) {
+  const before = report.rebound
+  // only a layer with a binding can bind an old row; asking each layer whether it has
+  // any is cheap, reading every layer's paints is not
+  const bound = scope.findAll(n => { try { const b = n.boundVariables; return !!b && Object.keys(b).length > 0 } catch (e) { return false } })
+  progress(`pass ${pass}: ${bound.length} bound layers to walk`)
   let visited = 0
   for (const node of bound) {
-    if (++visited % 250 === 0) { progress(`${visited} of ${bound.length} bound layers walked, ${report.rebound} bindings moved`); await new Promise(r => setTimeout(r, 0)) }
+    if (++visited % 250 === 0) { progress(`pass ${pass}: ${visited} of ${bound.length} bound layers walked, ${report.rebound} bindings moved`); await new Promise(r => setTimeout(r, 0)) }
     // editing an instance re-creates its nested sublayers, so a reference taken when the
     // walk began can be gone by the time it is reached; such a layer is skipped, and its
     // name is read once, before any edit, so a failure can still be labelled
@@ -310,6 +313,8 @@ async function rebind(pairs) {
       }
     } catch (e) { byHand.push(`${label}: ${e.message}`) }
   }
+  if (report.rebound === before) break
+  }
   for (const s of await figma.getLocalTextStylesAsync()) {
     for (const [field, alias] of Object.entries(s.boundVariables || {})) {
       const pair = next(alias)
@@ -326,8 +331,9 @@ async function rebind(pairs) {
       try { v.setValueForMode(modeId, figma.variables.createVariableAlias(pair.next)); report.rebound++ } catch (e) { byHand.push(`variable ${v.name}: ${e.message}`) }
     }
   }
-  if (mixed.length) report.problems.push(`rebind: ${mixed.length} layers have mixed fills or strokes, which cannot be read; if one binds an old row, rebind it by hand: ${mixed.slice(0, 12).join(', ')}${mixed.length > 12 ? ', ...' : ''}`)
-  for (const h of byHand) report.problems.push(`rebind: ${h}; rebound by hand`)
+  const mixedOnce = [...new Set(mixed)]
+  if (mixedOnce.length) report.problems.push(`rebind: ${mixedOnce.length} layers have mixed fills or strokes, which cannot be read; if one binds an old row, rebind it by hand: ${mixedOnce.slice(0, 12).join(', ')}${mixedOnce.length > 12 ? ', ...' : ''}`)
+  for (const h of new Set(byHand)) report.problems.push(`rebind: ${h}; rebound by hand`)
   for (const { old, next } of pairs) report.orphans.push(`${old.name}: its bindings now point at ${next.name}; delete it by hand once nothing refers to it`)
 }
 
