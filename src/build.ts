@@ -74,7 +74,7 @@ function figmaPlugin(tokens: Token[], outside: Token[]): Record<string, string> 
     "  figma.showUI(`<style>body{margin:0;height:100vh;display:flex;flex-direction:column;font:12px/1.4 ui-monospace,Menlo,monospace}header{display:flex;gap:8px;align-items:center;padding:8px}textarea{flex:1;margin:0 8px 8px;white-space:pre;font:inherit;resize:none}</style><header><b>${esc(title)}</b><button id=c>Copy</button><span id=s></span></header><textarea id=t readonly>${esc(text)}</textarea><script>const t=document.getElementById('t');document.getElementById('c').onclick=()=>{t.select();document.execCommand('copy');document.getElementById('s').textContent='copied'}</script>`, { width: 640, height: 520, title })",
     '}',
     "const run = figma.command === 'audit' ? audit().then(r => show('tokens: the leftovers', r.text)) : apply().then(r => show('tokens: applied', JSON.stringify(r, null, 2)))",
-    "run.catch(e => show('tokens: failed', (e && e.stack) || e))",
+    "run.catch(e => show('tokens: failed', [e && e.message, e && e.stack].filter(Boolean).join('\\n') || String(e)))",
     '',
   ].join('\n')
   const manifest = {

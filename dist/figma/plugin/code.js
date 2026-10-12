@@ -233,10 +233,11 @@ async function applyEffectStyles(P) {
 // stroke, an effect, a layout grid, and every plain field: a radius, a width, a gap, a
 // text layer's font), every binding on a local style, and every variable aliasing the
 // old row, now point at the new one. The old row is left in place, to be deleted by
-// hand once nothing refers to it. A component property bound to an old row, and a
-// layer whose fills are mixed and so cannot be read, are reported for the hand. A
-// plugin walks every page; a script runner that cannot load pages walks the current
-// one and says so.
+// hand once nothing refers to it. A component property bound to an old row, a layer
+// whose fills are mixed and so cannot be read, and a layer that refuses the edit are
+// reported for the hand, and the walk goes on: one layer never ends the run. A plugin
+// walks every page; a script runner that cannot load pages walks the current one and
+// says so.
 async function rebind(pairs) {
   if (!pairs.length) return
   let scope = figma.currentPage
@@ -256,35 +257,40 @@ async function rebind(pairs) {
     if (list === figma.mixed) { mixed.push(`${node.name} (${prop})`); return }
     if (!Array.isArray(list) || !list.some(x => Object.values(x.boundVariables || {}).some(next))) return
     if (node.type === 'TEXT' && !(await fontsOf(node))) return
-    node[prop] = list.map(x => {
+    let count = 0
+    const swapped = list.map(x => {
       let out = x
       for (const [field, alias] of Object.entries(x.boundVariables || {})) {
         const pair = next(alias)
-        if (pair) { out = setter(out, field, pair.next); report.rebound++ }
+        if (pair) { out = setter(out, field, pair.next); count++ }
       }
       return out
     })
+    try { node[prop] = swapped; report.rebound += count }
+    catch (e) { byHand.push(`${node.name}: ${prop}: ${e.message}`) }
   }
   const paint = (p, field, v) => figma.variables.setBoundVariableForPaint(p, field, v)
   const effect = (e, field, v) => figma.variables.setBoundVariableForEffect(e, field, v)
   const grid = (g, field, v) => figma.variables.setBoundVariableForLayoutGrid(g, field, v)
   for (const node of scope.findAll(() => true)) {
-    if ('fills' in node) await swapList(node, 'fills', paint)
-    if ('strokes' in node) await swapList(node, 'strokes', paint)
-    if ('effects' in node) await swapList(node, 'effects', effect)
-    if ('layoutGrids' in node) await swapList(node, 'layoutGrids', grid)
-    for (const [field, alias] of Object.entries(node.boundVariables || {})) {
-      if (['fills', 'strokes', 'effects', 'layoutGrids'].includes(field)) continue
-      if (field === 'componentProperties') {
-        for (const [prop, a] of Object.entries(alias || {})) { const pair = next(a); if (pair) byHand.push(`${node.name}: component property ${prop} binds ${pair.old.name}`) }
-        continue
+    try {
+      if ('fills' in node) await swapList(node, 'fills', paint)
+      if ('strokes' in node) await swapList(node, 'strokes', paint)
+      if ('effects' in node) await swapList(node, 'effects', effect)
+      if ('layoutGrids' in node) await swapList(node, 'layoutGrids', grid)
+      for (const [field, alias] of Object.entries(node.boundVariables || {})) {
+        if (['fills', 'strokes', 'effects', 'layoutGrids'].includes(field)) continue
+        if (field === 'componentProperties') {
+          for (const [prop, a] of Object.entries(alias || {})) { const pair = next(a); if (pair) byHand.push(`${node.name}: component property ${prop} binds ${pair.old.name}`) }
+          continue
+        }
+        if (Array.isArray(alias)) { if (alias.some(next)) byHand.push(`${node.name}: ${field} binds an old row`); continue }
+        const pair = next(alias)
+        if (!pair) continue
+        if (node.type === 'TEXT' && !(await fontsOf(node))) continue
+        try { node.setBoundVariable(field, pair.next); report.rebound++ } catch (e) { byHand.push(`${node.name}: ${field}: ${e.message}`) }
       }
-      if (Array.isArray(alias)) { if (alias.some(next)) byHand.push(`${node.name}: ${field} binds an old row`); continue }
-      const pair = next(alias)
-      if (!pair) continue
-      if (node.type === 'TEXT' && !(await fontsOf(node))) continue
-      try { node.setBoundVariable(field, pair.next); report.rebound++ } catch (e) { byHand.push(`${node.name}: ${field}: ${e.message}`) }
-    }
+    } catch (e) { byHand.push(`${node.name}: ${e.message}`) }
   }
   for (const s of await figma.getLocalTextStylesAsync()) {
     for (const [field, alias] of Object.entries(s.boundVariables || {})) {
@@ -298,7 +304,8 @@ async function rebind(pairs) {
   for (const v of await figma.variables.getLocalVariablesAsync()) {
     for (const [modeId, val] of Object.entries(v.valuesByMode)) {
       const pair = next(val)
-      if (pair && v !== pair.next) { v.setValueForMode(modeId, figma.variables.createVariableAlias(pair.next)); report.rebound++ }
+      if (!pair || v === pair.next) continue
+      try { v.setValueForMode(modeId, figma.variables.createVariableAlias(pair.next)); report.rebound++ } catch (e) { byHand.push(`variable ${v.name}: ${e.message}`) }
     }
   }
   if (mixed.length) report.problems.push(`rebind: ${mixed.length} layers have mixed fills or strokes, which cannot be read; if one binds an old row, rebind it by hand: ${mixed.slice(0, 12).join(', ')}${mixed.length > 12 ? ', ...' : ''}`)
@@ -410,4 +417,4 @@ const show = (title, text) => {
   figma.showUI(`<style>body{margin:0;height:100vh;display:flex;flex-direction:column;font:12px/1.4 ui-monospace,Menlo,monospace}header{display:flex;gap:8px;align-items:center;padding:8px}textarea{flex:1;margin:0 8px 8px;white-space:pre;font:inherit;resize:none}</style><header><b>${esc(title)}</b><button id=c>Copy</button><span id=s></span></header><textarea id=t readonly>${esc(text)}</textarea><script>const t=document.getElementById('t');document.getElementById('c').onclick=()=>{t.select();document.execCommand('copy');document.getElementById('s').textContent='copied'}</script>`, { width: 640, height: 520, title })
 }
 const run = figma.command === 'audit' ? audit().then(r => show('tokens: the leftovers', r.text)) : apply().then(r => show('tokens: applied', JSON.stringify(r, null, 2)))
-run.catch(e => show('tokens: failed', (e && e.stack) || e))
+run.catch(e => show('tokens: failed', [e && e.message, e && e.stack].filter(Boolean).join('\n') || String(e)))
