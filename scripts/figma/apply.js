@@ -273,6 +273,11 @@ async function rebind(pairs) {
   const effect = (e, field, v) => figma.variables.setBoundVariableForEffect(e, field, v)
   const grid = (g, field, v) => figma.variables.setBoundVariableForLayoutGrid(g, field, v)
   for (const node of scope.findAll(() => true)) {
+    // editing an instance re-creates its nested sublayers, so a reference taken when the
+    // walk began can be gone by the time it is reached; such a layer is skipped, and its
+    // name is read once, before any edit, so a failure can still be labelled
+    let label = 'a layer that no longer exists'
+    try { if (node.removed) continue; label = node.name } catch (e) { continue }
     try {
       if ('fills' in node) await swapList(node, 'fills', paint)
       if ('strokes' in node) await swapList(node, 'strokes', paint)
@@ -290,7 +295,7 @@ async function rebind(pairs) {
         if (node.type === 'TEXT' && !(await fontsOf(node))) continue
         try { node.setBoundVariable(field, pair.next); report.rebound++ } catch (e) { byHand.push(`${node.name}: ${field}: ${e.message}`) }
       }
-    } catch (e) { byHand.push(`${node.name}: ${e.message}`) }
+    } catch (e) { byHand.push(`${label}: ${e.message}`) }
   }
   for (const s of await figma.getLocalTextStylesAsync()) {
     for (const [field, alias] of Object.entries(s.boundVariables || {})) {
