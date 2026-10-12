@@ -151,7 +151,12 @@ async function applyVariables(P) {
     if (v.name !== spec.path) change(isNew, `${spec.path}|name`, `${spec.path} name`, v.name, spec.path, () => { report.renamed.push(`${v.name} -> ${spec.path}`); v.name = spec.path })
     stamp(v, STAMP, spec.path)
     byStamp.set(spec.path, v); byName.set(spec.path, v)
-    if (spec.scopes && JSON.stringify(v.scopes) !== JSON.stringify(spec.scopes)) change(isNew, `${spec.path}|scopes`, `${spec.path} scopes`, v.scopes.join(', '), spec.scopes.join(', ') || 'none', () => { v.scopes = spec.scopes })
+    // scopes are a set: Figma keeps its own order, so a difference is what is added or removed
+    if (spec.scopes) {
+      const have = new Set(v.scopes), want = new Set(spec.scopes)
+      const added = spec.scopes.filter(s => !have.has(s)), removed = v.scopes.filter(s => !want.has(s))
+      if (added.length || removed.length) change(isNew, `${spec.path}|scopes`, `${spec.path} scopes`, v.scopes.join(', ') || 'none', [...added.map(s => '+ ' + s), ...removed.map(s => '− ' + s)].join(', '), () => { v.scopes = spec.scopes })
+    }
     if (spec.description !== v.description) change(isNew, `${spec.path}|description`, `${spec.path} description`, v.description, spec.description, () => { v.description = spec.description })
     if (!!spec.hidden !== v.hiddenFromPublishing) change(isNew, `${spec.path}|hidden`, `${spec.path} hidden from publishing`, v.hiddenFromPublishing, !!spec.hidden, () => { v.hiddenFromPublishing = !!spec.hidden })
     targets.set(spec.path, v)
