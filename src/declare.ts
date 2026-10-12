@@ -1,6 +1,7 @@
 // The shape of each declaration: only what a designer decides. Names, aliases and the
 // values that follow from a rule are derived; if a value cannot be derived from a
 // decision here, it is a decision and gets a field.
+import type { Viewport } from '../declarations/collections.ts'
 import type { Density, Family, Level, Role, ShadowRole, Size, State, Word } from '../grammar/words.ts'
 import type { Curve } from './types.ts'
 
@@ -93,6 +94,8 @@ export type MotionDeclaration = {
 export type BreakpointDeclaration = {
   /** minimum widths, in px */
   widths: Partial<Record<Size, { px: number; req: string }>>
+  /** the breakpoint each viewport starts at; the first viewport starts at zero */
+  starts: Partial<Record<Viewport, Size>>
 }
 
 /** a value per viewport; a viewport left out takes the one its fallback names */

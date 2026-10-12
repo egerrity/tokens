@@ -121,8 +121,9 @@ above them or everyday ones.
   `radius.ts`, `border-width.ts`, `opacity.ts`, `motion.ts`, `breakpoint.ts`, `grid.ts`,
   `font.ts`, `text.ts` (the text styles), `shadow.ts`, `color.ts` (the word tables, the levels,
   what is offered), `brands.ts` (each brand's elections for the color engine),
-  `collections.ts` (which collection each category lives in), and `renames.ts` (today's
-  names). "The declarations" means these sixteen files; nothing else is an input.
+  `prefix.ts` (the CSS prefix), `collections.ts` (which collection each category lives
+  in), and `renames.ts` (today's names). "The declarations" means these seventeen files;
+  nothing else is an input.
 - **Brand.** One client's set of values, solved by the color engine from its elections.
   A brand is never in a name: every brand gets its own engine documents and resolver on
   the same paths, and a build picks one. The default brand is the one the shared outputs
@@ -137,4 +138,10 @@ above them or everyday ones.
   described, every alias resolving, every scale ascending, the files on disk equal to
   what the declarations produce, two builds identical.
 - **Generate.** The command that writes every output from the declarations: the token
-  file, the Figma payloads, the plugin, the documentation pages.
+  file, the Figma payloads, the plugin, the documentation pages, the theme folders.
+- **Theme folder.** What an app reads, written per brand under `dist/brands/`: for web,
+  `variables.css`, every token as a custom property with the dark and viewport values
+  under their own selectors; for mobile, `colors.ts`, the color roles as hex per mode.
+- **Compatibility block.** The end of each theme file: today's code names, each an alias
+  of the token that replaces it, so an app takes the folder unchanged. It is also the
+  list of names to retire once code reads the new ones.

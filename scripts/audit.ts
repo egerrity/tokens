@@ -22,7 +22,7 @@ for (const [name, content] of Object.entries(first.files)) {
 }
 
 // a generated folder holds nothing the declarations did not produce
-for (const folder of ['dist/tokens', 'dist/figma', 'docs/groups']) {
+for (const folder of ['dist/tokens', 'dist/figma', 'dist/brands', 'docs/groups']) {
   const dir = path.join(root, folder)
   if (!fs.existsSync(dir)) continue
   for (const f of fs.readdirSync(dir, { recursive: true }) as string[]) {

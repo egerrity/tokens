@@ -8,11 +8,12 @@ import { collections } from '../declarations/collections.ts'
 import { CATEGORIES } from '../grammar/words.ts'
 import { audit } from './audit.ts'
 import { documents, engineFileName, resolver, serialize } from './dtcg.ts'
-import { brandFailures, engineDocuments, serializeEngine } from './engine.ts'
+import { brandFailures, engineDocuments, engineTokens, serializeEngine } from './engine.ts'
 import { figmaFiles, figmaPayloads } from './figma.ts'
 import { handWorkPage, page, pageName } from './pages.ts'
 import { slotsPage } from './slots.ts'
 import { externals, roster, tokensOf } from './roster.ts'
+import { themeFolder } from './theme-folder.ts'
 import type { Token } from './types.ts'
 
 export type Build = { count: number; failures: string[]; files: Record<string, string> }
@@ -28,6 +29,7 @@ export function build(): Build {
   for (const brand of Object.keys(brands)) {
     if (engine) for (const [context, doc] of Object.entries(engineDocuments(brand))) files[`dist/tokens/${engineFileName(engine, brand, context)}`] = serializeEngine(doc)
     files[`dist/tokens/resolver.${brand}.json`] = resolver(brand)
+    Object.assign(files, themeFolder(brand, tokens, engineTokens(brand)))
   }
   files['dist/tokens/resolver.json'] = resolver(DEFAULT_BRAND)
   for (const [name, content] of Object.entries(figmaFiles(tokens, outside))) files[`dist/figma/${name}`] = content
