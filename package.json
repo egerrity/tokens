@@ -4,12 +4,12 @@
   "type": "module",
   "description": "A generator for the design system's tokens: declare, derive, emit, audit.",
   "engines": {
-    "node": ">=22.18"
+    "node": ">=22.6"
   },
   "scripts": {
-    "generate": "node scripts/generate.ts",
-    "audit": "node scripts/audit.ts",
-    "check": "node scripts/check.ts",
+    "generate": "node --experimental-strip-types scripts/generate.ts",
+    "audit": "node --experimental-strip-types scripts/audit.ts",
+    "check": "node --experimental-strip-types scripts/check.ts",
     "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
