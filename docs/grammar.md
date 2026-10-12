@@ -309,7 +309,7 @@ creates where none does.
 | font | `font/weight/medium` | `font/weight/medium` | `--ds-font-weight-medium` |
 | text | `heading/lg/font-size` and its two siblings | one text style, `text/heading/lg` | per part, `--ds-text-heading-lg-font-size` |
 | shadow | the effect style `Elevation shadow/Level 1` | `shadow/raised` | `--ds-shadow-raised` |
-| color | `Content palette/Content Primary` | `color/fg/regular` | `--ds-color-fg-regular` |
+| color | `Content palette/Content Primary` | `color/fg/neutral/regular` | `--ds-color-fg-neutral-regular` |
 | color | `Signal palette/Signal Error` | `color/fg/critical/accent` | `--ds-color-fg-critical-accent` |
 
 ## What changed from the v1 proposal

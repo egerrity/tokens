@@ -11,10 +11,10 @@ Private. Carries no employer name, no personal name, no home path.
 
 ## Run it
 
-Node 22.18 or later.
+Node 22.6 or later.
 
 ```
-npm install
+npm ci
 npm run generate    # writes every output from the declarations
 npm run audit       # fails on anything the grammar or the format forbids; two builds must be identical
 npm run check       # an independent Design Tokens parser over every brand's joined documents (needs the network)
@@ -64,7 +64,7 @@ Every output is committed, so nothing has to be run to read it.
 3. A client's brand is fixed at build time and, on mobile, lives in the client's
    configuration folder beside the app's other assets; parts of the theme are fetched
    at build time through the design-system package. The open parts: how that fetch
-   works, whether a generated theme folder (or `brand.json`, the six-field record) can
+   works, whether a generated theme folder (or `brand.json`, the short record of its elections) can
    be what it serves, where a new client's record is entered at onboarding, and what
    the web apps do.
 4. The org's dormant design-tokens repo: what it is, who owns it, and which build tool it

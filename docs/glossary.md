@@ -135,8 +135,9 @@ above them or everyday ones.
   the same paths, and a build picks one. The default brand is the one the shared outputs
   (the Figma payload, the pages) are built for.
 - **Election.** One choice a brand makes in the engine's panel: the seed, an exact second
-  family or a derived one, the neutral's tint, the link seed. Six fields; the stops are
-  computed from them and never stored.
+  family or a derived one, the neutral's tint, the link seed, the button's escape and
+  border. Seven fields, the seed the only one required; the stops are computed from
+  them and never stored.
 - **Derive.** To compute a token's name, value, alias or description from the
   declarations rather than write it.
 - **Roster.** The full list of tokens the generator produces, in document order.

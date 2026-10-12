@@ -173,3 +173,18 @@ Where a Figma connection with a script runner is available, `node scripts/figma-
 <payload>` prints the same script for one payload, and `<payload> <n> <of>` prints the
 nth of `<of>` chunks, because a runner caps the code it takes. The payloads go in the
 same order as above.
+
+## The runs so far
+
+A record, dated because it is one. The third dry run, 2026-10-12, on a duplicate equal
+to the real file: the three collections and the 33 palette rows renamed in place, 24
+text styles and 4 effect styles renamed, every new row created and valued; 30,342
+bindings moved from fifteen old rows (six radius, two width, four icon sizes, three
+weights) to their successors; `problems` held only the three font-family rows that vary
+by the fidelity collection's modes, the nine type modes left in place to delete by hand,
+and eight layers with mixed fills to check. A second run counted only `same` and the
+bindings a first walk could not see; the leftovers list named 126 rows nothing refers to
+and 60 still referred to, most of them the old white-label catalog, the inverse merges
+and the archived desktop text styles. The review pass, the retirements, the composed
+pair rows, `color/transparent` and the neutral written as a family all came after that
+run and have not yet been applied to a fresh duplicate.

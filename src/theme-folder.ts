@@ -107,10 +107,10 @@ function variablesCss(brand: string, tokens: Token[], engine: Token[]): string {
   return [
     header,
     block(':root', root),
-    `\n/* Today's names, each an alias of its successor above. Delete this block once code reads the names above. */\n`,
-    block(':root', compat),
     dark.length ? `\n${block("html[data-mode='dark']", dark)}` : '',
     ...queries.map(q => `\n${q}`),
+    `\n/* Today's names, each an alias of its successor above. Delete this block once code reads the names above. */\n`,
+    block(':root', compat),
   ].join('')
 }
 

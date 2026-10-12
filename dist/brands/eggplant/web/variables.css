@@ -637,43 +637,6 @@
   --ds-shadow-lifted: 0px 10px 10px 0px #0000000a, 0px 20px 25px 0px #0000001a;
 }
 
-/* Today's names, each an alias of its successor above. Delete this block once code reads the names above. */
-:root {
-  --color-palette-background-tertiary: var(--ds-color-surface-dim);
-  --color-palette-background-secondary: var(--ds-color-surface-mid);
-  --color-palette-background-primary: var(--ds-color-surface-high);
-  --color-palette-background-primary-inverse: var(--ds-color-surface-inverse);
-  --color-palette-background-scrim: var(--ds-color-surface-scrim);
-  --color-palette-content-primary: var(--ds-color-fg-neutral-regular);
-  --color-palette-content-tertiary: var(--ds-color-fg-neutral-accent);
-  --color-palette-content-secondary: var(--ds-color-fg-neutral-muted);
-  --color-palette-content-primary-inverse: var(--ds-color-fg-neutral-on-inverse-strong);
-  --color-palette-stroke-secondary: var(--ds-color-border-neutral-regular);
-  --color-palette-stroke-quaternary: var(--ds-color-border-neutral-hint);
-  --color-palette-stroke-tertiary: var(--ds-color-border-neutral-muted);
-  --color-palette-stroke-primary: var(--ds-color-border-neutral-strong);
-  --color-palette-stroke-primary-inverse: var(--ds-color-border-neutral-inverse);
-  --color-palette-merge-intensity-1: var(--ds-color-bg-neutral-ghost-hover);
-  --color-palette-merge-intensity-2: var(--ds-color-bg-neutral-ghost-pressed);
-  --color-palette-brand-primary: var(--ds-color-fg-brand-accent);
-  --color-palette-brand-primary-highlight: var(--ds-color-border-brand-muted);
-  --color-palette-brand-primary-accent: var(--ds-color-bg-brand-regular);
-  --color-palette-merge-intensity-3: var(--ds-color-bg-brand-solid-hover);
-  --color-palette-merge-intensity-5: var(--ds-color-bg-brand-solid-pressed);
-  --color-palette-signal-error: var(--ds-color-fg-critical-accent);
-  --color-palette-signal-error-highlight: var(--ds-color-border-critical-muted);
-  --color-palette-signal-error-accent: var(--ds-color-bg-critical-regular);
-  --color-palette-signal-error-spotlight: var(--ds-color-bg-critical-accent);
-  --color-palette-signal-warning: var(--ds-color-fg-warning-accent);
-  --color-palette-signal-warning-highlight: var(--ds-color-border-warning-muted);
-  --color-palette-signal-warning-accent: var(--ds-color-bg-warning-regular);
-  --color-palette-signal-warning-spotlight: var(--ds-color-bg-warning-accent);
-  --color-palette-signal-success: var(--ds-color-fg-positive-accent);
-  --color-palette-signal-success-highlight: var(--ds-color-border-positive-muted);
-  --color-palette-signal-success-accent: var(--ds-color-bg-positive-regular);
-  --color-palette-signal-success-spotlight: var(--ds-color-bg-positive-accent);
-}
-
 html[data-mode='dark'] {
   --ds-color-neutral-paper-0: #0e0d0e;
   --ds-color-neutral-paper-1: #141315;
@@ -806,4 +769,41 @@ html[data-mode='dark'] {
     --ds-grid-columns: 12;
     --ds-grid-gutter: var(--ds-space-400);
   }
+}
+
+/* Today's names, each an alias of its successor above. Delete this block once code reads the names above. */
+:root {
+  --color-palette-background-tertiary: var(--ds-color-surface-dim);
+  --color-palette-background-secondary: var(--ds-color-surface-mid);
+  --color-palette-background-primary: var(--ds-color-surface-high);
+  --color-palette-background-primary-inverse: var(--ds-color-surface-inverse);
+  --color-palette-background-scrim: var(--ds-color-surface-scrim);
+  --color-palette-content-primary: var(--ds-color-fg-neutral-regular);
+  --color-palette-content-tertiary: var(--ds-color-fg-neutral-accent);
+  --color-palette-content-secondary: var(--ds-color-fg-neutral-muted);
+  --color-palette-content-primary-inverse: var(--ds-color-fg-neutral-on-inverse-strong);
+  --color-palette-stroke-secondary: var(--ds-color-border-neutral-regular);
+  --color-palette-stroke-quaternary: var(--ds-color-border-neutral-hint);
+  --color-palette-stroke-tertiary: var(--ds-color-border-neutral-muted);
+  --color-palette-stroke-primary: var(--ds-color-border-neutral-strong);
+  --color-palette-stroke-primary-inverse: var(--ds-color-border-neutral-inverse);
+  --color-palette-merge-intensity-1: var(--ds-color-bg-neutral-ghost-hover);
+  --color-palette-merge-intensity-2: var(--ds-color-bg-neutral-ghost-pressed);
+  --color-palette-brand-primary: var(--ds-color-fg-brand-accent);
+  --color-palette-brand-primary-highlight: var(--ds-color-border-brand-muted);
+  --color-palette-brand-primary-accent: var(--ds-color-bg-brand-regular);
+  --color-palette-merge-intensity-3: var(--ds-color-bg-brand-solid-hover);
+  --color-palette-merge-intensity-5: var(--ds-color-bg-brand-solid-pressed);
+  --color-palette-signal-error: var(--ds-color-fg-critical-accent);
+  --color-palette-signal-error-highlight: var(--ds-color-border-critical-muted);
+  --color-palette-signal-error-accent: var(--ds-color-bg-critical-regular);
+  --color-palette-signal-error-spotlight: var(--ds-color-bg-critical-accent);
+  --color-palette-signal-warning: var(--ds-color-fg-warning-accent);
+  --color-palette-signal-warning-highlight: var(--ds-color-border-warning-muted);
+  --color-palette-signal-warning-accent: var(--ds-color-bg-warning-regular);
+  --color-palette-signal-warning-spotlight: var(--ds-color-bg-warning-accent);
+  --color-palette-signal-success: var(--ds-color-fg-positive-accent);
+  --color-palette-signal-success-highlight: var(--ds-color-border-positive-muted);
+  --color-palette-signal-success-accent: var(--ds-color-bg-positive-regular);
+  --color-palette-signal-success-spotlight: var(--ds-color-bg-positive-accent);
 }
