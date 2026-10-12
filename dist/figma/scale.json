@@ -563,7 +563,8 @@
       "path": "opacity/004",
       "type": "FLOAT",
       "scopes": [
-        "OPACITY"
+        "OPACITY",
+        "COLOR_OPACITY"
       ],
       "description": "Req for: translucent layers: state grounds, shadows and scrims",
       "values": {
@@ -574,7 +575,8 @@
       "path": "opacity/008",
       "type": "FLOAT",
       "scopes": [
-        "OPACITY"
+        "OPACITY",
+        "COLOR_OPACITY"
       ],
       "description": "Req for: translucent layers: state grounds, shadows and scrims",
       "values": {
@@ -585,7 +587,8 @@
       "path": "opacity/010",
       "type": "FLOAT",
       "scopes": [
-        "OPACITY"
+        "OPACITY",
+        "COLOR_OPACITY"
       ],
       "description": "Req for: translucent layers: state grounds, shadows and scrims",
       "values": {
@@ -596,7 +599,8 @@
       "path": "opacity/012",
       "type": "FLOAT",
       "scopes": [
-        "OPACITY"
+        "OPACITY",
+        "COLOR_OPACITY"
       ],
       "description": "Req for: translucent layers: state grounds, shadows and scrims",
       "values": {
@@ -607,7 +611,8 @@
       "path": "opacity/016",
       "type": "FLOAT",
       "scopes": [
-        "OPACITY"
+        "OPACITY",
+        "COLOR_OPACITY"
       ],
       "description": "Req for: translucent layers: state grounds, shadows and scrims",
       "values": {
@@ -618,7 +623,8 @@
       "path": "opacity/020",
       "type": "FLOAT",
       "scopes": [
-        "OPACITY"
+        "OPACITY",
+        "COLOR_OPACITY"
       ],
       "description": "Req for: translucent layers: state grounds, shadows and scrims",
       "values": {
@@ -629,7 +635,8 @@
       "path": "opacity/024",
       "type": "FLOAT",
       "scopes": [
-        "OPACITY"
+        "OPACITY",
+        "COLOR_OPACITY"
       ],
       "description": "Req for: translucent layers: state grounds, shadows and scrims",
       "values": {
@@ -640,7 +647,8 @@
       "path": "opacity/032",
       "type": "FLOAT",
       "scopes": [
-        "OPACITY"
+        "OPACITY",
+        "COLOR_OPACITY"
       ],
       "description": "Req for: translucent layers: state grounds, shadows and scrims",
       "values": {
@@ -651,7 +659,8 @@
       "path": "opacity/048",
       "type": "FLOAT",
       "scopes": [
-        "OPACITY"
+        "OPACITY",
+        "COLOR_OPACITY"
       ],
       "description": "Req for: translucent layers: state grounds, shadows and scrims",
       "values": {
@@ -662,7 +671,8 @@
       "path": "opacity/064",
       "type": "FLOAT",
       "scopes": [
-        "OPACITY"
+        "OPACITY",
+        "COLOR_OPACITY"
       ],
       "description": "Req for: translucent layers: state grounds, shadows and scrims",
       "values": {
@@ -673,7 +683,8 @@
       "path": "opacity/disabled",
       "type": "FLOAT",
       "scopes": [
-        "OPACITY"
+        "OPACITY",
+        "COLOR_OPACITY"
       ],
       "description": "Req for: the disabled state of a component",
       "values": {
@@ -684,7 +695,8 @@
       "path": "opacity/scrim",
       "type": "FLOAT",
       "scopes": [
-        "OPACITY"
+        "OPACITY",
+        "COLOR_OPACITY"
       ],
       "description": "Req for: the scrim behind a modal",
       "values": {
@@ -697,7 +709,8 @@
       "path": "opacity/ghost/hover",
       "type": "FLOAT",
       "scopes": [
-        "OPACITY"
+        "OPACITY",
+        "COLOR_OPACITY"
       ],
       "description": "Req for: the ghost ground under the pointer",
       "values": {
@@ -710,7 +723,8 @@
       "path": "opacity/ghost/pressed",
       "type": "FLOAT",
       "scopes": [
-        "OPACITY"
+        "OPACITY",
+        "COLOR_OPACITY"
       ],
       "description": "Req for: the ghost ground while pressed",
       "values": {
@@ -723,7 +737,8 @@
       "path": "opacity/ghost/selected",
       "type": "FLOAT",
       "scopes": [
-        "OPACITY"
+        "OPACITY",
+        "COLOR_OPACITY"
       ],
       "description": "Req for: the ghost ground when selected",
       "values": {
@@ -736,7 +751,8 @@
       "path": "opacity/soft/enabled",
       "type": "FLOAT",
       "scopes": [
-        "OPACITY"
+        "OPACITY",
+        "COLOR_OPACITY"
       ],
       "description": "Req for: the soft ground at rest",
       "values": {
@@ -749,7 +765,8 @@
       "path": "opacity/soft/hover",
       "type": "FLOAT",
       "scopes": [
-        "OPACITY"
+        "OPACITY",
+        "COLOR_OPACITY"
       ],
       "description": "Req for: the soft ground under the pointer",
       "values": {
@@ -762,7 +779,8 @@
       "path": "opacity/soft/pressed",
       "type": "FLOAT",
       "scopes": [
-        "OPACITY"
+        "OPACITY",
+        "COLOR_OPACITY"
       ],
       "description": "Req for: the soft ground while pressed",
       "values": {
@@ -775,7 +793,8 @@
       "path": "opacity/soft/selected",
       "type": "FLOAT",
       "scopes": [
-        "OPACITY"
+        "OPACITY",
+        "COLOR_OPACITY"
       ],
       "description": "Req for: the soft ground when selected",
       "values": {

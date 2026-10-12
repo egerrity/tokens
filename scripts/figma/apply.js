@@ -22,7 +22,41 @@ const COLLECTION_STAMP = 'collection'
 const stampOf = (node, key) => node.getSharedPluginData(NAMESPACE, key)
 const stamp = (node, key, value) => node.setSharedPluginData(NAMESPACE, key, value)
 
-const report = { created: [], renamed: [], updated: [], same: 0, orphans: [], rebound: 0, restyled: 0, problems: [] }
+const report = { created: [], renamed: [], updated: [], same: 0, kept: [], orphans: [], rebound: 0, restyled: 0, problems: [] }
+
+// Every change to a row the file already has is a difference between the file and the
+// set, and the run makes two passes over the payloads: the first creates what is missing
+// and lists every difference without writing it; the owner then chooses, in a window,
+// which to update and which to keep; the second pass writes the updates, and what was
+// kept is reported and comes back next run, until the set says the same thing. A row
+// created this run is written outright: nothing in it is anyone's hand.
+let PLANNING = false
+const diffs = []
+const keep = new Set()
+const fresh = new Set()
+const byId = new Map()
+const show = (x) => {
+  if (x === undefined || x === null || x === '') return 'nothing'
+  if (typeof x !== 'object') return String(x)
+  if (x.type === 'VARIABLE_ALIAS') { const t = byId.get(x.id); return `alias of ${t ? t.name : x.id}` }
+  if ('r' in x) { const h = (n) => Math.round((n === undefined ? 1 : n) * 255).toString(16).padStart(2, '0'); return `#${h(x.r)}${h(x.g)}${h(x.b)}${x.a !== undefined && x.a < 1 ? ` at ${Math.round(x.a * 100)}%` : ''}` }
+  if (x.easingFunctionCubicBezier) { const e = x.easingFunctionCubicBezier; return `cubic-bezier(${e.x1}, ${e.y1}, ${e.x2}, ${e.y2})` }
+  return JSON.stringify(x)
+}
+const change = (isNew, key, label, have, want, write) => {
+  if (isNew) { write(); return true }
+  if (PLANNING) { diffs.push({ key, label, have: show(have), want: show(want) }); return false }
+  if (keep.has(key)) { report.kept.push(`${label}: kept ${show(have)}; the set says ${show(want)}`); return false }
+  write(); return true
+}
+// the window: every difference, ticked to update; unticked is kept
+const review = (list) => new Promise(resolve => {
+  if (typeof figma.showUI !== 'function') return resolve([])
+  const esc = s => String(s).replace(/[&<>]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' })[c])
+  const rows = list.map((d, i) => `<label><input type=checkbox checked data-i=${i}> <b>${esc(d.label)}</b>: ${esc(d.have)} → ${esc(d.want)}</label>`).join('')
+  figma.showUI(`<style>body{margin:0;height:100vh;display:flex;flex-direction:column;font:12px/1.5 ui-monospace,Menlo,monospace}header{display:flex;gap:8px;align-items:center;padding:8px;flex-wrap:wrap}main{flex:1;overflow:auto;padding:0 8px 8px}label{display:block;white-space:nowrap}p{margin:0;flex-basis:100%}</style><header><b>tokens: the file differs from the set in ${list.length} places</b><button id=all>Update all</button><button id=none>Keep all</button><button id=go>Apply</button><p>Ticked: the set's value is written. Unticked: the file's value is kept, reported, and listed again next run.</p></header><main>${rows}</main><script>const boxes=[...document.querySelectorAll('input')];document.getElementById('all').onclick=()=>boxes.forEach(b=>b.checked=true);document.getElementById('none').onclick=()=>boxes.forEach(b=>b.checked=false);document.getElementById('go').onclick=()=>{parent.postMessage({pluginMessage:{update:boxes.filter(b=>b.checked).map(b=>+b.dataset.i)}},'*')}</script>`, { width: 760, height: 560, title: 'tokens: review the differences' })
+  figma.ui.onmessage = (m) => { if (m && Array.isArray(m.update)) { const on = new Set(m.update); resolve(list.filter((_, i) => !on.has(i)).map(d => d.key)) } }
+})
 // an orphan is today's row in a collection the new row cannot live in, so the new row
 // is created and the old row's bindings move to it afterwards; a retirement is today's
 // row the rename map cannot pair, given its successor by the owner, and moves the same way
@@ -41,6 +75,7 @@ for (const v of allVariables) {
   const s = stampOf(v, STAMP)
   if (s) { if (byStamp.has(s)) duplicated.add(s); else byStamp.set(s, v) }
   byName.set(v.name, v)
+  byId.set(v.id, v)
 }
 for (const s of duplicated) { byStamp.delete(s); report.problems.push(`${s}: two variables carry this identity tag; left alone, keep one by hand`) }
 const find = (path) => byStamp.get(path) || byName.get(path)
@@ -103,26 +138,22 @@ async function applyVariables(P) {
     // mid-run; the same name in another collection is an orphan or a stranger, not a block
     const holder = inCollection.find(x => x.name === spec.path)
     if (holder && holder !== v) { report.problems.push(`${spec.path}: the name is held by another variable (tagged ${stampOf(holder, STAMP) || 'nothing'}); left alone, resolve by hand`); continue }
+    const isNew = !v
     if (!v) {
       v = figma.variables.createVariable(spec.path, c, spec.type)
-      report.created.push(spec.path)
+      report.created.push(spec.path); fresh.add(spec.path); byId.set(v.id, v)
     } else if (v.resolvedType !== spec.type) {
       report.problems.push(`${spec.path}: is a ${v.resolvedType}, the payload wants ${spec.type}; left as it is`)
       continue
     }
     if (orphan && orphan.resolvedType === spec.type) { orphanPairs.push({ old: orphan, next: v }); report.orphans.push(`${spec.path}: today's ${spec.today} sits in ${collectionName(orphan)}; its bindings move to this row`) }
     else if (orphan) report.problems.push(`${spec.path}: today's ${spec.today} sits in ${collectionName(orphan)} as a ${orphan.resolvedType}, the payload wants ${spec.type}; the old one left alone`)
-    if (v.name !== spec.path) { report.renamed.push(`${v.name} -> ${spec.path}`); v.name = spec.path }
+    if (v.name !== spec.path) change(isNew, `${spec.path}|name`, `${spec.path} name`, v.name, spec.path, () => { report.renamed.push(`${v.name} -> ${spec.path}`); v.name = spec.path })
     stamp(v, STAMP, spec.path)
     byStamp.set(spec.path, v); byName.set(spec.path, v)
-    // scopes: a new row takes the declared list in place of Figma's "all"; a row that has
-    // a list gains any declared scope it lacks and keeps every scope the hand added
-    if (spec.scopes) {
-      if (v.scopes.includes('ALL_SCOPES')) { if (spec.scopes.length) v.scopes = spec.scopes }
-      else { const missing = spec.scopes.filter(s => !v.scopes.includes(s)); if (missing.length) v.scopes = [...v.scopes, ...missing] }
-    }
-    if (spec.description !== v.description) v.description = spec.description
-    if (!!spec.hidden !== v.hiddenFromPublishing) v.hiddenFromPublishing = !!spec.hidden
+    if (spec.scopes && JSON.stringify(v.scopes) !== JSON.stringify(spec.scopes)) change(isNew, `${spec.path}|scopes`, `${spec.path} scopes`, v.scopes.join(', '), spec.scopes.join(', ') || 'none', () => { v.scopes = spec.scopes })
+    if (spec.description !== v.description) change(isNew, `${spec.path}|description`, `${spec.path} description`, v.description, spec.description, () => { v.description = spec.description })
+    if (!!spec.hidden !== v.hiddenFromPublishing) change(isNew, `${spec.path}|hidden`, `${spec.path} hidden from publishing`, v.hiddenFromPublishing, !!spec.hidden, () => { v.hiddenFromPublishing = !!spec.hidden })
     targets.set(spec.path, v)
   }
 
@@ -161,14 +192,16 @@ async function applyVariables(P) {
       if (sameValue(have, want)) continue
       // a font family value re-renders every text style bound to it, which Figma allows
       // only with that family's fonts loaded
-      if (spec.type === 'STRING' && (spec.scopes || []).includes('FONT_FAMILY') && typeof want === 'string') {
+      if (!PLANNING && spec.type === 'STRING' && (spec.scopes || []).includes('FONT_FAMILY') && typeof want === 'string') {
         for (const f of (await figma.listAvailableFontsAsync()).filter(f => f.fontName.family === want)) {
           try { await figma.loadFontAsync(f.fontName) } catch (e) { report.problems.push(`${spec.path} (${m}): cannot load ${want} ${f.fontName.style}`) }
         }
       }
-      try { v.setValueForMode(modeIds[m], want); changed = true } catch (e) { report.problems.push(`${spec.path} (${m}): ${e.message}`) }
+      change(fresh.has(spec.path), `${spec.path}|value|${m}`, `${spec.path} (${m})`, have, want, () => {
+        try { v.setValueForMode(modeIds[m], want); changed = true } catch (e) { report.problems.push(`${spec.path} (${m}): ${e.message}`) }
+      })
     }
-    if (changed) report.updated.push(spec.path); else report.same++
+    if (changed) report.updated.push(spec.path); else if (!PLANNING) report.same++
   }
 }
 
@@ -181,10 +214,10 @@ async function applyTextStyles(P) {
     try { await figma.loadFontAsync({ family: spec.family, style: spec.fontStyle }) }
     catch (e) { report.problems.push(`${spec.name}: cannot load ${spec.family} ${spec.fontStyle}; skipped`); continue }
     let changed = false
+    const isNew = !s
     if (!s) { s = figma.createTextStyle(); report.created.push(spec.name); changed = true }
-    else if (s.name !== spec.name) { report.renamed.push(`${s.name} -> ${spec.name}`); changed = true }
-    if (s.name !== spec.name) s.name = spec.name
-    if (s.description !== spec.description) { s.description = spec.description; changed = true }
+    if (s.name !== spec.name) change(isNew, `${spec.path}|name`, `text style ${spec.name} name`, s.name, spec.name, () => { if (!isNew) report.renamed.push(`${s.name} -> ${spec.name}`); s.name = spec.name; changed = true })
+    if (s.description !== spec.description) change(isNew, `${spec.path}|description`, `text style ${spec.name} description`, s.description, spec.description, () => { s.description = spec.description; changed = true })
     // a bound property takes its value from the variable, so the raw value is set only
     // on the way to binding it; setting a raw value on a bound property would unbind it
     const raw = {
@@ -201,14 +234,16 @@ async function applyTextStyles(P) {
       if (bound && bound.id === v.id) continue
       // once family and weight are bound, the style's font is whatever those rows hold,
       // and it must be loaded before any other property is written
-      if (field !== 'fontFamily' && field !== 'fontWeight') {
+      if (!PLANNING && field !== 'fontFamily' && field !== 'fontWeight') {
         try { await figma.loadFontAsync(s.fontName) }
         catch (e) { report.problems.push(`${spec.name}: its bound family and weight resolve to ${s.fontName.family} ${s.fontName.style}, which cannot be loaded; ${field} left as it is`); continue }
       }
-      try { raw[field](); s.setBoundVariable(field, v); changed = true } catch (e) { report.problems.push(`${spec.name}: binding ${field}: ${e.message}`) }
+      change(isNew, `${spec.path}|${field}`, `text style ${spec.name} ${field}`, bound ? `bound to ${(byId.get(bound.id) || {}).name || bound.id}` : 'not bound', `bound to ${path}`, () => {
+        try { raw[field](); s.setBoundVariable(field, v); changed = true } catch (e) { report.problems.push(`${spec.name}: binding ${field}: ${e.message}`) }
+      })
     }
     if (stampOf(s, STAMP) !== spec.path) stamp(s, STAMP, spec.path)
-    if (changed) report.updated.push(spec.name); else report.same++
+    if (changed) report.updated.push(spec.name); else if (!PLANNING) report.same++
   }
 }
 
@@ -222,17 +257,18 @@ async function applyEffectStyles(P) {
       || (spec.today && styles.find(x => x.name === spec.today))
       || styles.find(x => x.name === spec.name)
     let changed = false
+    const isNew = !s
     if (!s) { s = figma.createEffectStyle(); report.created.push(spec.name); changed = true }
-    else if (s.name !== spec.name) { report.renamed.push(`${s.name} -> ${spec.name}`); changed = true }
-    if (s.name !== spec.name) s.name = spec.name
-    if (s.description !== spec.description) { s.description = spec.description; changed = true }
+    if (s.name !== spec.name) change(isNew, `${spec.path}|name`, `effect style ${spec.name} name`, s.name, spec.name, () => { if (!isNew) report.renamed.push(`${s.name} -> ${spec.name}`); s.name = spec.name; changed = true })
+    if (s.description !== spec.description) change(isNew, `${spec.path}|description`, `effect style ${spec.name} description`, s.description, spec.description, () => { s.description = spec.description; changed = true })
     const want = spec.layers.map(l => ({ type: 'DROP_SHADOW', color: rgba(l.color, l.alpha), offset: { x: l.x, y: l.y }, radius: l.blur, spread: l.spread, visible: true, blendMode: 'NORMAL' }))
     const have = s.effects
     const same = have.length === want.length && have.every((e, i) => e.type === 'DROP_SHADOW' && near(e.offset.x, want[i].offset.x) && near(e.offset.y, want[i].offset.y)
       && near(e.radius, want[i].radius) && near(e.spread || 0, want[i].spread) && ['r', 'g', 'b', 'a'].every(k => near(e.color[k], want[i].color[k])))
-    if (!same) { s.effects = want; changed = true }
+    const layers = (list) => list.map(e => `${e.offset.x} ${e.offset.y} ${e.radius} ${e.spread || 0} ${show(e.color)}`).join('; ')
+    if (!same) change(isNew, `${spec.path}|effects`, `effect style ${spec.name} layers`, layers(have), layers(want), () => { s.effects = want; changed = true })
     if (stampOf(s, STAMP) !== spec.path) stamp(s, STAMP, spec.path)
-    if (changed) report.updated.push(spec.name); else report.same++
+    if (changed) report.updated.push(spec.name); else if (!PLANNING) report.same++
   }
 }
 
@@ -405,13 +441,24 @@ async function applyRetirements(P) {
 }
 
 if (!PAYLOAD) throw new Error('no payload inlined')
-for (const P of Array.isArray(PAYLOAD) ? PAYLOAD : [PAYLOAD]) {
-  if (P.kind === 'variables') await applyVariables(P)
-  else if (P.kind === 'text-styles') await applyTextStyles(P)
-  else if (P.kind === 'effect-styles') await applyEffectStyles(P)
-  else if (P.kind === 'retirements') await applyRetirements(P)
-  else throw new Error(`unknown payload kind ${P.kind}`)
+const payloads = Array.isArray(PAYLOAD) ? PAYLOAD : [PAYLOAD]
+const pass = async () => {
+  for (const P of payloads) {
+    if (P.kind === 'variables') await applyVariables(P)
+    else if (P.kind === 'text-styles') await applyTextStyles(P)
+    else if (P.kind === 'effect-styles') await applyEffectStyles(P)
+    else if (P.kind === 'retirements') await applyRetirements(P)
+    else throw new Error(`unknown payload kind ${P.kind}`)
+  }
 }
+// the first pass creates and lists; the owner chooses; the second pass writes
+PLANNING = true
+await pass()
+PLANNING = false
+if (diffs.length) for (const k of await review(diffs)) keep.add(k)
+report.same = 0; orphanPairs.length = 0; retiredPairs.length = 0; retiredStyles.length = 0
+await pass()
+for (const k of ['created', 'renamed', 'updated', 'orphans', 'problems']) report[k] = [...new Set(report[k])]
 await rebind([...orphanPairs, ...retiredPairs])
 await restyle(retiredStyles)
 return report

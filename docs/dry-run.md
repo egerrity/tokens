@@ -45,7 +45,17 @@ been applied, because until then the engine's rows carry no tag. What it cannot 
 another file: on the published library, a consumer file's bindings are invisible from
 here, so there it comes after the consumer audit, never before.
 
-## 3. The report
+## 3. The review, then the report
+
+A run makes two passes. The first creates what the file lacks and lists every place a
+row the file already has differs from the set — a name, a value in a mode, a
+description, the scopes, hidden or not, a text style's binding, an effect style's
+layers — without writing any of it. A window shows the list, each line "the file's
+value → the set's value", ticked; Update all and Keep all are one click. Apply writes
+the ticked lines and keeps the rest. On a fresh file the list is long, since every rename
+and every first value is on it; afterwards it is only what moved since the last run. A
+line kept is reported under `kept` and listed again next run, until the set says the
+same thing, so nothing stays unseen.
 
 The window shows one report for the whole run:
 
@@ -56,7 +66,8 @@ The window shows one report for the whole run:
   migration map gives one; a row the report says was `created` rather than `renamed`
   is one whose old name is spelled differently in the file, and the spelling goes into
   that map.
-- `updated`, `same`: values and descriptions that changed, and rows already right.
+- `updated`, `same`, `kept`: values and descriptions that changed, rows already right,
+  and the lines the review kept as the file has them.
 - `orphans` and `rebound`: a row whose old name sits in a collection the new row cannot
   live in. The new row is created, and every binding to the old one is moved to it:
   fills, strokes, effects, grids, every plain field (a radius, a width, a gap, a text

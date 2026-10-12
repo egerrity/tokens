@@ -76,7 +76,8 @@ const SCOPES: Record<string, string[]> = {
   size: ['WIDTH_HEIGHT'],
   radius: ['CORNER_RADIUS'],
   'border-width': ['STROKE_FLOAT'],
-  opacity: ['OPACITY'],
+  // a number a layer's opacity or a color variable's opacity can bind
+  opacity: ['OPACITY', 'COLOR_OPACITY'],
   breakpoint: ['WIDTH_HEIGHT'],
   'grid/columns': [],
   'grid/margin': ['GAP'],

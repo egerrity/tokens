@@ -109,7 +109,7 @@ function figmaPlugin(tokens: Token[], outside: Token[]): Record<string, string> 
     'const applyCsv = r => {',
     "  const q = s => '\"' + String(s == null ? '' : s).replace(/\"/g, '\"\"') + '\"'",
     "  const rows = [['Section', 'Item', 'Done']]",
-    "  for (const k of ['created', 'renamed', 'updated', 'orphans', 'problems']) for (const item of r[k] || []) rows.push([k, item, ''])",
+    "  for (const k of ['created', 'renamed', 'updated', 'kept', 'orphans', 'problems']) for (const item of r[k] || []) rows.push([k, item, ''])",
     "  rows.push(['same', r.same, ''], ['rebound', r.rebound, ''], ['restyled', r.restyled, ''])",
     "  return '\\uFEFF' + rows.map(x => x.map(q).join(',')).join('\\r\\n') + '\\r\\n'",
     '}',
