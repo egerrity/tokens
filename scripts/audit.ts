@@ -27,6 +27,8 @@ for (const folder of ['dist/tokens', 'dist/figma', 'dist/brands', 'docs/groups']
   if (!fs.existsSync(dir)) continue
   for (const f of fs.readdirSync(dir, { recursive: true }) as string[]) {
     if (fs.statSync(path.join(dir, f)).isDirectory()) continue
+    // the Finder's own files are not output and are not ours
+    if (path.basename(f) === '.DS_Store') continue
     if (!(`${folder}/${f}` in first.files)) failures.push(`${folder}/${f}: on disk but not produced by the declarations; delete it`)
   }
 }
