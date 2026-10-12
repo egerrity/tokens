@@ -10,7 +10,8 @@ import { figmaName, type TokenPath } from '../grammar/path.ts'
 import { isAlias, valueIn, type Token, type Value } from './types.ts'
 
 export type FigmaType = 'FLOAT' | 'STRING' | 'EASING' | 'TIMING' | 'COLOR'
-export type FigmaValue = number | string | { alias: string } | { easing: readonly [number, number, number, number] } | { color: string; alpha: number }
+/** a value as Figma holds it; a pair is its color, an alias or a literal, with the opacity token bound to the row's opacity */
+export type FigmaValue = number | string | { alias: string; opacity?: string } | { easing: readonly [number, number, number, number] } | { color: string; alpha: number; opacity?: string }
 export type FigmaVariable = {
   path: string
   today?: string
@@ -107,13 +108,15 @@ const scopesFor = (path: TokenPath, part?: string): string[] | undefined =>
  * that digit match the row.
  */
 export const describeFigma = (t: Token): string =>
-  [`Req for: ${t.req}`, `Use: ${t.use}`, ...(t.pair ? [`Compose by hand with ${figmaName(t.pair)}`] : []), ...(t.reserved ? ['Reserved for components; hidden from publishing'] : [])].filter(line => !/\d/.test(line) || line.startsWith('Compose')).join('\n')
+  [`Req for: ${t.req}`, `Use: ${t.use}`, ...(t.pair ? [`Composed with ${figmaName(t.pair)}`] : []), ...(t.reserved ? ['Reserved for components; hidden from publishing'] : [])].filter(line => !/\d/.test(line) || line.startsWith('Compose')).join('\n')
 
 /** a token value as a Figma value, or undefined where Figma has no form for it */
 function figmaValue(t: Token, v: Value): FigmaValue | undefined {
-  if (isAlias(v)) return { alias: figmaName(v.alias) }
+  // a pair rides on the row itself: the color with its opacity bound to the opacity token
+  const pair = t.pair ? { opacity: figmaName(t.pair) } : {}
+  if (isAlias(v)) return { alias: figmaName(v.alias), ...pair }
   switch (v.type) {
-    case 'color': return { color: v.value.hex, alpha: v.value.alpha }
+    case 'color': return { color: v.value.hex, alpha: v.value.alpha, ...pair }
     case 'dimension': return v.value.value
     // opacity and line height are shown as percents in Figma
     // opacity is shown as a percent in Figma; a line height multiple has no variable form there
@@ -182,13 +185,12 @@ function textParts(t: Token, modes: string[], byPath: Map<string, Token>): Figma
 /**
  * Today's rows and styles the rename map cannot pair with a successor, each with the row
  * that replaces it, from the retirement declarations: the rebind pass moves every
- * binding from the old to the new, and where the new row is a pair, the fill's opacity
- * is set to the pair's value as the binding moves, the composition landing on the
- * layer, which is where Figma keeps it.
+ * binding from the old to the new. A successor that is a pair carries its opacity on
+ * the row itself, so a layer that binds it needs nothing more.
  */
 export type FigmaRetirements = {
   kind: 'retirements'
-  variables: { today: string; path: string; opacity?: number }[]
+  variables: { today: string; path: string }[]
   styles: { today: string; path: string }[]
 }
 
@@ -257,17 +259,13 @@ export function figmaPayloads(tokens: Token[], outside: Token[] = []): { collect
       layers: v.value.map(l => ({ x: l.offsetX.value, y: l.offsetY.value, blur: l.blur.value, spread: l.spread.value, color: l.color.hex, alpha: l.color.alpha })),
     }
   })
-  // a retirement's target must be a row of the set, and a pair's opacity is its number
+  // a retirement's target must be a row of the set
   const everywhere = new Map([...outside, ...tokens].map(t => [figmaName(t.path), t]))
-  const literal = (t: Token): Value => { let cur = t; let v = cur.value; const seen = new Set<string>(); while (isAlias(v)) { const k = figmaName(v.alias); if (seen.has(k)) break; seen.add(k); const n = everywhere.get(k); if (!n) break; cur = n; v = cur.value }; return v }
   const retirements: FigmaRetirements = {
     kind: 'retirements',
     variables: Object.entries(retiredVariables).map(([today, path]) => {
-      const t = everywhere.get(path)
-      if (!t) throw new Error(`retirement ${today}: ${path} is not a row of the set`)
-      const pair = t.pair ? everywhere.get(figmaName(t.pair)) : undefined
-      const o = pair && literal(pair)
-      return { today, path, ...(o && !isAlias(o) && o.type === 'number' ? { opacity: o.value } : {}) }
+      if (!everywhere.has(path)) throw new Error(`retirement ${today}: ${path} is not a row of the set`)
+      return { today, path }
     }),
     styles: Object.entries(retiredStyles).map(([today, path]) => {
       const t = byPath.get(path)

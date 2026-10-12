@@ -26,12 +26,12 @@ it lives and every layer, style and variable that refers to it.
 
 Run the list again: it is empty but for what was kept on purpose.
 
-## 3. Compose the 52 pairs
+## 3. Look over the 52 pairs
 
-A translucent row is its alias at an opacity, set in the variables panel: open the row,
-keep the alias, set the opacity to the percent. The script writes the alias and leaves
-the opacity to the panel, which the API cannot read or write; a composed row reads back
-as its alias, so later runs leave it alone. In the order the set lists them:
+A translucent row is its color with the opacity token bound to the row's opacity, and
+the script writes both, so there is nothing to compose. Open a few in the variables
+panel and see the alias and the bound opacity; a layer that binds the row shows the
+tint. In the order the set lists them:
 
 | Row | Alias | Opacity token | Percent |
 | --- | --- | --- | --- |

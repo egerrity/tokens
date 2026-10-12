@@ -96,8 +96,9 @@ The window shows one report for the whole run:
   like an orphan's, setting a fill's opacity where the successor is a pair, and the old
   row or style is left for the delete command.
 
-The script never deletes, never writes a value that is already what the payload asks
-for, and leaves a row composed by hand (an alias with an opacity) as it is.
+The script never deletes and never writes a value that is already what the payload asks
+for. A pair row's value is its color with the opacity token bound to the row's opacity;
+the script writes that, so nothing is composed by hand.
 
 ## 4. The checks
 
@@ -106,9 +107,8 @@ for, and leaves a row composed by hand (an alias with an opacity) as it is.
 - Open a component that bound today's variables: it resolves to the same color under
   the new name.
 - The engine's `color/…` rows are untouched; the plugin only matches them by name.
-- The pair rows show their solid alias and end their description with "Compose by
-  hand with opacity/…": those are composed by hand, once, and the next run leaves
-  them alone.
+- The pair rows show their color alias with the opacity token bound to the row's
+  opacity, and their description ends with "Composed with opacity/…".
 - Reserved rows are hidden from publishing; the picker in a consuming file does not
   show them.
 - The text styles are named without `text/` (`body/md`, not `text/body/md`): the text
@@ -152,9 +152,8 @@ Decide, then fix:
 - A text layer the rebind pass reports as mixed fills, or a font it could not load, is
   rebound by hand.
 
-Compose: the pair rows, each set in the variables panel to its alias at its percent;
-`hand-work.md` lists every one. A composed row reads back as its alias and later runs
-leave it alone.
+Check: the pair rows, each its alias with the opacity token bound, which the script
+writes; `hand-work.md` lists every one for a look.
 
 Verify: a component that bound an old background row shows its surface, the same
 variable; the text styles show the right family, bound; the effect styles show their

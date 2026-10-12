@@ -88,7 +88,8 @@ above them or everyday ones.
   with the mode (`surface/high`). A `bg` is a flat fill and does not.
 - **Pair.** A translucent semantic color, written as two tokens: a color alias and an
   opacity token (`bg/ghost/hover` with `opacity/ghost/hover`). Never a computed color.
-  In Figma the pair is composed by hand, once.
+  In Figma the row's value is its color with the opacity token bound to the row's
+  opacity, which the plugin writes; a layer that binds the row needs nothing more.
 - **Offered, reserved.** Whether a role is in the picker. Offered rows are published;
   reserved rows exist in the library for component authors and are hidden from
   publishing. Offering a row later is a list edit, never a new name.

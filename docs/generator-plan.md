@@ -135,9 +135,9 @@ what changed.
 3. **The groups that read color.** Shadow, the scrim, the elevation surfaces and the
    color roles, with the merge, and the shadow effect styles in Figma. A translucent
    role is emitted as its pair, a color alias and an opacity token, because neither the
-   token format nor the plugin API can write a composed color; the script writes the
-   pair and names what to compose in the row's description, and leaves a row alone once
-   it has been composed by hand. The color half is built: the surfaces, the scrim and
+   token format has no field for a pair, so the opacity rides in the description; in
+   Figma the plugin writes the row's color with the opacity token bound to the row's
+   opacity. The color half is built: the surfaces, the scrim and
    the semantic set in `docs/color-semantic-set.md`, as aliases onto the color base
    tokens (`color/…`), printed with the theme's two modes into a review file. The
    shadows are Material 3's four working levels under Atlassian's role names, on

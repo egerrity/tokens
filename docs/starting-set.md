@@ -248,9 +248,10 @@ Settled on the way: the disabled value is 38 and is not a step of the scale, by 
 the shadows keep their offsets and blurs and take no mode, because the plane carries the
 step in dark; shadow and scrim sit in the unmoded collection for that reason. A
 translucent role is always written as its pair, the color alias and the opacity token,
-never as a computed color (ruled 2026-10-05); Figma composes the pair by hand until the
-plugin API can, the CSS carries both names, and the mobile theme file folds them into
-eight-digit hex because a native app reads a color.
+never as a computed color (ruled 2026-10-05); in Figma the row's value is its color
+with the opacity token bound to the row's opacity, which the plugin writes; the CSS
+carries both names; and the mobile theme file folds them into eight-digit hex because a
+native app reads a color.
 
 ## Typography
 

@@ -5,13 +5,14 @@
 // Every variable and style is found by its stamp first, then by today's name, then by
 // its new name, and is updated in place, so bindings survive. The color engine's rows
 // are another writer's: found by name and stamped, never created or written. The stamp is the identity:
-// a variable renamed by hand is renamed back. Nothing is deleted and no value is written
-// that is already what the payload asks for; a row a designer has composed by hand (an
-// alias with an opacity) reads back as its alias and is left alone. A row the script
-// cannot settle without guessing, such as two variables carrying one stamp or a name
-// another variable holds, is left alone and reported. Where today's row sits in a
+// a variable renamed by hand is a difference for the owner to settle. Nothing is deleted
+// and no value is written that is already what the payload asks for; a pair row is
+// written as its color with the opacity token bound to the row's opacity. A row the
+// script cannot settle without guessing, such as two variables carrying one stamp or a
+// name another variable holds, is left alone and reported. Where today's row sits in a
 // collection the new row cannot live in, the new row is created and every binding to
-// the old one moves to it. The return value is the report.
+// the old one moves to it. Every other change to a row the file already has is shown to
+// the owner before it is written. The return value is the report.
 const PAYLOAD = /* PAYLOAD */ null
 
 // the stamp is shared plugin data, which every runtime can write; private plugin data
@@ -39,6 +40,7 @@ const show = (x) => {
   if (x === undefined || x === null || x === '') return 'nothing'
   if (typeof x !== 'object') return String(x)
   if (x.type === 'VARIABLE_ALIAS') { const t = byId.get(x.id); return `alias of ${t ? t.name : x.id}` }
+  if ('color' in x && 'opacity' in x) return `${show(x.color)} at the opacity of ${show(x.opacity)}`
   if ('r' in x) { const h = (n) => Math.round((n === undefined ? 1 : n) * 255).toString(16).padStart(2, '0'); return `#${h(x.r)}${h(x.g)}${h(x.b)}${x.a !== undefined && x.a < 1 ? ` at ${Math.round(x.a * 100)}%` : ''}` }
   if (x.easingFunctionCubicBezier) { const e = x.easingFunctionCubicBezier; return `cubic-bezier(${e.x1}, ${e.y1}, ${e.x2}, ${e.y2})` }
   return JSON.stringify(x)
@@ -164,6 +166,9 @@ async function applyVariables(P) {
 
   // pass 2: values, once every alias target can exist
   const sameValue = (have, want) => {
+    // a pair: the same color and the same opacity, each an alias or a value
+    if (have && typeof have === 'object' && 'color' in have && 'opacity' in have) return !!want && typeof want === 'object' && 'color' in want && 'opacity' in want && sameValue(have.color, want.color) && sameValue(have.opacity, want.opacity)
+    if (want && typeof want === 'object' && 'color' in want && 'opacity' in want) return false
     if (have && typeof have === 'object' && have.type === 'VARIABLE_ALIAS') return !!want && want.type === 'VARIABLE_ALIAS' && have.id === want.id
     if (have && typeof have === 'object' && have.easingFunctionCubicBezier) {
       const a = have.easingFunctionCubicBezier, b = want && want.easingFunctionCubicBezier
@@ -179,16 +184,26 @@ async function applyVariables(P) {
     for (const m of P.modes) {
       const raw = spec.values[m]
       let want
+      // a pair is written on the row: its color, an alias or a literal, with the opacity
+      // token bound to the row's opacity, so a layer that binds the row needs nothing more
+      let opacity
+      if (raw && typeof raw === 'object' && 'opacity' in raw) {
+        const o = find(raw.opacity)
+        if (!o) { report.problems.push(`${spec.path} (${m}): its opacity ${raw.opacity} does not exist`); continue }
+        opacity = figma.variables.createVariableAlias(o)
+      }
       if (raw && typeof raw === 'object' && 'alias' in raw) {
         const target = find(raw.alias)
         if (!target) { report.problems.push(`${spec.path} (${m}): alias to ${raw.alias}, which does not exist`); continue }
         want = figma.variables.createVariableAlias(target)
+        if (opacity) want = { color: want, opacity }
       } else if (raw && typeof raw === 'object' && 'easing' in raw) {
         const [x1, y1, x2, y2] = raw.easing
         want = { type: 'CUSTOM_CUBIC_BEZIER', easingFunctionCubicBezier: { x1, y1, x2, y2 } }
       } else if (raw && typeof raw === 'object' && 'color' in raw) {
         const h = raw.color.replace('#', '')
         want = { r: parseInt(h.slice(0, 2), 16) / 255, g: parseInt(h.slice(2, 4), 16) / 255, b: parseInt(h.slice(4, 6), 16) / 255, a: raw.alpha }
+        if (opacity) want = { color: want, opacity }
       } else {
         want = raw
       }
@@ -312,8 +327,6 @@ async function rebind(pairs) {
         const pair = next(alias)
         if (!pair) continue
         out = setter(out, field, pair.next)
-        // a successor that is a pair carries its opacity onto the paint, composed here
-        if (pair.opacity !== undefined && setter === paint) out = { ...out, opacity: pair.opacity }
         count++
       }
       return out
@@ -434,7 +447,7 @@ async function applyRetirements(P) {
     if (!old) continue
     if (!next) { report.problems.push(`retire ${r.today}: ${r.path} is not in the file; left alone`); continue }
     if (old.resolvedType !== next.resolvedType) { report.problems.push(`retire ${r.today}: it is a ${old.resolvedType}, ${r.path} a ${next.resolvedType}; left alone`); continue }
-    retiredPairs.push({ old, next, opacity: r.opacity })
+    retiredPairs.push({ old, next })
   }
   for (const r of P.styles) {
     const old = textStyles.find(s => s.name === r.today && !stampOf(s, STAMP))
