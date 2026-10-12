@@ -26,7 +26,7 @@ it lives and every layer, style and variable that refers to it.
 
 Run the list again: it is empty but for what was kept on purpose.
 
-## 3. Look over the 52 pairs
+## 3. Look over the 80 pairs
 
 A translucent row is its color with the opacity token bound to the row's opacity, and
 the script writes both, so there is nothing to compose. Open a few in the variables
@@ -39,52 +39,80 @@ tint. In the order the set lists them:
 | `color/bg/ghost/hover` | `color/neutral/highlighter-26` | `opacity/ghost/hover` | 8 |
 | `color/bg/ghost/pressed` | `color/neutral/highlighter-26` | `opacity/ghost/pressed` | 12 |
 | `color/bg/ghost/selected` | `color/neutral/highlighter-26` | `opacity/ghost/selected` | 16 |
+| `color/bg/ghost/selected-hover` | `color/neutral/highlighter-26` | `opacity/ghost/selected-hover` | 12 |
+| `color/bg/ghost/selected-pressed` | `color/neutral/highlighter-26` | `opacity/ghost/selected-pressed` | 8 |
 | `color/bg/soft/enabled` | `color/neutral/highlighter-26` | `opacity/soft/enabled` | 12 |
 | `color/bg/soft/hover` | `color/neutral/highlighter-26` | `opacity/soft/hover` | 16 |
 | `color/bg/soft/pressed` | `color/neutral/highlighter-26` | `opacity/soft/pressed` | 24 |
 | `color/bg/soft/selected` | `color/neutral/highlighter-26` | `opacity/soft/selected` | 32 |
+| `color/bg/soft/selected-hover` | `color/neutral/highlighter-26` | `opacity/soft/selected-hover` | 24 |
+| `color/bg/soft/selected-pressed` | `color/neutral/highlighter-26` | `opacity/soft/selected-pressed` | 16 |
 | `color/bg/brand/ghost/hover` | `color/brand/highlighter-26` | `opacity/ghost/hover` | 8 |
 | `color/bg/brand/ghost/pressed` | `color/brand/highlighter-26` | `opacity/ghost/pressed` | 12 |
 | `color/bg/brand/ghost/selected` | `color/brand/highlighter-26` | `opacity/ghost/selected` | 16 |
+| `color/bg/brand/ghost/selected-hover` | `color/brand/highlighter-26` | `opacity/ghost/selected-hover` | 12 |
+| `color/bg/brand/ghost/selected-pressed` | `color/brand/highlighter-26` | `opacity/ghost/selected-pressed` | 8 |
 | `color/bg/brand/soft/enabled` | `color/brand/highlighter-26` | `opacity/soft/enabled` | 12 |
 | `color/bg/brand/soft/hover` | `color/brand/highlighter-26` | `opacity/soft/hover` | 16 |
 | `color/bg/brand/soft/pressed` | `color/brand/highlighter-26` | `opacity/soft/pressed` | 24 |
 | `color/bg/brand/soft/selected` | `color/brand/highlighter-26` | `opacity/soft/selected` | 32 |
+| `color/bg/brand/soft/selected-hover` | `color/brand/highlighter-26` | `opacity/soft/selected-hover` | 24 |
+| `color/bg/brand/soft/selected-pressed` | `color/brand/highlighter-26` | `opacity/soft/selected-pressed` | 16 |
 | `color/bg/brand-alt/ghost/hover` | `color/brand-alt/highlighter-26` | `opacity/ghost/hover` | 8 |
 | `color/bg/brand-alt/ghost/pressed` | `color/brand-alt/highlighter-26` | `opacity/ghost/pressed` | 12 |
 | `color/bg/brand-alt/ghost/selected` | `color/brand-alt/highlighter-26` | `opacity/ghost/selected` | 16 |
+| `color/bg/brand-alt/ghost/selected-hover` | `color/brand-alt/highlighter-26` | `opacity/ghost/selected-hover` | 12 |
+| `color/bg/brand-alt/ghost/selected-pressed` | `color/brand-alt/highlighter-26` | `opacity/ghost/selected-pressed` | 8 |
 | `color/bg/brand-alt/soft/enabled` | `color/brand-alt/highlighter-26` | `opacity/soft/enabled` | 12 |
 | `color/bg/brand-alt/soft/hover` | `color/brand-alt/highlighter-26` | `opacity/soft/hover` | 16 |
 | `color/bg/brand-alt/soft/pressed` | `color/brand-alt/highlighter-26` | `opacity/soft/pressed` | 24 |
 | `color/bg/brand-alt/soft/selected` | `color/brand-alt/highlighter-26` | `opacity/soft/selected` | 32 |
+| `color/bg/brand-alt/soft/selected-hover` | `color/brand-alt/highlighter-26` | `opacity/soft/selected-hover` | 24 |
+| `color/bg/brand-alt/soft/selected-pressed` | `color/brand-alt/highlighter-26` | `opacity/soft/selected-pressed` | 16 |
 | `color/bg/critical/ghost/hover` | `color/critical/highlighter-26` | `opacity/ghost/hover` | 8 |
 | `color/bg/critical/ghost/pressed` | `color/critical/highlighter-26` | `opacity/ghost/pressed` | 12 |
 | `color/bg/critical/ghost/selected` | `color/critical/highlighter-26` | `opacity/ghost/selected` | 16 |
+| `color/bg/critical/ghost/selected-hover` | `color/critical/highlighter-26` | `opacity/ghost/selected-hover` | 12 |
+| `color/bg/critical/ghost/selected-pressed` | `color/critical/highlighter-26` | `opacity/ghost/selected-pressed` | 8 |
 | `color/bg/critical/soft/enabled` | `color/critical/highlighter-26` | `opacity/soft/enabled` | 12 |
 | `color/bg/critical/soft/hover` | `color/critical/highlighter-26` | `opacity/soft/hover` | 16 |
 | `color/bg/critical/soft/pressed` | `color/critical/highlighter-26` | `opacity/soft/pressed` | 24 |
 | `color/bg/critical/soft/selected` | `color/critical/highlighter-26` | `opacity/soft/selected` | 32 |
+| `color/bg/critical/soft/selected-hover` | `color/critical/highlighter-26` | `opacity/soft/selected-hover` | 24 |
+| `color/bg/critical/soft/selected-pressed` | `color/critical/highlighter-26` | `opacity/soft/selected-pressed` | 16 |
 | `color/bg/warning/ghost/hover` | `color/warning/highlighter-26` | `opacity/ghost/hover` | 8 |
 | `color/bg/warning/ghost/pressed` | `color/warning/highlighter-26` | `opacity/ghost/pressed` | 12 |
 | `color/bg/warning/ghost/selected` | `color/warning/highlighter-26` | `opacity/ghost/selected` | 16 |
+| `color/bg/warning/ghost/selected-hover` | `color/warning/highlighter-26` | `opacity/ghost/selected-hover` | 12 |
+| `color/bg/warning/ghost/selected-pressed` | `color/warning/highlighter-26` | `opacity/ghost/selected-pressed` | 8 |
 | `color/bg/warning/soft/enabled` | `color/warning/highlighter-26` | `opacity/soft/enabled` | 12 |
 | `color/bg/warning/soft/hover` | `color/warning/highlighter-26` | `opacity/soft/hover` | 16 |
 | `color/bg/warning/soft/pressed` | `color/warning/highlighter-26` | `opacity/soft/pressed` | 24 |
 | `color/bg/warning/soft/selected` | `color/warning/highlighter-26` | `opacity/soft/selected` | 32 |
+| `color/bg/warning/soft/selected-hover` | `color/warning/highlighter-26` | `opacity/soft/selected-hover` | 24 |
+| `color/bg/warning/soft/selected-pressed` | `color/warning/highlighter-26` | `opacity/soft/selected-pressed` | 16 |
 | `color/bg/positive/ghost/hover` | `color/positive/highlighter-26` | `opacity/ghost/hover` | 8 |
 | `color/bg/positive/ghost/pressed` | `color/positive/highlighter-26` | `opacity/ghost/pressed` | 12 |
 | `color/bg/positive/ghost/selected` | `color/positive/highlighter-26` | `opacity/ghost/selected` | 16 |
+| `color/bg/positive/ghost/selected-hover` | `color/positive/highlighter-26` | `opacity/ghost/selected-hover` | 12 |
+| `color/bg/positive/ghost/selected-pressed` | `color/positive/highlighter-26` | `opacity/ghost/selected-pressed` | 8 |
 | `color/bg/positive/soft/enabled` | `color/positive/highlighter-26` | `opacity/soft/enabled` | 12 |
 | `color/bg/positive/soft/hover` | `color/positive/highlighter-26` | `opacity/soft/hover` | 16 |
 | `color/bg/positive/soft/pressed` | `color/positive/highlighter-26` | `opacity/soft/pressed` | 24 |
 | `color/bg/positive/soft/selected` | `color/positive/highlighter-26` | `opacity/soft/selected` | 32 |
+| `color/bg/positive/soft/selected-hover` | `color/positive/highlighter-26` | `opacity/soft/selected-hover` | 24 |
+| `color/bg/positive/soft/selected-pressed` | `color/positive/highlighter-26` | `opacity/soft/selected-pressed` | 16 |
 | `color/bg/info/ghost/hover` | `color/info/highlighter-26` | `opacity/ghost/hover` | 8 |
 | `color/bg/info/ghost/pressed` | `color/info/highlighter-26` | `opacity/ghost/pressed` | 12 |
 | `color/bg/info/ghost/selected` | `color/info/highlighter-26` | `opacity/ghost/selected` | 16 |
+| `color/bg/info/ghost/selected-hover` | `color/info/highlighter-26` | `opacity/ghost/selected-hover` | 12 |
+| `color/bg/info/ghost/selected-pressed` | `color/info/highlighter-26` | `opacity/ghost/selected-pressed` | 8 |
 | `color/bg/info/soft/enabled` | `color/info/highlighter-26` | `opacity/soft/enabled` | 12 |
 | `color/bg/info/soft/hover` | `color/info/highlighter-26` | `opacity/soft/hover` | 16 |
 | `color/bg/info/soft/pressed` | `color/info/highlighter-26` | `opacity/soft/pressed` | 24 |
 | `color/bg/info/soft/selected` | `color/info/highlighter-26` | `opacity/soft/selected` | 32 |
+| `color/bg/info/soft/selected-hover` | `color/info/highlighter-26` | `opacity/soft/selected-hover` | 24 |
+| `color/bg/info/soft/selected-pressed` | `color/info/highlighter-26` | `opacity/soft/selected-pressed` | 16 |
 | `color/illustration/shadow` | `color/brand/pen-58` | `opacity/010` | 10 |
 | `color/illustration/shine` | `color/brand/paper-5` | `opacity/020` | 20 |
 

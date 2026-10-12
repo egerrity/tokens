@@ -40,8 +40,10 @@ color / <property> / <family> / <word | state>
   tint at rest and stronger when touched (chips, a selected tab, a soft button); `solid`
   is the engine's stamp, with its edge under `border` and its on-text under `fg`. The
   words are the library's own button kinds, and every other system's.
-- **State**: `enabled`, `hover`, `pressed`, `selected`, on the levels only; the solid
-  has no `selected`.
+- **State**: `enabled`, `hover`, `pressed`, `selected`, `selected-hover`,
+  `selected-pressed`, on the levels only; the solid has no `selected`. The selected
+  ground eases back under the pointer and when pressed, on the same steps the unselected
+  ground climbs, because pressing a selected thing is usually how it comes off.
 
 Offered and reserved: a row is either offered to every designer or reserved for
 component authors. A reserved row is in the token file and in the library, and hidden
@@ -163,8 +165,8 @@ their own names, plus a shadow and a shine as pairs.
 
 | Row | Step |
 | --- | --- |
-| `opacity/ghost/hover`, `pressed`, `selected` | 8, 12, 16; at rest the ghost ground is transparent |
-| `opacity/soft/enabled`, `hover`, `pressed`, `selected` | 12, 16, 24, 32 |
+| `opacity/ghost/hover`, `pressed`, `selected`, `selected-hover`, `selected-pressed` | 8, 12, 16, 12, 8; at rest the ghost ground is transparent |
+| `opacity/soft/enabled`, `hover`, `pressed`, `selected`, `selected-hover`, `selected-pressed` | 12, 16, 24, 32, 24, 16 |
 | `opacity/scrim` | 64 |
 | `opacity/disabled` | 38 |
 | `opacity/010`, `opacity/020` | the illustration pairs' steps, added to the scale |

@@ -27,9 +27,9 @@ const row = (path: TokenPath, value: Value, req: string, use: string, pair?: Tok
 /** the indefinite article a family word takes */
 const an = (word: string): string => `${/^[aeiou]/.test(word) ? 'an' : 'a'} ${word}`
 
-const STATE_TEXT: Record<State, string> = { enabled: 'at rest', hover: 'under the pointer', pressed: 'while pressed', selected: 'when selected' }
+const STATE_TEXT: Record<State, string> = { enabled: 'at rest', hover: 'under the pointer', pressed: 'while pressed', selected: 'when selected', 'selected-hover': 'when selected, under the pointer', 'selected-pressed': 'when selected, while pressed' }
 const LINK_STATES = ['enabled', 'hover', 'pressed'] as const
-const GHOST_STATES = ['hover', 'pressed', 'selected'] as const
+const GHOST_STATES = ['hover', 'pressed', 'selected', 'selected-hover', 'selected-pressed'] as const
 const SOLID_STATES = ['enabled', 'hover', 'pressed'] as const
 
 export function opacitySemanticTokens(d: OpacityDeclaration): Token[] {

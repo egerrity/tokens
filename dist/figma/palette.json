@@ -533,6 +533,36 @@
       }
     },
     {
+      "path": "color/bg/ghost/selected-hover",
+      "type": "COLOR",
+      "scopes": [
+        "FRAME_FILL",
+        "SHAPE_FILL"
+      ],
+      "description": "Req for: the ghost ground of a neutral control, when selected, under the pointer\nUse: the highlighter at an opacity, over the surface\nComposed with opacity/ghost/selected-hover",
+      "values": {
+        "value": {
+          "alias": "color/neutral/highlighter-26",
+          "opacity": "opacity/ghost/selected-hover"
+        }
+      }
+    },
+    {
+      "path": "color/bg/ghost/selected-pressed",
+      "type": "COLOR",
+      "scopes": [
+        "FRAME_FILL",
+        "SHAPE_FILL"
+      ],
+      "description": "Req for: the ghost ground of a neutral control, when selected, while pressed\nUse: the highlighter at an opacity, over the surface\nComposed with opacity/ghost/selected-pressed",
+      "values": {
+        "value": {
+          "alias": "color/neutral/highlighter-26",
+          "opacity": "opacity/ghost/selected-pressed"
+        }
+      }
+    },
+    {
       "path": "color/bg/soft/enabled",
       "type": "COLOR",
       "scopes": [
@@ -589,6 +619,36 @@
         "value": {
           "alias": "color/neutral/highlighter-26",
           "opacity": "opacity/soft/selected"
+        }
+      }
+    },
+    {
+      "path": "color/bg/soft/selected-hover",
+      "type": "COLOR",
+      "scopes": [
+        "FRAME_FILL",
+        "SHAPE_FILL"
+      ],
+      "description": "Req for: the soft ground of a neutral control, when selected, under the pointer\nUse: a tint at rest, stronger when touched: chips, a selected tab, a soft button; the highlighter at an opacity\nComposed with opacity/soft/selected-hover",
+      "values": {
+        "value": {
+          "alias": "color/neutral/highlighter-26",
+          "opacity": "opacity/soft/selected-hover"
+        }
+      }
+    },
+    {
+      "path": "color/bg/soft/selected-pressed",
+      "type": "COLOR",
+      "scopes": [
+        "FRAME_FILL",
+        "SHAPE_FILL"
+      ],
+      "description": "Req for: the soft ground of a neutral control, when selected, while pressed\nUse: a tint at rest, stronger when touched: chips, a selected tab, a soft button; the highlighter at an opacity\nComposed with opacity/soft/selected-pressed",
+      "values": {
+        "value": {
+          "alias": "color/neutral/highlighter-26",
+          "opacity": "opacity/soft/selected-pressed"
         }
       }
     },
@@ -930,6 +990,38 @@
       }
     },
     {
+      "path": "color/bg/brand/ghost/selected-hover",
+      "type": "COLOR",
+      "scopes": [
+        "FRAME_FILL",
+        "SHAPE_FILL"
+      ],
+      "description": "Req for: the ghost ground of a brand control, when selected, under the pointer\nUse: the highlighter at an opacity, over the surface\nComposed with opacity/ghost/selected-hover\nReserved for components; hidden from publishing",
+      "hidden": true,
+      "values": {
+        "value": {
+          "alias": "color/brand/highlighter-26",
+          "opacity": "opacity/ghost/selected-hover"
+        }
+      }
+    },
+    {
+      "path": "color/bg/brand/ghost/selected-pressed",
+      "type": "COLOR",
+      "scopes": [
+        "FRAME_FILL",
+        "SHAPE_FILL"
+      ],
+      "description": "Req for: the ghost ground of a brand control, when selected, while pressed\nUse: the highlighter at an opacity, over the surface\nComposed with opacity/ghost/selected-pressed\nReserved for components; hidden from publishing",
+      "hidden": true,
+      "values": {
+        "value": {
+          "alias": "color/brand/highlighter-26",
+          "opacity": "opacity/ghost/selected-pressed"
+        }
+      }
+    },
+    {
       "path": "color/bg/brand/soft/enabled",
       "type": "COLOR",
       "scopes": [
@@ -990,6 +1082,38 @@
         "value": {
           "alias": "color/brand/highlighter-26",
           "opacity": "opacity/soft/selected"
+        }
+      }
+    },
+    {
+      "path": "color/bg/brand/soft/selected-hover",
+      "type": "COLOR",
+      "scopes": [
+        "FRAME_FILL",
+        "SHAPE_FILL"
+      ],
+      "description": "Req for: the soft ground of a brand control, when selected, under the pointer\nUse: a tint at rest, stronger when touched: chips, a selected tab, a soft button; the highlighter at an opacity\nComposed with opacity/soft/selected-hover\nReserved for components; hidden from publishing",
+      "hidden": true,
+      "values": {
+        "value": {
+          "alias": "color/brand/highlighter-26",
+          "opacity": "opacity/soft/selected-hover"
+        }
+      }
+    },
+    {
+      "path": "color/bg/brand/soft/selected-pressed",
+      "type": "COLOR",
+      "scopes": [
+        "FRAME_FILL",
+        "SHAPE_FILL"
+      ],
+      "description": "Req for: the soft ground of a brand control, when selected, while pressed\nUse: a tint at rest, stronger when touched: chips, a selected tab, a soft button; the highlighter at an opacity\nComposed with opacity/soft/selected-pressed\nReserved for components; hidden from publishing",
+      "hidden": true,
+      "values": {
+        "value": {
+          "alias": "color/brand/highlighter-26",
+          "opacity": "opacity/soft/selected-pressed"
         }
       }
     },
@@ -1330,6 +1454,38 @@
       }
     },
     {
+      "path": "color/bg/brand-alt/ghost/selected-hover",
+      "type": "COLOR",
+      "scopes": [
+        "FRAME_FILL",
+        "SHAPE_FILL"
+      ],
+      "description": "Req for: the ghost ground of a brand-alt control, when selected, under the pointer\nUse: the highlighter at an opacity, over the surface\nComposed with opacity/ghost/selected-hover\nReserved for components; hidden from publishing",
+      "hidden": true,
+      "values": {
+        "value": {
+          "alias": "color/brand-alt/highlighter-26",
+          "opacity": "opacity/ghost/selected-hover"
+        }
+      }
+    },
+    {
+      "path": "color/bg/brand-alt/ghost/selected-pressed",
+      "type": "COLOR",
+      "scopes": [
+        "FRAME_FILL",
+        "SHAPE_FILL"
+      ],
+      "description": "Req for: the ghost ground of a brand-alt control, when selected, while pressed\nUse: the highlighter at an opacity, over the surface\nComposed with opacity/ghost/selected-pressed\nReserved for components; hidden from publishing",
+      "hidden": true,
+      "values": {
+        "value": {
+          "alias": "color/brand-alt/highlighter-26",
+          "opacity": "opacity/ghost/selected-pressed"
+        }
+      }
+    },
+    {
       "path": "color/bg/brand-alt/soft/enabled",
       "type": "COLOR",
       "scopes": [
@@ -1390,6 +1546,38 @@
         "value": {
           "alias": "color/brand-alt/highlighter-26",
           "opacity": "opacity/soft/selected"
+        }
+      }
+    },
+    {
+      "path": "color/bg/brand-alt/soft/selected-hover",
+      "type": "COLOR",
+      "scopes": [
+        "FRAME_FILL",
+        "SHAPE_FILL"
+      ],
+      "description": "Req for: the soft ground of a brand-alt control, when selected, under the pointer\nUse: a tint at rest, stronger when touched: chips, a selected tab, a soft button; the highlighter at an opacity\nComposed with opacity/soft/selected-hover\nReserved for components; hidden from publishing",
+      "hidden": true,
+      "values": {
+        "value": {
+          "alias": "color/brand-alt/highlighter-26",
+          "opacity": "opacity/soft/selected-hover"
+        }
+      }
+    },
+    {
+      "path": "color/bg/brand-alt/soft/selected-pressed",
+      "type": "COLOR",
+      "scopes": [
+        "FRAME_FILL",
+        "SHAPE_FILL"
+      ],
+      "description": "Req for: the soft ground of a brand-alt control, when selected, while pressed\nUse: a tint at rest, stronger when touched: chips, a selected tab, a soft button; the highlighter at an opacity\nComposed with opacity/soft/selected-pressed\nReserved for components; hidden from publishing",
+      "hidden": true,
+      "values": {
+        "value": {
+          "alias": "color/brand-alt/highlighter-26",
+          "opacity": "opacity/soft/selected-pressed"
         }
       }
     },
@@ -1732,6 +1920,38 @@
       }
     },
     {
+      "path": "color/bg/critical/ghost/selected-hover",
+      "type": "COLOR",
+      "scopes": [
+        "FRAME_FILL",
+        "SHAPE_FILL"
+      ],
+      "description": "Req for: the ghost ground of a critical control, when selected, under the pointer\nUse: the highlighter at an opacity, over the surface\nComposed with opacity/ghost/selected-hover\nReserved for components; hidden from publishing",
+      "hidden": true,
+      "values": {
+        "value": {
+          "alias": "color/critical/highlighter-26",
+          "opacity": "opacity/ghost/selected-hover"
+        }
+      }
+    },
+    {
+      "path": "color/bg/critical/ghost/selected-pressed",
+      "type": "COLOR",
+      "scopes": [
+        "FRAME_FILL",
+        "SHAPE_FILL"
+      ],
+      "description": "Req for: the ghost ground of a critical control, when selected, while pressed\nUse: the highlighter at an opacity, over the surface\nComposed with opacity/ghost/selected-pressed\nReserved for components; hidden from publishing",
+      "hidden": true,
+      "values": {
+        "value": {
+          "alias": "color/critical/highlighter-26",
+          "opacity": "opacity/ghost/selected-pressed"
+        }
+      }
+    },
+    {
       "path": "color/bg/critical/soft/enabled",
       "type": "COLOR",
       "scopes": [
@@ -1792,6 +2012,38 @@
         "value": {
           "alias": "color/critical/highlighter-26",
           "opacity": "opacity/soft/selected"
+        }
+      }
+    },
+    {
+      "path": "color/bg/critical/soft/selected-hover",
+      "type": "COLOR",
+      "scopes": [
+        "FRAME_FILL",
+        "SHAPE_FILL"
+      ],
+      "description": "Req for: the soft ground of a critical control, when selected, under the pointer\nUse: a tint at rest, stronger when touched: chips, a selected tab, a soft button; the highlighter at an opacity\nComposed with opacity/soft/selected-hover\nReserved for components; hidden from publishing",
+      "hidden": true,
+      "values": {
+        "value": {
+          "alias": "color/critical/highlighter-26",
+          "opacity": "opacity/soft/selected-hover"
+        }
+      }
+    },
+    {
+      "path": "color/bg/critical/soft/selected-pressed",
+      "type": "COLOR",
+      "scopes": [
+        "FRAME_FILL",
+        "SHAPE_FILL"
+      ],
+      "description": "Req for: the soft ground of a critical control, when selected, while pressed\nUse: a tint at rest, stronger when touched: chips, a selected tab, a soft button; the highlighter at an opacity\nComposed with opacity/soft/selected-pressed\nReserved for components; hidden from publishing",
+      "hidden": true,
+      "values": {
+        "value": {
+          "alias": "color/critical/highlighter-26",
+          "opacity": "opacity/soft/selected-pressed"
         }
       }
     },
@@ -2134,6 +2386,38 @@
       }
     },
     {
+      "path": "color/bg/warning/ghost/selected-hover",
+      "type": "COLOR",
+      "scopes": [
+        "FRAME_FILL",
+        "SHAPE_FILL"
+      ],
+      "description": "Req for: the ghost ground of a warning control, when selected, under the pointer\nUse: the highlighter at an opacity, over the surface\nComposed with opacity/ghost/selected-hover\nReserved for components; hidden from publishing",
+      "hidden": true,
+      "values": {
+        "value": {
+          "alias": "color/warning/highlighter-26",
+          "opacity": "opacity/ghost/selected-hover"
+        }
+      }
+    },
+    {
+      "path": "color/bg/warning/ghost/selected-pressed",
+      "type": "COLOR",
+      "scopes": [
+        "FRAME_FILL",
+        "SHAPE_FILL"
+      ],
+      "description": "Req for: the ghost ground of a warning control, when selected, while pressed\nUse: the highlighter at an opacity, over the surface\nComposed with opacity/ghost/selected-pressed\nReserved for components; hidden from publishing",
+      "hidden": true,
+      "values": {
+        "value": {
+          "alias": "color/warning/highlighter-26",
+          "opacity": "opacity/ghost/selected-pressed"
+        }
+      }
+    },
+    {
       "path": "color/bg/warning/soft/enabled",
       "type": "COLOR",
       "scopes": [
@@ -2194,6 +2478,38 @@
         "value": {
           "alias": "color/warning/highlighter-26",
           "opacity": "opacity/soft/selected"
+        }
+      }
+    },
+    {
+      "path": "color/bg/warning/soft/selected-hover",
+      "type": "COLOR",
+      "scopes": [
+        "FRAME_FILL",
+        "SHAPE_FILL"
+      ],
+      "description": "Req for: the soft ground of a warning control, when selected, under the pointer\nUse: a tint at rest, stronger when touched: chips, a selected tab, a soft button; the highlighter at an opacity\nComposed with opacity/soft/selected-hover\nReserved for components; hidden from publishing",
+      "hidden": true,
+      "values": {
+        "value": {
+          "alias": "color/warning/highlighter-26",
+          "opacity": "opacity/soft/selected-hover"
+        }
+      }
+    },
+    {
+      "path": "color/bg/warning/soft/selected-pressed",
+      "type": "COLOR",
+      "scopes": [
+        "FRAME_FILL",
+        "SHAPE_FILL"
+      ],
+      "description": "Req for: the soft ground of a warning control, when selected, while pressed\nUse: a tint at rest, stronger when touched: chips, a selected tab, a soft button; the highlighter at an opacity\nComposed with opacity/soft/selected-pressed\nReserved for components; hidden from publishing",
+      "hidden": true,
+      "values": {
+        "value": {
+          "alias": "color/warning/highlighter-26",
+          "opacity": "opacity/soft/selected-pressed"
         }
       }
     },
@@ -2536,6 +2852,38 @@
       }
     },
     {
+      "path": "color/bg/positive/ghost/selected-hover",
+      "type": "COLOR",
+      "scopes": [
+        "FRAME_FILL",
+        "SHAPE_FILL"
+      ],
+      "description": "Req for: the ghost ground of a positive control, when selected, under the pointer\nUse: the highlighter at an opacity, over the surface\nComposed with opacity/ghost/selected-hover\nReserved for components; hidden from publishing",
+      "hidden": true,
+      "values": {
+        "value": {
+          "alias": "color/positive/highlighter-26",
+          "opacity": "opacity/ghost/selected-hover"
+        }
+      }
+    },
+    {
+      "path": "color/bg/positive/ghost/selected-pressed",
+      "type": "COLOR",
+      "scopes": [
+        "FRAME_FILL",
+        "SHAPE_FILL"
+      ],
+      "description": "Req for: the ghost ground of a positive control, when selected, while pressed\nUse: the highlighter at an opacity, over the surface\nComposed with opacity/ghost/selected-pressed\nReserved for components; hidden from publishing",
+      "hidden": true,
+      "values": {
+        "value": {
+          "alias": "color/positive/highlighter-26",
+          "opacity": "opacity/ghost/selected-pressed"
+        }
+      }
+    },
+    {
       "path": "color/bg/positive/soft/enabled",
       "type": "COLOR",
       "scopes": [
@@ -2596,6 +2944,38 @@
         "value": {
           "alias": "color/positive/highlighter-26",
           "opacity": "opacity/soft/selected"
+        }
+      }
+    },
+    {
+      "path": "color/bg/positive/soft/selected-hover",
+      "type": "COLOR",
+      "scopes": [
+        "FRAME_FILL",
+        "SHAPE_FILL"
+      ],
+      "description": "Req for: the soft ground of a positive control, when selected, under the pointer\nUse: a tint at rest, stronger when touched: chips, a selected tab, a soft button; the highlighter at an opacity\nComposed with opacity/soft/selected-hover\nReserved for components; hidden from publishing",
+      "hidden": true,
+      "values": {
+        "value": {
+          "alias": "color/positive/highlighter-26",
+          "opacity": "opacity/soft/selected-hover"
+        }
+      }
+    },
+    {
+      "path": "color/bg/positive/soft/selected-pressed",
+      "type": "COLOR",
+      "scopes": [
+        "FRAME_FILL",
+        "SHAPE_FILL"
+      ],
+      "description": "Req for: the soft ground of a positive control, when selected, while pressed\nUse: a tint at rest, stronger when touched: chips, a selected tab, a soft button; the highlighter at an opacity\nComposed with opacity/soft/selected-pressed\nReserved for components; hidden from publishing",
+      "hidden": true,
+      "values": {
+        "value": {
+          "alias": "color/positive/highlighter-26",
+          "opacity": "opacity/soft/selected-pressed"
         }
       }
     },
@@ -2934,6 +3314,38 @@
       }
     },
     {
+      "path": "color/bg/info/ghost/selected-hover",
+      "type": "COLOR",
+      "scopes": [
+        "FRAME_FILL",
+        "SHAPE_FILL"
+      ],
+      "description": "Req for: the ghost ground of an info control, when selected, under the pointer\nUse: the highlighter at an opacity, over the surface\nComposed with opacity/ghost/selected-hover\nReserved for components; hidden from publishing",
+      "hidden": true,
+      "values": {
+        "value": {
+          "alias": "color/info/highlighter-26",
+          "opacity": "opacity/ghost/selected-hover"
+        }
+      }
+    },
+    {
+      "path": "color/bg/info/ghost/selected-pressed",
+      "type": "COLOR",
+      "scopes": [
+        "FRAME_FILL",
+        "SHAPE_FILL"
+      ],
+      "description": "Req for: the ghost ground of an info control, when selected, while pressed\nUse: the highlighter at an opacity, over the surface\nComposed with opacity/ghost/selected-pressed\nReserved for components; hidden from publishing",
+      "hidden": true,
+      "values": {
+        "value": {
+          "alias": "color/info/highlighter-26",
+          "opacity": "opacity/ghost/selected-pressed"
+        }
+      }
+    },
+    {
       "path": "color/bg/info/soft/enabled",
       "type": "COLOR",
       "scopes": [
@@ -2994,6 +3406,38 @@
         "value": {
           "alias": "color/info/highlighter-26",
           "opacity": "opacity/soft/selected"
+        }
+      }
+    },
+    {
+      "path": "color/bg/info/soft/selected-hover",
+      "type": "COLOR",
+      "scopes": [
+        "FRAME_FILL",
+        "SHAPE_FILL"
+      ],
+      "description": "Req for: the soft ground of an info control, when selected, under the pointer\nUse: a tint at rest, stronger when touched: chips, a selected tab, a soft button; the highlighter at an opacity\nComposed with opacity/soft/selected-hover\nReserved for components; hidden from publishing",
+      "hidden": true,
+      "values": {
+        "value": {
+          "alias": "color/info/highlighter-26",
+          "opacity": "opacity/soft/selected-hover"
+        }
+      }
+    },
+    {
+      "path": "color/bg/info/soft/selected-pressed",
+      "type": "COLOR",
+      "scopes": [
+        "FRAME_FILL",
+        "SHAPE_FILL"
+      ],
+      "description": "Req for: the soft ground of an info control, when selected, while pressed\nUse: a tint at rest, stronger when touched: chips, a selected tab, a soft button; the highlighter at an opacity\nComposed with opacity/soft/selected-pressed\nReserved for components; hidden from publishing",
+      "hidden": true,
+      "values": {
+        "value": {
+          "alias": "color/info/highlighter-26",
+          "opacity": "opacity/soft/selected-pressed"
         }
       }
     },

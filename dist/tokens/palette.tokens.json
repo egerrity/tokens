@@ -571,6 +571,16 @@
           "$type": "color",
           "$value": "{color.neutral.highlighter-26}",
           "$description": "Req for: the ghost ground of a neutral control, when selected\nUse: the highlighter at an opacity, over the surface\nComposed with: {opacity.ghost.selected}"
+        },
+        "selected-hover": {
+          "$type": "color",
+          "$value": "{color.neutral.highlighter-26}",
+          "$description": "Req for: the ghost ground of a neutral control, when selected, under the pointer\nUse: the highlighter at an opacity, over the surface\nComposed with: {opacity.ghost.selected-hover}"
+        },
+        "selected-pressed": {
+          "$type": "color",
+          "$value": "{color.neutral.highlighter-26}",
+          "$description": "Req for: the ghost ground of a neutral control, when selected, while pressed\nUse: the highlighter at an opacity, over the surface\nComposed with: {opacity.ghost.selected-pressed}"
         }
       },
       "soft": {
@@ -593,6 +603,16 @@
           "$type": "color",
           "$value": "{color.neutral.highlighter-26}",
           "$description": "Req for: the soft ground of a neutral control, when selected\nUse: a tint at rest, stronger when touched: chips, a selected tab, a soft button; the highlighter at an opacity\nComposed with: {opacity.soft.selected}"
+        },
+        "selected-hover": {
+          "$type": "color",
+          "$value": "{color.neutral.highlighter-26}",
+          "$description": "Req for: the soft ground of a neutral control, when selected, under the pointer\nUse: a tint at rest, stronger when touched: chips, a selected tab, a soft button; the highlighter at an opacity\nComposed with: {opacity.soft.selected-hover}"
+        },
+        "selected-pressed": {
+          "$type": "color",
+          "$value": "{color.neutral.highlighter-26}",
+          "$description": "Req for: the soft ground of a neutral control, when selected, while pressed\nUse: a tint at rest, stronger when touched: chips, a selected tab, a soft button; the highlighter at an opacity\nComposed with: {opacity.soft.selected-pressed}"
         }
       },
       "solid": {
@@ -658,6 +678,16 @@
             "$type": "color",
             "$value": "{color.brand.highlighter-26}",
             "$description": "Req for: the ghost ground of a brand control, when selected\nUse: the highlighter at an opacity, over the surface\nComposed with: {opacity.ghost.selected}\nReserved for components"
+          },
+          "selected-hover": {
+            "$type": "color",
+            "$value": "{color.brand.highlighter-26}",
+            "$description": "Req for: the ghost ground of a brand control, when selected, under the pointer\nUse: the highlighter at an opacity, over the surface\nComposed with: {opacity.ghost.selected-hover}\nReserved for components"
+          },
+          "selected-pressed": {
+            "$type": "color",
+            "$value": "{color.brand.highlighter-26}",
+            "$description": "Req for: the ghost ground of a brand control, when selected, while pressed\nUse: the highlighter at an opacity, over the surface\nComposed with: {opacity.ghost.selected-pressed}\nReserved for components"
           }
         },
         "soft": {
@@ -680,6 +710,16 @@
             "$type": "color",
             "$value": "{color.brand.highlighter-26}",
             "$description": "Req for: the soft ground of a brand control, when selected\nUse: a tint at rest, stronger when touched: chips, a selected tab, a soft button; the highlighter at an opacity\nComposed with: {opacity.soft.selected}\nReserved for components"
+          },
+          "selected-hover": {
+            "$type": "color",
+            "$value": "{color.brand.highlighter-26}",
+            "$description": "Req for: the soft ground of a brand control, when selected, under the pointer\nUse: a tint at rest, stronger when touched: chips, a selected tab, a soft button; the highlighter at an opacity\nComposed with: {opacity.soft.selected-hover}\nReserved for components"
+          },
+          "selected-pressed": {
+            "$type": "color",
+            "$value": "{color.brand.highlighter-26}",
+            "$description": "Req for: the soft ground of a brand control, when selected, while pressed\nUse: a tint at rest, stronger when touched: chips, a selected tab, a soft button; the highlighter at an opacity\nComposed with: {opacity.soft.selected-pressed}\nReserved for components"
           }
         },
         "solid": {
@@ -746,6 +786,16 @@
             "$type": "color",
             "$value": "{color.brand-alt.highlighter-26}",
             "$description": "Req for: the ghost ground of a brand-alt control, when selected\nUse: the highlighter at an opacity, over the surface\nComposed with: {opacity.ghost.selected}\nReserved for components"
+          },
+          "selected-hover": {
+            "$type": "color",
+            "$value": "{color.brand-alt.highlighter-26}",
+            "$description": "Req for: the ghost ground of a brand-alt control, when selected, under the pointer\nUse: the highlighter at an opacity, over the surface\nComposed with: {opacity.ghost.selected-hover}\nReserved for components"
+          },
+          "selected-pressed": {
+            "$type": "color",
+            "$value": "{color.brand-alt.highlighter-26}",
+            "$description": "Req for: the ghost ground of a brand-alt control, when selected, while pressed\nUse: the highlighter at an opacity, over the surface\nComposed with: {opacity.ghost.selected-pressed}\nReserved for components"
           }
         },
         "soft": {
@@ -768,6 +818,16 @@
             "$type": "color",
             "$value": "{color.brand-alt.highlighter-26}",
             "$description": "Req for: the soft ground of a brand-alt control, when selected\nUse: a tint at rest, stronger when touched: chips, a selected tab, a soft button; the highlighter at an opacity\nComposed with: {opacity.soft.selected}\nReserved for components"
+          },
+          "selected-hover": {
+            "$type": "color",
+            "$value": "{color.brand-alt.highlighter-26}",
+            "$description": "Req for: the soft ground of a brand-alt control, when selected, under the pointer\nUse: a tint at rest, stronger when touched: chips, a selected tab, a soft button; the highlighter at an opacity\nComposed with: {opacity.soft.selected-hover}\nReserved for components"
+          },
+          "selected-pressed": {
+            "$type": "color",
+            "$value": "{color.brand-alt.highlighter-26}",
+            "$description": "Req for: the soft ground of a brand-alt control, when selected, while pressed\nUse: a tint at rest, stronger when touched: chips, a selected tab, a soft button; the highlighter at an opacity\nComposed with: {opacity.soft.selected-pressed}\nReserved for components"
           }
         },
         "solid": {
@@ -834,6 +894,16 @@
             "$type": "color",
             "$value": "{color.critical.highlighter-26}",
             "$description": "Req for: the ghost ground of a critical control, when selected\nUse: the highlighter at an opacity, over the surface\nComposed with: {opacity.ghost.selected}\nReserved for components"
+          },
+          "selected-hover": {
+            "$type": "color",
+            "$value": "{color.critical.highlighter-26}",
+            "$description": "Req for: the ghost ground of a critical control, when selected, under the pointer\nUse: the highlighter at an opacity, over the surface\nComposed with: {opacity.ghost.selected-hover}\nReserved for components"
+          },
+          "selected-pressed": {
+            "$type": "color",
+            "$value": "{color.critical.highlighter-26}",
+            "$description": "Req for: the ghost ground of a critical control, when selected, while pressed\nUse: the highlighter at an opacity, over the surface\nComposed with: {opacity.ghost.selected-pressed}\nReserved for components"
           }
         },
         "soft": {
@@ -856,6 +926,16 @@
             "$type": "color",
             "$value": "{color.critical.highlighter-26}",
             "$description": "Req for: the soft ground of a critical control, when selected\nUse: a tint at rest, stronger when touched: chips, a selected tab, a soft button; the highlighter at an opacity\nComposed with: {opacity.soft.selected}\nReserved for components"
+          },
+          "selected-hover": {
+            "$type": "color",
+            "$value": "{color.critical.highlighter-26}",
+            "$description": "Req for: the soft ground of a critical control, when selected, under the pointer\nUse: a tint at rest, stronger when touched: chips, a selected tab, a soft button; the highlighter at an opacity\nComposed with: {opacity.soft.selected-hover}\nReserved for components"
+          },
+          "selected-pressed": {
+            "$type": "color",
+            "$value": "{color.critical.highlighter-26}",
+            "$description": "Req for: the soft ground of a critical control, when selected, while pressed\nUse: a tint at rest, stronger when touched: chips, a selected tab, a soft button; the highlighter at an opacity\nComposed with: {opacity.soft.selected-pressed}\nReserved for components"
           }
         },
         "solid": {
@@ -922,6 +1002,16 @@
             "$type": "color",
             "$value": "{color.warning.highlighter-26}",
             "$description": "Req for: the ghost ground of a warning control, when selected\nUse: the highlighter at an opacity, over the surface\nComposed with: {opacity.ghost.selected}\nReserved for components"
+          },
+          "selected-hover": {
+            "$type": "color",
+            "$value": "{color.warning.highlighter-26}",
+            "$description": "Req for: the ghost ground of a warning control, when selected, under the pointer\nUse: the highlighter at an opacity, over the surface\nComposed with: {opacity.ghost.selected-hover}\nReserved for components"
+          },
+          "selected-pressed": {
+            "$type": "color",
+            "$value": "{color.warning.highlighter-26}",
+            "$description": "Req for: the ghost ground of a warning control, when selected, while pressed\nUse: the highlighter at an opacity, over the surface\nComposed with: {opacity.ghost.selected-pressed}\nReserved for components"
           }
         },
         "soft": {
@@ -944,6 +1034,16 @@
             "$type": "color",
             "$value": "{color.warning.highlighter-26}",
             "$description": "Req for: the soft ground of a warning control, when selected\nUse: a tint at rest, stronger when touched: chips, a selected tab, a soft button; the highlighter at an opacity\nComposed with: {opacity.soft.selected}\nReserved for components"
+          },
+          "selected-hover": {
+            "$type": "color",
+            "$value": "{color.warning.highlighter-26}",
+            "$description": "Req for: the soft ground of a warning control, when selected, under the pointer\nUse: a tint at rest, stronger when touched: chips, a selected tab, a soft button; the highlighter at an opacity\nComposed with: {opacity.soft.selected-hover}\nReserved for components"
+          },
+          "selected-pressed": {
+            "$type": "color",
+            "$value": "{color.warning.highlighter-26}",
+            "$description": "Req for: the soft ground of a warning control, when selected, while pressed\nUse: a tint at rest, stronger when touched: chips, a selected tab, a soft button; the highlighter at an opacity\nComposed with: {opacity.soft.selected-pressed}\nReserved for components"
           }
         },
         "solid": {
@@ -1010,6 +1110,16 @@
             "$type": "color",
             "$value": "{color.positive.highlighter-26}",
             "$description": "Req for: the ghost ground of a positive control, when selected\nUse: the highlighter at an opacity, over the surface\nComposed with: {opacity.ghost.selected}\nReserved for components"
+          },
+          "selected-hover": {
+            "$type": "color",
+            "$value": "{color.positive.highlighter-26}",
+            "$description": "Req for: the ghost ground of a positive control, when selected, under the pointer\nUse: the highlighter at an opacity, over the surface\nComposed with: {opacity.ghost.selected-hover}\nReserved for components"
+          },
+          "selected-pressed": {
+            "$type": "color",
+            "$value": "{color.positive.highlighter-26}",
+            "$description": "Req for: the ghost ground of a positive control, when selected, while pressed\nUse: the highlighter at an opacity, over the surface\nComposed with: {opacity.ghost.selected-pressed}\nReserved for components"
           }
         },
         "soft": {
@@ -1032,6 +1142,16 @@
             "$type": "color",
             "$value": "{color.positive.highlighter-26}",
             "$description": "Req for: the soft ground of a positive control, when selected\nUse: a tint at rest, stronger when touched: chips, a selected tab, a soft button; the highlighter at an opacity\nComposed with: {opacity.soft.selected}\nReserved for components"
+          },
+          "selected-hover": {
+            "$type": "color",
+            "$value": "{color.positive.highlighter-26}",
+            "$description": "Req for: the soft ground of a positive control, when selected, under the pointer\nUse: a tint at rest, stronger when touched: chips, a selected tab, a soft button; the highlighter at an opacity\nComposed with: {opacity.soft.selected-hover}\nReserved for components"
+          },
+          "selected-pressed": {
+            "$type": "color",
+            "$value": "{color.positive.highlighter-26}",
+            "$description": "Req for: the soft ground of a positive control, when selected, while pressed\nUse: a tint at rest, stronger when touched: chips, a selected tab, a soft button; the highlighter at an opacity\nComposed with: {opacity.soft.selected-pressed}\nReserved for components"
           }
         },
         "solid": {
@@ -1098,6 +1218,16 @@
             "$type": "color",
             "$value": "{color.info.highlighter-26}",
             "$description": "Req for: the ghost ground of an info control, when selected\nUse: the highlighter at an opacity, over the surface\nComposed with: {opacity.ghost.selected}\nReserved for components"
+          },
+          "selected-hover": {
+            "$type": "color",
+            "$value": "{color.info.highlighter-26}",
+            "$description": "Req for: the ghost ground of an info control, when selected, under the pointer\nUse: the highlighter at an opacity, over the surface\nComposed with: {opacity.ghost.selected-hover}\nReserved for components"
+          },
+          "selected-pressed": {
+            "$type": "color",
+            "$value": "{color.info.highlighter-26}",
+            "$description": "Req for: the ghost ground of an info control, when selected, while pressed\nUse: the highlighter at an opacity, over the surface\nComposed with: {opacity.ghost.selected-pressed}\nReserved for components"
           }
         },
         "soft": {
@@ -1120,6 +1250,16 @@
             "$type": "color",
             "$value": "{color.info.highlighter-26}",
             "$description": "Req for: the soft ground of an info control, when selected\nUse: a tint at rest, stronger when touched: chips, a selected tab, a soft button; the highlighter at an opacity\nComposed with: {opacity.soft.selected}\nReserved for components"
+          },
+          "selected-hover": {
+            "$type": "color",
+            "$value": "{color.info.highlighter-26}",
+            "$description": "Req for: the soft ground of an info control, when selected, under the pointer\nUse: a tint at rest, stronger when touched: chips, a selected tab, a soft button; the highlighter at an opacity\nComposed with: {opacity.soft.selected-hover}\nReserved for components"
+          },
+          "selected-pressed": {
+            "$type": "color",
+            "$value": "{color.info.highlighter-26}",
+            "$description": "Req for: the soft ground of an info control, when selected, while pressed\nUse: a tint at rest, stronger when touched: chips, a selected tab, a soft button; the highlighter at an opacity\nComposed with: {opacity.soft.selected-pressed}\nReserved for components"
           }
         },
         "solid": {

@@ -5,6 +5,6 @@ export const opacity: OpacityDeclaration = {
   steps: [4, 8, 10, 12, 16, 20, 24, 32, 48, 64],
   disabled: { percent: 38, req: 'the disabled state of a component' },
   scrim: { percent: 64, req: 'the scrim behind a modal' },
-  ghost: { hover: 8, pressed: 12, selected: 16 },
-  soft: { enabled: 12, hover: 16, pressed: 24, selected: 32 },
+  ghost: { hover: 8, pressed: 12, selected: 16, 'selected-hover': 12, 'selected-pressed': 8 },
+  soft: { enabled: 12, hover: 16, pressed: 24, selected: 32, 'selected-hover': 24, 'selected-pressed': 16 },
 }

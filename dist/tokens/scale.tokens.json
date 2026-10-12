@@ -453,6 +453,16 @@
         "$type": "number",
         "$value": "{opacity.016}",
         "$description": "Req for: the ghost ground when selected\nUse: 16 percent of a family's highlighter over the surface; at rest the ghost ground is transparent"
+      },
+      "selected-hover": {
+        "$type": "number",
+        "$value": "{opacity.012}",
+        "$description": "Req for: the ghost ground when selected, under the pointer\nUse: 12 percent of a family's highlighter over the surface; at rest the ghost ground is transparent"
+      },
+      "selected-pressed": {
+        "$type": "number",
+        "$value": "{opacity.008}",
+        "$description": "Req for: the ghost ground when selected, while pressed\nUse: 8 percent of a family's highlighter over the surface; at rest the ghost ground is transparent"
       }
     },
     "soft": {
@@ -475,6 +485,16 @@
         "$type": "number",
         "$value": "{opacity.032}",
         "$description": "Req for: the soft ground when selected\nUse: 32 percent of a family's highlighter over the surface"
+      },
+      "selected-hover": {
+        "$type": "number",
+        "$value": "{opacity.024}",
+        "$description": "Req for: the soft ground when selected, under the pointer\nUse: 24 percent of a family's highlighter over the surface"
+      },
+      "selected-pressed": {
+        "$type": "number",
+        "$value": "{opacity.016}",
+        "$description": "Req for: the soft ground when selected, while pressed\nUse: 16 percent of a family's highlighter over the surface"
       }
     }
   },

@@ -61,10 +61,14 @@ Generated from `declarations/color.ts, with the opacity steps in declarations/op
 | `color/bg/ghost/hover` | `color/neutral/highlighter-26` (#868789) with `opacity/ghost/hover` | the ghost ground of a neutral control, under the pointer |
 | `color/bg/ghost/pressed` | `color/neutral/highlighter-26` (#868789) with `opacity/ghost/pressed` | the ghost ground of a neutral control, while pressed |
 | `color/bg/ghost/selected` | `color/neutral/highlighter-26` (#868789) with `opacity/ghost/selected` | the ghost ground of a neutral control, when selected |
+| `color/bg/ghost/selected-hover` | `color/neutral/highlighter-26` (#868789) with `opacity/ghost/selected-hover` | the ghost ground of a neutral control, when selected, under the pointer |
+| `color/bg/ghost/selected-pressed` | `color/neutral/highlighter-26` (#868789) with `opacity/ghost/selected-pressed` | the ghost ground of a neutral control, when selected, while pressed |
 | `color/bg/soft/enabled` | `color/neutral/highlighter-26` (#868789) with `opacity/soft/enabled` | the soft ground of a neutral control, at rest |
 | `color/bg/soft/hover` | `color/neutral/highlighter-26` (#868789) with `opacity/soft/hover` | the soft ground of a neutral control, under the pointer |
 | `color/bg/soft/pressed` | `color/neutral/highlighter-26` (#868789) with `opacity/soft/pressed` | the soft ground of a neutral control, while pressed |
 | `color/bg/soft/selected` | `color/neutral/highlighter-26` (#868789) with `opacity/soft/selected` | the soft ground of a neutral control, when selected |
+| `color/bg/soft/selected-hover` | `color/neutral/highlighter-26` (#868789) with `opacity/soft/selected-hover` | the soft ground of a neutral control, when selected, under the pointer |
+| `color/bg/soft/selected-pressed` | `color/neutral/highlighter-26` (#868789) with `opacity/soft/selected-pressed` | the soft ground of a neutral control, when selected, while pressed |
 | `color/bg/solid/enabled` | `color/neutral/stamp-0` (#e3e5ea) | the solid ground of a neutral control, at rest (reserved for components) |
 | `color/bg/solid/hover` | `color/neutral/stamp-1` (#d3d5d9) | the solid ground of a neutral control, under the pointer (reserved for components) |
 | `color/bg/solid/pressed` | `color/neutral/stamp-2` (#c3c5c8) | the solid ground of a neutral control, while pressed (reserved for components) |
@@ -88,10 +92,14 @@ Generated from `declarations/color.ts, with the opacity steps in declarations/op
 | `color/bg/brand/ghost/hover` | `color/brand/highlighter-26` (#5287dd) with `opacity/ghost/hover` | the ghost ground of a brand control, under the pointer (reserved for components) |
 | `color/bg/brand/ghost/pressed` | `color/brand/highlighter-26` (#5287dd) with `opacity/ghost/pressed` | the ghost ground of a brand control, while pressed (reserved for components) |
 | `color/bg/brand/ghost/selected` | `color/brand/highlighter-26` (#5287dd) with `opacity/ghost/selected` | the ghost ground of a brand control, when selected (reserved for components) |
+| `color/bg/brand/ghost/selected-hover` | `color/brand/highlighter-26` (#5287dd) with `opacity/ghost/selected-hover` | the ghost ground of a brand control, when selected, under the pointer (reserved for components) |
+| `color/bg/brand/ghost/selected-pressed` | `color/brand/highlighter-26` (#5287dd) with `opacity/ghost/selected-pressed` | the ghost ground of a brand control, when selected, while pressed (reserved for components) |
 | `color/bg/brand/soft/enabled` | `color/brand/highlighter-26` (#5287dd) with `opacity/soft/enabled` | the soft ground of a brand control, at rest (reserved for components) |
 | `color/bg/brand/soft/hover` | `color/brand/highlighter-26` (#5287dd) with `opacity/soft/hover` | the soft ground of a brand control, under the pointer (reserved for components) |
 | `color/bg/brand/soft/pressed` | `color/brand/highlighter-26` (#5287dd) with `opacity/soft/pressed` | the soft ground of a brand control, while pressed (reserved for components) |
 | `color/bg/brand/soft/selected` | `color/brand/highlighter-26` (#5287dd) with `opacity/soft/selected` | the soft ground of a brand control, when selected (reserved for components) |
+| `color/bg/brand/soft/selected-hover` | `color/brand/highlighter-26` (#5287dd) with `opacity/soft/selected-hover` | the soft ground of a brand control, when selected, under the pointer (reserved for components) |
+| `color/bg/brand/soft/selected-pressed` | `color/brand/highlighter-26` (#5287dd) with `opacity/soft/selected-pressed` | the soft ground of a brand control, when selected, while pressed (reserved for components) |
 | `color/bg/brand/solid/enabled` | `color/brand/stamp-0` (#044baf) | the solid ground of a brand control, at rest (reserved for components) |
 | `color/bg/brand/solid/hover` | `color/brand/stamp-1` (#003e97) | the solid ground of a brand control, under the pointer (reserved for components) |
 | `color/bg/brand/solid/pressed` | `color/brand/stamp-2` (#00327d) | the solid ground of a brand control, while pressed (reserved for components) |
@@ -115,10 +123,14 @@ Generated from `declarations/color.ts, with the opacity steps in declarations/op
 | `color/bg/brand-alt/ghost/hover` | `color/brand-alt/highlighter-26` (#7689a8) with `opacity/ghost/hover` | the ghost ground of a brand-alt control, under the pointer (reserved for components) |
 | `color/bg/brand-alt/ghost/pressed` | `color/brand-alt/highlighter-26` (#7689a8) with `opacity/ghost/pressed` | the ghost ground of a brand-alt control, while pressed (reserved for components) |
 | `color/bg/brand-alt/ghost/selected` | `color/brand-alt/highlighter-26` (#7689a8) with `opacity/ghost/selected` | the ghost ground of a brand-alt control, when selected (reserved for components) |
+| `color/bg/brand-alt/ghost/selected-hover` | `color/brand-alt/highlighter-26` (#7689a8) with `opacity/ghost/selected-hover` | the ghost ground of a brand-alt control, when selected, under the pointer (reserved for components) |
+| `color/bg/brand-alt/ghost/selected-pressed` | `color/brand-alt/highlighter-26` (#7689a8) with `opacity/ghost/selected-pressed` | the ghost ground of a brand-alt control, when selected, while pressed (reserved for components) |
 | `color/bg/brand-alt/soft/enabled` | `color/brand-alt/highlighter-26` (#7689a8) with `opacity/soft/enabled` | the soft ground of a brand-alt control, at rest (reserved for components) |
 | `color/bg/brand-alt/soft/hover` | `color/brand-alt/highlighter-26` (#7689a8) with `opacity/soft/hover` | the soft ground of a brand-alt control, under the pointer (reserved for components) |
 | `color/bg/brand-alt/soft/pressed` | `color/brand-alt/highlighter-26` (#7689a8) with `opacity/soft/pressed` | the soft ground of a brand-alt control, while pressed (reserved for components) |
 | `color/bg/brand-alt/soft/selected` | `color/brand-alt/highlighter-26` (#7689a8) with `opacity/soft/selected` | the soft ground of a brand-alt control, when selected (reserved for components) |
+| `color/bg/brand-alt/soft/selected-hover` | `color/brand-alt/highlighter-26` (#7689a8) with `opacity/soft/selected-hover` | the soft ground of a brand-alt control, when selected, under the pointer (reserved for components) |
+| `color/bg/brand-alt/soft/selected-pressed` | `color/brand-alt/highlighter-26` (#7689a8) with `opacity/soft/selected-pressed` | the soft ground of a brand-alt control, when selected, while pressed (reserved for components) |
 | `color/bg/brand-alt/solid/enabled` | `color/brand-alt/stamp-0` (#aabddb) | the solid ground of a brand-alt control, at rest (reserved for components) |
 | `color/bg/brand-alt/solid/hover` | `color/brand-alt/stamp-1` (#9aadcb) | the solid ground of a brand-alt control, under the pointer (reserved for components) |
 | `color/bg/brand-alt/solid/pressed` | `color/brand-alt/stamp-2` (#8b9ebb) | the solid ground of a brand-alt control, while pressed (reserved for components) |
@@ -142,10 +154,14 @@ Generated from `declarations/color.ts, with the opacity steps in declarations/op
 | `color/bg/critical/ghost/hover` | `color/critical/highlighter-26` (#e06046) with `opacity/ghost/hover` | the ghost ground of a critical control, under the pointer (reserved for components) |
 | `color/bg/critical/ghost/pressed` | `color/critical/highlighter-26` (#e06046) with `opacity/ghost/pressed` | the ghost ground of a critical control, while pressed (reserved for components) |
 | `color/bg/critical/ghost/selected` | `color/critical/highlighter-26` (#e06046) with `opacity/ghost/selected` | the ghost ground of a critical control, when selected (reserved for components) |
+| `color/bg/critical/ghost/selected-hover` | `color/critical/highlighter-26` (#e06046) with `opacity/ghost/selected-hover` | the ghost ground of a critical control, when selected, under the pointer (reserved for components) |
+| `color/bg/critical/ghost/selected-pressed` | `color/critical/highlighter-26` (#e06046) with `opacity/ghost/selected-pressed` | the ghost ground of a critical control, when selected, while pressed (reserved for components) |
 | `color/bg/critical/soft/enabled` | `color/critical/highlighter-26` (#e06046) with `opacity/soft/enabled` | the soft ground of a critical control, at rest (reserved for components) |
 | `color/bg/critical/soft/hover` | `color/critical/highlighter-26` (#e06046) with `opacity/soft/hover` | the soft ground of a critical control, under the pointer (reserved for components) |
 | `color/bg/critical/soft/pressed` | `color/critical/highlighter-26` (#e06046) with `opacity/soft/pressed` | the soft ground of a critical control, while pressed (reserved for components) |
 | `color/bg/critical/soft/selected` | `color/critical/highlighter-26` (#e06046) with `opacity/soft/selected` | the soft ground of a critical control, when selected (reserved for components) |
+| `color/bg/critical/soft/selected-hover` | `color/critical/highlighter-26` (#e06046) with `opacity/soft/selected-hover` | the soft ground of a critical control, when selected, under the pointer (reserved for components) |
+| `color/bg/critical/soft/selected-pressed` | `color/critical/highlighter-26` (#e06046) with `opacity/soft/selected-pressed` | the soft ground of a critical control, when selected, while pressed (reserved for components) |
 | `color/bg/critical/solid/enabled` | `color/critical/stamp-0` (#d63e1e) | the solid ground of a critical control, at rest (reserved for components) |
 | `color/bg/critical/solid/hover` | `color/critical/stamp-1` (#c42b04) | the solid ground of a critical control, under the pointer (reserved for components) |
 | `color/bg/critical/solid/pressed` | `color/critical/stamp-2` (#ad2300) | the solid ground of a critical control, while pressed (reserved for components) |
@@ -169,10 +185,14 @@ Generated from `declarations/color.ts, with the opacity steps in declarations/op
 | `color/bg/warning/ghost/hover` | `color/warning/highlighter-26` (#c27700) with `opacity/ghost/hover` | the ghost ground of a warning control, under the pointer (reserved for components) |
 | `color/bg/warning/ghost/pressed` | `color/warning/highlighter-26` (#c27700) with `opacity/ghost/pressed` | the ghost ground of a warning control, while pressed (reserved for components) |
 | `color/bg/warning/ghost/selected` | `color/warning/highlighter-26` (#c27700) with `opacity/ghost/selected` | the ghost ground of a warning control, when selected (reserved for components) |
+| `color/bg/warning/ghost/selected-hover` | `color/warning/highlighter-26` (#c27700) with `opacity/ghost/selected-hover` | the ghost ground of a warning control, when selected, under the pointer (reserved for components) |
+| `color/bg/warning/ghost/selected-pressed` | `color/warning/highlighter-26` (#c27700) with `opacity/ghost/selected-pressed` | the ghost ground of a warning control, when selected, while pressed (reserved for components) |
 | `color/bg/warning/soft/enabled` | `color/warning/highlighter-26` (#c27700) with `opacity/soft/enabled` | the soft ground of a warning control, at rest (reserved for components) |
 | `color/bg/warning/soft/hover` | `color/warning/highlighter-26` (#c27700) with `opacity/soft/hover` | the soft ground of a warning control, under the pointer (reserved for components) |
 | `color/bg/warning/soft/pressed` | `color/warning/highlighter-26` (#c27700) with `opacity/soft/pressed` | the soft ground of a warning control, while pressed (reserved for components) |
 | `color/bg/warning/soft/selected` | `color/warning/highlighter-26` (#c27700) with `opacity/soft/selected` | the soft ground of a warning control, when selected (reserved for components) |
+| `color/bg/warning/soft/selected-hover` | `color/warning/highlighter-26` (#c27700) with `opacity/soft/selected-hover` | the soft ground of a warning control, when selected, under the pointer (reserved for components) |
+| `color/bg/warning/soft/selected-pressed` | `color/warning/highlighter-26` (#c27700) with `opacity/soft/selected-pressed` | the soft ground of a warning control, when selected, while pressed (reserved for components) |
 | `color/bg/warning/solid/enabled` | `color/warning/stamp-0` (#ffc53d) | the solid ground of a warning control, at rest (reserved for components) |
 | `color/bg/warning/solid/hover` | `color/warning/stamp-1` (#eeb524) | the solid ground of a warning control, under the pointer (reserved for components) |
 | `color/bg/warning/solid/pressed` | `color/warning/stamp-2` (#dda500) | the solid ground of a warning control, while pressed (reserved for components) |
@@ -196,10 +216,14 @@ Generated from `declarations/color.ts, with the opacity steps in declarations/op
 | `color/bg/positive/ghost/hover` | `color/positive/highlighter-26` (#009d3c) with `opacity/ghost/hover` | the ghost ground of a positive control, under the pointer (reserved for components) |
 | `color/bg/positive/ghost/pressed` | `color/positive/highlighter-26` (#009d3c) with `opacity/ghost/pressed` | the ghost ground of a positive control, while pressed (reserved for components) |
 | `color/bg/positive/ghost/selected` | `color/positive/highlighter-26` (#009d3c) with `opacity/ghost/selected` | the ghost ground of a positive control, when selected (reserved for components) |
+| `color/bg/positive/ghost/selected-hover` | `color/positive/highlighter-26` (#009d3c) with `opacity/ghost/selected-hover` | the ghost ground of a positive control, when selected, under the pointer (reserved for components) |
+| `color/bg/positive/ghost/selected-pressed` | `color/positive/highlighter-26` (#009d3c) with `opacity/ghost/selected-pressed` | the ghost ground of a positive control, when selected, while pressed (reserved for components) |
 | `color/bg/positive/soft/enabled` | `color/positive/highlighter-26` (#009d3c) with `opacity/soft/enabled` | the soft ground of a positive control, at rest (reserved for components) |
 | `color/bg/positive/soft/hover` | `color/positive/highlighter-26` (#009d3c) with `opacity/soft/hover` | the soft ground of a positive control, under the pointer (reserved for components) |
 | `color/bg/positive/soft/pressed` | `color/positive/highlighter-26` (#009d3c) with `opacity/soft/pressed` | the soft ground of a positive control, while pressed (reserved for components) |
 | `color/bg/positive/soft/selected` | `color/positive/highlighter-26` (#009d3c) with `opacity/soft/selected` | the soft ground of a positive control, when selected (reserved for components) |
+| `color/bg/positive/soft/selected-hover` | `color/positive/highlighter-26` (#009d3c) with `opacity/soft/selected-hover` | the soft ground of a positive control, when selected, under the pointer (reserved for components) |
+| `color/bg/positive/soft/selected-pressed` | `color/positive/highlighter-26` (#009d3c) with `opacity/soft/selected-pressed` | the soft ground of a positive control, when selected, while pressed (reserved for components) |
 | `color/bg/positive/solid/enabled` | `color/positive/stamp-0` (#70d07f) | the solid ground of a positive control, at rest (reserved for components) |
 | `color/bg/positive/solid/hover` | `color/positive/stamp-1` (#5fbf70) | the solid ground of a positive control, under the pointer (reserved for components) |
 | `color/bg/positive/solid/pressed` | `color/positive/stamp-2` (#4faf61) | the solid ground of a positive control, while pressed (reserved for components) |
@@ -223,10 +247,14 @@ Generated from `declarations/color.ts, with the opacity steps in declarations/op
 | `color/bg/info/ghost/hover` | `color/info/highlighter-26` (#8979da) with `opacity/ghost/hover` | the ghost ground of an info control, under the pointer (reserved for components) |
 | `color/bg/info/ghost/pressed` | `color/info/highlighter-26` (#8979da) with `opacity/ghost/pressed` | the ghost ground of an info control, while pressed (reserved for components) |
 | `color/bg/info/ghost/selected` | `color/info/highlighter-26` (#8979da) with `opacity/ghost/selected` | the ghost ground of an info control, when selected (reserved for components) |
+| `color/bg/info/ghost/selected-hover` | `color/info/highlighter-26` (#8979da) with `opacity/ghost/selected-hover` | the ghost ground of an info control, when selected, under the pointer (reserved for components) |
+| `color/bg/info/ghost/selected-pressed` | `color/info/highlighter-26` (#8979da) with `opacity/ghost/selected-pressed` | the ghost ground of an info control, when selected, while pressed (reserved for components) |
 | `color/bg/info/soft/enabled` | `color/info/highlighter-26` (#8979da) with `opacity/soft/enabled` | the soft ground of an info control, at rest (reserved for components) |
 | `color/bg/info/soft/hover` | `color/info/highlighter-26` (#8979da) with `opacity/soft/hover` | the soft ground of an info control, under the pointer (reserved for components) |
 | `color/bg/info/soft/pressed` | `color/info/highlighter-26` (#8979da) with `opacity/soft/pressed` | the soft ground of an info control, while pressed (reserved for components) |
 | `color/bg/info/soft/selected` | `color/info/highlighter-26` (#8979da) with `opacity/soft/selected` | the soft ground of an info control, when selected (reserved for components) |
+| `color/bg/info/soft/selected-hover` | `color/info/highlighter-26` (#8979da) with `opacity/soft/selected-hover` | the soft ground of an info control, when selected, under the pointer (reserved for components) |
+| `color/bg/info/soft/selected-pressed` | `color/info/highlighter-26` (#8979da) with `opacity/soft/selected-pressed` | the soft ground of an info control, when selected, while pressed (reserved for components) |
 | `color/bg/info/solid/enabled` | `color/info/stamp-0` (#bcb3ff) | the solid ground of an info control, at rest (reserved for components) |
 | `color/bg/info/solid/hover` | `color/info/stamp-1` (#aca0fc) | the solid ground of an info control, under the pointer (reserved for components) |
 | `color/bg/info/solid/pressed` | `color/info/stamp-2` (#9d90eb) | the solid ground of an info control, while pressed (reserved for components) |

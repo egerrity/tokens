@@ -31,7 +31,11 @@ Generated from `declarations/opacity.ts`. To change anything here, edit the decl
 | `opacity/ghost/hover` | `opacity/008` (0.08) | the ghost ground under the pointer |
 | `opacity/ghost/pressed` | `opacity/012` (0.12) | the ghost ground while pressed |
 | `opacity/ghost/selected` | `opacity/016` (0.16) | the ghost ground when selected |
+| `opacity/ghost/selected-hover` | `opacity/012` (0.12) | the ghost ground when selected, under the pointer |
+| `opacity/ghost/selected-pressed` | `opacity/008` (0.08) | the ghost ground when selected, while pressed |
 | `opacity/soft/enabled` | `opacity/012` (0.12) | the soft ground at rest |
 | `opacity/soft/hover` | `opacity/016` (0.16) | the soft ground under the pointer |
 | `opacity/soft/pressed` | `opacity/024` (0.24) | the soft ground while pressed |
 | `opacity/soft/selected` | `opacity/032` (0.32) | the soft ground when selected |
+| `opacity/soft/selected-hover` | `opacity/024` (0.24) | the soft ground when selected, under the pointer |
+| `opacity/soft/selected-pressed` | `opacity/016` (0.16) | the soft ground when selected, while pressed |

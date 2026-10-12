@@ -18,7 +18,10 @@ export type Role = (typeof ROLE)[number]
 // the color families the engine generates; the neutral is implied where a row has none
 export const FAMILY = ['brand', 'brand-alt', 'critical', 'warning', 'positive', 'info'] as const
 export type Family = (typeof FAMILY)[number]
-export const STATE = ['enabled', 'hover', 'pressed', 'selected'] as const
+// a condition and an interaction combine with the condition first; the selected ground
+// eases back under the pointer and when pressed, since pressing a selected thing is
+// usually how it comes off
+export const STATE = ['enabled', 'hover', 'pressed', 'selected', 'selected-hover', 'selected-pressed'] as const
 export type State = (typeof STATE)[number]
 const LINK_STATE = ['enabled', 'hover', 'pressed'] as const
 // the emphasis words, one vocabulary for fg, bg and border, in the neutral and in every
@@ -66,7 +69,7 @@ export const SHAPES = {
   opacity: [
     [S(STEP)],
     [S(['disabled', 'scrim'])],
-    [V(['ghost']), S(['hover', 'pressed', 'selected'])],
+    [V(['ghost']), S(['hover', 'pressed', 'selected', 'selected-hover', 'selected-pressed'])],
     [V(['soft']), S(STATE)],
   ],
   motion: [

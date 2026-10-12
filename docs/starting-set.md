@@ -235,8 +235,8 @@ Base tokens: one opacity scale of ten steps, as plain numbers with no color and 
 
 | Path | Value | Replaces |
 | --- | --- | --- |
-| `color/bg/ghost/enabled`, `hover`, `pressed`, `selected` | transparent at rest, then the neutral's `highlighter-26` paired with `opacity/ghost/hover` 8, `/pressed` 12, `/selected` 16 | merge intensity 1, 2, 3 |
-| `color/bg/soft/enabled`, `hover`, `pressed`, `selected` | `highlighter-26` paired with `opacity/soft/enabled` 12, `/hover` 16, `/pressed` 24, `/selected` 32 | merge intensity 2 to 5 |
+| `color/bg/ghost/enabled`, `hover`, `pressed`, `selected`, `selected-hover`, `selected-pressed` | `color/transparent` at rest, then the neutral's `highlighter-26` paired with `opacity/ghost/hover` 8, `/pressed` 12, `/selected` 16, `/selected-hover` 12, `/selected-pressed` 8 | merge intensity 1, 2, 3, 4 |
+| `color/bg/soft/enabled`, `hover`, `pressed`, `selected`, `selected-hover`, `selected-pressed` | `highlighter-26` paired with `opacity/soft/enabled` 12, `/hover` 16, `/pressed` 24, `/selected` 32, `/selected-hover` 24, `/selected-pressed` 16 | merge intensity 2 to 5 |
 | `color/bg/<family>/ghost/…`, `soft/…` | the family's highlighter, the same pairs; reserved for components | nothing today; hover and pressed on a colored ground |
 | `opacity/ghost/…`, `opacity/soft/…` | the semantic opacity steps the pairs name, each an alias to the scale | the alpha written into merge intensity |
 | `color/surface/scrim` | black paired with `opacity/scrim` 64 | the scrim at 60 percent |

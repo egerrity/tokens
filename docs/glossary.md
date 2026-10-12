@@ -58,7 +58,8 @@ above them or everyday ones.
   semantic tokens only (icons, controls, text), and by breakpoints.
 - **Density word.** `condensed`, `normal`, `spacious`: the semantic space words.
 - **State.** One of a closed list of conditions a token changes with: `enabled`, `hover`,
-  `pressed`, `selected`, `focus`, `disabled`. A state is always the last segment, and
+  `pressed`, `selected`, `focus`, `disabled`, and a condition joined with an interaction,
+  the condition first (`selected-hover`). A state is always the last segment, and
   only semantic and component tokens carry one.
 
 ## Color

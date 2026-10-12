@@ -157,7 +157,8 @@ The specifier's kind is what the layers differ on.
   `080`) or a named place on the scale (`full`, `enter`, `sans`, `medium`,
   `breakpoint/md`; in color, a band at a lightness, `pen-70`, or the stamp or a link
   at a step, `stamp-1`, `default-2`).
-- Semantic: a state (`enabled`, `hover`, `pressed`, `selected`), a size (`xs` to `lg`),
+- Semantic: a state (`enabled`, `hover`, `pressed`, `selected`, `selected-hover`,
+  `selected-pressed`), a size (`xs` to `lg`),
   a density (`condensed`, `normal`, `spacious`), an emphasis word (`regular`, `accent`,
   `hint`, `muted`, `strong`), or a name from the group's own list (`high`, `scrim`,
   `focus`, `raised`, `open`, `gutter`, `paragraph`, `disabled`, `on-solid`).
@@ -224,6 +225,8 @@ One closed list, used wherever a token changes with a state:
 | `pressed` | being clicked or tapped | `:active` |
 | `focus` | keyboard focus | `:focus-visible` |
 | `selected` | chosen or on | `aria-selected`, `aria-checked`, `:checked` |
+| `selected-hover` | chosen, pointer over | `[aria-selected]:hover` |
+| `selected-pressed` | chosen, being clicked or tapped | `[aria-selected]:active` |
 | `disabled` | not interactive | `:disabled`, `aria-disabled` |
 
 `enabled`, `hover` and `pressed` are the three in use today. `pressed` is kept over

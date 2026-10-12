@@ -748,6 +748,34 @@
       }
     },
     {
+      "path": "opacity/ghost/selected-hover",
+      "type": "FLOAT",
+      "scopes": [
+        "OPACITY",
+        "COLOR_OPACITY"
+      ],
+      "description": "Req for: the ghost ground when selected, under the pointer",
+      "values": {
+        "value": {
+          "alias": "opacity/012"
+        }
+      }
+    },
+    {
+      "path": "opacity/ghost/selected-pressed",
+      "type": "FLOAT",
+      "scopes": [
+        "OPACITY",
+        "COLOR_OPACITY"
+      ],
+      "description": "Req for: the ghost ground when selected, while pressed",
+      "values": {
+        "value": {
+          "alias": "opacity/008"
+        }
+      }
+    },
+    {
       "path": "opacity/soft/enabled",
       "type": "FLOAT",
       "scopes": [
@@ -800,6 +828,34 @@
       "values": {
         "value": {
           "alias": "opacity/032"
+        }
+      }
+    },
+    {
+      "path": "opacity/soft/selected-hover",
+      "type": "FLOAT",
+      "scopes": [
+        "OPACITY",
+        "COLOR_OPACITY"
+      ],
+      "description": "Req for: the soft ground when selected, under the pointer",
+      "values": {
+        "value": {
+          "alias": "opacity/024"
+        }
+      }
+    },
+    {
+      "path": "opacity/soft/selected-pressed",
+      "type": "FLOAT",
+      "scopes": [
+        "OPACITY",
+        "COLOR_OPACITY"
+      ],
+      "description": "Req for: the soft ground when selected, while pressed",
+      "values": {
+        "value": {
+          "alias": "opacity/016"
         }
       }
     },
