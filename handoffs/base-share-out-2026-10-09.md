@@ -18,11 +18,12 @@ the set and why*, category by category. Everything here is the set as generated
 - Not today: the color roles and the interaction levels (the semantic session); how the
   collections work inside; the Figma rollout; the generator.
 
-## 1. What a base is
+## 1. What a base token is
 
-A base is a value on a scale, named for its position: `space/400` is the sixteen-pixel
-step, `opacity/016` is sixteen percent, `motion/duration/080` is eighty milliseconds.
-A base never says what it is for; the semantic layer does that by pointing at it.
+A base token is a value on a scale, named for its position: `space/400` is the
+sixteen-pixel step, `opacity/016` is sixteen percent, `motion/duration/080` is eighty
+milliseconds. A base token never says what it is for; the semantic layer does that by
+pointing at it.
 Intent is allowed in how a scale is *built* — the color base tokens are solved with
 intent on purpose, so one seed white-labels — but never in the name.
 

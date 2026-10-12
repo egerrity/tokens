@@ -1,0 +1,10 @@
+{
+  "brand": "eggplant",
+  "okchroma": "0.9.0",
+  "contrastProfile": "wcag",
+  "elections": {
+    "primaryHex": "#431C5B",
+    "secondaryHex": "#4BCD3E",
+    "secondaryStyle": "exact"
+  }
+}

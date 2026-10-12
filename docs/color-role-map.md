@@ -9,7 +9,7 @@ home and names the others, and the code-side audit moves each use to its own row
 ## How to read the engine's scale
 
 Every family (`neutral`, `brand`, `brand-alt`, `critical`, `warning`, `positive`,
-`info`) has the same ladder, lightest first, each stop with a promise it keeps whatever
+`info`) has the same run of stops, lightest first, each stop with a promise it keeps whatever
 the brand's seed color:
 
 | Stop | Job | Promise |

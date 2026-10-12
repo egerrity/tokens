@@ -8,6 +8,7 @@
 // reference and a translucent role stays a pair — except in colors.ts, which holds
 // resolved hex and renders a pair as eight digits, because a native app reads a color,
 // not a reference.
+import { brands, PROFILE } from '../declarations/brands.ts'
 import { breakpoint } from '../declarations/breakpoint.ts'
 import { collectionOf, collections, VIEWPORTS } from '../declarations/collections.ts'
 import { prefix } from '../declarations/prefix.ts'
@@ -158,9 +159,18 @@ function colorsTs(brand: string, tokens: Token[], engine: Token[]): string {
   return `${header}const colors = {\n${modes.map(m => `  ${m}: {\n${lines(m)}\n  },`).join('\n')}\n};\nexport default colors;\n`
 }
 
+/**
+ * The brand's record in its portable form: the elections and the engine version that
+ * solved them, as JSON a client's configuration folder can hold and a build can read
+ * back. The stops are never in it; they are computed from it.
+ */
+const brandJson = (brand: string): string =>
+  JSON.stringify({ brand, okchroma: engineVersion(), contrastProfile: PROFILE, elections: brands[brand] }, null, 2) + '\n'
+
 /** the folder for one brand: its files by path under dist/brands/<brand>/ */
 export function themeFolder(brand: string, tokens: Token[], engine: Token[]): Record<string, string> {
   return {
+    [`dist/brands/${brand}/brand.json`]: brandJson(brand),
     [`dist/brands/${brand}/web/variables.css`]: variablesCss(brand, tokens, engine),
     [`dist/brands/${brand}/mobile/colors.ts`]: colorsTs(brand, tokens, engine),
   }

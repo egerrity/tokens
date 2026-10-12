@@ -24,8 +24,8 @@ archived), 4 effect styles, 4 paint styles, no grid styles.
 ## Space and size
 
 Space, 21 steps, in px: 0, 1, 2, 3, 4, 6, 8, 10, 12, 16, 20, 24, 32, 40, 48, 56, 64, 80,
-96, 112, 128. Named `Primitives/space-000` to `space-3200`; the base unit is 4 px and the
-step is the number of base units times 100. Six negative steps, `negative-space-100` to `-600`: -4, -8, -12, -16, -20, -24.
+96, 112, 128. Named `Primitives/space-000` to `space-3200`; the unit is 4 px and the
+step is the number of units times 100. Six negative steps, `negative-space-100` to `-600`: -4, -8, -12, -16, -20, -24.
 
 Size, 8 steps, in px: 12, 16, 20, 24, 32, 40, 48, 56. Named `Primitives/size-300` to
 `size-1400`, same step rule.
@@ -55,7 +55,7 @@ families (`font/family/sans`, `number`, `mono`) and three weights (`regular` 400
 no shared size scale. Line height and letter spacing are not variables; they exist only
 in the text styles, as percentages.
 
-**The styles, at the base mode.**
+**The styles, at the default mode.**
 
 | Style | Weight | Size | Line height | Letter spacing |
 | --- | --- | --- | --- | --- |
@@ -81,14 +81,14 @@ What the numbers show:
 - Body xs is Medium where the rest of Body is Regular.
 
 **The ten modes.** They are platform and text-size contexts, not breakpoints: mobile web
-with the base iOS sizes, desktop web, and eight larger iOS text-size settings.
+with the default iOS sizes, desktop web, and eight larger iOS text-size settings.
 
 Desktop web changes only display and heading: Display 72, 60, 48; Heading 40, 32, 26, 20.
-Title, body, link, button, code and tabular number keep their base size.
+Title, body, link, button, code and tabular number keep their default size.
 
-The iOS settings scale every style. One row per base size:
+The iOS settings scale every style. One row per default size:
 
-| Base | XL | 2XL | 3XL | AX1 | AX2 | AX3 | AX4 | AX5 |
+| Default | XL | 2XL | 3XL | AX1 | AX2 | AX3 | AX4 | AX5 |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 12 | 14 | 16 | 18 | 20 | 21 | 22 | 23 | 24 |
 | 14 | 16 | 18 | 20 | 21 | 23 | 24 | 26 | 28 |
@@ -131,8 +131,8 @@ Four spellings in one file:
 - `(int) Spectrum/Gray/100` and `Content palette/Content Primary`: title case with
   spaces, the role repeated in the leaf.
 
-The space, size, radius and border width steps already follow one rule: the base unit is
-4 px and the step is the number of base units times 100.
+The space, size, radius and border width steps already follow one rule: the unit is
+4 px and the step is the number of units times 100.
 
 ## Not covered
 

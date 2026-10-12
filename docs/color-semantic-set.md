@@ -3,12 +3,12 @@
 The ideal set, built from the engine's rules and from what the old palette's rows are
 actually used for (`color-role-worksheet.csv`, the owner's account of each old row).
 `color-role-map.md` carries the migration: one target per old row. Every row here is an
-alias to an engine base or a pair (an alias plus an opacity), so the set has no
+alias to a color base token or a pair (an alias plus an opacity), so the set has no
 modes of its own and follows the theme's.
 
 ## The construction
 
-Property first, then the family, then an emphasis word or a state:
+The property, then the family, then an emphasis word or a state:
 
 ```
 color / <property> / <family> / <word | state>
@@ -46,7 +46,7 @@ color / <property> / <family> / <word | state>
 Offered and reserved: a row is either offered to every designer or reserved for
 component authors. A reserved row is in the token file and in the library, and hidden
 from publishing in Figma, so a consumer of the library never sees it. That is the gate
-on the `bg` ladder: designers get two grounds per family today, components get four,
+on the `bg` word table: designers get two grounds per family today, components get four,
 and offering more later is one word in the declaration, not a new name.
 
 Four rules the rows rest on:
@@ -54,14 +54,14 @@ Four rules the rows rest on:
 1. **Every `bg` row holds text, and says whose.** The highlighter has no on-text, so it
    is never a ground on its own; it is a border, the focus ring, the state layer, and
    icons. The accent fill takes the `on-inverse` text, as the inverse surface does.
-2. **The three levels are emitted for every family, for parity**, and offered by
+2. **The three levels are written for every family, for parity**, and offered by
    level: the neutral's `ghost` and `soft` to every designer (what the merge rows were
    used for), the families' levels to components, so a colored icon button no longer
    hovers gray. **The solid is a component color**: the engine's stamp under a palette
    name, always reserved, never a general fill.
 4. **Disabled is not a color.** It is `opacity/disabled` on the whole component.
 
-## The ladders
+## The word tables
 
 What each word names, per property. A blank cell is a word the property does not use;
 a starred stop is reserved for components.
@@ -85,20 +85,20 @@ paper.
 
 ## The neutral
 
-| Row | On the engine's | For |
+| Row | Stop | For |
 | --- | --- | --- |
-| `fg/regular`, `accent`, `hint`, `muted`, `strong` | the `fg` ladder | running text and its icons; the quietest text; icons and large text; secondary text; display text |
-| `fg/link/enabled`, `hover`, `pressed` | `link/default/*` | links in running text, which no component owns |
-| `fg/on-inverse/regular`, `accent`, `muted`, `strong` | the inverse ladder | the same words on `surface/inverse` |
-| `fg/on-inverse/link/enabled`, `hover`, `pressed` | `link/inverse/*` | links on an inverted ground |
-| `border/regular`, `accent`, `hint`, `muted`, `strong` | the `border` ladder | the 3:1 border for inputs; the eye-catching border; the card edge; strong dividers; an emphasized outline |
+| `fg/regular`, `accent`, `hint`, `muted`, `strong` | the `fg` word table | running text and its icons; the quietest text; icons and large text; secondary text; display text |
+| `fg/link/enabled`, `hover`, `pressed` | `link/default-0`, `-1`, `-2` | links in running text, which no component owns |
+| `fg/on-inverse/regular`, `accent`, `muted`, `strong` | the inverse word table | the same words on `surface/inverse` |
+| `fg/on-inverse/link/enabled`, `hover`, `pressed` | `link/inverse-0`, `-1`, `-2` | links on an inverted ground |
+| `border/regular`, `accent`, `hint`, `muted`, `strong` | the `border` word table | the 3:1 border for inputs; the eye-catching border; the card edge; strong dividers; an emphasized outline |
 | `border/focus` | `brand/highlighter-26` | the focus ring, drawn the same on every control |
 | `border/inverse` | `neutral/paper-0` | borders on an inverted ground |
 | `bg/regular`, `accent`, `hint`, `muted`, `strong` | `paper-3`, `pencil-47`, `paper-1`, `paper-5`, `chalk-20` | the default ground with color; the fill that grabs the eye, with the on-inverse text; the lightest, the restrained and the heavy ground |
 | `bg/ghost/enabled`, `hover`, `pressed`, `selected` | transparent, then `highlighter-26` with `opacity/ghost/*` | the ghost ground, as pairs |
 | `bg/soft/enabled`, `hover`, `pressed`, `selected` | `highlighter-26` with `opacity/soft/*` | the soft ground, as pairs |
-| `bg/solid/enabled`, `hover`, `pressed`; `border/solid`; `fg/on-solid` (reserved) | `stamp/fill`, `fill-hover`, `fill-pressed`; `stamp/edge`; `stamp/on` | the solid ground, its edge and its on-text |
-| `surface/high`, `mid`, `low`, `dim` | `plane/high`, `mid`, `low`, `dim`, the hidden theme rows on the engine's papers per mode | elevation, in the engine's order in both modes; an input fills with `high`, like a card |
+| `bg/solid/enabled`, `hover`, `pressed`; `border/solid`; `fg/on-solid` (reserved) | `stamp-0`, `stamp-1`, `stamp-2`; `stamp-edge`; `stamp-on` | the solid ground, its edge and its on-text |
+| `surface/high`, `mid`, `low`, `dim` | `plane/high`, `mid`, `low`, `dim`, the hidden theme rows on the neutral's papers per mode | elevation, in the scale's order in both modes; an input fills with `high`, like a card |
 | `surface/inverse` | `neutral/pen-70` | an inverted banner, card or toast; not interactive |
 | `surface/scrim` | black with `opacity/scrim` | a pair |
 
@@ -106,7 +106,7 @@ paper.
 
 The same for `brand`, `brand-alt`, `critical`, `warning`, `positive` and `info`:
 
-| Row | On the engine's | For |
+| Row | Stop | For |
 | --- | --- | --- |
 | `fg/<family>/regular`, `accent` | `pen-70`, `pencil-47` | the family color as dark text; as text at the quiet weight |
 | `fg/<family>/hint`, `muted` (reserved) | `highlighter-26`, `pen-58` | icons and shapes; secondary text, in the family's color |
@@ -116,7 +116,7 @@ The same for `brand`, `brand-alt`, `critical`, `warning`, `positive` and `info`:
 | `bg/<family>/hint`, `muted`, `strong` (reserved) | `paper-1`, `paper-5`, `chalk-20` | the lightest, the restrained and the heavy ground, for components |
 | `bg/<family>/ghost/*`, `soft/*`, `solid/*`; `border/<family>/solid`; `fg/<family>/on-solid` (reserved) | as the neutral's | the three levels in the family's color, for components |
 
-Every word a family has a stop for is emitted, so the whole framework is recorded and
+Every word a family has a stop for is written, so the whole framework is recorded and
 offering a word later is removing it from a reserved list. The one word a family
 cannot have is `fg/strong`: the text pole, `pen-100`, is the neutral's alone.
 
@@ -148,7 +148,7 @@ a shadow is never used to group content a border or white space would group.
 The brand's palette for illustrators, and only the brand's: six of its stops under
 their own names, plus a shadow and a shine as pairs.
 
-| Row | On the engine's |
+| Row | Stop |
 | --- | --- |
 | `illustration/paper` | `brand/paper-5` |
 | `illustration/chalk-light` | `brand/chalk-11` |
@@ -180,28 +180,28 @@ By the owner on 2026-10-05: `fg` and `bg` stay as words; the focus ring is the b
 highlighter; every family gets the state layer in the first cut; the illustration
 pairs get their own opacity steps, 10 and 20.
 
-By the owner on 2026-10-06, through the worksheet and the screenshot of her ladder: the
+By the owner on 2026-10-06, through the worksheet and the screenshot of her word table: the
 five emphasis words and the `fg` stops they name; the same words in the families,
 offered as a subset; the stamp is a component color and leaves the palette; `bg` has
 static rows, not only the state layer; the inverse surface stops being interactive; the
 elevation overlays and the inverse merges have no successor; the skeleton loader binds
 surfaces.
 
-By the owner on 2026-10-06, talking through the ladders and then drawing them (the
+By the owner on 2026-10-06, talking through the word tables and then drawing them (the
 review file, the frame of five combos): the highlighter is never a ground; `accent`
 is `pencil-47` in every property and grabs the eye; `strong` is a chalk, `regular`,
 `muted` and `hint` are papers (3, 5, 1); the accent fill takes the on-inverse text;
 designers get the regular and accent grounds only for now, and the rest of the `bg`
-ladder is reserved for components. The order every list keeps is `regular`, `accent`,
+word table is reserved for components. The order every list keeps is `regular`, `accent`,
 `hint`, `muted`, `strong`: the two reached for first, then rising emphasis, which is
 also light to dark in every property.
 
 By the owner on 2026-10-06, on the interactions: three levels, not one, cordoned by a
 level group under `bg`, named `ghost`, `soft` and `solid`; the solid is aliased from
 the engine's stamp for parity and hidden from designers, rather than generated by the
-engine, because the engine emits base tokens only and the semantic name is the
+engine, because the engine writes base tokens only and the semantic name is the
 palette's. The `muted` border is `chalk-15`. The neutral's `fg/hint` is offered, scoped
-to shapes. Every word with a stop is emitted, offered or reserved, so the framework is
+to shapes. Every word with a stop is written, offered or reserved, so the framework is
 recorded in full and what designers see is decided per word. On 2026-10-07: the
 neutral's `bg` words are all offered; the families' `hint`, `muted` and `strong` grounds
 stay reserved. The surfaces stay palette rows over hidden planes, because today's

@@ -1,8 +1,11 @@
 # The generator: plan
 
-A plan to approve, not a build. It answers the brief in `handoffs/` with what the
-generator is, where its files go, how it works, and in what order it gets built. Nothing
-is built until the owner says yes.
+The plan the generator was approved against and built to. It answers the brief in
+`handoffs/` with what the generator is, where its files go, how it works, and in what
+order it was built. Where this page and the code differ, the code, `grammar.md` and
+`glossary.md` are current: in particular the color engine is now a dependency whose
+documents the build generates per brand (`declarations/brands.ts`), and the build also
+writes a theme folder per brand.
 
 ## What it is
 
@@ -27,7 +30,7 @@ The color engine's shape is declare, derive, emit, audit, document. Four things 
 - **An audit that fails the build**, listing the worst case first, plus an independent
   parser as a second opinion.
 
-The color math, the contrast solving and the per-brand postures do not transfer.
+The color math, the contrast solving and the per-brand solving do not transfer.
 
 ## Where the files go
 
@@ -45,15 +48,15 @@ docs/groups/      one generated page per group: what is decided, what is derived
 
 | Group | A designer decides | The program derives |
 | --- | --- | --- |
-| space | the base unit; the list of steps in base units; which steps get a negative; the semantic rows (gap or padding, where, density, which step) | step names and pixel values; the negative steps; aliases; descriptions |
+| space | the unit; the list of steps in units; which steps get a negative; the semantic rows (gap or padding, where, density, which step) | step names and pixel values; the negative steps; aliases; descriptions |
 | size | the list of steps; the semantic rows (icon, control, content) | names, values, aliases, descriptions |
 | radius, border width | the list of steps; the use text per step | names, values, descriptions |
 | opacity | the list of steps; the disabled value | names, values |
 | motion | the four curves; the durations; each transition as one curve with one duration | names; the transition tokens |
-| breakpoint, grid | the five widths; the grid's columns, margin and gutter per layout range | names; one grid file per layout range |
-| typography | families with fallbacks; weights; the size steps; line heights; each text style as a role and a size with its weight, line height and letter spacing in percent; each style's size per viewport | the font scale; the text style tokens; one file per viewport; letter spacing as a length per style and viewport. A user's text-size setting is left to the operating system, which scales from the base size |
+| breakpoint, grid | the four widths and which one starts each viewport; the grid's columns, margin and gutter per layout range | names; one grid file per layout range |
+| typography | families with fallbacks; weights; the size steps; line heights; each text style as a role and a size with its weight, line height and letter spacing in percent; each style's size per viewport | the font scale; the text style tokens; one file per viewport; letter spacing as a length per style and viewport. A user's text-size setting is left to the operating system, which scales from the token's size |
 | shadow | each level's layers (offset, blur, spread); the opacity step per mode | the shadow tokens, one file per mode |
-| color roles | which roles exist per family; the opacity step per role and state; the scrim; the elevation surfaces | each role as an alias to the engine's color, and each translucent role as a pair: the solid alias plus a semantic opacity token. The generator never composes the two; Figma and the code pipeline do |
+| color roles | which roles exist per family; the opacity step per role and state; the scrim; the elevation surfaces | each role as an alias to a color base token, and each translucent role as a pair: the solid alias plus a semantic opacity token. The generator never composes the two; Figma and the code pipeline do |
 
 A value that cannot be derived from a decision is a decision and sits in the declaration.
 
@@ -135,8 +138,8 @@ what changed.
    token format nor the plugin API can write a composed color; the script writes the
    pair and names what to compose in the row's description, and leaves a row alone once
    it has been composed by hand. The color half is built: the surfaces, the scrim and
-   the semantic set in `docs/color-semantic-set.md`, as aliases onto the engine's rows
-   (`color/…`, 0.8.0), printed with the engine's two modes into a review file. The
+   the semantic set in `docs/color-semantic-set.md`, as aliases onto the color base
+   tokens (`color/…`), printed with the theme's two modes into a review file. The
    shadows are Material 3's four working levels under Atlassian's role names, on
    today's recipes, as shadow composites and as effect styles. The merge for the real
    work file remains.

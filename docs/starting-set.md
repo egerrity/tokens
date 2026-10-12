@@ -13,8 +13,8 @@ the variables and styles), and the audit page beside this one
 ## Space
 
 **Base tokens.** The 21 steps and six negative steps exist and are kept exactly: the same
-step numbers, the same values, the same rule (the base unit is 4 px and the step is the
-number of base units times 100, so 2 px is `050`, 4 px is `100`, 10 px is `250`, 16 px is
+step numbers, the same values, the same rule (the unit is 4 px and the step is the
+number of units times 100, so 2 px is `050`, 4 px is `100`, 10 px is `250`, 16 px is
 `400`). The only change is where the word sits. `Primitives/space-400` becomes the Figma
 variable `space/400`; in CSS it is `--ds-space-400`. The negative steps become
 `space/negative/100` to `space/negative/600`.
@@ -141,8 +141,8 @@ alias space steps.
 The max width is the same at every viewport because the grid is fluid below it; it is
 in the viewport collection so it can differ by viewport if that is ever wanted.
 
-To confirm with the code audit: that the product code is on the framework's default
-breakpoints and has not customized them.
+Confirmed from the apps' theme files on 2026-10-12: the code has customized the
+framework's `sm` to 440 and has no `2xl`; the four widths above are code's.
 
 ## Radius and border width
 
@@ -226,50 +226,31 @@ To check with the motion owner and the code:
   rebinding step to plan; the absolute and alpha rows were alias targets for engine rows
   that no longer point at them, so their use is checked before they are kept.
 
-**What the color engine work already settled, as a reference.** An eight-step opacity
-scale (4, 8, 12, 16, 24, 32, 48, 64 percent); shadows as black at 4, 8, 12 percent in
-light and 32, 48, 64 in dark; the scrim as black at 64; disabled at 38 percent; state
-grounds as a family's color at 12, 16, 24, 32 percent (or 0, 8, 12, 16 for the quietest
-tier); elevation as planes on the neutral scale, with no overlay. One standing ruling: a
-shadow is dark, never a colored glow.
+**As declared.** The rows below are the set as it stands in the declarations; the color
+side's reasoning is in `color-semantic-set.md`.
 
-**Proposed.**
-
-Base tokens: one standard opacity scale, the eight steps the color engine work settled
-on, as plain numbers with no color and no mode.
-
-| Path | Value |
-| --- | --- |
-| `opacity/004`, `008`, `012`, `016`, `024`, `032`, `048`, `064` | the percent |
-
-Semantic: today's merge intensity and the engine's retired utility values, combined.
-Each row is a color at a step of the scale.
+Base tokens: one opacity scale of ten steps, as plain numbers with no color and no mode,
+`opacity/004`, `008`, `010`, `012`, `016`, `020`, `024`, `032`, `048`, `064`; the 10 and
+20 are the illustration pairs' steps.
 
 | Path | Value | Replaces |
 | --- | --- | --- |
-| `color/neutral-strong/hint-bg-hover`, `-pressed`, `-selected` | an alias to the dark pole (black in light, white in dark), paired with `opacity/hint/hover` 8, `/pressed` 12, `/selected` 16 | merge intensity 1, 2, 3 (5, 10, 15 percent) |
-| `color/neutral-strong/subtle-bg-enabled`, `-hover`, `-pressed`, `-selected` | an alias to the dark pole, paired with `opacity/subtle/enabled` 12, `/hover` 16, `/pressed` 24, `/selected` 32 | merge intensity 2 to 5 (10 to 25 percent) |
-| `color/neutral-inverse/…` the same rows | an alias to the light pole, the same opacity pairs | the merge intensity inverse set |
-| `color/<family>/subtle-bg-…` and `hint-bg-…` | an alias to that family's color, the same opacity pairs | nothing today; hover and pressed on a colored ground |
-| `opacity/subtle/…`, `opacity/hint/…` | the semantic opacity steps the pairs above name, each an alias to the opacity scale | the alpha written into merge intensity |
-| `color/scrim` | black at 64 | the scrim at 60 percent |
-| `shadow/100`, `200`, `300`, `400` | the four levels' offsets and blurs; black at 4, 8, 12 in light and 32, 48, 64 in dark | the four effect styles |
+| `color/bg/ghost/enabled`, `hover`, `pressed`, `selected` | transparent at rest, then the neutral's `highlighter-26` paired with `opacity/ghost/hover` 8, `/pressed` 12, `/selected` 16 | merge intensity 1, 2, 3 |
+| `color/bg/soft/enabled`, `hover`, `pressed`, `selected` | `highlighter-26` paired with `opacity/soft/enabled` 12, `/hover` 16, `/pressed` 24, `/selected` 32 | merge intensity 2 to 5 |
+| `color/bg/<family>/ghost/…`, `soft/…` | the family's highlighter, the same pairs; reserved for components | nothing today; hover and pressed on a colored ground |
+| `opacity/ghost/…`, `opacity/soft/…` | the semantic opacity steps the pairs name, each an alias to the scale | the alpha written into merge intensity |
+| `color/surface/scrim` | black paired with `opacity/scrim` 64 | the scrim at 60 percent |
+| `shadow/raised`, `floating`, `overlay`, `lifted` | today's four recipes, black, the same in both themes; named for what sits at that height | the four effect styles |
 | `opacity/disabled` | 38 percent | the undocumented disabled value |
-| elevation surfaces, as color roles on the neutral scale | one neutral step per level, per mode | the four paint styles and the dark overlays |
+| `color/surface/dim`, `low`, `mid`, `high` | aliases to hidden planes, one neutral paper per mode | the four paint styles and the dark overlays |
 
-To decide:
-
-- Which merge step maps to which row. The five merge steps are 5 apart; the scale's
-  steps are not, so the match is close, not exact.
-- The disabled value. 38 percent is the reference and is not a step of the scale;
-  today's components may use another.
-- Four shadow levels against three alpha steps per mode: either two levels share a step,
-  or the shadows use four.
-- Whether the four shadow levels keep their current offsets and blurs.
-- Shadow and scrim need a light and a dark value, so they sit with color's contexts.
-- A translucent role is always emitted as its pair, the color alias and the opacity
-  token, never as a computed color (ruled 2026-10-05). Figma composes the pair by hand
-  until the plugin API can, and the code pipeline composes it in CSS.
+Settled on the way: the disabled value is 38 and is not a step of the scale, by design;
+the shadows keep their offsets and blurs and take no mode, because the plane carries the
+step in dark; shadow and scrim sit in the unmoded collection for that reason. A
+translucent role is always written as its pair, the color alias and the opacity token,
+never as a computed color (ruled 2026-10-05); Figma composes the pair by hand until the
+plugin API can, the CSS carries both names, and the mobile theme file folds them into
+eight-digit hex because a native app reads a color.
 
 ## Typography
 
@@ -314,6 +295,6 @@ engineering name for each. Where it meets the grammar:
   `isSelected`, `isTruncated`, `isIndeterminate`.
 - Size values: 2xs, xs, sm, md, lg, xl, 2xl.
 - Color values: Neutral, Neutral secondary, Brand, Brand accent, Negative, Warning,
-  Positive, Inverse. These are the words to map onto the color engine's families
-  (neutral, brand, brand-alt, critical, warning, positive, info).
+  Positive, Inverse. These are the words to map onto the color families (neutral, brand,
+  brand-alt, critical, warning, positive, info).
 - Kind values: Fill, Outline, Ghost. The engineering name for kind is `variant`.

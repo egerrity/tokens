@@ -1,0 +1,8 @@
+{
+  "brand": "sample",
+  "okchroma": "0.9.0",
+  "contrastProfile": "wcag",
+  "elections": {
+    "primaryHex": "#044BAF"
+  }
+}
