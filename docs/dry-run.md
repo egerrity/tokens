@@ -55,7 +55,8 @@ The window shows one report for the whole run:
   layer's font), the local styles' bindings, and every alias (`rebound` counts them);
   the old row is left in place for you to delete once nothing refers to it. Expected
   here: today's radius, width and icon-size rows, which sit in a collection of their
-  own. Not the backgrounds: the surfaces are palette rows that alias the theme's hidden
+  own, and the three font weights, which sit in the fidelity collection but do not vary
+  by its modes. Not the backgrounds: the surfaces are palette rows that alias the theme's hidden
   planes, so those rename in place like the rest. An old row that varies by its
   collection's modes is not moved, since the new row could not carry that; it is
   listed under `problems` for a decision (the font rows in the fidelity collection). A
