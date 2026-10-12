@@ -2,7 +2,7 @@
   "name": "tokens",
   "private": true,
   "type": "module",
-  "description": "A generator for the design system's non-color token groups: declare, derive, emit, audit.",
+  "description": "A generator for the design system's tokens: declare, derive, emit, audit.",
   "engines": {
     "node": ">=22.18"
   },
@@ -15,5 +15,8 @@
   "devDependencies": {
     "@types/node": "^24.0.0",
     "typescript": "^5.9.0"
+  },
+  "dependencies": {
+    "okchroma": "0.9.0"
   }
 }

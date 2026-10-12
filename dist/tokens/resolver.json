@@ -28,7 +28,7 @@
       "contexts": {
         "light": [
           {
-            "$ref": "engine.light.tokens.json"
+            "$ref": "engine.sample.light.tokens.json"
           },
           {
             "$ref": "theme.light.tokens.json"
@@ -36,7 +36,7 @@
         ],
         "dark": [
           {
-            "$ref": "engine.dark.tokens.json"
+            "$ref": "engine.sample.dark.tokens.json"
           },
           {
             "$ref": "theme.dark.tokens.json"

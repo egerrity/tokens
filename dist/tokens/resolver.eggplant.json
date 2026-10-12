@@ -1,0 +1,91 @@
+{
+  "version": "2025.10",
+  "sets": {
+    "palette": {
+      "sources": [
+        {
+          "$ref": "palette.tokens.json"
+        }
+      ]
+    },
+    "scale": {
+      "sources": [
+        {
+          "$ref": "scale.tokens.json"
+        }
+      ]
+    },
+    "motion": {
+      "sources": [
+        {
+          "$ref": "motion.tokens.json"
+        }
+      ]
+    }
+  },
+  "modifiers": {
+    "theme": {
+      "contexts": {
+        "light": [
+          {
+            "$ref": "engine.eggplant.light.tokens.json"
+          },
+          {
+            "$ref": "theme.light.tokens.json"
+          }
+        ],
+        "dark": [
+          {
+            "$ref": "engine.eggplant.dark.tokens.json"
+          },
+          {
+            "$ref": "theme.dark.tokens.json"
+          }
+        ]
+      },
+      "default": "light"
+    },
+    "viewport": {
+      "contexts": {
+        "mobile": [
+          {
+            "$ref": "viewport.mobile.tokens.json"
+          }
+        ],
+        "tablet": [
+          {
+            "$ref": "viewport.tablet.tokens.json"
+          }
+        ],
+        "desktop": [
+          {
+            "$ref": "viewport.desktop.tokens.json"
+          }
+        ],
+        "wide": [
+          {
+            "$ref": "viewport.wide.tokens.json"
+          }
+        ]
+      },
+      "default": "desktop"
+    }
+  },
+  "resolutionOrder": [
+    {
+      "$ref": "#/sets/palette"
+    },
+    {
+      "$ref": "#/sets/scale"
+    },
+    {
+      "$ref": "#/sets/motion"
+    },
+    {
+      "$ref": "#/modifiers/theme"
+    },
+    {
+      "$ref": "#/modifiers/viewport"
+    }
+  ]
+}

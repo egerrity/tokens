@@ -14,7 +14,7 @@ export type Collection = {
   default?: string
   /** the Figma collection this one takes over, renamed in place, where one exists */
   today?: string
-  /** a file set another generator writes into this collection's contexts, read here and never rewritten: the color engine's */
+  /** the prefix of the documents the color engine writes into this collection's contexts, one set per brand in brands.ts, generated with the rest */
   external?: string
 }
 

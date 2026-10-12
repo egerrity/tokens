@@ -41,5 +41,5 @@ export const tokensOf = (category: Category): Token[] => BY_CATEGORY[category]()
 
 export const roster = (): Token[] => CATEGORIES.flatMap(tokensOf)
 
-/** the color engine's rows: aliased by the palette, never emitted here */
+/** the color engine's rows for the default brand: aliased by the palette, never declared here */
 export const externals = (): Token[] => engineTokens()

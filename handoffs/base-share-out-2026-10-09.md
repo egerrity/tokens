@@ -23,8 +23,8 @@ the set and why*, category by category. Everything here is the set as generated
 A base is a value on a scale, named for its position: `space/400` is the sixteen-pixel
 step, `opacity/016` is sixteen percent, `motion/duration/080` is eighty milliseconds.
 A base never says what it is for; the semantic layer does that by pointing at it.
-Intent is allowed in how a scale is *built* — the color bases are solved with intent on
-purpose, so one seed white-labels — but never in the name.
+Intent is allowed in how a scale is *built* — the color base tokens are solved with
+intent on purpose, so one seed white-labels — but never in the name.
 
 The step rule, in one line: a dimension step is the number of 4 px units times 100, at
 least three digits (2 px is `050`, 4 px is `100`, 16 px is `400`); a step on any other
@@ -32,7 +32,7 @@ scale is the value itself (`opacity/016`, `motion/duration/080`). Named position
 the exception for scales that have names already: `radius/full`, the easings, the font
 families and weights, and the breakpoints, which keep the framework's keys.
 
-Ninety bases of our own, in eight categories, plus the color engine's. Forty-nine are
+Ninety base tokens of our own, in eight categories, plus the color base tokens. Forty-nine are
 today's variables renamed in place; three are added to scales that exist; thirty-eight
 are scales that exist in the docs or in code but not yet as variables.
 
@@ -48,7 +48,7 @@ are scales that exist in the docs or in code but not yet as variables.
 | motion | in code only: `motion-easing-default`, `enter`, `exit`, `linear`; `motion-duration-short-1`, `short-2`, `medium-1`, `medium-2`, `long-1`, `long-2` | `motion/easing/default`, `enter`, `exit`, `linear`; `motion/duration/050`, `080`, `200`, `300`, `400`, `600` | the step is the milliseconds; an easing is a named curve | first time as Figma variables (Figma has timing and easing types now); the duration names become their values |
 | breakpoint | none; the docs name 640, 1024 and 1280; the type collection's modes stood in | `breakpoint/sm` 640, `md` 768, `lg` 1024, `xl` 1280, `2xl` 1536 | a named position: the framework's own keys | the framework's five defaults, three of which the docs already use |
 | font | `font/family/sans`, `number`, `mono`; `font/weight/regular`, `medium`, `semibold`; one size variable per text style | the same families and weights; `font/size/300` … `font/size/1800`, eleven steps, 12 to 72 px; `font/line-height/125`, `150` | sizes on the 4 px rule; line heights as multiples | families and weights keep their names; the per-style sizes become one shared scale the text styles reference; two line heights, 1.25 and 1.5 |
-| color | the engine's rows, already in the file under `color/<family>/…` | unchanged | the engine's: a family and one position word | the color session |
+| color | the color base tokens, already in the file under `color/<family>/…` | unchanged | a family and one position word | the color session |
 
 The full lists, with every value and what each step is required for, are the generated
 pages: `docs/groups/space.md`, `size.md`, `radius.md`, `border-width.md`, `opacity.md`,
@@ -59,7 +59,7 @@ pages: `docs/groups/space.md`, `size.md`, `radius.md`, `border-width.md`, `opaci
 | Decision | Why |
 | --- | --- |
 | The step numbers do not change | They already follow the rule (4 px × 100); nobody relearns a number. |
-| One rule for every dimension scale, three digits minimum | Sorts correctly, leaves room between steps, reads the same in space, size, radius and font size. |
+| One rule for every dimension scale: units × 100, at least three digits | The last two digits are the fraction of a unit: `025` is a quarter unit, `100` one, `3200` thirty-two. Cover the last two digits and what is left is whole units. The padding keeps that place, so `025` cannot be read as twenty-five units; it is one notation in space, size, radius, border width and font size, and today's `width-025` already uses it. |
 | Size gains `1600` (64 px) | The largest icon and spot-illustration sizes need it; nothing else on the scale reaches 64. |
 | Radius gains `075` and `100` | The selection controls use 3 and 4 px today as raw values; a value components use is a token. |
 | Opacity is one scale of ten, in percent, with no color and no mode | The merge rows baked an alpha into a color, so every translucent ground was its own color; now a role is an alias plus an opacity token, and the opacity is reused everywhere. |
@@ -69,7 +69,7 @@ pages: `docs/groups/space.md`, `size.md`, `radius.md`, `border-width.md`, `opaci
 | The type scale is eleven sizes on the same rule | Today each text style owns its size variables; a shared scale means a size is declared once and every style references it. |
 | Line heights are two multiples, 1.25 and 1.5 | Two values cover every style; multiples survive a size change, pixels do not (Figma binds pixels, so the Figma parts carry them per viewport). |
 | The iOS text-size modes are dropped | The operating system scales from the base size; a hand-kept table can only drift from what the device does, and today's does. |
-| Color bases are the engine's | Solved per seed with intent; nothing about them is decided here. |
+| The color base tokens are not decided here | Solved per seed with intent, by the engine; they are the color session's. |
 
 ## 4. Questions you might have
 
@@ -79,9 +79,9 @@ pages: `docs/groups/space.md`, `size.md`, `radius.md`, `border-width.md`, `opaci
 | Why is opacity in percent and not 0 to 1? | The step is the value, and the value designers say is a percent. The file stores 0 to 1; the name says 16. |
 | Why the framework's breakpoints and not ours? | They already are ours: the docs use 640, 1024 and 1280. Adopting the other two means the code and the design vocabulary agree at every width. |
 | Where did the merge intensities go? | Their alpha is now the opacity scale; the rows themselves become the ghost and soft levels, which is the semantic session. |
-| Why does `font/weight/medium` say medium when `breakpoint/md` says md? | Two lists with two meanings: `md` is a size word, a position on a size ladder; `medium` is the typeface's own weight name, what Figma loads. A reader tells a size from a weight by the word alone. |
+| Why does `font/weight/medium` say medium when `breakpoint/md` says md? | Two lists with two meanings: `md` is a size word, a position on a run of sizes; `medium` is the typeface's own weight name, what Figma loads. A reader tells a size from a weight by the word alone. |
 | Why does `radius/full` say full and not a number? | It is not a position on the scale; it is the pill, the one radius that means "as round as it can be." |
-| Why are durations three digits when 50 ms is two? | The scale rule: three digits minimum, so `050` sorts before `200`. |
+| Why are durations three digits when 50 ms is two? | Every step on every scale is at least three digits, so a step always looks like a step and the scales read alike; on a scale that stays under a thousand, the padding also keeps `050` before `200` in any list. |
 | What happens to the existing variables? | Renamed in place; every binding survives; the code names stay until engineering says. The rest is the Figma session. |
 
 ## 5. Open, and what we need from you

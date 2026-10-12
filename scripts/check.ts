@@ -13,7 +13,8 @@ import * as os from 'node:os'
 import * as path from 'node:path'
 
 const dir = path.join(import.meta.dirname, '..', 'dist', 'tokens')
-const resolver = JSON.parse(fs.readFileSync(path.join(dir, 'resolver.json'), 'utf8'))
+// every brand's resolver, plus resolver.json, the default brand's copy
+const resolvers = fs.readdirSync(dir).filter(f => /^resolver(\.[a-z0-9-]+)?\.json$/.test(f)).sort()
 const read = (ref: string) => JSON.parse(fs.readFileSync(path.join(dir, ref), 'utf8'))
 const merge = (into: Record<string, unknown>, from: Record<string, unknown>) => {
   for (const [k, v] of Object.entries(from)) {
@@ -22,25 +23,28 @@ const merge = (into: Record<string, unknown>, from: Record<string, unknown>) => 
     else into[k] = v
   }
 }
-const sets: Record<string, unknown> = {}
-for (const set of Object.values(resolver.sets) as { sources: { $ref: string }[] }[]) for (const s of set.sources) merge(sets, read(s.$ref))
-
 const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'tokens-check-'))
 const cases: [string, Record<string, unknown>][] = []
-const modifiers = Object.entries(resolver.modifiers) as [string, { contexts: Record<string, { $ref: string }[]>; default?: string }][]
-if (modifiers.length === 0) cases.push(['all', sets])
-// a joined document needs one context of every modifier, so each case takes the other
-// modifiers at their default context and varies one
-for (const [name, mod] of modifiers) {
-  for (const [context, sources] of Object.entries(mod.contexts)) {
-    const doc = JSON.parse(JSON.stringify(sets))
-    for (const [other, om] of modifiers) {
-      if (other === name) continue
-      const d = om.default ?? Object.keys(om.contexts)[0]
-      for (const s of om.contexts[d]) merge(doc, read(s.$ref))
+for (const file of resolvers) {
+  const resolver = read(file)
+  const brand = file.slice('resolver.'.length, -'.json'.length) || 'default'
+  const sets: Record<string, unknown> = {}
+  for (const set of Object.values(resolver.sets) as { sources: { $ref: string }[] }[]) for (const s of set.sources) merge(sets, read(s.$ref))
+  const modifiers = Object.entries(resolver.modifiers) as [string, { contexts: Record<string, { $ref: string }[]>; default?: string }][]
+  if (modifiers.length === 0) cases.push([`${brand}.all`, sets])
+  // a joined document needs one context of every modifier, so each case takes the other
+  // modifiers at their default context and varies one
+  for (const [name, mod] of modifiers) {
+    for (const [context, sources] of Object.entries(mod.contexts)) {
+      const doc = JSON.parse(JSON.stringify(sets))
+      for (const [other, om] of modifiers) {
+        if (other === name) continue
+        const d = om.default ?? Object.keys(om.contexts)[0]
+        for (const s of om.contexts[d]) merge(doc, read(s.$ref))
+      }
+      for (const s of sources) merge(doc, read(s.$ref))
+      cases.push([`${brand}.${name}.${context}`, doc])
     }
-    for (const s of sources) merge(doc, read(s.$ref))
-    cases.push([`${name}.${context}`, doc])
   }
 }
 let failed = 0

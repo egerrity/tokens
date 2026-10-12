@@ -3,9 +3,12 @@
 // for byte what generate writes.
 import * as fs from 'node:fs'
 import * as path from 'node:path'
+import { brands, DEFAULT_BRAND } from '../declarations/brands.ts'
+import { collections } from '../declarations/collections.ts'
 import { CATEGORIES } from '../grammar/words.ts'
 import { audit } from './audit.ts'
-import { documents, resolver, serialize } from './dtcg.ts'
+import { documents, engineFileName, resolver, serialize } from './dtcg.ts'
+import { brandFailures, engineDocuments, serializeEngine } from './engine.ts'
 import { figmaFiles, figmaPayloads } from './figma.ts'
 import { handWorkPage, page, pageName } from './pages.ts'
 import { slotsPage } from './slots.ts'
@@ -20,13 +23,19 @@ export function build(): Build {
   const docs = documents(tokens)
   const files: Record<string, string> = {}
   for (const [name, { doc }] of docs) files[`dist/tokens/${name}`] = serialize(doc)
-  files['dist/tokens/resolver.json'] = resolver()
+  // the engine's documents and a resolver per brand; resolver.json is the default brand's
+  const engine = collections.theme.external
+  for (const brand of Object.keys(brands)) {
+    if (engine) for (const [context, doc] of Object.entries(engineDocuments(brand))) files[`dist/tokens/${engineFileName(engine, brand, context)}`] = serializeEngine(doc)
+    files[`dist/tokens/resolver.${brand}.json`] = resolver(brand)
+  }
+  files['dist/tokens/resolver.json'] = resolver(DEFAULT_BRAND)
   for (const [name, content] of Object.entries(figmaFiles(tokens, outside))) files[`dist/figma/${name}`] = content
   Object.assign(files, figmaPlugin(tokens, outside))
   for (const category of CATEGORIES) files[`docs/groups/${pageName(category)}`] = page(category, tokensOf(category), tokens, outside)
   files['docs/hand-work.md'] = handWorkPage(tokens, outside)
   files['docs/slots.md'] = slotsPage(tokens, outside)
-  return { count: tokens.length, failures: audit(tokens, docs, outside), files }
+  return { count: tokens.length, failures: [...audit(tokens, docs, outside), ...brandFailures()], files }
 }
 
 // the collections in the order aliases need: an alias's target must exist before it

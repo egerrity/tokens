@@ -120,9 +120,16 @@ above them or everyday ones.
   data, one file per thing decided: `scale.ts` (the unit), `space.ts`, `size.ts`,
   `radius.ts`, `border-width.ts`, `opacity.ts`, `motion.ts`, `breakpoint.ts`, `grid.ts`,
   `font.ts`, `text.ts` (the text styles), `shadow.ts`, `color.ts` (the word tables, the levels,
-  what is offered), `collections.ts` (which collection each category lives in), and
-  `renames.ts` (today's names). "The declarations" means these fifteen files; nothing
-  else is an input.
+  what is offered), `brands.ts` (each brand's elections for the color engine),
+  `collections.ts` (which collection each category lives in), and `renames.ts` (today's
+  names). "The declarations" means these sixteen files; nothing else is an input.
+- **Brand.** One client's set of values, solved by the color engine from its elections.
+  A brand is never in a name: every brand gets its own engine documents and resolver on
+  the same paths, and a build picks one. The default brand is the one the shared outputs
+  (the Figma payload, the pages) are built for.
+- **Election.** One choice a brand makes in the engine's panel: the seed, an exact second
+  family or a derived one, the neutral's tint, the link seed. Six fields; the stops are
+  computed from them and never stored.
 - **Derive.** To compute a token's name, value, alias or description from the
   declarations rather than write it.
 - **Roster.** The full list of tokens the generator produces, in document order.

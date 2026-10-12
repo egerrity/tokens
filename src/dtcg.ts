@@ -84,12 +84,16 @@ function write(node: DtcgGroup | DtcgToken, depth: number): string {
 /** the bytes of a document: two-space indent, one trailing newline, tokens in roster order */
 export const serialize = (doc: DtcgGroup): string => write(doc, 0) + '\n'
 
+/** the file an engine document is written to: the engine's prefix, the brand, the context */
+export const engineFileName = (external: string, brand: string, context: string): string => fileName({ collection: `${external}.${brand}`, context })
+
 /**
- * The resolver document, the Resolver Module's join: each collection without contexts is
- * a set, each with contexts is a modifier whose contexts name one file each, and the
- * order lists the sets first.
+ * The resolver document for one brand, the Resolver Module's join: each collection
+ * without contexts is a set, each with contexts is a modifier whose contexts name one
+ * file each, the engine's document for the brand ahead of ours, and the order lists the
+ * sets first. The brand is in the engine's file names and nowhere else.
  */
-export function resolver(): string {
+export function resolver(brand: string): string {
   const sets: Record<string, { sources: { $ref: string }[] }> = {}
   const modifiers: Record<string, { contexts: Record<string, { $ref: string }[]>; default?: string }> = {}
   const resolutionOrder: { $ref: string }[] = []
@@ -100,7 +104,7 @@ export function resolver(): string {
     } else {
       const contexts: Record<string, { $ref: string }[]> = {}
       for (const context of c.contexts) contexts[context] = [
-        ...(c.external ? [{ $ref: fileName({ collection: c.external, context }) }] : []),
+        ...(c.external ? [{ $ref: engineFileName(c.external, brand, context) }] : []),
         { $ref: fileName({ collection, context }) },
       ]
       modifiers[collection] = { contexts, ...(c.default ? { default: c.default } : {}) }
