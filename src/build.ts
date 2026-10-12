@@ -53,17 +53,20 @@ const PLUGIN_ORDER = ['scale', 'motion', 'viewport', 'theme', 'palette']
  * console shows a report only while it is open, a window shows it until it is read.
  */
 function figmaPlugin(tokens: Token[], outside: Token[]): Record<string, string> {
-  const { collections, styles, effects } = figmaPayloads(tokens, outside)
+  const { collections, styles, effects, retirements } = figmaPayloads(tokens, outside)
   const byName = new Map(collections.map(c => [c.collection, c]))
   const missing = PLUGIN_ORDER.filter(n => !byName.has(n))
   const extra = collections.map(c => c.collection).filter(n => !PLUGIN_ORDER.includes(n))
   if (missing.length || extra.length) throw new Error(`plugin order: missing ${missing.join(', ') || 'none'}, unordered ${extra.join(', ') || 'none'}`)
-  const payloads = [...PLUGIN_ORDER.map(n => byName.get(n)), styles, effects]
+  // the retirements ride last: every row they point at exists by then
+  const payloads = [...PLUGIN_ORDER.map(n => byName.get(n)), styles, effects, retirements]
   // today's names and their successors, for the leftovers list to name a successor
   const today: Record<string, string> = {}
   for (const c of collections) for (const v of c.variables) if (v.today) today[v.today] = v.path
   for (const s of styles.styles) if (s.today) today[s.today] = s.name
   for (const e of effects.styles) if (e.today) today[e.today] = e.name
+  for (const r of retirements.variables) today[r.today] = r.path
+  for (const r of retirements.styles) today[r.today] = r.path
   const script = (name: string) => fs.readFileSync(path.join(import.meta.dirname, '..', 'scripts', 'figma', name), 'utf8')
   const code = [
     '// Generated: scripts/figma/apply.js with every payload inlined, in alias order, and',
@@ -107,7 +110,7 @@ function figmaPlugin(tokens: Token[], outside: Token[]): Record<string, string> 
     "  const q = s => '\"' + String(s == null ? '' : s).replace(/\"/g, '\"\"') + '\"'",
     "  const rows = [['Section', 'Item', 'Done']]",
     "  for (const k of ['created', 'renamed', 'updated', 'orphans', 'problems']) for (const item of r[k] || []) rows.push([k, item, ''])",
-    "  rows.push(['same', r.same, ''], ['rebound', r.rebound, ''])",
+    "  rows.push(['same', r.same, ''], ['rebound', r.rebound, ''], ['restyled', r.restyled, ''])",
     "  return '\\uFEFF' + rows.map(x => x.map(q).join(',')).join('\\r\\n') + '\\r\\n'",
     '}',
     "const run = figma.command === 'audit' ? audit().then(r => show('tokens: the leftovers', r.text, r.csv, 'tokens-leftovers.csv'))",

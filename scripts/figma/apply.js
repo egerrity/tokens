@@ -22,10 +22,13 @@ const COLLECTION_STAMP = 'collection'
 const stampOf = (node, key) => node.getSharedPluginData(NAMESPACE, key)
 const stamp = (node, key, value) => node.setSharedPluginData(NAMESPACE, key, value)
 
-const report = { created: [], renamed: [], updated: [], same: 0, orphans: [], rebound: 0, problems: [] }
+const report = { created: [], renamed: [], updated: [], same: 0, orphans: [], rebound: 0, restyled: 0, problems: [] }
 // an orphan is today's row in a collection the new row cannot live in, so the new row
-// is created and the old row's bindings move to it afterwards
+// is created and the old row's bindings move to it afterwards; a retirement is today's
+// row the rename map cannot pair, given its successor by the owner, and moves the same way
 const orphanPairs = []
+const retiredPairs = []
+const retiredStyles = []
 
 const allVariables = await figma.variables.getLocalVariablesAsync()
 const allCollections = await figma.variables.getLocalVariableCollectionsAsync()
@@ -261,7 +264,11 @@ async function rebind(pairs) {
       let out = x
       for (const [field, alias] of Object.entries(x.boundVariables || {})) {
         const pair = next(alias)
-        if (pair) { out = setter(out, field, pair.next); count++ }
+        if (!pair) continue
+        out = setter(out, field, pair.next)
+        // a successor that is a pair carries its opacity onto the paint, composed here
+        if (pair.opacity !== undefined && setter === paint) out = { ...out, opacity: pair.opacity }
+        count++
       }
       return out
     })
@@ -337,12 +344,69 @@ async function rebind(pairs) {
   for (const { old, next } of pairs) report.orphans.push(`${old.name}: its bindings now point at ${next.name}; delete it by hand once nothing refers to it`)
 }
 
+// Today's text styles given a successor: every layer set to the old style is set to the
+// new one, mixed text by its runs, and the old style is left for the delete command.
+async function restyle(map) {
+  if (!map.length) return
+  try { await figma.loadAllPagesAsync() } catch (e) { /* already loaded, or a runtime that cannot */ }
+  const byOld = new Map(map.map(m => [m.old.id, m]))
+  const byHand = []
+  const fontsFor = async (node, style) => {
+    try { for (const f of node.getRangeAllFontNames(0, node.characters.length)) await figma.loadFontAsync(f); await figma.loadFontAsync(style.fontName); return true }
+    catch (e) { byHand.push(`${node.name}: its font cannot be loaded`); return false }
+  }
+  for (const node of figma.root.findAll(n => n.type === 'TEXT')) {
+    let label = 'a layer that no longer exists'
+    try { if (node.removed) continue; label = node.name } catch (e) { continue }
+    try {
+      if (node.textStyleId === figma.mixed) {
+        for (const seg of node.getStyledTextSegments(['textStyleId'])) {
+          const m = byOld.get(seg.textStyleId)
+          if (!m) continue
+          if (!(await fontsFor(node, m.next))) break
+          await node.setRangeTextStyleIdAsync(seg.start, seg.end, m.next.id); report.restyled++
+        }
+      } else {
+        const m = byOld.get(node.textStyleId)
+        if (!m) continue
+        if (!(await fontsFor(node, m.next))) continue
+        await node.setTextStyleIdAsync(m.next.id); report.restyled++
+      }
+    } catch (e) { byHand.push(`${label}: ${e.message}`) }
+  }
+  for (const h of new Set(byHand)) report.problems.push(`restyle: ${h}; restyled by hand`)
+  for (const { old, next } of map) report.orphans.push(`text style ${old.name}: its layers now use ${next.name}; delete it once nothing refers to it`)
+}
+
+// The retirements payload: today's rows and styles the owner gave a successor. The old
+// is found by name, untagged; the new by its tag, which every row has by now.
+async function applyRetirements(P) {
+  const textStyles = await figma.getLocalTextStylesAsync()
+  for (const r of P.variables) {
+    const old = allVariables.find(x => x.name === r.today && !stampOf(x, STAMP))
+    const next = byStamp.get(r.path)
+    if (!old) continue
+    if (!next) { report.problems.push(`retire ${r.today}: ${r.path} is not in the file; left alone`); continue }
+    if (old.resolvedType !== next.resolvedType) { report.problems.push(`retire ${r.today}: it is a ${old.resolvedType}, ${r.path} a ${next.resolvedType}; left alone`); continue }
+    retiredPairs.push({ old, next, opacity: r.opacity })
+  }
+  for (const r of P.styles) {
+    const old = textStyles.find(s => s.name === r.today && !stampOf(s, STAMP))
+    const next = textStyles.find(s => stampOf(s, STAMP) === r.path)
+    if (!old) continue
+    if (!next) { report.problems.push(`retire ${r.today}: ${r.path} is not in the file; left alone`); continue }
+    retiredStyles.push({ old, next })
+  }
+}
+
 if (!PAYLOAD) throw new Error('no payload inlined')
 for (const P of Array.isArray(PAYLOAD) ? PAYLOAD : [PAYLOAD]) {
   if (P.kind === 'variables') await applyVariables(P)
   else if (P.kind === 'text-styles') await applyTextStyles(P)
   else if (P.kind === 'effect-styles') await applyEffectStyles(P)
+  else if (P.kind === 'retirements') await applyRetirements(P)
   else throw new Error(`unknown payload kind ${P.kind}`)
 }
-await rebind(orphanPairs)
+await rebind([...orphanPairs, ...retiredPairs])
+await restyle(retiredStyles)
 return report

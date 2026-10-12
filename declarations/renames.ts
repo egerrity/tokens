@@ -80,3 +80,25 @@ export const todayMode: Readonly<Record<string, string>> = {
   mobile: 'Mobile Web & iOS XS–LG',
   desktop: 'Desktop Web',
 }
+
+/**
+ * Today's rows the rename map cannot pair with a row of their own, each with the path
+ * that replaces it, decided by the owner from the leftovers list. The plugin moves every
+ * binding from the old row to the new one; where the new row is a pair, the fill's
+ * opacity is set to the pair's value as the binding moves. The old row is left for the
+ * delete command once nothing refers to it.
+ */
+export const retiredVariables: Readonly<Record<string, string>> = {}
+
+/** today's text styles replaced by a style of the set: the archived desktop styles, whose live styles the viewport modes now make responsive */
+export const retiredStyles: Readonly<Record<string, string>> = {
+  '_ARCHIVE/Desktop styles (responsive)/Display Large': 'text/display/lg',
+  '_ARCHIVE/Desktop styles (responsive)/Display Medium': 'text/display/md',
+  '_ARCHIVE/Desktop styles (responsive)/Display Small': 'text/display/sm',
+  '_ARCHIVE/Desktop styles (responsive)/Heading Large': 'text/heading/lg',
+  '_ARCHIVE/Desktop styles (responsive)/Heading Medium': 'text/heading/md',
+  '_ARCHIVE/Desktop styles (responsive)/Heading Small': 'text/heading/sm',
+  '_ARCHIVE/Desktop styles (responsive)/Heading XSmall': 'text/heading/xs',
+  '_LOCAL/Generative AI/Body md': 'text/body/md',
+  '_LOCAL/Generative AI/Title md': 'text/title/md',
+}

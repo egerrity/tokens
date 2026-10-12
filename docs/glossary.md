@@ -113,6 +113,10 @@ above them or everyday ones.
   in prose it is the identity tag, because `stamp` is a color word.
 - **Today's name.** What a row is called in the library before the rollout; the rename
   map pairs it with its path so the row is renamed in place and its bindings survive.
+- **Retirement.** Today's row or text style the rename map cannot pair with a row of
+  its own, given the path that replaces it by the owner. The plugin moves every binding
+  from the old to the new (a pair's opacity onto the layer, a style onto its text) and
+  leaves the old for the delete command.
 
 ## The generator
 

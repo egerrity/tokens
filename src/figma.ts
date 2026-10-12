@@ -5,7 +5,7 @@
 // so bindings survive. The payload is a rendering of the roster, never a second source:
 // every value here is a conversion of a token value, stated beside the conversion.
 import { collections, collectionOf } from '../declarations/collections.ts'
-import { todayMode, todayStyle, todayVariable } from '../declarations/renames.ts'
+import { retiredStyles, retiredVariables, todayMode, todayStyle, todayVariable } from '../declarations/renames.ts'
 import { figmaName, type TokenPath } from '../grammar/path.ts'
 import { isAlias, valueIn, type Token, type Value } from './types.ts'
 
@@ -178,7 +178,20 @@ function textParts(t: Token, modes: string[], byPath: Map<string, Token>): Figma
   ]
 }
 
-export function figmaPayloads(tokens: Token[], outside: Token[] = []): { collections: FigmaCollectionPayload[]; styles: FigmaStylesPayload; effects: FigmaEffectsPayload } {
+/**
+ * Today's rows and styles the rename map cannot pair with a successor, each with the row
+ * that replaces it, from the retirement declarations: the rebind pass moves every
+ * binding from the old to the new, and where the new row is a pair, the fill's opacity
+ * is set to the pair's value as the binding moves, the composition landing on the
+ * layer, which is where Figma keeps it.
+ */
+export type FigmaRetirements = {
+  kind: 'retirements'
+  variables: { today: string; path: string; opacity?: number }[]
+  styles: { today: string; path: string }[]
+}
+
+export function figmaPayloads(tokens: Token[], outside: Token[] = []): { collections: FigmaCollectionPayload[]; styles: FigmaStylesPayload; effects: FigmaEffectsPayload; retirements: FigmaRetirements } {
   const byPath = new Map(tokens.map(t => [figmaName(t.path), t]))
   const out: FigmaCollectionPayload[] = []
   for (const [collection, c] of Object.entries(collections)) {
@@ -243,15 +256,34 @@ export function figmaPayloads(tokens: Token[], outside: Token[] = []): { collect
       layers: v.value.map(l => ({ x: l.offsetX.value, y: l.offsetY.value, blur: l.blur.value, spread: l.spread.value, color: l.color.hex, alpha: l.color.alpha })),
     }
   })
-  return { collections: out, styles: { kind: 'text-styles', styles }, effects: { kind: 'effect-styles', styles: effects } }
+  // a retirement's target must be a row of the set, and a pair's opacity is its number
+  const everywhere = new Map([...outside, ...tokens].map(t => [figmaName(t.path), t]))
+  const literal = (t: Token): Value => { let cur = t; let v = cur.value; const seen = new Set<string>(); while (isAlias(v)) { const k = figmaName(v.alias); if (seen.has(k)) break; seen.add(k); const n = everywhere.get(k); if (!n) break; cur = n; v = cur.value }; return v }
+  const retirements: FigmaRetirements = {
+    kind: 'retirements',
+    variables: Object.entries(retiredVariables).map(([today, path]) => {
+      const t = everywhere.get(path)
+      if (!t) throw new Error(`retirement ${today}: ${path} is not a row of the set`)
+      const pair = t.pair ? everywhere.get(figmaName(t.pair)) : undefined
+      const o = pair && literal(pair)
+      return { today, path, ...(o && !isAlias(o) && o.type === 'number' ? { opacity: o.value } : {}) }
+    }),
+    styles: Object.entries(retiredStyles).map(([today, path]) => {
+      const t = byPath.get(path)
+      if (!t || t.value.type !== 'typography') throw new Error(`retirement ${today}: ${path} is not a text style of the set`)
+      return { today, path }
+    }),
+  }
+  return { collections: out, styles: { kind: 'text-styles', styles }, effects: { kind: 'effect-styles', styles: effects }, retirements }
 }
 
 /** the payload as files, keyed by file name */
 export function figmaFiles(tokens: Token[], outside: Token[] = []): Record<string, string> {
-  const { collections: cs, styles, effects } = figmaPayloads(tokens, outside)
+  const { collections: cs, styles, effects, retirements } = figmaPayloads(tokens, outside)
   const files: Record<string, string> = {}
   for (const c of cs) files[`${c.collection}.json`] = JSON.stringify(c, null, 2) + '\n'
   files['text-styles.json'] = JSON.stringify(styles, null, 2) + '\n'
   files['effect-styles.json'] = JSON.stringify(effects, null, 2) + '\n'
+  files['retirements.json'] = JSON.stringify(retirements, null, 2) + '\n'
   return files
 }

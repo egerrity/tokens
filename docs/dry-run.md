@@ -79,6 +79,12 @@ The window shows one report for the whole run:
   and the `PDF` mode are left in place and listed here. They are deleted by hand: the
   ruling is that the OS scales from the base size.
 
+- `restyled`: text layers moved from a retired text style to its successor. The
+  retirements (`declarations/renames.ts`) are today's rows and styles the rename map
+  cannot pair, each with the path the owner chose; the rebind pass moves their bindings
+  like an orphan's, setting a fill's opacity where the successor is a pair, and the old
+  row or style is left for the delete command.
+
 The script never deletes, never writes a value that is already what the payload asks
 for, and leaves a row composed by hand (an alias with an opacity) as it is.
 

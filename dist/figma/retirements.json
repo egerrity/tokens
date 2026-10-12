@@ -1,0 +1,42 @@
+{
+  "kind": "retirements",
+  "variables": [],
+  "styles": [
+    {
+      "today": "_ARCHIVE/Desktop styles (responsive)/Display Large",
+      "path": "text/display/lg"
+    },
+    {
+      "today": "_ARCHIVE/Desktop styles (responsive)/Display Medium",
+      "path": "text/display/md"
+    },
+    {
+      "today": "_ARCHIVE/Desktop styles (responsive)/Display Small",
+      "path": "text/display/sm"
+    },
+    {
+      "today": "_ARCHIVE/Desktop styles (responsive)/Heading Large",
+      "path": "text/heading/lg"
+    },
+    {
+      "today": "_ARCHIVE/Desktop styles (responsive)/Heading Medium",
+      "path": "text/heading/md"
+    },
+    {
+      "today": "_ARCHIVE/Desktop styles (responsive)/Heading Small",
+      "path": "text/heading/sm"
+    },
+    {
+      "today": "_ARCHIVE/Desktop styles (responsive)/Heading XSmall",
+      "path": "text/heading/xs"
+    },
+    {
+      "today": "_LOCAL/Generative AI/Body md",
+      "path": "text/body/md"
+    },
+    {
+      "today": "_LOCAL/Generative AI/Title md",
+      "path": "text/title/md"
+    }
+  ]
+}
