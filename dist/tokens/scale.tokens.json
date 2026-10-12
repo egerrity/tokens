@@ -482,10 +482,10 @@
     "sm": {
       "$type": "dimension",
       "$value": {
-        "value": 640,
+        "value": 440,
         "unit": "px"
       },
-      "$description": "Req for: the width at which the tablet layout starts\nUse: a minimum width of 640 px"
+      "$description": "Req for: wider than a phone: large phones in landscape, small tablets\nUse: a minimum width of 440 px"
     },
     "md": {
       "$type": "dimension",
@@ -493,7 +493,7 @@
         "value": 768,
         "unit": "px"
       },
-      "$description": "Req for: a step between tablet and desktop; no layout range starts here\nUse: a minimum width of 768 px"
+      "$description": "Req for: the width at which the tablet layout starts\nUse: a minimum width of 768 px"
     },
     "lg": {
       "$type": "dimension",
@@ -510,14 +510,6 @@
         "unit": "px"
       },
       "$description": "Req for: the width at which the wide desktop layout starts\nUse: a minimum width of 1280 px"
-    },
-    "2xl": {
-      "$type": "dimension",
-      "$value": {
-        "value": 1536,
-        "unit": "px"
-      },
-      "$description": "Req for: very wide screens; no layout range starts here\nUse: a minimum width of 1536 px"
     }
   },
   "font": {

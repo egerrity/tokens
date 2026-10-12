@@ -790,9 +790,9 @@
       "scopes": [
         "WIDTH_HEIGHT"
       ],
-      "description": "Req for: the width at which the tablet layout starts",
+      "description": "Req for: wider than a phone: large phones in landscape, small tablets",
       "values": {
-        "value": 640
+        "value": 440
       }
     },
     {
@@ -801,7 +801,7 @@
       "scopes": [
         "WIDTH_HEIGHT"
       ],
-      "description": "Req for: a step between tablet and desktop; no layout range starts here",
+      "description": "Req for: the width at which the tablet layout starts",
       "values": {
         "value": 768
       }
@@ -826,17 +826,6 @@
       "description": "Req for: the width at which the wide desktop layout starts",
       "values": {
         "value": 1280
-      }
-    },
-    {
-      "path": "breakpoint/2xl",
-      "type": "FLOAT",
-      "scopes": [
-        "WIDTH_HEIGHT"
-      ],
-      "description": "Req for: very wide screens; no layout range starts here",
-      "values": {
-        "value": 1536
       }
     },
     {

@@ -185,8 +185,9 @@ The specifier's kind is what the layers differ on.
 - Named sizes (`2xs`, `xs`, `sm`, `md`, `lg`, `xl`, `2xl`) are for semantic tokens only:
   text styles, icon sizes, control heights. They are the size words the component
   property glossary already uses.
-- Breakpoints are the one scale named by size word (`breakpoint/sm` to `breakpoint/2xl`),
-  because those are the keys the styling framework gives them.
+- Breakpoints are the one scale named by size word (`breakpoint/sm` to `breakpoint/xl`):
+  the keys are the styling framework's, and the widths are the ones the apps are built
+  to, taken from their code.
 - Semantic space uses density words, `condensed`, `normal`, `spacious`, never size
   words, so a gap is not mistaken for a component size.
 

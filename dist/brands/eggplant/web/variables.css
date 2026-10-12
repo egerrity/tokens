@@ -231,11 +231,10 @@
   --ds-motion-transition-dismiss: var(--ds-motion-duration-080) var(--ds-motion-easing-linear);
   --ds-motion-transition-slide-in: var(--ds-motion-duration-300) var(--ds-motion-easing-enter);
   --ds-motion-transition-slide-out: var(--ds-motion-duration-200) var(--ds-motion-easing-default);
-  --ds-breakpoint-sm: 640px;
+  --ds-breakpoint-sm: 440px;
   --ds-breakpoint-md: 768px;
   --ds-breakpoint-lg: 1024px;
   --ds-breakpoint-xl: 1280px;
-  --ds-breakpoint-2xl: 1536px;
   --ds-grid-columns: 4;
   --ds-grid-margin: var(--ds-space-400);
   --ds-grid-gutter: var(--ds-space-200);
@@ -749,7 +748,7 @@ html[data-mode='dark'] {
   --ds-color-plane-high: var(--ds-color-neutral-paper-5);
 }
 
-@media (min-width: 640px) {
+@media (min-width: 768px) {
   :root {
     --ds-grid-columns: 6;
     --ds-grid-margin: var(--ds-space-800);

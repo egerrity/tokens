@@ -109,28 +109,24 @@ are three different things, and the first draft here wrongly named them as one s
 ## Breakpoints and grid
 
 Nothing here exists as a variable. The docs define mobile below 640, tablet from 640,
-desktop from 1024, and an optional wider desktop from 1280.
+desktop from 1024, and an optional wider desktop from 1280; the apps' code defines four
+breakpoints under the utility framework's keys, at 440, 768, 1024 and 1280.
 
-Those three numbers are already three of the five default breakpoints of Tailwind, the
-utility framework the product code is understood to use: 640, 768, 1024, 1280, 1536. The
-other common sets do not fit as well: Bootstrap uses 576, 768, 992, 1200, 1400, and
-Material uses 600, 840, 1200, 1600. So the standard that fits is the one already half
-adopted.
+Where code and the docs disagree, code is the source for a breakpoint: nothing in Figma
+or the docs is built to one, and the apps are. So the four widths are taken from code
+unchanged, under the keys the framework already uses, each a minimum width.
 
-Recommended: the five framework defaults, under the framework's own keys, each a minimum
-width.
-
-| Path | Value | In the docs today |
+| Path | Value | Today |
 | --- | --- | --- |
-| `breakpoint/sm` | 640 | tablet starts |
-| `breakpoint/md` | 768 | not used |
-| `breakpoint/lg` | 1024 | desktop starts |
-| `breakpoint/xl` | 1280 | wide desktop starts; also the content max width |
-| `breakpoint/2xl` | 1536 | not used |
+| `breakpoint/sm` | 440 | in code; wider than a phone |
+| `breakpoint/md` | 768 | in code; the docs' tablet start was 640 |
+| `breakpoint/lg` | 1024 | in code and the docs; desktop starts |
+| `breakpoint/xl` | 1280 | in code and the docs; wide desktop starts; also the content max width |
 
 Device words (mobile, tablet, desktop) stay as the design vocabulary for layouts, defined
-by the breakpoints: mobile is below `sm`, tablet is `sm` up to `lg`, desktop is `lg` and
-up, wide desktop is `xl` and up.
+by the breakpoints: mobile is below `md`, tablet is `md` up to `lg`, desktop is `lg` and
+up, wide desktop is `xl` and up. The declaration records which breakpoint starts each
+viewport, and the generated CSS puts each viewport's values under that query.
 
 The grid is three tokens whose values change by those layout ranges. Margin and gutter
 alias space steps.

@@ -46,7 +46,7 @@ are scales that exist in the docs or in code but not yet as variables.
 | border-width | `width-025`, `width-050` | `border-width/025`, `050` | the same rule | nothing but the name |
 | opacity | none; the merge rows carried an alpha inside a color | `opacity/004`, `008`, `010`, `012`, `016`, `020`, `024`, `032`, `048`, `064` | the step is the percent | a new scale of ten; the alpha leaves the colors and becomes a token the roles point at |
 | motion | in code only: `motion-easing-default`, `enter`, `exit`, `linear`; `motion-duration-short-1`, `short-2`, `medium-1`, `medium-2`, `long-1`, `long-2` | `motion/easing/default`, `enter`, `exit`, `linear`; `motion/duration/050`, `080`, `200`, `300`, `400`, `600` | the step is the milliseconds; an easing is a named curve | first time as Figma variables (Figma has timing and easing types now); the duration names become their values |
-| breakpoint | none; the docs name 640, 1024 and 1280; the type collection's modes stood in | `breakpoint/sm` 640, `md` 768, `lg` 1024, `xl` 1280, `2xl` 1536 | a named position: the framework's own keys | the framework's five defaults, three of which the docs already use |
+| breakpoint | none as variables; the apps' code holds 440, 768, 1024 and 1280; the type collection's modes stood in | `breakpoint/sm` 440, `md` 768, `lg` 1024, `xl` 1280 | a named position: the framework's keys, the apps' widths | first time as variables; the widths the apps are built to, unchanged |
 | font | `font/family/sans`, `number`, `mono`; `font/weight/regular`, `medium`, `semibold`; one size variable per text style | the same families and weights; `font/size/300` … `font/size/1800`, eleven steps, 12 to 72 px; `font/line-height/125`, `150` | sizes on the 4 px rule; line heights as multiples | families and weights keep their names; the per-style sizes become one shared scale the text styles reference; two line heights, 1.25 and 1.5 |
 | color | the color base tokens, already in the file under `color/<family>/…` | unchanged | a family and one position word | the color session |
 
@@ -65,7 +65,7 @@ pages: `docs/groups/space.md`, `size.md`, `radius.md`, `border-width.md`, `opaci
 | Opacity is one scale of ten, in percent, with no color and no mode | The merge rows baked an alpha into a color, so every translucent ground was its own color; now a role is an alias plus an opacity token, and the opacity is reused everywhere. |
 | Durations are named by their milliseconds | `short-1` says nothing a designer can place; `080` does. The scale rule, applied. |
 | Easings keep their names | They are curves, not positions on a line; `enter` and `exit` are the words the docs use. |
-| Breakpoints are the framework's five defaults, under its keys | Three of the five are already the docs' numbers; the keys are what the code reads; a breakpoint is the one scale where the product's framework sets the vocabulary. |
+| Breakpoints keep the widths the apps are built to, under the framework's keys | Nothing in Figma or the docs is built to a breakpoint and the apps are, so code is the source for these four values; the keys are the framework's, the one scale where it sets the vocabulary. The docs' 640 was never in code. |
 | The type scale is eleven sizes on the same rule | Today each text style owns its size variables; a shared scale means a size is declared once and every style references it. |
 | Line heights are two multiples, 1.25 and 1.5 | Two values cover every style; multiples survive a size change, pixels do not (Figma binds pixels, so the Figma parts carry them per viewport). |
 | The iOS text-size modes are dropped | The operating system scales from the base size; a hand-kept table can only drift from what the device does, and today's does. |
@@ -77,7 +77,7 @@ pages: `docs/groups/space.md`, `size.md`, `radius.md`, `border-width.md`, `opaci
 | --- | --- |
 | Why numbers and not `sm`, `md`, `lg`? | Twenty-two space steps do not survive size words, and the numbers are the ones already in use. Size words are for semantic tokens, where there are three or four of something. |
 | Why is opacity in percent and not 0 to 1? | The step is the value, and the value designers say is a percent. The file stores 0 to 1; the name says 16. |
-| Why the framework's breakpoints and not ours? | They already are ours: the docs use 640, 1024 and 1280. Adopting the other two means the code and the design vocabulary agree at every width. |
+| Why these breakpoints? | They are the ones the apps are built to today, under the keys the framework already uses, so design and code agree at every width. Where a layout actually changes is a product decision, not a token one; the token records it. |
 | Where did the merge intensities go? | Their alpha is now the opacity scale; the rows themselves become the ghost and soft levels, which is the semantic session. |
 | Why does `font/weight/medium` say medium when `breakpoint/md` says md? | Two lists with two meanings: `md` is a size word, a position on a run of sizes; `medium` is the typeface's own weight name, what Figma loads. A reader tells a size from a weight by the word alone. |
 | Why does `radius/full` say full and not a number? | It is not a position on the scale; it is the pill, the one radius that means "as round as it can be." |
