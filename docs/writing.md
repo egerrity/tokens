@@ -50,8 +50,8 @@ their own (the last section says where those live).
 - **A claim about the code is present tense, true at HEAD, undated.** History goes to
   the changelog, the decisions record or a session page, never into a comment or a doc
   that is read as the present.
-- **No names, no employer, no home path in the repo.** Work values may live here; the
-  people and the company may not.
+- **No person's name and no home path in the repo.** A thing is described by what it
+  is, not by who decided it; a file by its path in the repo, never on a machine.
 
 ## Descriptions are not prose
 
