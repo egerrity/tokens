@@ -81,7 +81,6 @@ Every output is committed, so nothing has to be run to read it.
   plugin that writes them into a file, renaming today's rows in place.
 - `docs/` — the grammar, the glossary, the writing rules, the starting set, the color set
   and its migration map, the Figma dry-run guide and the hand work after a run.
-- `handoffs/` — briefs and session handoffs, dated.
 - `prompts/` — instructions for a coding agent to audit token values and component usage
   in the product code.
 - okchroma (`npmjs.com/package/okchroma`): the color engine. Its README and

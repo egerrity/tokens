@@ -7,8 +7,8 @@ it but nothing in Figma holds it, "gap" means it is added here. Paths follow
 
 Sources read 2026-10-02: the design docs file (Layout, Motion and Typography foundations
 pages, and the component property variables), the library file (Surface and States pages,
-the variables and styles), and the audit page beside this one
-(`figma-foundations-audit.md`).
+the variables and styles, through a read-only script over its local variables and
+styles).
 
 ## Space
 
