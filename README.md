@@ -7,8 +7,6 @@ documentation. The same declarations always produce the same files, byte for byt
 Color comes from okchroma, the color engine, which is a pinned dependency: each brand's
 elections are a declaration, and the build solves its colors.
 
-Private. Carries no employer name, no personal name, no home path.
-
 ## Run it
 
 Node 22.6 or later.
