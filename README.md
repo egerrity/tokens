@@ -1,11 +1,15 @@
 # tokens
 
-The design system's tokens, generated: a designer edits a declaration that holds only a
-decision, and one command derives every name, value, alias and description from it and
-writes the token files, the Figma payload and plugin, a theme folder per brand, and the
-documentation. The same declarations always produce the same files, byte for byte.
-Color comes from okchroma (`npmjs.com/package/okchroma`), the color engine, a pinned
-dependency: each brand's elections are a declaration, and the build solves its colors.
+This repo generates the design system's tokens. The inputs are the files in
+`declarations/`. Each one holds a decision: a scale, a list of words, a color word table,
+a brand's color choices. One command reads them and writes the outputs: the token files,
+the Figma payload and the plugin that applies it, a theme folder for each brand, and the
+documentation.
+
+Color values come from okchroma (`npmjs.com/package/okchroma`), a color engine installed
+as a pinned dependency. A brand's color choices are one declaration
+(`declarations/brands.ts`). The build passes them to the engine and writes the colors it
+returns.
 
 ## Run it
 
@@ -13,73 +17,64 @@ Node 22.6 or later.
 
 ```
 npm ci
-npm run generate    # writes every output from the declarations
-npm run audit       # fails on anything the grammar or the format forbids; two builds must be identical
-npm run check       # an independent Design Tokens parser over every brand's joined documents (needs the network)
+npm run generate    # writes the outputs from the declarations
+npm run audit       # checks the outputs against the grammar and the format, and that two builds are identical
+npm run check       # runs a third-party Design Tokens parser over each brand's documents (needs the network)
 npm run typecheck
 ```
 
-Every output is committed, so nothing has to be run to read it.
-
-## Read it in this order
-
-1. `dist/tokens/` — the token files, one per collection and mode, in the Design Tokens
-   Format Module 2025.10, and the resolver that joins them: `resolver.<brand>.json` per
-   brand, `resolver.json` the default brand's. Run them through your pipeline first;
-   that is the question this repo exists to answer.
-2. `dist/brands/<brand>/` — the theme folder an app reads: `web/variables.css` (every
-   token as a custom property; dark under `html[data-mode='dark']`; each viewport under
-   its min-width query) and `mobile/colors.ts` (the color roles as hex per mode). Each
-   ends in a compatibility block: today's names, each an alias of the token that replaces
-   it, so an app can take the folder unchanged, and the block is the list of names to
-   retire.
-3. The names. A token has one path (`color/bg/brand/solid/hover`); the Figma variable
-   joins it with slashes, the CSS name with hyphens behind the prefix
-   (`--ds-color-bg-brand-solid-hover`), the token file with dots. The prefix is
-   `declarations/prefix.ts`; `ds` stands in until engineering decides, and today's code
-   uses none. The rule is `docs/grammar.md`; every word it uses is defined in
-   `docs/glossary.md`.
-4. `declarations/` — the inputs, seventeen short files, each a decision: the scales, the
-   words, the color word tables, the brands' elections, the prefix, today's names. Nothing
-   else is an input. `grammar/words.ts` holds the closed word lists and the shapes a path
-   may take; the audit reads nothing else.
-5. `docs/groups/` — one generated page per category, what is decided and what is derived.
+The outputs are committed, so you can read them without running anything.
 
 ## What the build guarantees
 
-- Every name is in the grammar, every token is described, every alias resolves, every
-  scale ascends, and no two paths join to the same CSS name.
-- Two builds from the same declarations are identical, and the files on disk are the
-  files the declarations produce; the audit fails otherwise.
-- The joined documents are accepted by a parser this repo did not write.
-- Each engine document says which engine version and which brand solved it.
+- Names follow the grammar. The audit also checks that:
+  - each token has a description
+  - each alias points at a token that exists
+  - each scale ascends
+  - CSS names are unique
+- The declarations always produce the same files. The audit builds twice and compares
+  the two, then compares the result with the committed files.
+- An external Design Tokens parser (Terrazzo) accepts the files. `npm run check` first
+  merges the files that make up one mode into one document, because a file aliases
+  tokens in other files.
+- Each color document from the engine records the engine version and the brand that
+  produced it.
 
-## The questions for engineering
+## Contents
 
-1. Do these names work as CSS and native identifiers, and is the file's shape what your
-   pipeline reads?
-2. The prefix: which one, or none.
-3. A client's brand is fixed at build time and, on mobile, lives in the client's
-   configuration folder beside the app's other assets; parts of the theme are fetched
-   at build time through the design-system package. The open parts: how that fetch
-   works, whether a generated theme folder (or `brand.json`, the short record of its elections) can
-   be what it serves, where a new client's record is entered at onboarding, and what
-   the web apps do.
-4. The org's dormant design-tokens repo: what it is, who owns it, and which build tool it
-   was set up for.
+### Read first
 
-## The rest of the repo
+1. The token files, `dist/tokens/`. This is what a token pipeline consumes; try them in
+   yours first.
+   - `*.tokens.json`: the tokens, by collection and mode.
+   - `resolver.<brand>.json`: which files make up each mode for that brand.
+   - `resolver.json`: the same for the default brand. Start with this one.
+2. The theme folder, `dist/brands/<brand>/`. This is what an app would consume instead
+   of the token files; compare it with the theme files the apps use today.
+   - `web/variables.css`: the tokens as CSS custom properties.
+   - `mobile/colors.ts`: the color roles as hex per mode.
+   - `brand.json`: the brand's color choices.
+3. The naming convention, `docs/grammar.md`, with its terms in `docs/glossary.md`. Read
+   it to judge whether the names work as CSS and native identifiers.
+4. The declarations, `declarations/`. The source of truth: one file per decision, and
+   everything in `dist/` is derived from them.
+   - `grammar/words.ts`: the word lists and shapes the names are checked against.
+5. The generated docs, `docs/groups/`: one page per category, what was decided and what
+   was derived. Read these instead of the code.
 
-- `grammar/` — the word lists, the shapes, and the path rules.
-- `src/` — the program: derive, the token file, the Figma payload, the theme folder, the
-  pages, the audit.
-- `scripts/` — the commands, and `figma/apply.js` and `figma/audit.js`, which the build
-  inlines into the development plugin at `dist/figma/plugin/`.
-- `dist/figma/` — the same tokens as the Figma variables and styles they become, and the
-  plugin that writes them into a file, renaming today's rows in place.
-- `docs/` — the grammar, the glossary, the writing rules, the starting set, the color set
-  and its migration map, the Figma dry-run guide and the hand work after a run.
-- `prompts/` — instructions for a coding agent to audit token values and component usage
-  in the product code.
-- okchroma (`npmjs.com/package/okchroma`): the color engine. Its README and
-  `docs/agents.md` are the contract for the color base tokens; read them there.
+### The rest of the repo
+
+- `grammar/` has the word lists, the shapes, and the path rules.
+- `src/` is the program. It derives the tokens, writes the token file, the Figma payload,
+  the theme folders and the pages, and runs the audit.
+- `scripts/` has the commands. `figma/apply.js` and `figma/audit.js` are the plugin's
+  code; the build inlines them into the development plugin at `dist/figma/plugin/`.
+- `dist/figma/` has the tokens in the form the plugin writes into Figma (variables and
+  styles), and the plugin itself. The plugin renames today's rows in place, so existing
+  bindings survive.
+- `docs/` has the grammar, the glossary, the writing rules, the starting set, the color
+  set and its migration map, the Figma dry-run guide, and the hand work left after a run.
+- `prompts/` has instructions for a coding agent that audits token values and component
+  usage in the product code.
+- okchroma (`npmjs.com/package/okchroma`) is the color engine. Its README and
+  `docs/agents.md` describe the color base tokens it produces.
