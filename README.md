@@ -5,8 +5,7 @@ decision, and one command derives every name, value, alias and description from 
 writes the token files, the Figma payload and plugin, a theme folder per brand, and the
 documentation. The same declarations always produce the same files, byte for byte.
 Color comes from okchroma (`npmjs.com/package/okchroma`), the color engine, a pinned
-dependency: each brand's
-elections are a declaration, and the build solves its colors.
+dependency: each brand's elections are a declaration, and the build solves its colors.
 
 ## Run it
 
