@@ -24,8 +24,8 @@ the brand's seed color:
 | `stamp-0`, `stamp-1`, `stamp-2`, `stamp-edge`, `stamp-on` | the solid button at rest, one and two steps from rest, its gated outline, and the one text color over it | solved per brand; a component's rows, not the palette's |
 
 Two rules carry over from the engine. The same token serves both modes; the theme moves
-the value, never the reference. And a solid fill that carries text is always the stamp,
-never a scale stop, because only the stamp's on-text is guaranteed.
+the value, never the reference. A colored solid fill with light text on it is the stamp or the accent
+ground; the engine clears the stamp's on-text and the accent's on-inverse text.
 
 ## The migration map
 
@@ -48,15 +48,15 @@ One row per old row. "Code name" is what the product code reads today.
 | Stroke Quaternary | `color-palette-stroke-quaternary` | `border/neutral/hint` | `neutral/chalk-8` | the card edge |
 | Stroke Primary Inverse | `color-palette-stroke-primary-inverse` | `border/neutral/inverse` | `neutral/paper-0` | |
 | Signal Negative | `color-palette-signal-negative` | `fg/critical/accent` | `critical/pencil-47` | as text; as a border `border/critical/accent`, as a fill `bg/critical/accent`: the same stop, so the split is by property only |
-| Signal Negative Spotlight | | `bg/critical/accent` | `critical/pencil-47` | progress fills and indicators, one stop in; as a border `border/critical/regular`; icons take `fg/critical/accent` |
+| Signal Negative Spotlight | | `bg/critical/solid/enabled` | `critical/stamp-0` | progress fills, a component's row; an indicator that is not a component's, `bg/critical/accent`; as a border `border/critical/regular`; icons take `fg/critical/accent` |
 | Signal Negative Highlight | `color-palette-signal-negative-highlight` | `border/critical/muted` | `critical/chalk-15` | the border of the regular ground; as a fill `bg/critical/strong`, reserved for components |
 | Signal Negative Accent | `color-palette-signal-negative-accent` | `bg/critical/regular` | `critical/paper-3` | |
 | Signal Warning | `color-palette-signal-warning` | `fg/warning/accent` | `warning/pencil-47` | as the negative |
-| Signal Warning Spotlight | | `bg/warning/accent` | `warning/pencil-47` | as the negative |
+| Signal Warning Spotlight | | `bg/warning/solid/enabled` | `warning/stamp-0` | as the negative |
 | Signal Warning Highlight | `color-palette-signal-warning-highlight` | `border/warning/muted` | `warning/chalk-15` | as the negative |
 | Signal Warning Accent | `color-palette-signal-warning-accent` | `bg/warning/regular` | `warning/paper-3` | |
 | Signal Positive | `color-palette-signal-positive` | `fg/positive/accent` | `positive/pencil-47` | as the negative |
-| Signal Positive Spotlight | | `bg/positive/accent` | `positive/pencil-47` | as the negative |
+| Signal Positive Spotlight | | `bg/positive/solid/enabled` | `positive/stamp-0` | as the negative |
 | Signal Positive Highlight | `color-palette-signal-positive-highlight` | `border/positive/muted` | `positive/chalk-15` | as the negative |
 | Signal Positive Accent | `color-palette-signal-positive-accent` | `bg/positive/regular` | `positive/paper-3` | |
 | Brand Primary | `color-palette-brand-primary` | `fg/brand/accent` | `brand/pencil-47` | as text; as a border `border/brand/accent`; as a link `fg/link/enabled`; as a button fill `bg/brand/solid/enabled`, a component's row (split below) |
@@ -77,8 +77,8 @@ Four old rows did more than one job, and the code-side audit sorts their uses:
 
 | Old row | As text | As a border | As a fill |
 | --- | --- | --- | --- |
-| Signal Negative, Warning, Positive | `fg/<family>/accent` | `border/<family>/accent` | `bg/<family>/accent` with `fg/neutral/on-inverse/*`; a button, `bg/<family>/solid/*` (a component's row) |
-| Brand Primary | `fg/brand/accent`; as a link `fg/link/*` | `border/brand/accent` | `bg/brand/solid/*` with `fg/brand/on-solid` and `border/brand/solid` (a component's rows) |
+| Signal Negative, Warning, Positive | `fg/<family>/accent` | `border/<family>/accent` | `bg/<family>/accent` with `fg/neutral/on-inverse/*`; a button, a badge or a progress fill, `bg/<family>/solid/*` (a component's row) |
+| Brand Primary | `fg/brand/accent`; as a link `fg/link/*` | `border/brand/accent` | a pressable, a badge, a progress fill or a checked control, `bg/brand/solid/*` with `fg/brand/on-solid` and `border/brand/solid` (a component's rows); a fill with light text that is not pressable, `bg/brand/accent` with `fg/neutral/on-inverse/strong` |
 
 ## Open
 

@@ -38,10 +38,12 @@ color / <property> / <family> / <word | state>
   exactly as `fg/neutral/accent` is the neutral's.
 - **Level**, for the interactive grounds, a second axis under `bg` cordoned by its own
   group: `ghost` is nothing at rest and the family's highlighter at an opacity when
-  touched (ghost and outline buttons, icon buttons, rows, menu items); `soft` is that
-  tint at rest and stronger when touched (chips, a selected tab, a soft button); `solid`
-  is the engine's stamp, with its edge under `border` and its on-text under `fg`. The
-  words are the library's own button kinds, and every other system's.
+  touched (ghost and outline buttons, text buttons, icon buttons, rows, menu items);
+  `soft` is that tint at rest and stronger when touched (the indicator chip, a selected
+  tab, a soft button); `solid` is the engine's stamp, with its edge under `border` and
+  its on-text under `fg`, for the Button, the interactive chip, the checked and selected
+  controls, badges and progress fills. The words are the library's own button kinds, and
+  every other system's.
 - **State**: `enabled`, `hover`, `pressed`, `selected`, `selected-hover`,
   `selected-pressed`, on the levels only; the solid has no `selected`. The selected
   ground eases back under the pointer and when pressed, on the same steps the unselected
@@ -116,7 +118,7 @@ The same for `brand`, `brand-alt`, `critical`, `warning`, `positive` and `info`:
 | `fg/<family>/hint`, `muted` (reserved) | `highlighter-26`, `pen-58` | icons and shapes; secondary text, in the family's color |
 | `border/<family>/regular`, `accent`, `muted` | `highlighter-26`, `pencil-47`, `chalk-15` | a 3:1 border; an input in error; the border of the regular ground |
 | `border/<family>/hint`, `strong` (reserved) | `chalk-8`, `pen-70` | the faintest border; an emphasized outline, in the family's color |
-| `bg/<family>/regular`, `accent` | `paper-3`, `pencil-47` | an alert or callout ground; a solid badge, chip or progress fill, with the on-inverse text |
+| `bg/<family>/regular`, `accent` | `paper-3`, `pencil-47` | an alert or callout ground; a solid mark with the on-inverse text where the component is not on the stamp: a tab indicator, a pager dot, a toast, an avatar |
 | `bg/<family>/hint`, `muted`, `strong` (reserved) | `paper-1`, `paper-5`, `chalk-20` | the lightest, the restrained and the heavy ground, for components |
 | `bg/<family>/ghost/*`, `soft/*`, `solid/*`; `border/<family>/solid`; `fg/<family>/on-solid` (reserved) | as the neutral's | the three levels in the family's color, for components |
 
@@ -212,4 +214,23 @@ stay reserved. The surfaces stay palette rows over hidden planes, because today'
 background rows are then the same variables, and every consumer file's bindings follow
 the rename on the next library update.
 
-Open, for her: which reserved words to offer, as the component work asks for them.
+By the owner on 2026-10-14, for the code-side mapping of the old brand and signal rows,
+decided for that test and not yet run through by hand: the components on the stamp are
+the Button (solid and destructive), the interactive chip (the brand's solid on the brand
+variant, brand-alt's on the darker neutral variant, the neutral's when unselected), the
+badge, the progress fill, the checked Checkbox, Switch and Radio, and the date picker's
+selected day. Checked and selected are the solid at `enabled`, with `hover` and
+`pressed`; the solid still has no `selected`, so an unselected state is another family's
+solid or no fill. The indicator chip, a tag with no interaction, is the soft ground at
+`enabled`. Every other colored fill with light text is the accent ground with
+`fg/neutral/on-inverse/strong`; a dark neutral fill with light text that is not
+interactive is `surface/inverse`. Text and ghost buttons and icon buttons keep
+`fg/<family>/accent` and take the ghost ground on hover and press; no component tokens
+for a label that steps. A focused input's edge is `border/neutral/focus`. Product code
+may bind the reserved solid rows for now, and every such site is flagged to adopt the
+Button. A component variant named info that reads the brand today is the info family,
+the Progress component's among them. A visited link stays `fg/link/enabled`.
+
+Open, for her: which reserved words to offer, as the component work asks for them; the
+stamp list of 2026-10-14, run through by hand; a visited posture for links, an engine
+question first (a color that picks the opposite of the brand) and a state word after.
