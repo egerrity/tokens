@@ -39,8 +39,9 @@ GitHub without installing or running anything.
   code; the build inlines them into the development plugin at `dist/figma/plugin/`.
 - `dist/figma/` has the Figma payload (variables and styles) and the plugin that applies
   it by renaming today's rows in place.
-- `docs/` also has the writing rules, the starting set, the color set and its migration
-  map, the Figma dry-run guide, and the hand work left after a run.
+- `docs/` also has the writing rules, the starting set, the color set, its migration map
+  and the color roles by component, the Figma dry-run guide, and the hand work left after
+  a run.
 - `prompts/` has instructions for a coding agent that audits token values and component
   usage in the product code.
 ## Run it
