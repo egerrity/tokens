@@ -1,0 +1,149 @@
+name,kind,forge_value,how,copilot_target,my_target,review
+--accent,shadcn,210 40% 96.1%,alias,bg/neutral/ghost/hover,bg/neutral/regular,"correct: the target is a pair; in variables.css it is the color half only, so the alias renders an opaque highlighter-26, not a tint; a light gray ground is paper-3"
+--accent-foreground,shadcn,222.2 47.4% 11.2%,alias,fg/neutral/regular,fg/neutral/regular,confirm
+--background,shadcn,0 0% 100%,alias,surface/high,surface/high,confirm
+--border,shadcn,214.3 31.8% 91.4%,alias,border/neutral/hint,border/neutral/hint,confirm
+--card,shadcn,0 0% 100%,alias,surface/high,surface/high,confirm
+--card-foreground,shadcn,222.2 47.4% 11.2%,skip (unused),fg/neutral/regular,,confirm
+--color-palette-background-primary-dark,color,"hsl(210, 0%, 95%)",alias,bg/neutral/ghost/hover,color/neutral/paper-1,"by step, ruled: a shade is one, two or three stops along the base scale from the stop its role lands on; demo-only, the codemod rewrites each use by its job and uses the interactive step where it knows the property"
+--color-palette-background-primary-darker,color,"hsl(210, 0%, 91%)",alias,bg/neutral/ghost/pressed,color/neutral/paper-3,"by step, ruled: a shade is one, two or three stops along the base scale from the stop its role lands on; demo-only, the codemod rewrites each use by its job and uses the interactive step where it knows the property"
+--color-palette-background-primary-darkest,color,"hsl(210, 0%, 86%)",alias,bg/neutral/ghost/pressed,color/neutral/paper-5,"by step, ruled: a shade is one, two or three stops along the base scale from the stop its role lands on; demo-only, the codemod rewrites each use by its job and uses the interactive step where it knows the property"
+--color-palette-background-primary-inverse-dark,color,"hsl(210, 7%, 6%)",alias,fg/neutral/regular,color/neutral/pen-100,"by step, ruled: a shade is one, two or three stops along the base scale from the stop its role lands on; clamped at the end of the scale; demo-only, the codemod rewrites each use by its job and uses the interactive step where it knows the property"
+--color-palette-background-primary-inverse-darker,color,"hsl(210, 7%, 6%)",alias,fg/neutral/regular,color/neutral/pen-100,"by step, ruled: a shade is one, two or three stops along the base scale from the stop its role lands on; clamped at the end of the scale; demo-only, the codemod rewrites each use by its job and uses the interactive step where it knows the property"
+--color-palette-background-primary-inverse-darkest,color,"hsl(210, 7%, 6%)",skip (unused),"none: unused, do not emit",,confirm
+--color-palette-background-primary-inverse-light,color,"hsl(210, 4%, 11%)",skip (unused),"none: unused, do not emit",,confirm
+--color-palette-background-primary-inverse-lighter,color,"hsl(210, 2%, 15%)",alias,fill ‚Üí bg/neutral/accent,color/neutral/pencil-47,"by step, ruled: a shade is one, two or three stops along the base scale from the stop its role lands on; demo-only, the codemod rewrites each use by its job and uses the interactive step where it knows the property"
+--color-palette-background-primary-inverse-lightest,color,"hsl(210, 2%, 20%)",alias,fill ‚Üí bg/neutral/accent,color/neutral/highlighter-26,"by step, ruled: a shade is one, two or three stops along the base scale from the stop its role lands on; demo-only, the codemod rewrites each use by its job and uses the interactive step where it knows the property"
+--color-palette-background-primary-light,color,"hsl(0, 0%, 100%)",alias,surface/high,color/neutral/paper-0,"by step, ruled: a shade is one, two or three stops along the base scale from the stop its role lands on; clamped at the end of the scale; demo-only, the codemod rewrites each use by its job and uses the interactive step where it knows the property"
+--color-palette-background-primary-lighter,color,"hsl(0, 0%, 100%)",skip (unused),"none: unused, do not emit",,confirm
+--color-palette-background-primary-lightest,color,"hsl(0, 0%, 100%)",alias,surface/high,color/neutral/paper-0,"by step, ruled: a shade is one, two or three stops along the base scale from the stop its role lands on; clamped at the end of the scale; demo-only, the codemod rewrites each use by its job and uses the interactive step where it knows the property"
+--color-palette-background-primary-surface-1,color,var(--color-light-spectrum-gray-0),alias,surface/high,surface/high,"confirm; the four levels all rest on surface/high by the elevation ruling, the dark stepping is the shadow and the plane, not these rows"
+--color-palette-background-primary-surface-2,color,var(--color-light-spectrum-gray-0),alias,surface/high,surface/high,"confirm; the four levels all rest on surface/high by the elevation ruling, the dark stepping is the shadow and the plane, not these rows"
+--color-palette-background-primary-surface-3,color,var(--color-light-spectrum-gray-0),alias,surface/high,surface/high,"confirm; the four levels all rest on surface/high by the elevation ruling, the dark stepping is the shadow and the plane, not these rows"
+--color-palette-background-primary-surface-4,color,var(--color-light-spectrum-gray-0),alias,surface/high,surface/high,"confirm; the four levels all rest on surface/high by the elevation ruling, the dark stepping is the shadow and the plane, not these rows"
+--color-palette-brand-primary-accent-dark,color,"hsl(215, 40%, 90%)",alias,bg/brand/soft/hover,color/brand/paper-5,"by step, ruled: a shade is one, two or three stops along the base scale from the stop its role lands on; demo-only, the codemod rewrites each use by its job and uses the interactive step where it knows the property"
+--color-palette-brand-primary-accent-darker,color,"hsl(215, 27%, 85%)",alias,bg/brand/soft/pressed,color/brand/chalk-8,"by step, ruled: a shade is one, two or three stops along the base scale from the stop its role lands on; demo-only, the codemod rewrites each use by its job and uses the interactive step where it knows the property"
+--color-palette-brand-primary-accent-darkest,color,"hsl(215, 19%, 81%)",skip (unused),"none: unused, do not emit",,confirm
+--color-palette-brand-primary-accent-light,color,"hsl(215, 73%, 94%)",skip (unused),"none: unused, do not emit",,confirm
+--color-palette-brand-primary-accent-lighter,color,"hsl(215, 73%, 95%)",skip (unused),"none: unused, do not emit",,confirm
+--color-palette-brand-primary-accent-lightest,color,"hsl(215, 73%, 95%)",skip (unused),"none: unused, do not emit",,confirm
+--color-palette-brand-primary-dark,color,"hsl(215, 95%, 34%)",alias,fill ‚Üí bg/brand/solid/hover; text ‚Üí fg/link/hover or fg/brand/muted; border ‚Üí border/brand/accent,color/brand/pen-58,"by step, ruled: a shade is one, two or three stops along the base scale from the stop its role lands on; demo-only, the codemod rewrites each use by its job and uses the interactive step where it knows the property"
+--color-palette-brand-primary-darker,color,"hsl(215, 94%, 32%)",alias,fill ‚Üí bg/brand/solid/pressed; text ‚Üí fg/link/pressed or fg/brand/regular,color/brand/pen-70,"by step, ruled: a shade is one, two or three stops along the base scale from the stop its role lands on; clamped at the end of the scale; demo-only, the codemod rewrites each use by its job and uses the interactive step where it knows the property"
+--color-palette-brand-primary-darkest,color,"hsl(215, 93%, 31%)",alias,bg/brand/solid/pressed,color/brand/pen-70,"by step, ruled: a shade is one, two or three stops along the base scale from the stop its role lands on; clamped at the end of the scale; demo-only, the codemod rewrites each use by its job and uses the interactive step where it knows the property"
+--color-palette-brand-primary-highlight-dark,color,"hsl(215, 70%, 72%)",skip (unused),"none: unused, do not emit",,confirm
+--color-palette-brand-primary-highlight-darker,color,"hsl(215, 59%, 69%)",skip (unused),"none: unused, do not emit",,confirm
+--color-palette-brand-primary-highlight-darkest,color,"hsl(215, 50%, 65%)",skip (unused),"none: unused, do not emit",,confirm
+--color-palette-brand-primary-highlight-light,color,"hsl(215, 84%, 77%)",skip (unused),"none: unused, do not emit",,confirm
+--color-palette-brand-primary-highlight-lighter,color,"hsl(215, 84%, 78%)",skip (unused),"none: unused, do not emit",,confirm
+--color-palette-brand-primary-highlight-lightest,color,"hsl(215, 84%, 80%)",skip (unused),"none: unused, do not emit",,confirm
+--color-palette-brand-primary-light,color,"hsl(215, 83%, 38%)",alias,text ‚Üí fg/brand/hint; border ‚Üí border/brand/regular; gradient ‚Üí illustration/*,color/brand/highlighter-26,"by step, ruled: a shade is one, two or three stops along the base scale from the stop its role lands on; demo-only, the codemod rewrites each use by its job and uses the interactive step where it knows the property"
+--color-palette-brand-primary-lighter,color,"hsl(215, 73%, 42%)",skip (unused),"none: unused, do not emit",,confirm
+--color-palette-brand-primary-lightest,color,"hsl(215, 64%, 45%)",skip (unused),"none: unused, do not emit",,confirm
+--color-palette-content-tertiary-dark,color,"hsl(221, 12%, 55%)",skip (unused),"none: unused, do not emit",,confirm
+--color-palette-content-tertiary-darker,color,"hsl(221, 11%, 53%)",alias,bg/neutral/accent,color/neutral/pen-70,"by step, ruled: a shade is one, two or three stops along the base scale from the stop its role lands on; demo-only, the codemod rewrites each use by its job and uses the interactive step where it knows the property"
+--color-palette-content-tertiary-darkest,color,"hsl(221, 9%, 50%)",alias,bg/neutral/accent,color/neutral/pen-100,"by step, ruled: a shade is one, two or three stops along the base scale from the stop its role lands on; clamped at the end of the scale; demo-only, the codemod rewrites each use by its job and uses the interactive step where it knows the property"
+--color-palette-content-tertiary-light,color,"hsl(221, 13%, 60%)",alias,fg/neutral/hint,color/neutral/highlighter-26,"by step, ruled: a shade is one, two or three stops along the base scale from the stop its role lands on; demo-only, the codemod rewrites each use by its job and uses the interactive step where it knows the property"
+--color-palette-content-tertiary-lighter,color,"hsl(221, 13%, 62%)",skip (unused),"none: unused, do not emit",,confirm
+--color-palette-content-tertiary-lightest,color,"hsl(221, 13%, 64%)",alias,fg/neutral/hint,color/neutral/chalk-15,"by step, ruled: a shade is one, two or three stops along the base scale from the stop its role lands on; demo-only, the codemod rewrites each use by its job and uses the interactive step where it knows the property"
+--color-palette-merge-default,color,var(--color-light-spectrum-gray-900),"codemod, no alias",bg/neutral/ghost/hover (demo: alias the base neutral/highlighter-26 so existing /5 modifiers still tint),,retired by ruling: merge is not used anywhere after the change; the codemod rewrites every use to the ghost pair (bg/neutral/ghost/* with opacity/ghost/*)
+--color-palette-merge-inverse,color,var(--color-light-spectrum-gray-0),"codemod, no alias",fg/neutral/on-inverse/strong,,retired by ruling: merge is not used anywhere after the change; the codemod rewrites every use to the ghost pair (bg/neutral/ghost/* with opacity/ghost/*)
+--color-palette-signal-error-dark,color,"hsl(4, 76%, 38%)",alias,fg/critical/muted,color/critical/pen-58,"by step, ruled: a shade is one, two or three stops along the base scale from the stop its role lands on; demo-only, the codemod rewrites each use by its job and uses the interactive step where it knows the property"
+--color-palette-signal-error-darker,color,"hsl(4, 75%, 37%)",alias,text ‚Üí fg/critical/regular; fill ‚Üí bg/critical/solid/pressed,color/critical/pen-70,"by step, ruled: a shade is one, two or three stops along the base scale from the stop its role lands on; clamped at the end of the scale; demo-only, the codemod rewrites each use by its job and uses the interactive step where it knows the property"
+--color-palette-signal-error-darkest,color,"hsl(4, 74%, 35%)",alias,fill ‚Üí bg/critical/solid/pressed; text ‚Üí fg/critical/regular,color/critical/pen-70,"by step, ruled: a shade is one, two or three stops along the base scale from the stop its role lands on; clamped at the end of the scale; demo-only, the codemod rewrites each use by its job and uses the interactive step where it knows the property"
+--color-palette-signal-error-light,color,"hsl(4, 68%, 43%)",skip (unused),"none: unused, do not emit",,confirm
+--color-palette-signal-error-lighter,color,"hsl(4, 60%, 46%)",skip (unused),"none: unused, do not emit",,confirm
+--color-palette-signal-error-lightest,color,"hsl(4, 53%, 49%)",skip (unused),"none: unused, do not emit",,confirm
+--color-palette-signal-success-dark,color,"hsl(115, 59%, 29%)",alias,fg/positive/muted,color/positive/pen-58,"by step, ruled: a shade is one, two or three stops along the base scale from the stop its role lands on; demo-only, the codemod rewrites each use by its job and uses the interactive step where it knows the property"
+--color-palette-signal-success-darker,color,"hsl(115, 58%, 28%)",skip (unused),"none: unused, do not emit",,confirm
+--color-palette-signal-success-darkest,color,"hsl(115, 57%, 26%)",alias,text ‚Üí fg/positive/regular; fill ‚Üí bg/positive/solid/pressed,color/positive/pen-70,"by step, ruled: a shade is one, two or three stops along the base scale from the stop its role lands on; clamped at the end of the scale; demo-only, the codemod rewrites each use by its job and uses the interactive step where it knows the property"
+--color-palette-signal-success-light,color,"hsl(115, 51%, 34%)",skip (unused),"none: unused, do not emit",,confirm
+--color-palette-signal-success-lighter,color,"hsl(115, 43%, 37%)",skip (unused),"none: unused, do not emit",,confirm
+--color-palette-signal-success-lightest,color,"hsl(115, 37%, 41%)",skip (unused),"none: unused, do not emit",,confirm
+--color-palette-signal-warning-dark,color,"hsl(22, 91%, 36%)",skip (unused),"none: unused, do not emit",,confirm
+--color-palette-signal-warning-darker,color,"hsl(22, 90%, 34%)",skip (unused),"none: unused, do not emit",,confirm
+--color-palette-signal-warning-darkest,color,"hsl(22, 89%, 32%)",skip (unused),"none: unused, do not emit",,confirm
+--color-palette-signal-warning-light,color,"hsl(22, 80%, 40%)",skip (unused),"none: unused, do not emit",,confirm
+--color-palette-signal-warning-lighter,color,"hsl(22, 70%, 43%)",skip (unused),"none: unused, do not emit",,confirm
+--color-palette-signal-warning-lightest,color,"hsl(22, 62%, 47%)",skip (unused),"none: unused, do not emit",,confirm
+--color-palette-stroke-primary-dark,color,"hsl(210, 7%, 6%)",skip (unused),"none: unused, do not emit",,confirm
+--color-palette-stroke-primary-darker,color,"hsl(210, 7%, 6%)",skip (unused),"none: unused, do not emit",,confirm
+--color-palette-stroke-primary-darkest,color,"hsl(210, 7%, 6%)",skip (unused),"none: unused, do not emit",,confirm
+--color-palette-stroke-primary-light,color,"hsl(210, 4%, 11%)",skip (unused),"none: unused, do not emit",,confirm
+--color-palette-stroke-primary-lighter,color,"hsl(210, 2%, 15%)",skip (unused),"none: unused, do not emit",,confirm
+--color-palette-stroke-primary-lightest,color,"hsl(210, 2%, 20%)",skip (unused),"none: unused, do not emit",,confirm
+--color-palette-stroke-secondary-dark,color,"hsl(221, 12%, 55%)",alias,border/neutral/accent,color/neutral/pencil-47,"by step, ruled: a shade is one, two or three stops along the base scale from the stop its role lands on; demo-only, the codemod rewrites each use by its job and uses the interactive step where it knows the property"
+--color-palette-stroke-secondary-darker,color,"hsl(221, 11%, 53%)",alias,border/neutral/strong,color/neutral/pen-58,"by step, ruled: a shade is one, two or three stops along the base scale from the stop its role lands on; demo-only, the codemod rewrites each use by its job and uses the interactive step where it knows the property"
+--color-palette-stroke-secondary-darkest,color,"hsl(221, 9%, 50%)",alias,border/neutral/strong,color/neutral/pen-70,"by step, ruled: a shade is one, two or three stops along the base scale from the stop its role lands on; demo-only, the codemod rewrites each use by its job and uses the interactive step where it knows the property"
+--color-palette-stroke-secondary-light,color,"hsl(221, 13%, 60%)",skip (unused),"none: unused, do not emit",,confirm
+--color-palette-stroke-secondary-lighter,color,"hsl(221, 13%, 62%)",skip (unused),"none: unused, do not emit",,confirm
+--color-palette-stroke-secondary-lightest,color,"hsl(221, 13%, 64%)",skip (unused),"none: unused, do not emit",,confirm
+--destructive,shadcn,0 100% 50%,"codemod, no alias",text ‚Üí fg/critical/accent; border ‚Üí border/critical/accent; fill ‚Üí bg/critical/solid/enabled,bg/critical/solid/enabled,"alias, not codemod: the same"
+--destructive-foreground,shadcn,210 40% 98%,skip (unused),fg/critical/on-solid,,confirm
+--foreground,shadcn,222.2 47.4% 11.2%,alias,fg/neutral/regular,fg/neutral/regular,confirm
+--input,shadcn,214.3 31.8% 91.4%,alias,border/neutral/regular,border/neutral/regular,confirm; the value moves from today's light border to the 3:1 border the set gives an input at rest
+--layout-breakpoint-lg,layout,1024px,alias,#NAME?,--ds-breakpoint-lg,confirm
+--layout-breakpoint-md,layout,768px,alias,#NAME?,--ds-breakpoint-md,confirm
+--layout-breakpoint-sm,layout,440px,alias,#NAME?,--ds-breakpoint-sm,confirm
+--layout-breakpoint-xl,layout,1280px,alias,#NAME?,--ds-breakpoint-xl,confirm
+--layout-height-compact-lg,layout,24px,alias,#NAME?,--ds-size-icon-lg,the icon run carries the meaning the code calls compact heights; --ds-size-600 if they size something other than icons
+--layout-height-compact-md,layout,20px,alias,#NAME?,--ds-size-icon-md,the icon run carries the meaning the code calls compact heights; --ds-size-500 if they size something other than icons
+--layout-height-compact-sm,layout,16px,alias,#NAME?,--ds-size-icon-sm,the icon run carries the meaning the code calls compact heights; --ds-size-400 if they size something other than icons
+--layout-height-compact-xs,layout,12px,alias,#NAME?,--ds-size-icon-xs,the icon run carries the meaning the code calls compact heights; --ds-size-300 if they size something other than icons
+--layout-height-default-lg,layout,56px,alias,#NAME?,--ds-size-control-lg,confirm
+--layout-height-default-md,layout,48px,alias,#NAME?,--ds-size-control-md,confirm
+--layout-height-default-sm,layout,40px,alias,#NAME?,--ds-size-control-sm,confirm
+--layout-height-default-xs,layout,32px,alias,#NAME?,--ds-size-800,"confirm; the set has no control height below sm, so a size step by value"
+--layout-height-default-xxs,layout,24px,alias,#NAME?,--ds-size-600,"confirm; the set has no control height below sm, so a size step by value"
+--layout-width-compact-lg,layout,24px,alias,#NAME?,--ds-size-600,confirm
+--layout-width-compact-md,layout,20px,alias,#NAME?,--ds-size-500,confirm
+--layout-width-compact-sm,layout,16px,alias,#NAME?,--ds-size-400,confirm
+--layout-width-compact-xs,layout,12px,alias,#NAME?,--ds-size-300,confirm
+--layout-width-default-lg,layout,56px,alias,#NAME?,--ds-size-1400,confirm
+--layout-width-default-md,layout,48px,alias,#NAME?,--ds-size-1200,confirm
+--layout-width-default-sm,layout,40px,alias,#NAME?,--ds-size-1000,confirm
+--layout-width-default-xs,layout,32px,alias,#NAME?,--ds-size-800,confirm
+--layout-width-default-xxs,layout,24px,alias,#NAME?,--ds-size-600,confirm
+--layout-width-max-desktop,layout,1280px,alias,#NAME?,--ds-grid-max-width,confirm
+--layout-width-max-paragraph,layout,720px,alias,#NAME?,--ds-size-max-width-paragraph,"confirm; the value moves 720 to 640 by declaration (size.ts, justified in starting-set.md)"
+--layout-width-min,layout,320px,needs a target,,,"no token by ruling (starting-set.md: not a size to bind anything to); the app keeps the literal in its own stylesheet, not in the generated folder"
+--motion-duration-medium-1,motion,200ms,alias,#NAME?,--ds-motion-duration-200,confirm
+--motion-duration-medium-2,motion,300ms,alias,#NAME?,--ds-motion-duration-300,confirm
+--motion-duration-short-1,motion,50ms,alias,#NAME?,--ds-motion-duration-050,confirm
+--motion-duration-short-2,motion,80ms,alias,#NAME?,--ds-motion-duration-080,confirm
+--motion-easing-default,motion,"cubic-bezier(0.2, 0, 0.3, 0.95)",alias,#NAME?,--ds-motion-easing-default,confirm
+--motion-easing-enter,motion,"cubic-bezier(0.4, 1, 0.89, 1)",alias,#NAME?,--ds-motion-easing-enter,confirm
+--motion-easing-exit,motion,"cubic-bezier(0.11, 0, 0.6, 0)",alias,#NAME?,--ds-motion-easing-exit,confirm
+--motion-easing-linear,motion,"cubic-bezier(0, 0, 1, 1)",alias,#NAME?,--ds-motion-easing-linear,confirm
+--muted,shadcn,210 40% 96.1%,alias,bg/neutral/regular,bg/neutral/regular,confirm
+--muted-foreground,shadcn,215.4 16.3% 46.9%,alias,fg/neutral/muted,fg/neutral/muted,confirm
+--popover,shadcn,0 0% 100%,alias,surface/high,surface/high,confirm
+--popover-foreground,shadcn,222.2 47.4% 11.2%,alias,fg/neutral/regular,fg/neutral/regular,confirm
+--primary,shadcn,222.2 47.4% 11.2%,"codemod, no alias",fill ‚Üí bg/brand/solid/enabled; text ‚Üí fg/brand/accent,bg/brand/solid/enabled,"alias, not codemod: a Tailwind theme color needs a value for the demo; the fill is its dominant use"
+--primary-foreground,shadcn,210 40% 98%,alias,fg/brand/on-solid,fg/brand/on-solid,confirm
+--radix-accordion-content-height,shadcn,,exclude,,,confirm
+--ring,shadcn,215 20.2% 65.1%,alias,border/neutral/focus,border/neutral/focus,confirm
+--secondary,shadcn,210 40% 96.1%,alias,bg/neutral/soft/enabled,bg/neutral/regular,"correct: the target is a pair; in variables.css it is the color half only, so the alias renders an opaque highlighter-26, not a tint; a light gray ground is paper-3"
+--secondary-foreground,shadcn,222.2 47.4% 11.2%,skip (unused),fg/neutral/regular,,confirm
+--shape-radius-focus,shape,2px,alias,#NAME?,--ds-radius-050,confirm
+--shape-radius-full,shape,9999px,alias,#NAME?,--ds-radius-full,"confirm; 9999 to 10000 by declaration, renders the same"
+--shape-radius-lg,shape,12px,alias,#NAME?,--ds-radius-300,confirm
+--shape-radius-md,shape,8px,alias,#NAME?,--ds-radius-200,confirm
+--shape-radius-sm,shape,6px,alias,#NAME?,--ds-radius-150,confirm
+--shape-radius-xs,shape,4px,alias,#NAME?,--ds-radius-100,confirm
+--typography-desktop-font-size-100,typography,12px,alias,#NAME?,--ds-font-size-300,"confirm, by value; the code scale is not monotonic (900 is 26px, 800 is 32px), so by value only"
+--typography-desktop-font-size-1000,typography,32px,alias,#NAME?,--ds-font-size-800,"confirm, by value; the code scale is not monotonic (900 is 26px, 800 is 32px), so by value only"
+--typography-desktop-font-size-1100,typography,40px,alias,#NAME?,--ds-font-size-1000,"confirm, by value; the code scale is not monotonic (900 is 26px, 800 is 32px), so by value only"
+--typography-desktop-font-size-200,typography,14px,alias,#NAME?,--ds-font-size-350,"confirm, by value; the code scale is not monotonic (900 is 26px, 800 is 32px), so by value only"
+--typography-desktop-font-size-300,typography,15px,alias,#NAME?,--ds-font-size-375,"confirm, by value; the code scale is not monotonic (900 is 26px, 800 is 32px), so by value only"
+--typography-desktop-font-size-400,typography,18px,alias,#NAME?,--ds-font-size-450,"confirm, by value; the code scale is not monotonic (900 is 26px, 800 is 32px), so by value only"
+--typography-desktop-font-size-600,typography,20px,alias,#NAME?,--ds-font-size-500,"confirm, by value; the code scale is not monotonic (900 is 26px, 800 is 32px), so by value only"
+--typography-desktop-font-size-700,typography,26px,alias,#NAME?,--ds-font-size-650,"confirm, by value; the code scale is not monotonic (900 is 26px, 800 is 32px), so by value only"
+--typography-desktop-font-size-800,typography,32px,alias,#NAME?,--ds-font-size-800,"confirm, by value; the code scale is not monotonic (900 is 26px, 800 is 32px), so by value only"
+--typography-desktop-font-size-900,typography,26px,alias,#NAME?,--ds-font-size-650,"confirm, by value; the code scale is not monotonic (900 is 26px, 800 is 32px), so by value only"
+--typography-font-family-default,typography,"Matter', sans-serif",alias,#NAME?,--ds-font-family-sans,confirm
+--typography-font-family-monospace,typography,"RobotoMono', monospace",alias,#NAME?,--ds-font-family-mono,"confirm; the family name moves to 'Roboto Mono' with the space, so the @font-face must match or the fallback shows"
+--typography-font-weight-medium,typography,500,alias,#NAME?,--ds-font-weight-medium,confirm
+--typography-font-weight-regular,typography,400,alias,#NAME?,--ds-font-weight-regular,confirm
+--typography-font-weight-semibold,typography,600,alias,#NAME?,--ds-font-weight-semibold,confirm
+--typography-line-height-compact,typography,1.25,alias,#NAME?,--ds-font-line-height-125,confirm
+--typography-line-height-default,typography,1.5,alias,#NAME?,--ds-font-line-height-150,confirm

@@ -1,7 +1,8 @@
 # Working in this repo
 
-- The repo carries no employer name, no person's name and no home path. Work values may
-  live here; people and the company may not.
+- The repo carries no person's name and no home path. The company's name appears as a
+  brand key and in the mapping records under `mapping/`, nowhere else. Work values may live
+  here; people may not.
 - Commit only on the owner's word; push only after an explicit yes.
 - The Figma apply script never deletes. The plugin's delete command deletes only what the
   leftovers walk found nothing referring to in the file, listed and ticked in its window,
