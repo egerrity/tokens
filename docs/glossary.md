@@ -128,8 +128,9 @@ above them or everyday ones.
   `font.ts`, `text.ts` (the text styles), `shadow.ts`, `color.ts` (the word tables, the levels,
   what is offered), `brands.ts` (each brand's elections for the color engine),
   `prefix.ts` (the CSS prefix), `collections.ts` (which collection each category lives
-  in), and `renames.ts` (today's names). "The declarations" means these seventeen files;
-  nothing else is an input.
+  in), `renames.ts` (today's Figma names) and `compat.ts` (today's code names outside the
+  rename map, and how the bridge treats each). "The declarations" means these eighteen
+  files; nothing else is an input.
 - **Brand.** One client's set of values, solved by the color engine from its elections.
   A brand is never in a name: every brand gets its own engine documents and resolver on
   the same paths, and a build picks one. The default brand is the one the shared outputs

@@ -26,10 +26,10 @@ export type Election = {
 export const PROFILE = 'wcag' as const
 
 export const brands: Record<string, Election> = {
-  // the showcase's brand: the seed the set was built and proven on
+  // the white-label default: the seed the set was built and proven on
   sample: { primaryHex: '#044BAF' },
-  // a deep violet with an exact second family, from the proof of concept
-  eggplant: { primaryHex: '#431C5B', secondaryHex: '#4BCD3E', secondaryStyle: 'exact' },
+  // the brand's own purple, with an exact second family
+  fis: { primaryHex: '#431C5B', secondaryHex: '#4BCD3E', secondaryStyle: 'exact' },
 }
 
 export const DEFAULT_BRAND = 'sample'

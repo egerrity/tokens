@@ -3,6 +3,7 @@
 // decision here, it is a decision and gets a field.
 import type { Viewport } from '../declarations/collections.ts'
 import type { Density, Family, Level, Role, ShadowRole, Size, State, Word } from '../grammar/words.ts'
+import type { TokenPath } from '../grammar/path.ts'
 import type { Curve } from './types.ts'
 
 export type SpaceDeclaration = {
@@ -143,3 +144,13 @@ export type TextDeclaration = {
     px: ByViewport<number> & { mobile: number }
   }[]
 }
+
+/**
+ * Today's code names outside the rename map, each with how the bridge in a theme file
+ * treats it: `alias` emits the name as a reference to the token at `path`; the rest emit
+ * nothing, each for a stated reason (`codemod`: the code-side rewrite settles every use;
+ * `skip`: no code reads the name; `exclude`: a value set at run time; `app`: the app's
+ * own literal, not a token).
+ */
+export type CompatEntry = { how: 'alias'; path: TokenPath } | { how: 'codemod' | 'skip' | 'exclude' | 'app' }
+export type CompatDeclaration = Readonly<Record<string, CompatEntry>>

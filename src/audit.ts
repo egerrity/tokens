@@ -18,7 +18,11 @@
 //   H. slots: every shape is a property, then a family, then variants, then one
 //      specifier, each at most once except the variant; a family draws from the family
 //      list; a base token carries no variant and never ends in a state word
+//   I. the bridge: a code name has one home, in the rename map or in the compat
+//      declaration, and every compat alias names a token
 import { collections, collectionOf } from '../declarations/collections.ts'
+import { compat } from '../declarations/compat.ts'
+import { todayCodeName } from '../declarations/renames.ts'
 import { motion } from '../declarations/motion.ts'
 import { cssBody, legalSegment, matchesGrammar, slotsOf, stepName, type TokenPath } from '../grammar/path.ts'
 import { FAMILY, SHAPES, STATE, isStep } from '../grammar/words.ts'
@@ -192,6 +196,14 @@ export function audit(tokens: Token[], docs: Map<string, { key: DocumentKey; doc
       }
       if (v.type === 'fontFamily' && (v.value.length === 0 || v.value.some(n => !n.trim()))) fail(`${k}: a font family lists at least one name`)
     }
+  }
+
+  // I. the bridge
+  const renamed = new Set(tokens.flatMap(t => { const o = todayCodeName(t.path); return o ? [o] : [] }))
+  for (const [old, c] of Object.entries(compat)) {
+    if (!/^[a-z0-9]+(-[a-z0-9]+)*$/.test(old)) fail(`compat: ${old} is not a CSS name body in lower-case words and digits`)
+    if (renamed.has(old)) fail(`compat: ${old} is also a code name the rename map derives; one home only`)
+    if (c.how === 'alias' && !anywhere(key(c.path))) fail(`compat: ${old} aliases ${key(c.path)}, which is not a token`)
   }
 
   // F. contexts

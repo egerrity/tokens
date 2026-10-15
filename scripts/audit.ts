@@ -7,6 +7,8 @@
 // declarations produce, so a declaration edited without a regenerate fails here.
 import * as fs from 'node:fs'
 import * as path from 'node:path'
+import { brands } from '../declarations/brands.ts'
+import { compat } from '../declarations/compat.ts'
 import { build, report } from '../src/build.ts'
 
 const root = path.join(import.meta.dirname, '..')
@@ -33,5 +35,16 @@ for (const folder of ['dist/tokens', 'dist/figma', 'dist/brands', 'docs/groups']
   }
 }
 
+// the bridge covers every name the library's styling reads: defined by each brand's
+// theme file, or exempt in the compat declaration for a stated reason
+const reads = fs.readFileSync(path.join(root, 'mapping/unify-reads.txt'), 'utf8').split('\n').map(s => s.trim()).filter(Boolean)
+const exempt = new Set(Object.entries(compat).flatMap(([n, c]) => (c.how === 'alias' ? [] : [`--${n}`])))
+for (const brand of Object.keys(brands)) {
+  const css = first.files[`dist/brands/${brand}/web/variables.css`] ?? ''
+  const defined = new Set([...css.matchAll(/^\s*(--[a-z0-9-]+):/gm)].map(m => m[1]))
+  for (const n of reads) if (!exempt.has(n) && !defined.has(n)) failures.push(`${brand}: ${n} is read by the library's styling and is neither defined in its theme file nor exempt in declarations/compat.ts`)
+}
+for (const n of Object.keys(compat)) if (!reads.includes(`--${n}`)) failures.push(`compat: --${n} is not in mapping/unify-reads.txt; the bridge holds only names the library reads`)
+
 if (failures.length) { report('audit', failures); process.exit(1) }
-console.log(`audit ok: ${first.count} tokens, ${Object.keys(first.files).length} files match the declarations, names in the grammar, every token described, scales ascending and named by their values, aliases resolved, two builds identical`)
+console.log(`audit ok: ${first.count} tokens, ${Object.keys(first.files).length} files match the declarations, names in the grammar, every token described, scales ascending and named by their values, aliases resolved, two builds identical, ${reads.length} names the library reads defined or exempt`)

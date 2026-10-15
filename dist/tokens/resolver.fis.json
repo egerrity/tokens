@@ -28,7 +28,7 @@
       "contexts": {
         "light": [
           {
-            "$ref": "engine.eggplant.light.tokens.json"
+            "$ref": "engine.fis.light.tokens.json"
           },
           {
             "$ref": "theme.light.tokens.json"
@@ -36,7 +36,7 @@
         ],
         "dark": [
           {
-            "$ref": "engine.eggplant.dark.tokens.json"
+            "$ref": "engine.fis.dark.tokens.json"
           },
           {
             "$ref": "theme.dark.tokens.json"

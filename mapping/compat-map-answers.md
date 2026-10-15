@@ -3,8 +3,9 @@
 The owner's rulings of 2026-10-14 applied. Row-level answers are in
 `compat/compat-aliases-reviewed-2026-10-14.csv`, one row per name with `my_target` and
 `review`. Roles are spelled as the set spells them; a base token is spelled
-`color/<family>/<stop>`. Open: whether the owner has the generator implement the spec
-with the changes in section 5.
+`color/<family>/<stop>`. The spec is implemented as section 5 says: the bridge reads
+`declarations/compat.ts`, each brand has a `variables.scoped.css`, the brand is renamed, and
+the audit checks every name in `mapping/unify-reads.txt`.
 
 ## First, the file
 

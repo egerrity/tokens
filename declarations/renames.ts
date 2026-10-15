@@ -117,3 +117,10 @@ export const retiredStyles: Readonly<Record<string, string>> = {
   '_LOCAL/Generative AI/Body md': 'text/body/md',
   '_LOCAL/Generative AI/Title md': 'text/title/md',
 }
+
+/** today's code name for a color role: the palette name as the apps spell it */
+export function todayCodeName(path: TokenPath): string | undefined {
+  const today = todayVariable(path)
+  const m = today && /^[A-Za-z]+ palette\/(.+)$/.exec(today)
+  return m ? `color-palette-${m[1].toLowerCase().replace(/\s+/g, '-')}` : undefined
+}

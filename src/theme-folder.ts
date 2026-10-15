@@ -1,18 +1,21 @@
 // The theme folder an app consumes, written per brand: the two files the apps keep by
 // hand today, generated. Web, `variables.css`: every token as a custom property, the
 // default context on :root, the theme rows again under html[data-mode='dark'], the
-// viewport rows again under a min-width query per viewport. Mobile, `colors.ts`: the
-// color roles as hex per mode. Each ends in a compatibility block, today's names as
-// aliases of the new, so an app takes the folder without changing a line; that block is
-// also the list of names to retire. Values follow the token file: an alias stays a
-// reference and a translucent role stays a pair — except in colors.ts, which holds
-// resolved hex and renders a pair as eight digits, because a native app reads a color,
-// not a reference.
+// viewport rows again under a min-width query per viewport; and `variables.scoped.css`,
+// the same under html[data-brand='<brand>'], so a page can load several brands and
+// switch with one attribute. Mobile, `colors.ts`: the color roles as hex per mode. Each
+// ends in a bridge: today's names, each a reference to its successor, from the rename
+// map's code names and from the compat declaration, so an app takes the folder without
+// changing a line; that block is also the list of names to retire. Values follow the
+// token file: an alias stays a reference and a translucent role stays a pair — except in
+// colors.ts, which holds resolved hex and renders a pair as eight digits, because a
+// native app reads a color, not a reference.
 import { brands, PROFILE } from '../declarations/brands.ts'
 import { breakpoint } from '../declarations/breakpoint.ts'
 import { collectionOf, collections, VIEWPORTS } from '../declarations/collections.ts'
 import { prefix } from '../declarations/prefix.ts'
-import { todayVariable } from '../declarations/renames.ts'
+import { compat } from '../declarations/compat.ts'
+import { todayCodeName } from '../declarations/renames.ts'
 import { cssBody, type TokenPath } from '../grammar/path.ts'
 import { engineVersion } from './engine.ts'
 import { isAlias, type Color, type Token, type Value } from './types.ts'
@@ -60,11 +63,11 @@ function declarations(t: Token, context: string | undefined): [string, string][]
   return [[name(t.path), css(v)]]
 }
 
-/** today's code name for a color role: the palette name as the apps spell it */
-export function todayCodeName(path: TokenPath): string | undefined {
-  const today = todayVariable(path)
-  const m = today && /^[A-Za-z]+ palette\/(.+)$/.exec(today)
-  return m ? `color-palette-${m[1].toLowerCase().replace(/\s+/g, '-')}` : undefined
+/** the bridge: today's names, each a reference to its successor; the rename map's code names, then the compat declaration's aliases */
+function bridge(tokens: Token[]): [string, string][] {
+  const renamed = tokens.flatMap(t => { const old = todayCodeName(t.path); return old ? [[`--${old}`, ref(t.path)] as [string, string]] : [] })
+  const aliased = Object.entries(compat).flatMap(([old, c]) => (c.how === 'alias' ? [[`--${old}`, ref(c.path)] as [string, string]] : []))
+  return [...renamed, ...aliased]
 }
 
 const block = (selector: string, lines: [string, string][], indent = ''): string =>
@@ -73,9 +76,12 @@ const block = (selector: string, lines: [string, string][], indent = ''): string
 /** the lines a block adds over the one before it: only what changes */
 const changed = (now: [string, string][], before: Map<string, string>): [string, string][] => now.filter(([n, v]) => before.get(n) !== v)
 
-function variablesCss(brand: string, tokens: Token[], engine: Token[]): string {
+function variablesCss(brand: string, tokens: Token[], engine: Token[], scoped = false): string {
   const all = [...engine, ...tokens]
-  const header = `/* The theme for the brand "${brand}", generated from the declarations with okchroma ${engineVersion()}; edit a declaration, not this file. */\n`
+  // the root file speaks for the page; the scoped file for one brand among several
+  const sel = scoped ? `html[data-brand='${brand}']` : ':root'
+  const darkSel = scoped ? `html[data-brand='${brand}'][data-mode='dark']` : "html[data-mode='dark']"
+  const header = `/* The theme for the brand "${brand}"${scoped ? `, scoped to ${sel}` : ''}, generated from the declarations with okchroma ${engineVersion()}; edit a declaration, not this file. */\n`
   // the engine's rows sit in the theme collection, beside the planes
   const collection = (t: Token): string => (engine.includes(t) ? 'theme' : collectionOf(t))
   const base = (t: Token): string | undefined => {
@@ -83,7 +89,6 @@ function variablesCss(brand: string, tokens: Token[], engine: Token[]): string {
     return c.contexts.length ? c.contexts[0] : undefined
   }
   const root = all.flatMap(t => declarations(t, base(t)))
-  const compat = tokens.flatMap(t => { const old = todayCodeName(t.path); return old ? [[`--${old}`, ref(t.path)] as [string, string]] : [] })
 
   // the theme's other contexts, as their own selectors
   const theme = all.filter(t => collection(t) === 'theme')
@@ -100,17 +105,17 @@ function variablesCss(brand: string, tokens: Token[], engine: Token[]): string {
     if (!width) throw new Error(`${vp}: no breakpoint starts this viewport (declarations/breakpoint.ts)`)
     const lines = viewport.flatMap(t => declarations(t, vp))
     const delta = changed(lines, before)
-    if (delta.length) queries.push(`@media (min-width: ${width.px}px) {\n${block(':root', delta, '  ')}}\n`)
+    if (delta.length) queries.push(`@media (min-width: ${width.px}px) {\n${block(sel, delta, '  ')}}\n`)
     before = new Map(lines)
   }
 
   return [
     header,
-    block(':root', root),
-    dark.length ? `\n${block("html[data-mode='dark']", dark)}` : '',
+    block(sel, root),
+    dark.length ? `\n${block(darkSel, dark)}` : '',
     ...queries.map(q => `\n${q}`),
-    `\n/* Today's names, each an alias of its successor above. Delete this block once code reads the names above. */\n`,
-    block(':root', compat),
+    `\n/* Today's names, each a reference to its successor above. Delete this block once code reads the names above. */\n`,
+    block(sel, bridge(tokens)),
   ].join('')
 }
 
@@ -154,7 +159,12 @@ function colorsTs(brand: string, tokens: Token[], engine: Token[]): string {
   const lines = (mode: string): string => {
     const own = roles.map(t => `    '${cssBody(t.path)}': '${resolveHex(t, mode, byPath)}',`)
     const old = roles.flatMap(t => { const o = todayCodeName(t.path); return o ? [`    '${o}': '${resolveHex(t, mode, byPath)}',`] : [] })
-    return [...own, `    // today's names, each the same color as its successor above; delete once code reads the names above`, ...old].join('\n')
+    // the compat declaration's aliases, those that name a color
+    const aliased = Object.entries(compat).flatMap(([o, c]) => {
+      const t = c.how === 'alias' ? byPath.get(key(c.path)) : undefined
+      return t && t.value.type === 'color' ? [`    '${o}': '${resolveHex(t, mode, byPath)}',`] : []
+    })
+    return [...own, `    // today's names, each the same color as its successor above; delete once code reads the names above`, ...old, ...aliased].join('\n')
   }
   return `${header}const colors = {\n${modes.map(m => `  ${m}: {\n${lines(m)}\n  },`).join('\n')}\n};\nexport default colors;\n`
 }
@@ -172,6 +182,7 @@ export function themeFolder(brand: string, tokens: Token[], engine: Token[]): Re
   return {
     [`dist/brands/${brand}/brand.json`]: brandJson(brand),
     [`dist/brands/${brand}/web/variables.css`]: variablesCss(brand, tokens, engine),
+    [`dist/brands/${brand}/web/variables.scoped.css`]: variablesCss(brand, tokens, engine, true),
     [`dist/brands/${brand}/mobile/colors.ts`]: colorsTs(brand, tokens, engine),
   }
 }
