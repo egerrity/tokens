@@ -40,10 +40,10 @@ GitHub without installing or running anything.
 - `dist/figma/` has the Figma payload (variables and styles) and the plugin that applies
   it by renaming today's rows in place.
 - `docs/` also has the writing rules, the starting set, the color set, its migration map,
-  the color roles by component, the MUI palette from the semantic set, the Figma dry-run
+  the color roles by component and the same for MUI's components, the Figma dry-run
   guide, and the hand work left after a run.
 - `prompts/` has instructions for a coding agent that audits token values and component
-  usage in the product code, and for one that builds the MUI theme from the semantic set.
+  usage in the product code, and for one that folds the MUI rulings into its mapping.
 ## Run it
 
 Node 22.6 or later. `npm ci` installs okchroma 0.9.0, the one runtime dependency, and
