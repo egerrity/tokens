@@ -52,6 +52,13 @@ MuiButton: {
   custom-property key written into a style object, so a `var()` value is fine and a
   `--name: value` line is not; define any variable of the application's own in
   `GlobalStyles`.
+- **The variable rather than the hex is a derived choice.** The alternative is a theme
+  resolved to hex per mode and brand from `colors.ts`: it stands on its own where the
+  generated CSS is not loaded and shows every value in the theme object, at the cost of
+  a color scheme per mode, a theme per brand, a regeneration step to keep the theme and
+  the CSS in step, and translucent roles folded rather than composed. This page takes the
+  variable for one source and one theme. An application that resolves hex today switches
+  once its CSS can be written wherever its theme is built, which the engine merge brings.
 - **MUI's palette is a backstop, not a source.** MUI's internals read the palette where an
   override cannot reach, so it is filled from the set's resolved values, hex per mode
   taken from the brand's `mobile/colors.ts`, with the sentinel `#ff00ff` in every slot the

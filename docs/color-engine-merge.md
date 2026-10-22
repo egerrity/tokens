@@ -19,6 +19,11 @@ to live here.
   time can depend on the same code the generator does.
 - The gates that guard the engine's values run as this repository's scripts, with their
   snapshots blessed at the copy as the baseline.
+- The engine package and the CSS writer run wherever a theme is built, in the build and
+  in a browser, so a live tool can solve a seed and write the variables without a file.
+  Nothing in the package reads the file system. The generator's own reads are two today,
+  the plugin scripts inlined in `src/build.ts` and the version in `src/engine.ts`, and
+  stage 2 removes the second.
 - The Figma plugin writes every row, the engine's included. No second plugin runs.
 - Each engine document says which engine the values came from: the tag the copy was taken
   at, in place of an installed package's version.
@@ -136,7 +141,9 @@ version. Working looks like: `npm run generate` writes
 `dist/tokens/engine.<brand>.<mode>.tokens.json` for every brand byte-identical to the
 files committed before the change, with the version line the only difference; two runs
 produce identical files; `npm run typecheck` is clean; `npm ls` shows the package linked
-from the workspace and `okchroma` gone from `package.json` and `package-lock.json`.
+from the workspace and `okchroma` gone from `package.json` and `package-lock.json`;
+neither the package nor `src/theme-folder.ts` imports `node:fs`, and a browser bundle of
+the package builds.
 
 **Stage 3, the gates inside.** The value gates run as the package's own scripts under
 this repository's runtime, invoked from the root, with their snapshots blessed at the
