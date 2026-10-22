@@ -41,11 +41,13 @@ GitHub without installing or running anything.
   it by renaming today's rows in place.
 - `docs/` also has the writing rules, the starting set, the color set, its migration map,
   the color roles by component and the same for MUI's components, the plan for merging
-  the color engine into this generator, the Figma dry-run guide, and the hand work left
-  after a run.
+  the color engine into this generator, the plan for the one repository that holds the
+  whole system with the case for it written for an engineer, the Figma dry-run guide,
+  and the hand work left after a run.
 - `prompts/` has instructions for a coding agent that audits token values and component
-  usage in the product code, for one that folds the MUI rulings into its mapping, and for
-  one that merges the color engine into this generator.
+  usage in the product code, for one that folds the MUI rulings into its mapping, for one
+  that merges the color engine into this generator, and for one that builds the system by
+  its plan.
 ## Run it
 
 Node 22.6 or later. `npm ci` installs okchroma 0.9.0, the one runtime dependency, and

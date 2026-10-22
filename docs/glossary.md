@@ -153,3 +153,27 @@ above them or everyday ones.
 - **Compatibility block.** The end of each theme file: today's code names, each an alias
   of the token that replaces it, so an app takes the folder unchanged. It is also the
   list of names to retire once code reads the new ones.
+
+## The system
+
+- **Adapter.** What the component declarations generate for one UI library: MUI's theme
+  options and style overrides; Tamagui's theme; the Figma binding spec. A library's key
+  column, which declared part its theme reads where, is a declaration of its own.
+- **Component declaration.** The record of one component: its parts by variant and
+  state, each part reading a semantic token, with what decided it. Every adapter is
+  generated from it. A component token is a value; a component declaration is the record.
+- **Harness.** The application in the repository that renders every component in the
+  declarations for every declared brand and mode and runs the rendered-color test.
+- **Backstop.** MUI's palette filled from the resolved values where MUI's internals read
+  it. Nothing is styled from it; the mechanics are in `color-by-component-mui.md`.
+- **Sentinel.** The magenta written into every backstop slot the set has no color for, so
+  a read an override missed shows on screen.
+- **Substrate.** A headless component library that supplies behavior and accessibility
+  and no appearance, which the system's own components style.
+- **Graduation.** Replacing a re-exported MUI component with the system's own on the
+  substrate, behind the same import path.
+- **Theme extension.** A representative seed solved into a set of variables for the Figma
+  library alone, so a designer can design against a possible brand. Never in a token
+  file, a theme folder or a package.
+- **The React package.** MUI's components re-exported unchanged, the provider, the
+  generated adapter and the lint: the one thing a product installs for the web.
